@@ -1,0 +1,17 @@
+# Do not add third_party after compiling
+# I really don't know how to write .gitignore for it
+*/.ycm_extra_conf.py
+*/.ycm_extra_conf.pyc
+*/Debug
+*/Release
+*.cmake
+*/CMakeFiles
+*/Makefile
+*/CMakeCache.txt
+CMakeFiles
+Makefile
+CMakeCache.txt
+*.a
+*.gch
+*.o
+bin
