@@ -4,7 +4,7 @@
 int main()
 {
     Window window;
-    TestWorldDisplayTriangle world;
+    TestWorldSimplePhysics world;
     window.setWorld(&world);
     window.run();
     return 0;

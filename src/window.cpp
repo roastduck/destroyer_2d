@@ -1,4 +1,5 @@
 #include <cassert>
+#include <iostream>
 #include <stdexcept>
 #include "window.h"
 
@@ -10,6 +11,7 @@ static void error_callback(int error, const char *description)
 Window::Window()
     : mWorld(NULL)
 {
+    std::cout << "Loading ..." << std::endl;
     if (! glfwInit())
         throw std::runtime_error("Error loading GLFW");
 
@@ -47,7 +49,7 @@ void Window::run()
         glfwGetFramebufferSize(mTarget, &width, &height);
         glViewport(0, 0, width, height);
 
-        glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 0);
+        glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT); // we don't need depth test
 
         mWorld->setGLOrtho();
@@ -55,6 +57,8 @@ void Window::run()
 
         glfwSwapBuffers(mTarget);
         glfwPollEvents();
+
+        mWorld->step();
     }
 }
 

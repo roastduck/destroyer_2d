@@ -6,13 +6,17 @@
 #ifndef WORLD_H_
 #define WORLD_H_
 
+#include <Box2D/Box2D.h>
+
 class World
 {
 public:
     /**
      * Initialize with the border of whole world
      */
-    World(int leftMost, int rightMost, int downMost, int upMost);
+    World(float leftMost, float rightMost, float downMost, float upMost);
+
+    virtual ~World();
 
     /**
      * Set OpenGL with orthographic projection
@@ -24,11 +28,24 @@ public:
      * Draw everything into OpenGL
      */
     virtual void drawAll() const;
+
+    /**
+     * Corresponding LiquidFun Object
+     */
+    b2World *getB2World() const { return physics; }
+
+    /**
+     * Run next simulation step
+     */
+    void step();
     
-private:
+protected:
     // borders of the whole world and the displayed part in pixels
-    int mLeftMost, mRightMost, mDownMost, mUpMost;
-    int mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost;
+    float mLeftMost, mRightMost, mDownMost, mUpMost;
+    float mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost;
+    
+    // LiquidFun b2world object
+    b2World *physics;
 };
 
 #ifdef COMPILE_TEST
@@ -41,6 +58,15 @@ class TestWorldDisplayTriangle : public World
 public:
     TestWorldDisplayTriangle();
     void drawAll() const;
+};
+
+/**
+ * display a block falling down
+ */
+class TestWorldSimplePhysics : public World
+{
+public:
+    TestWorldSimplePhysics();
 };
 
 #endif // COMPILE_TEST
