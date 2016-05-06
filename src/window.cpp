@@ -50,6 +50,7 @@ void Window::run()
         glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 0);
         glClear(GL_COLOR_BUFFER_BIT); // we don't need depth test
 
+        mWorld->setGLOrtho();
         mWorld->drawAll();
 
         glfwSwapBuffers(mTarget);
