@@ -14,9 +14,9 @@ public:
     /**
      * Initialize with the border of whole world
      */
-    World(float leftMost, float rightMost, float downMost, float upMost);
+    World(float leftMost, float rightMost, float downMost, float upMost) noexcept;
 
-    virtual ~World();
+    virtual ~World() noexcept;
 
     /**
      * Set OpenGL with orthographic projection
@@ -27,7 +27,7 @@ public:
     /**
      * Draw everything into OpenGL
      */
-    virtual void drawAll() const;
+    virtual void drawAll() const noexcept;
 
     /**
      * Corresponding LiquidFun Object
@@ -48,6 +48,15 @@ protected:
     b2World *physics;
 };
 
+// Methods for particle systems are implemented in matter.cpp
+class MyDestructionListener : public b2DestructionListener
+{
+public:
+    void SayGoodbye(b2Joint* joint) {}
+    void SayGoodbye(b2Fixture *fixture) {}
+    void SayGoodbye(b2ParticleGroup *group);
+};
+
 #ifdef COMPILE_TEST
 
 /**
@@ -57,11 +66,11 @@ class TestWorldDisplayTriangle : public World
 {
 public:
     TestWorldDisplayTriangle();
-    void drawAll() const;
+    void drawAll() const noexcept;
 };
 
 /**
- * display a block falling down
+ * display a block falling down into water
  */
 class TestWorldSimplePhysics : public World
 {

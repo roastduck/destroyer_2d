@@ -21,6 +21,14 @@ const float FRAME_COLOR_G = 1.0f;
 const float FRAME_COLOR_B = 1.0f;
 const float FRAME_COLOR_A = 1.0f;
 
+const unsigned char WATER_COLOR_R_256 = 0x73;
+const unsigned char WATER_COLOR_G_256 = 0xC2;
+const unsigned char WATER_COLOR_B_256 = 0xFB;
+const unsigned char WATER_COLOR_A_256 = 0x80;
+
+// Render
+const float PARTICLE_SIZE_SCALE = 100.0f;
+
 // Physics
 const float GRAVITY = 2.5f; // >= 0
 const float PARTICLE_RADIUS = 0.3f; // maybe too small

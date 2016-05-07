@@ -5,7 +5,7 @@ project(Destroyer2D)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build shared libraries" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "Build the GLFW example programs" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "Build the GLFW test programs" FORCE)
-set(GLFW_BUILD_DOCS ON CACHE BOOL "Build the GLFW documentation" FORCE)
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "Build the GLFW documentation" FORCE)
 set(GLFW_INSTALL OFF "Generate installation target" FORCE)
 add_subdirectory(third_party/glfw-3.1.2)
 

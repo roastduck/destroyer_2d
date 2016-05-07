@@ -1,7 +1,17 @@
 #include <cassert>
 #include "matter.h"
 
-Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs)
+std::list<ParticleSystem*> ParticleSystem::died;
+
+void MyDestructionListener::SayGoodbye(b2ParticleGroup *group)
+{
+    b2ParticleSystem *system = group->GetParticleSystem();
+    assert(system->GetParticleGroupCount() > 0);
+    if (system->GetParticleGroupCount() == 1)
+        ParticleSystem::setDied((ParticleSystem*)(system->GetParticleGroupList()->GetUserData()));
+}
+
+Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs) noexcept
     : Matter(_world)
 {
     physics = world->getB2World()->CreateBody(&bodyDef);
@@ -14,12 +24,38 @@ Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2Fixtur
     }
 }
 
-Rigid::~Rigid()
+Rigid::~Rigid() noexcept
 {
     world->getB2World()->DestroyBody(physics);
 }
 
-SmallWoodBlock::SmallWoodBlock(World *_world, float x, float y)
+ParticleSystem::ParticleSystem(World *_world, const b2ParticleSystemDef &systemDef, const std::vector<b2ParticleGroupDef> &groupDefs) noexcept
+    : Matter(_world)
+{
+    physics = world->getB2World()->CreateParticleSystem(&systemDef);
+    for (const b2ParticleGroupDef &groupDef : groupDefs)
+    {
+        b2ParticleGroup *group = physics->CreateParticleGroup(groupDef);
+        group->SetUserData(this);
+        assert(groupDef.shape != NULL);
+        delete groupDef.shape;
+    }
+}
+
+ParticleSystem::~ParticleSystem() noexcept
+{
+    world->getB2World()->DestroyParticleSystem(physics);
+    for (auto i = died.begin(); i != died.end();)
+    {
+        auto _i(i);
+        _i ++;
+        if (*i == this)
+            died.erase(i);
+        i = _i;
+    }
+}
+
+SmallWoodBlock::SmallWoodBlock(World *_world, float x, float y) noexcept
     : Rigid(_world, genBodyDef(x, y), genFixtureDefs())
 {}
 
@@ -42,7 +78,7 @@ std::vector<b2FixtureDef> SmallWoodBlock::genFixtureDefs()
     return { fixtureDef };
 }
 
-Frame::Frame(World *_world, float l, float r, float d, float u)
+Frame::Frame(World *_world, float l, float r, float d, float u) noexcept
     : Rigid(_world, genBodyDef(), genFixtureDefs(l, r, d, u))
 {}
 
@@ -71,5 +107,29 @@ std::vector<b2FixtureDef> Frame::genFixtureDefs(float l, float r, float d, float
     defD.shape = boxD;
     defU.shape = boxU;
     return { defL, defR, defD, defU };
+}
+
+WaterSquare::WaterSquare(World *_world, float l, float r, float d, float u) noexcept
+    : ParticleSystem(_world, genSystemDef(), genGroupDefs(l, r, d, u))
+{}
+
+b2ParticleSystemDef WaterSquare::genSystemDef()
+{
+    b2ParticleSystemDef systemDef;
+    systemDef.radius = PARTICLE_RADIUS;
+    systemDef.destroyByAge = false;
+    return systemDef;
+}
+
+std::vector<b2ParticleGroupDef> WaterSquare::genGroupDefs(float l, float r, float d, float u)
+{
+    b2PolygonShape *box = new b2PolygonShape();
+    box->SetAsBox((r-l)*0.5f, (u-d)*0.5f);
+    b2ParticleGroupDef groupDef;
+    groupDef.shape = box;
+    groupDef.flags = b2_waterParticle;
+    groupDef.position.Set((l+r)*0.5f, (d+u)*0.5f);
+    groupDef.color.Set(WATER_COLOR_R_256, WATER_COLOR_G_256, WATER_COLOR_B_256, WATER_COLOR_A_256);
+    return { groupDef };
 }
 

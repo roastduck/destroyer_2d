@@ -1,14 +1,23 @@
-#include <GLFW/glfw3.h>
+/**
+ * We use legacy mode of OpenGL because it is easy to draw simple things
+ * If we need GLSL in the future, please reconstruct all of them into the GLSL one
+ */
+
 #include "world.h"
+#include "render.h"
 #include "matter.h"
 
-World::World(float leftMost, float rightMost, float downMost, float upMost)
+static MyDestructionListener myDestructionListener;
+
+World::World(float leftMost, float rightMost, float downMost, float upMost) noexcept
     : mLeftMost(leftMost), mRightMost(rightMost),
       mDownMost(downMost), mUpMost(upMost),
       mCurLeftMost(leftMost), mCurRightMost(rightMost),
       mCurDownMost(downMost), mCurUpMost(upMost),
       physics(new b2World(b2Vec2(0.0f, -GRAVITY)))
 {
+    physics->SetDestructionListener(&myDestructionListener);
+
     new Frame(this, leftMost, rightMost, downMost, upMost);
     // will keep track of it from LiquidFun
 }
@@ -16,7 +25,7 @@ World::World(float leftMost, float rightMost, float downMost, float upMost)
 /**
  * delete Matter objects and then delete physics
  */
-World::~World()
+World::~World() noexcept
 {
     for (b2Body *b = physics->GetBodyList(); b;)
     {
@@ -25,8 +34,14 @@ World::~World()
         b = _b;
     }
 
-    // Destroy particle matter objects
-    // TODO
+    ParticleSystem::cleanDied();
+    for (b2ParticleSystem *s = physics->GetParticleSystemList(); s;)
+    {
+        b2ParticleSystem *_s = s->GetNext();
+        assert(s->GetParticleGroupCount() > 0);
+        delete (Matter*)(s->GetParticleGroupList()->GetUserData());
+        s = _s;
+    }
 
     delete physics;
 }
@@ -39,35 +54,13 @@ void World::setGLOrtho() const
     glMatrixMode(GL_MODELVIEW);
 }
 
-void World::drawAll() const
+void World::drawAll() const noexcept
 {
     for (const b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
-    {
-        const Matter *m = (const Matter*)b->GetUserData();
-        for (const b2Fixture *f = b->GetFixtureList(); f; f = f->GetNext())
-        {
-            const b2Shape *shape = f->GetShape();
-            switch (shape->GetType())
-            {
-            case b2Shape::e_polygon:
-                glBegin(GL_POLYGON);
-                for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
-                {
-                    b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
-                    glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
-                    glVertex3f(pos.x, pos.y, 0.0f);
-                }
-                glEnd();
-                break;
+        Render::drawRigid(b);
 
-            default:
-                assert(false);
-            }
-        }
-    }
-
-    // Draw particles
-    //TODO
+    for (const b2ParticleSystem *s = physics->GetParticleSystemList(); s; s = s->GetNext())
+        Render::drawParticleSystem(s);
 }
 
 void World::step()
@@ -79,6 +72,8 @@ void World::step()
          POSITION_ITERATIONS,
          b2CalculateParticleIterations(GRAVITY, PARTICLE_RADIUS, TIME_STEP)
         );
+
+    ParticleSystem::cleanDied();
 }
 
 #ifdef COMPILE_TEST
@@ -87,7 +82,7 @@ TestWorldDisplayTriangle::TestWorldDisplayTriangle()
     : World(-10, 10, -10, 10)
 {}
 
-void TestWorldDisplayTriangle::drawAll() const
+void TestWorldDisplayTriangle::drawAll() const noexcept
 {
     glBegin(GL_TRIANGLES);
     glColor3f(1.0f, 0.0f, 0.0f);
@@ -103,6 +98,8 @@ TestWorldSimplePhysics::TestWorldSimplePhysics()
     : World(-10, 10, -10, 10)
 {
     new SmallWoodBlock(this, -5.0f, 5.0f);
+    new SmallWoodBlock(this, -4.0f, 8.0f);
+    new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
 }
 
 #endif // COMPILE_TEST
