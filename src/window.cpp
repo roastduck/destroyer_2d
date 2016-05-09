@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "window.h"
+#include "render.h"
 
 static void error_callback(int error, const char *description)
 {
@@ -12,6 +13,7 @@ Window::Window()
     : mWorld(NULL)
 {
     std::cout << "Loading ..." << std::endl;
+
     if (! glfwInit())
         throw std::runtime_error("Error loading GLFW");
 
@@ -24,6 +26,10 @@ Window::Window()
             throw std::runtime_error("Error Creating window");
 
         glfwMakeContextCurrent(mTarget);
+
+        load_extensions();
+
+        Render::setWindow(this);
     } catch (...)
     {
         if (mTarget)
@@ -46,7 +52,7 @@ void Window::run()
     while (! glfwWindowShouldClose(mTarget))
     {
         int width, height;
-        glfwGetFramebufferSize(mTarget, &width, &height);
+        getWidthHeight(&width, &height);
         glViewport(0, 0, width, height);
 
         glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 1.0f);

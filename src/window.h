@@ -5,7 +5,7 @@
 #ifndef WINDOW_H_
 #define WINDOW_H_
 
-#include <GLFW/glfw3.h>
+#include "loader.h"
 #include "world.h"
 #include "const.h"
 
@@ -26,6 +26,11 @@ public:
      * Will keep track to the pointer
      */
     void setWorld(World *world) { mWorld = world; }
+
+    /**
+     * Get current window width and height
+     */
+    void getWidthHeight(int *width, int *height) const { glfwGetFramebufferSize(mTarget, width, height); }
 
 private:
     GLFWwindow *mTarget;

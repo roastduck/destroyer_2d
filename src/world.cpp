@@ -1,8 +1,3 @@
-/**
- * We use legacy mode of OpenGL because it is easy to draw simple things
- * If we need GLSL in the future, please reconstruct all of them into the GLSL one
- */
-
 #include "world.h"
 #include "render.h"
 #include "matter.h"
@@ -57,10 +52,10 @@ void World::setGLOrtho() const
 void World::drawAll() const noexcept
 {
     for (const b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
-        Render::drawRigid(b);
+        Render::getInstance().drawRigid(b);
 
     for (const b2ParticleSystem *s = physics->GetParticleSystemList(); s; s = s->GetNext())
-        Render::drawParticleSystem(s);
+        Render::getInstance().drawParticleSystem(s);
 }
 
 void World::step()
