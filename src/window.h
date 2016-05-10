@@ -6,8 +6,9 @@
 #define WINDOW_H_
 
 #include "loader.h"
-#include "world.h"
 #include "const.h"
+
+class World;
 
 class Window
 {
@@ -25,12 +26,17 @@ public:
      * Set the world to display
      * Will keep track to the pointer
      */
-    void setWorld(World *world) { mWorld = world; }
+    void setWorld(World *world);
 
     /**
      * Get current window width and height
      */
     void getWidthHeight(int *width, int *height) const { glfwGetFramebufferSize(mTarget, width, height); }
+
+    /**
+     * Return GLFWwindow pointer
+     */
+    GLFWwindow *getReferee() const { return mTarget; }
 
 private:
     GLFWwindow *mTarget;

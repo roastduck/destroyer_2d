@@ -7,6 +7,8 @@
 #define WORLD_H_
 
 #include <Box2D/Box2D.h>
+#include "window.h"
+#include "mousehandler.h"
 
 class World
 {
@@ -38,9 +40,20 @@ public:
      * Run next simulation step
      */
     void step();
+
+    /**
+     * Return b2World pointer
+     */
+    b2World *getReferee() const { return physics; }
     
 protected:
-    // borders of the whole world and the displayed part in pixels
+    friend void Window::setWorld(World*);
+    friend void MouseHandler::updateMouse();
+
+    Window *mWindow;
+    MouseHandler *mMouseHandler;
+
+    // borders of the whole world and the displayed part in world coordinates
     float mLeftMost, mRightMost, mDownMost, mUpMost;
     float mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost;
     
@@ -76,6 +89,18 @@ class TestWorldSimplePhysics : public World
 {
 public:
     TestWorldSimplePhysics();
+};
+
+/**
+ * display buttons
+ */
+class TestWorldButtons : public World
+{
+public:
+    TestWorldButtons();
+    ~TestWorldButtons();
+private:
+    OnClickCallback *callback;
 };
 
 #endif // COMPILE_TEST

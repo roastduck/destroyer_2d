@@ -40,8 +40,22 @@ public:
     Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs) noexcept;
     virtual ~Rigid() noexcept;
 
+    b2Body *getReferee() const { return physics; }
+
+    bool testPoint(float x, float y) const;
+
+    void setAlert(AlertType _alert) { alert = _alert; }
+    AlertType getAlert() const { return alert; }
+    float getAlertColorR() const;
+    float getAlertColorG() const;
+    float getAlertColorB() const;
+    float getAlertColorA() const;
+
 protected:
     b2Body *physics;
+
+private:
+    AlertType alert;
 };
 
 /**
@@ -53,6 +67,8 @@ public:
     /// NOTICE: Pointer to b2Shape in groupDefs will be deleted
     ParticleSystem(World *_world, const b2ParticleSystemDef &systemDef, const std::vector<b2ParticleGroupDef> &groupDefs) noexcept;
     virtual ~ParticleSystem() noexcept;
+
+    b2ParticleSystem *getReferee() const { return physics; }
 
     /// Set to delete it in next round
     static void setDied(ParticleSystem *system) { died.push_back(system); }

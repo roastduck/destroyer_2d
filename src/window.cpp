@@ -46,6 +46,12 @@ Window::~Window() noexcept
     glfwTerminate();
 }
 
+void Window::setWorld(World *world)
+{
+    mWorld = world;
+    world->mWindow = this;
+}
+
 void Window::run()
 {
     assert(mWorld != NULL);

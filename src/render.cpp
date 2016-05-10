@@ -43,13 +43,31 @@ Render::Render()
 
 void Render::drawRigid(const b2Body *b) noexcept
 {
-    const Matter *m = (const Matter*)b->GetUserData();
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    const Rigid *m = (const Rigid*)b->GetUserData();
     for (const b2Fixture *f = b->GetFixtureList(); f; f = f->GetNext())
     {
         const b2Shape *shape = f->GetShape();
         switch (shape->GetType())
         {
             case b2Shape::e_polygon:
+                if (m->getAlert())
+                {
+                    glLineWidth(5.0f);
+                    glBegin(GL_LINES);
+                    for (int _i = 1; _i <= ((b2PolygonShape*)shape)->GetVertexCount() * 2; _i++)
+                    {
+                        int i = _i / 2 % ((b2PolygonShape*)shape)->GetVertexCount();
+                        b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
+                        glColor4f(m->getAlertColorR(), m->getAlertColorG(), m->getAlertColorB(), m->getAlertColorA());
+                        glVertex3f(pos.x, pos.y, 0.0f);
+                    }
+                    glEnd();
+                    glLineWidth(1.0f);
+                }
+
                 glBegin(GL_POLYGON);
                 for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
                 {
@@ -64,6 +82,8 @@ void Render::drawRigid(const b2Body *b) noexcept
                 assert(false);
         }
     }
+
+    glDisable(GL_BLEND);
 }
 
 void Render::drawParticleSystem(const b2ParticleSystem *s) noexcept

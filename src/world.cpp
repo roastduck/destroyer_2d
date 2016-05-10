@@ -5,7 +5,8 @@
 static MyDestructionListener myDestructionListener;
 
 World::World(float leftMost, float rightMost, float downMost, float upMost) noexcept
-    : mLeftMost(leftMost), mRightMost(rightMost),
+    : mWindow(NULL), mMouseHandler(new MouseHandler(this)),
+      mLeftMost(leftMost), mRightMost(rightMost),
       mDownMost(downMost), mUpMost(upMost),
       mCurLeftMost(leftMost), mCurRightMost(rightMost),
       mCurDownMost(downMost), mCurUpMost(upMost),
@@ -22,6 +23,9 @@ World::World(float leftMost, float rightMost, float downMost, float upMost) noex
  */
 World::~World() noexcept
 {
+    assert(mMouseHandler != NULL);
+    delete mMouseHandler;
+
     for (b2Body *b = physics->GetBodyList(); b;)
     {
         b2Body *_b = b->GetNext();
@@ -38,6 +42,7 @@ World::~World() noexcept
         s = _s;
     }
 
+    assert(physics != NULL);
     delete physics;
 }
 
@@ -60,6 +65,8 @@ void World::drawAll() const noexcept
 
 void World::step()
 {
+    mMouseHandler->process();
+
     physics->Step
         (
          TIME_STEP,
@@ -95,6 +102,18 @@ TestWorldSimplePhysics::TestWorldSimplePhysics()
     new SmallWoodBlock(this, -5.0f, 5.0f);
     new SmallWoodBlock(this, -4.0f, 8.0f);
     new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
+}
+
+TestWorldButtons::TestWorldButtons()
+    : World(-10, 10, -10, 10)
+{
+    callback = new OnClickCallback();
+    mMouseHandler->addButton(new SmallWoodBlock(this, -5.0f, 5.0f), callback);
+}
+
+TestWorldButtons::~TestWorldButtons()
+{
+    delete callback;
 }
 
 #endif // COMPILE_TEST

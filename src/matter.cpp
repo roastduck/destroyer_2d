@@ -12,7 +12,7 @@ void MyDestructionListener::SayGoodbye(b2ParticleGroup *group)
 }
 
 Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs) noexcept
-    : Matter(_world)
+    : Matter(_world), alert(ALERT_NONE)
 {
     physics = world->getB2World()->CreateBody(&bodyDef);
     physics->SetUserData(this);
@@ -27,6 +27,74 @@ Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2Fixtur
 Rigid::~Rigid() noexcept
 {
     world->getB2World()->DestroyBody(physics);
+}
+
+bool Rigid::testPoint(float x, float y) const
+{
+    for (b2Fixture *f = physics->GetFixtureList(); f; f = f->GetNext())
+        if (f->TestPoint(b2Vec2(x, y)))
+            return true;
+    return false;
+}
+
+float Rigid::getAlertColorR() const
+{
+    switch (alert)
+    {
+    case ALERT_NORMAL:
+        return ALERT_NORMAL_COLOR_R;
+    case ALERT_HOVER:
+        return ALERT_HOVER_COLOR_R;
+    case ALERT_WARNING:
+        return ALERT_WARNING_COLOR_R;
+    default:
+        assert(false);
+    }
+}
+
+float Rigid::getAlertColorG() const
+{
+    switch (alert)
+    {
+    case ALERT_NORMAL:
+        return ALERT_NORMAL_COLOR_G;
+    case ALERT_HOVER:
+        return ALERT_HOVER_COLOR_G;
+    case ALERT_WARNING:
+        return ALERT_WARNING_COLOR_G;
+    default:
+        assert(false);
+    }
+}
+
+float Rigid::getAlertColorB() const
+{
+    switch (alert)
+    {
+    case ALERT_NORMAL:
+        return ALERT_NORMAL_COLOR_B;
+    case ALERT_HOVER:
+        return ALERT_HOVER_COLOR_B;
+    case ALERT_WARNING:
+        return ALERT_WARNING_COLOR_B;
+    default:
+        assert(false);
+    }
+}
+
+float Rigid::getAlertColorA() const
+{
+    switch (alert)
+    {
+    case ALERT_NORMAL:
+        return ALERT_NORMAL_COLOR_A;
+    case ALERT_HOVER:
+        return ALERT_HOVER_COLOR_A;
+    case ALERT_WARNING:
+        return ALERT_WARNING_COLOR_A;
+    default:
+        assert(false);
+    }
 }
 
 ParticleSystem::ParticleSystem(World *_world, const b2ParticleSystemDef &systemDef, const std::vector<b2ParticleGroupDef> &groupDefs) noexcept
