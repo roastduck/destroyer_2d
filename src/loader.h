@@ -60,6 +60,9 @@ extern PFNGLBLENDFUNCSEPARATEPROC mypfnBlendFuncSeparate;
 #define glGenFramebuffers mypfnGenFramebuffers
 extern PFNGLGENFRAMEBUFFERSPROC mypfnGenFramebuffers;
 
+#define glDeleteFramebuffers mypfnDeleteFramebuffers
+extern PFNGLDELETEFRAMEBUFFERSPROC mypfnDeleteFramebuffers;
+
 #define glBindFramebuffer mypfnBindFramebuffer
 extern PFNGLBINDFRAMEBUFFERPROC mypfnBindFramebuffer;
 

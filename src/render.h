@@ -18,7 +18,7 @@ public:
 
     void drawParticleSystem(const b2ParticleSystem *s) noexcept;
 
-    static void setWindow(const Window *_window) { mWindow = _window; }
+    static void setWindow(const Window *_window) { mWindow = _window, updateWindowSize(); }
 
 private:
     Render();
@@ -42,6 +42,10 @@ private:
 
     /// controls the two rendering procedures
     void drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count) noexcept;
+
+    /// update windowWidth and windowHeight from mWindow
+    /// @return bool. true when changed.
+    static bool updateWindowSize();
 
     GLuint particleTexture1, particleProgram1, particleTexture2, particleProgram2, particleFrameBuffer;
 
@@ -74,6 +78,7 @@ private:
         "}\n";
 
     static const Window *mWindow;
+    static int windowWidth, windowHeight;
 };
 
 inline Render &Render::getInstance()

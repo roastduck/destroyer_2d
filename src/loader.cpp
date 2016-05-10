@@ -50,6 +50,9 @@ void load_extensions()
     mypfnGenFramebuffers = (PFNGLGENFRAMEBUFFERSPROC)
         glfwGetProcAddress("glGenFramebuffers");
 
+    mypfnDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC)
+        glfwGetProcAddress("glDeleteFramebuffers");
+
     mypfnBindFramebuffer = (PFNGLBINDFRAMEBUFFERPROC)
         glfwGetProcAddress("glBindFramebuffer");
 
@@ -94,6 +97,8 @@ PFNGLUNIFORM1IPROC mypfnUniform1i;
 PFNGLBLENDFUNCSEPARATEPROC mypfnBlendFuncSeparate;
 
 PFNGLGENFRAMEBUFFERSPROC mypfnGenFramebuffers;
+
+PFNGLDELETEFRAMEBUFFERSPROC mypfnDeleteFramebuffers;
 
 PFNGLBINDFRAMEBUFFERPROC mypfnBindFramebuffer;
 

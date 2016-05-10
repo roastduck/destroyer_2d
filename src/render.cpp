@@ -163,12 +163,10 @@ void Render::genParticleTexture2() noexcept
 {
     glEnable(GL_TEXTURE_2D);
 
-    int width, height;
-    mWindow->getWidthHeight(&width, &height);
-
     glGenTextures(1, &particleTexture2);
     glBindTexture(GL_TEXTURE_2D, particleTexture2);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+    assert(windowWidth != 0 && windowHeight != 0);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, windowWidth, windowHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
@@ -206,9 +204,8 @@ void Render::particleRender1(const b2Vec2 *centers, float32 radius, const b2Part
     glUseProgram(particleProgram1);
 
     glBindFramebuffer(GL_FRAMEBUFFER, particleFrameBuffer);
-    int width, height;
-    mWindow->getWidthHeight(&width, &height);
-    glViewport(0, 0, width, height);
+    assert(windowWidth != 0 && windowHeight != 0);
+    glViewport(0, 0, windowWidth, windowHeight);
     glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
@@ -275,9 +272,30 @@ void Render::drawParticles(const b2Vec2 *centers, float32 radius, const b2Partic
     assert(centers != NULL);
     assert(colors != NULL);
 
+    if (updateWindowSize())
+    {
+        glDeleteTextures(1, &particleTexture2);
+        particleTexture2 = 0;
+        genParticleTexture2();
+
+        glDeleteFramebuffers(1, &particleFrameBuffer);
+        particleFrameBuffer = 0;
+        genParticleFrameBuffer();
+    }
+
     particleRender1(centers, radius, colors, count);
     particleRender2();
 }
 
+bool Render::updateWindowSize()
+{
+    int _w, _h;
+    mWindow->getWidthHeight(&_w, &_h);
+    if (_w == windowWidth && _h == windowHeight) return false;
+    windowWidth = _w, windowHeight = _h;
+    return true;
+}
+
 const Window *Render::mWindow = 0;
+int Render::windowWidth = 0, Render::windowHeight = 0;
 
