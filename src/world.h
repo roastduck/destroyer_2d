@@ -65,9 +65,9 @@ protected:
 class MyDestructionListener : public b2DestructionListener
 {
 public:
-    void SayGoodbye(b2Joint* joint) {}
-    void SayGoodbye(b2Fixture *fixture) {}
-    void SayGoodbye(b2ParticleGroup *group);
+    void SayGoodbye(b2Joint* joint) override {}
+    void SayGoodbye(b2Fixture *fixture) override {}
+    void SayGoodbye(b2ParticleGroup *group) override;
 };
 
 #ifdef COMPILE_TEST
@@ -100,7 +100,7 @@ public:
     TestWorldButtons();
     ~TestWorldButtons();
 private:
-    OnClickCallback *callback;
+    MouseCallback *callback;
 };
 
 #endif // COMPILE_TEST

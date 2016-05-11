@@ -1,7 +1,8 @@
 /**
- * We use OpenGL legacy mode to draw rigid bodies and GLSL to draw particles
- * We render pariticles into a framebuffer with alpha blending, and then
- * render from the buffer to screen, to create a continuous surface.
+ * We use OpenGL legacy mode mostly for its simplicity, except for using
+ * GLSL to draw particles. We render pariticles into a framebuffer with
+ * alpha blending, and then render from the buffer to screen, to create a
+ * continuous surface.
  */
 
 #include <cassert>
@@ -44,7 +45,6 @@ Render::Render()
 void Render::drawRigid(const b2Body *b) noexcept
 {
     glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     const Rigid *m = (const Rigid*)b->GetUserData();
     for (const b2Fixture *f = b->GetFixtureList(); f; f = f->GetNext())
@@ -53,29 +53,45 @@ void Render::drawRigid(const b2Body *b) noexcept
         switch (shape->GetType())
         {
             case b2Shape::e_polygon:
-                if (m->getAlert())
-                {
-                    glLineWidth(5.0f);
-                    glBegin(GL_LINES);
-                    for (int _i = 1; _i <= ((b2PolygonShape*)shape)->GetVertexCount() * 2; _i++)
-                    {
-                        int i = _i / 2 % ((b2PolygonShape*)shape)->GetVertexCount();
-                        b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
-                        glColor4f(m->getAlertColorR(), m->getAlertColorG(), m->getAlertColorB(), m->getAlertColorA());
-                        glVertex3f(pos.x, pos.y, 0.0f);
-                    }
-                    glEnd();
-                    glLineWidth(1.0f);
-                }
+               
+                // the 3 steps must happen EXACTLY in this order !
+
+                glBlendFunc(GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA);
 
                 glBegin(GL_POLYGON);
                 for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
                 {
                     b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
                     glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
-                    glVertex3f(pos.x, pos.y, 0.0f);
+                    glVertex3f(pos.x, pos.y, m->getDepth());
                 }
                 glEnd();
+
+                glBegin(GL_LINES);
+                for (int _i = 1; _i <= ((b2PolygonShape*)shape)->GetVertexCount() * 2; _i++)
+                {
+                    int i = _i / 2 % ((b2PolygonShape*)shape)->GetVertexCount();
+                    b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
+                    glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+                    glVertex3f(pos.x, pos.y, m->getDepth());
+                }
+                glEnd();
+                
+                if (m->getAlert())
+                {
+                    //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+                    glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);
+
+                    glBegin(GL_POLYGON);
+                    for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+                    {
+                        b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
+                        glColor4f(m->getAlertColorR(), m->getAlertColorG(), m->getAlertColorB(), m->getAlertColorA());
+                        glVertex3f(pos.x - ALERT_LINE_WIDTH, pos.y - ALERT_LINE_WIDTH, m->getDepth() + 1.0f);
+                    }
+                    glEnd();
+                }
+
                 break;
 
             default:
@@ -88,7 +104,9 @@ void Render::drawRigid(const b2Body *b) noexcept
 
 void Render::drawParticleSystem(const b2ParticleSystem *s) noexcept
 {
-    drawParticles(s->GetPositionBuffer(), PARTICLE_RADIUS, s->GetColorBuffer(), s->GetParticleCount());
+    assert(s->GetParticleGroupCount() > 0);
+    float depth = ((Matter*)(s->GetParticleGroupList()->GetUserData()))->getDepth();
+    drawParticles(s->GetPositionBuffer(), PARTICLE_RADIUS, s->GetColorBuffer(), s->GetParticleCount(), depth);
 }
 
 GLuint Render::genShader(GLenum type, const std::string &source)
@@ -262,7 +280,7 @@ void Render::particleRender1(const b2Vec2 *centers, float32 radius, const b2Part
     glUseProgram(0);
 }
 
-void Render::particleRender2() noexcept
+void Render::particleRender2(float depth) noexcept
 {
     assert(particleTexture2 && glIsTexture(particleTexture2));
     assert(particleProgram2 && glIsProgram(particleProgram2));
@@ -275,10 +293,10 @@ void Render::particleRender2() noexcept
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glBegin(GL_QUADS);
-    glTexCoord2f(1, 1), glVertex3f(1.0f, 1.0f, 0.0f);
-    glTexCoord2f(0, 1), glVertex3f(-1.0f, 1.0f, 0.0f);
-    glTexCoord2f(0, 0), glVertex3f(-1.0f, -1.0f, 0.0f);
-    glTexCoord2f(1, 0), glVertex3f(1.0f, -1.0f, 0.0f);
+    glTexCoord2f(1, 1), glVertex3f(1.0f, 1.0f, depth);
+    glTexCoord2f(0, 1), glVertex3f(-1.0f, 1.0f, depth);
+    glTexCoord2f(0, 0), glVertex3f(-1.0f, -1.0f, depth);
+    glTexCoord2f(1, 0), glVertex3f(1.0f, -1.0f, depth);
     glEnd();
 
     glDisable(GL_BLEND);
@@ -287,7 +305,7 @@ void Render::particleRender2() noexcept
     glUseProgram(0);
 }
 
-void Render::drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count) noexcept
+void Render::drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count, float depth) noexcept
 {
     assert(centers != NULL);
     assert(colors != NULL);
@@ -304,7 +322,7 @@ void Render::drawParticles(const b2Vec2 *centers, float32 radius, const b2Partic
     }
 
     particleRender1(centers, radius, colors, count);
-    particleRender2();
+    particleRender2(depth);
 }
 
 bool Render::updateWindowSize()

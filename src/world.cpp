@@ -50,7 +50,7 @@ void World::setGLOrtho() const
 {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost, 1.0f, -1.0f);
+    glOrtho(mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost, 100.0f, -100.0f);
     glMatrixMode(GL_MODELVIEW);
 }
 
@@ -107,7 +107,8 @@ TestWorldSimplePhysics::TestWorldSimplePhysics()
 TestWorldButtons::TestWorldButtons()
     : World(-10, 10, -10, 10)
 {
-    callback = new OnClickCallback();
+    new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
+    callback = new NewObjectCallback<SmallWoodBlock>(mMouseHandler);
     mMouseHandler->addButton(new SmallWoodBlock(this, -5.0f, 5.0f), callback);
 }
 

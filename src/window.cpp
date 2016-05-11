@@ -30,6 +30,10 @@ Window::Window()
         load_extensions();
 
         Render::setWindow(this);
+
+        glEnable(GL_DEPTH_TEST);
+        glDepthRange(-100, 100);
+        glDepthFunc(GL_LEQUAL);
     } catch (...)
     {
         if (mTarget)
@@ -62,7 +66,8 @@ void Window::run()
         glViewport(0, 0, width, height);
 
         glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT); // we don't need depth test
+        glClearDepth(100.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         mWorld->setGLOrtho();
         mWorld->drawAll();

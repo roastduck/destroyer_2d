@@ -34,14 +34,14 @@ private:
     void genParticleTexture1() noexcept;
 
     /// then render to screen with alpha threshold
-    void particleRender2() noexcept;
+    void particleRender2(float depth) noexcept;
     void genParticleTexture2() noexcept;
 
     /// the intermediate buffer between two redering procedures
     void genParticleFrameBuffer() noexcept;
 
     /// controls the two rendering procedures
-    void drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count) noexcept;
+    void drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count, float depth) noexcept;
 
     /// update windowWidth and windowHeight from mWindow
     /// @return bool. true when changed.

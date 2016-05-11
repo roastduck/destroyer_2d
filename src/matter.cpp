@@ -12,7 +12,7 @@ void MyDestructionListener::SayGoodbye(b2ParticleGroup *group)
 }
 
 Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs) noexcept
-    : Matter(_world), alert(ALERT_NONE)
+    : Matter(_world), alert(ALERT_NONE), defaultAlert(ALERT_NONE), alertExpireClock(0)
 {
     physics = world->getB2World()->CreateBody(&bodyDef);
     physics->SetUserData(this);
@@ -29,6 +29,27 @@ Rigid::~Rigid() noexcept
     world->getB2World()->DestroyBody(physics);
 }
 
+void Rigid::setAlert(AlertType _alert, clock_t expire)
+{
+    alert = _alert;
+    alertExpireClock = expire ? clock() + expire : 0;
+}
+
+AlertType Rigid::getAlert() const
+{
+    if (! alertExpireClock || alertExpireClock > clock())
+        return alert;
+    else
+        return defaultAlert;
+}
+
+void Rigid::setDefalutAlert(AlertType _alert)
+{
+    if (alert == defaultAlert)
+        alert = _alert;
+    defaultAlert = _alert;
+}
+
 bool Rigid::testPoint(float x, float y) const
 {
     for (b2Fixture *f = physics->GetFixtureList(); f; f = f->GetNext())
@@ -39,7 +60,7 @@ bool Rigid::testPoint(float x, float y) const
 
 float Rigid::getAlertColorR() const
 {
-    switch (alert)
+    switch (getAlert())
     {
     case ALERT_NORMAL:
         return ALERT_NORMAL_COLOR_R;
@@ -47,6 +68,8 @@ float Rigid::getAlertColorR() const
         return ALERT_HOVER_COLOR_R;
     case ALERT_WARNING:
         return ALERT_WARNING_COLOR_R;
+    case ALERT_SHADOW:
+        return ALERT_SHADOW_COLOR_R;
     default:
         assert(false);
     }
@@ -54,7 +77,7 @@ float Rigid::getAlertColorR() const
 
 float Rigid::getAlertColorG() const
 {
-    switch (alert)
+    switch (getAlert())
     {
     case ALERT_NORMAL:
         return ALERT_NORMAL_COLOR_G;
@@ -62,6 +85,8 @@ float Rigid::getAlertColorG() const
         return ALERT_HOVER_COLOR_G;
     case ALERT_WARNING:
         return ALERT_WARNING_COLOR_G;
+    case ALERT_SHADOW:
+        return ALERT_SHADOW_COLOR_G;
     default:
         assert(false);
     }
@@ -69,7 +94,7 @@ float Rigid::getAlertColorG() const
 
 float Rigid::getAlertColorB() const
 {
-    switch (alert)
+    switch (getAlert())
     {
     case ALERT_NORMAL:
         return ALERT_NORMAL_COLOR_B;
@@ -77,6 +102,8 @@ float Rigid::getAlertColorB() const
         return ALERT_HOVER_COLOR_B;
     case ALERT_WARNING:
         return ALERT_WARNING_COLOR_B;
+    case ALERT_SHADOW:
+        return ALERT_SHADOW_COLOR_B;
     default:
         assert(false);
     }
@@ -84,7 +111,7 @@ float Rigid::getAlertColorB() const
 
 float Rigid::getAlertColorA() const
 {
-    switch (alert)
+    switch (getAlert())
     {
     case ALERT_NORMAL:
         return ALERT_NORMAL_COLOR_A;
@@ -92,9 +119,33 @@ float Rigid::getAlertColorA() const
         return ALERT_HOVER_COLOR_A;
     case ALERT_WARNING:
         return ALERT_WARNING_COLOR_A;
+    case ALERT_SHADOW:
+        return ALERT_SHADOW_COLOR_A;
     default:
         assert(false);
     }
+}
+
+bool Rigid::tryMoveTo(float x, float y, float angle)
+{
+    physics->SetTransform(b2Vec2(x, y), angle);
+    return true;
+}
+
+bool Rigid::tryPutDown()
+{
+    for (b2Body *b = world->getB2World()->GetBodyList(); b; b = b->GetNext())
+        if (b != physics)
+            for (b2Fixture *f1 = b->GetFixtureList(); f1; f1 = f1->GetNext())
+                for (b2Fixture *f2 = physics->GetFixtureList(); f2; f2 = f2->GetNext())
+                    if (b2TestOverlap(f1->GetShape(), 0, f2->GetShape(), 0, b->GetTransform(), physics->GetTransform()))
+                        return false;
+    
+    physics->SetType(b2_dynamicBody);
+    physics->SetActive(true);
+    setDepth(0.0f);
+    setDefalutAlert(ALERT_NONE);
+    return true;
 }
 
 ParticleSystem::ParticleSystem(World *_world, const b2ParticleSystemDef &systemDef, const std::vector<b2ParticleGroupDef> &groupDefs) noexcept

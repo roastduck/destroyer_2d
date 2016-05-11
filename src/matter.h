@@ -7,6 +7,7 @@
 #define MATTER_H_
 
 #include <list>
+#include <ctime>
 #include <vector>
 #include <Box2D/Box2D.h>
 #include "world.h"
@@ -18,7 +19,7 @@
 class Matter
 {
 public:
-    Matter(World *_world) noexcept : world(_world) {}
+    Matter(World *_world) noexcept : world(_world), depth(0.0f) {}
     virtual ~Matter() noexcept {}
 
     virtual float getColorR() const = 0;
@@ -26,8 +27,14 @@ public:
     virtual float getColorB() const = 0;
     virtual float getColorA() const = 0;
 
+    void setDepth(float _depth) { depth = _depth; }
+    float getDepth() const { return depth; }
+
 protected:
     World *world;
+
+private:
+    float depth;
 };
 
 /**
@@ -44,18 +51,24 @@ public:
 
     bool testPoint(float x, float y) const;
 
-    void setAlert(AlertType _alert) { alert = _alert; }
-    AlertType getAlert() const { return alert; }
+    void setAlert(AlertType _alert, clock_t expire = 0);
+    AlertType getAlert() const;
+    void setDefalutAlert(AlertType _alert);
     float getAlertColorR() const;
     float getAlertColorG() const;
     float getAlertColorB() const;
     float getAlertColorA() const;
 
+    // These two functions used in putting process
+    bool tryMoveTo(float x, float y, float angle);
+    bool tryPutDown();
+
 protected:
     b2Body *physics;
 
 private:
-    AlertType alert;
+    AlertType alert, defaultAlert;
+    clock_t alertExpireClock;
 };
 
 /**
