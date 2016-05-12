@@ -110,7 +110,7 @@ TestWorldSimplePhysics::TestWorldSimplePhysics()
 TestWorldButtons::TestWorldButtons()
     : World(-10, 10, -10, 10)
 {
-    new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
+    new WaterSquare(this, -10.0f, 10.0f, -10.0f, -8.0f);
 
     callback1 = new NewObjectCallback<SmallWoodBlock>(mMouseHandler);
     SmallWoodBlock *button1 = new SmallWoodBlock(this, -7.0f, 7.0f);

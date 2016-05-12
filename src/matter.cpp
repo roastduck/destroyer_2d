@@ -243,18 +243,18 @@ bool Stick::tryPutDown()
         if (b != physics)
         {
             bool overlap(false);
-            for (b2Fixture *f1 = b->GetFixtureList(); f1 && !overlap; f1 = f1->GetNext())
-                for (b2Fixture *f2 = physics->GetFixtureList(); f2 && !overlap; f2 = f2->GetNext())
-                    if (b2TestOverlap(f1->GetShape(), 0, f2->GetShape(), 0, b->GetTransform(), physics->GetTransform()))
-                        overlap = true;
-            if (! overlap) continue;
-
+            b2Fixture *end2Fix = physics->GetFixtureList()/*tail*/, *end1Fix = end2Fix->GetNext(), *mainFix = end1Fix->GetNext();
             int end(0); // 0=bad, 1=to (x1,y1), 2=to (x2,y2), 3=to (x1,y1) and (x2,y2)
-            for (b2Fixture *f = b->GetFixtureList(); f && !end; f = f->GetNext())
+            for (b2Fixture *f1 = b->GetFixtureList(); f1 && !overlap; f1 = f1->GetNext())
             {
-                if (f->TestPoint(b2Vec2(x1, y1))) end |= 1;
-                if (f->TestPoint(b2Vec2(x2, y2))) end |= 2;
+                if (b2TestOverlap(f1->GetShape(), 0, mainFix->GetShape(), 0, b->GetTransform(), physics->GetTransform()))
+                    overlap = true;
+                if (b2TestOverlap(f1->GetShape(), 0, end1Fix->GetShape(), 0, b->GetTransform(), physics->GetTransform()))
+                    overlap = true, end |= 1;
+                if (b2TestOverlap(f1->GetShape(), 0, end2Fix->GetShape(), 0, b->GetTransform(), physics->GetTransform()))
+                    overlap = true, end |= 2;
             }
+            if (! overlap) continue;
             if (! end) return false;
 
             b2RevoluteJointDef jointDef;
@@ -286,14 +286,18 @@ b2BodyDef SteelStick::genBodyDef(float x1, float y1, float x2, float y2)
 
 std::vector<b2FixtureDef> SteelStick::genFixtureDefs(float x1, float y1, float x2, float y2)
 {
-    b2PolygonShape *dynamicBox = new b2PolygonShape();
+    b2PolygonShape *mainBox = new b2PolygonShape(),
+                   *end1Box = new b2PolygonShape(), *end2Box = new b2PolygonShape();
     float length = sqrtf((x1-x2) * (x1-x2) + (y1-y2) * (y1-y2));
-    dynamicBox->SetAsBox(length / 2 + STICK_THICKNESS / 2, STICK_THICKNESS / 2, b2Vec2(0.0f, 0.0f), atan2f(y2-y1, x2-x1));
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = dynamicBox;
-    fixtureDef.density = STEEL_DENSITY;
-    fixtureDef.friction = STEEL_FRICTION;
-    return { fixtureDef };
+    float angle = atan2f(y2 - y1, x2 - x1);
+    mainBox->SetAsBox(length / 2 - STICK_END_THICKNESS / 2, STICK_THICKNESS / 2, b2Vec2(0.0f, 0.0f), angle);
+    end1Box->SetAsBox(STICK_END_THICKNESS / 2, STICK_END_THICKNESS / 2, b2Vec2((x1-x2) / 2, (y1-y2) / 2), angle);
+    end2Box->SetAsBox(STICK_END_THICKNESS / 2, STICK_END_THICKNESS / 2, b2Vec2((x2-x1) / 2, (y2-y1) / 2), angle);
+    b2FixtureDef mainDef, end1Def, end2Def;
+    mainDef.density = end1Def.density = end2Def.density = STEEL_DENSITY;
+    mainDef.friction = end1Def.friction = end2Def.friction = STEEL_FRICTION;
+    mainDef.shape = mainBox, end1Def.shape = end1Box, end2Def.shape = end2Box;
+    return { mainDef, end1Def, end2Def };
 }
 
 WaterSquare::WaterSquare(World *_world, float l, float r, float d, float u) noexcept

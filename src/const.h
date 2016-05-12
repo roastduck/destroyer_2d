@@ -28,7 +28,8 @@ const float CLICK_INTERVAL = 0.3f;
 /*
  * Shapes
  */
-const float STICK_THICKNESS = 0.25f;
+const float STICK_THICKNESS = 0.3f;
+const float STICK_END_THICKNESS = 0.5f;
 
 /*
  * Colors
