@@ -93,7 +93,9 @@ public:
         if (drawing)
         {
             drawing = false;
-            new ToPut(mMouseHandler->getWorld(), sx, sy, x, y);
+            ToPut *p = new ToPut(mMouseHandler->getWorld(), sx, sy, x, y);
+            if (! p->tryPutDown())
+                delete p;
         } else
         {
             drawing = true;

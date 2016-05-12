@@ -64,9 +64,12 @@ public:
     float getAlertColorB() const;
     float getAlertColorA() const;
 
-    // These two functions used in putting process
-    bool tryMoveTo(float x, float y, float angle);
-    bool tryPutDown();
+    /// used in putting process when cursor moves
+    /// set the object to (x, y)
+    virtual bool tryMoveTo(float x, float y, float angle);
+    /// used in putting process when cursor clicks
+    /// if not overlap with others, set it free, or else display alert
+    virtual bool tryPutDown();
 
 protected:
     b2Body *physics;
@@ -146,10 +149,19 @@ class Stick : public Rigid
 public:
     Stick
     (
-        World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs, float x1, float y1, float x2, float y2
+        World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs, float _x1, float _y1, float _x2, float _y2
     ) noexcept;
 
     static bool canDrawLine() { return true; }
+
+    /// Do nothing. There is already a CURSOR_CROSS
+    bool tryMoveTo(float x, float y, float angle) override { return true; }
+    /// Return false if overlapped with others but not on two ends.
+    /// Create joint in two ends.
+    bool tryPutDown() override;
+
+protected:
+    float x1, y1, x2, y2; // two ends
 };
 
 class SteelStick : public Stick

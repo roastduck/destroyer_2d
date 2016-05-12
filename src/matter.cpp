@@ -231,12 +231,45 @@ std::vector<b2FixtureDef> Frame::genFixtureDefs(float l, float r, float d, float
 
 Stick::Stick
 (
-    World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs, float x1, float y1, float x2, float y2
+    World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs, float _x1, float _y1, float _x2, float _y2
 ) noexcept
-    : Rigid(_world, bodyDef, fixtureDefs)
+    : Rigid(_world, bodyDef, fixtureDefs),
+      x1(_x1), y1(_y1), x2(_x2), y2(_y2)
+{}
+
+bool Stick::tryPutDown()
 {
-    // here we should create contacts
-    // TODO
+    for (b2Body *b = world->getB2World()->GetBodyList(); b; b = b->GetNext())
+        if (b != physics)
+        {
+            bool overlap(false);
+            for (b2Fixture *f1 = b->GetFixtureList(); f1 && !overlap; f1 = f1->GetNext())
+                for (b2Fixture *f2 = physics->GetFixtureList(); f2 && !overlap; f2 = f2->GetNext())
+                    if (b2TestOverlap(f1->GetShape(), 0, f2->GetShape(), 0, b->GetTransform(), physics->GetTransform()))
+                        overlap = true;
+            if (! overlap) continue;
+
+            int end(0); // 0=bad, 1=to (x1,y1), 2=to (x2,y2), 3=to (x1,y1) and (x2,y2)
+            for (b2Fixture *f = b->GetFixtureList(); f && !end; f = f->GetNext())
+            {
+                if (f->TestPoint(b2Vec2(x1, y1))) end |= 1;
+                if (f->TestPoint(b2Vec2(x2, y2))) end |= 2;
+            }
+            if (! end) return false;
+
+            b2RevoluteJointDef jointDef;
+            if (end & 1)
+            {
+                jointDef.Initialize(b, physics, b2Vec2(x1, y1));
+                world->getB2World()->CreateJoint(&jointDef);
+            }
+            if (end & 2)
+            {
+                jointDef.Initialize(b, physics, b2Vec2(x2, y2));
+                world->getB2World()->CreateJoint(&jointDef);
+            }
+        }
+    return true;
 }
 
 SteelStick::SteelStick(World *_world, float x1, float y1, float x2, float y2) noexcept
