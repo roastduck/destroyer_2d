@@ -1,6 +1,7 @@
 #include <cassert>
 #include <iostream>
 #include <stdexcept>
+#include "world.h"
 #include "window.h"
 #include "render.h"
 
@@ -34,6 +35,8 @@ Window::Window()
         glEnable(GL_DEPTH_TEST);
         glDepthRange(-100, 100);
         glDepthFunc(GL_LEQUAL);
+
+        genCursor();
     } catch (...)
     {
         if (mTarget)
@@ -45,6 +48,7 @@ Window::Window()
 
 Window::~Window() noexcept
 {
+    deleteCursor();
     if (mTarget)
         glfwDestroyWindow(mTarget);
     glfwTerminate();
@@ -70,7 +74,7 @@ void Window::run()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         mWorld->setGLOrtho();
-        mWorld->drawAll();
+        mWorld->step();
 
         switch (glGetError())
         {
@@ -90,8 +94,41 @@ void Window::run()
 
         glfwSwapBuffers(mTarget);
         glfwPollEvents();
-
-        mWorld->step();
     }
+}
+
+void Window::useCursor(CursorType type)
+{
+    glfwSetCursor(mTarget, cursors[type]);
+}
+
+void Window::genCursor()
+{
+    unsigned char pixels[15][15][4];
+    GLFWimage image;
+    image.width = image.height = 15;
+    image.pixels = (unsigned char*)pixels;
+
+    memset(cursors, 0, sizeof cursors);
+
+    memset(pixels, 0, sizeof pixels);
+    for (int i=0; i<15; i++)
+    {
+        memset(pixels[6][i], 0xFF, 4);
+        memset(pixels[7][i], 0xFF, 4);
+        memset(pixels[8][i], 0xFF, 4);
+        memset(pixels[i][6], 0xFF, 4);
+        memset(pixels[i][7], 0xFF, 4);
+        memset(pixels[i][8], 0xFF, 4);
+    }
+
+    cursors[CURSOR_CROSS] = glfwCreateCursor(&image, 7, 7);
+}
+
+void Window::deleteCursor() noexcept
+{
+    for (int i = 0; i < CURSOR_TYPE_NUM; i++)
+        if (cursors[i])
+            glfwDestroyCursor(cursors[i]);
 }
 

@@ -3,6 +3,7 @@
 #include "loader.h"
 #include "matter.h"
 #include "mousehandler.h"
+#include "mousecallback.h"
 
 MouseHandler::MouseHandler(World *_world)
     : mWorld(_world),
@@ -83,8 +84,8 @@ void MouseHandler::reset()
 {
     if (mPuttingCallback)
     {
-        mPuttingCallback = 0;
         delete mPuttingCallback;
+        mPuttingCallback = 0;
     }
     for (const auto &button : buttons)
         button.first->setAlert(ALERT_NORMAL);

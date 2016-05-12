@@ -10,7 +10,6 @@
 #include <list>
 #include <utility>
 #include <Box2D/Box2D.h>
-#include "const.h"
 
 class World;
 class Rigid;
@@ -69,68 +68,6 @@ private:
 
     std::list< std::pair<Rigid*, MouseCallback*> > buttons;
     MouseCallback *mPuttingCallback;
-};
-
-class MouseCallback
-{
-public:
-    MouseCallback(MouseHandler *_handler) : mMouseHandler(_handler) {}
-    virtual ~MouseCallback() {}
-
-    virtual void leftClick(float x, float y) {}
-    virtual void rightClick(float x, float y) {}
-    virtual void move(float x, float y) {}
-protected:
-    MouseHandler *mMouseHandler;
-};
-
-template <class ToPut>
-class PuttingCallback : public MouseCallback
-{
-public:
-    PuttingCallback(MouseHandler *_handler, float x, float y)
-        : MouseCallback(_handler)
-    {
-        toPut = new ToPut(mMouseHandler->getWorld(), x, y);
-        toPut->getReferee()->SetType(b2_staticBody);
-        toPut->getReferee()->SetActive(false);
-        toPut->setDepth(-1.0f);
-        toPut->setDefalutAlert(ALERT_SHADOW);
-    }
-
-    void leftClick(float x, float y) override
-    {
-        if (toPut->tryPutDown())
-            mMouseHandler->setStatus(MouseHandler::MOUSE_FREE);
-        else
-            toPut->setAlert(ALERT_WARNING, CLOCKS_PER_SEC);
-    }
-
-    void rightClick(float x, float y) override
-    {
-        delete toPut;
-        mMouseHandler->setStatus(MouseHandler::MOUSE_FREE);
-    }
-
-    void move(float x, float y) override
-    {
-        toPut->tryMoveTo(x, y, toPut->getReferee()->GetAngle());
-    }
-
-private:
-    ToPut *toPut;
-};
-
-template <class ToPut>
-class NewObjectCallback : public MouseCallback
-{
-public:
-    NewObjectCallback(MouseHandler *_handler) : MouseCallback(_handler) {}
-
-    void leftClick(float x, float y) override
-    {
-        mMouseHandler->setStatus(MouseHandler::MOUSE_PUTTING, new PuttingCallback<ToPut>(mMouseHandler, x, y));
-    }
 };
 
 #endif // MOUSEHANDLER_H_

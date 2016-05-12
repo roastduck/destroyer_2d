@@ -1,6 +1,7 @@
 #include "world.h"
 #include "render.h"
 #include "matter.h"
+#include "mousecallback.h"
 
 static MyDestructionListener myDestructionListener;
 
@@ -67,6 +68,8 @@ void World::step()
 {
     mMouseHandler->process();
 
+    drawAll();
+
     physics->Step
         (
          TIME_STEP,
@@ -108,13 +111,22 @@ TestWorldButtons::TestWorldButtons()
     : World(-10, 10, -10, 10)
 {
     new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
-    callback = new NewObjectCallback<SmallWoodBlock>(mMouseHandler);
-    mMouseHandler->addButton(new SmallWoodBlock(this, -5.0f, 5.0f), callback);
+
+    callback1 = new NewObjectCallback<SmallWoodBlock>(mMouseHandler);
+    SmallWoodBlock *button1 = new SmallWoodBlock(this, -7.0f, 7.0f);
+    button1->getReferee()->SetType(b2_staticBody);
+    mMouseHandler->addButton(button1, callback1);
+
+    callback2 = new NewObjectCallback<SteelStick>(mMouseHandler);
+    SteelStick *button2 = new SteelStick(this, -6.0f, 3.0f, -8.0f, 5.0f);
+    button2->getReferee()->SetType(b2_staticBody);
+    mMouseHandler->addButton(button2, callback2);
 }
 
 TestWorldButtons::~TestWorldButtons()
 {
-    delete callback;
+    delete callback1;
+    delete callback2;
 }
 
 #endif // COMPILE_TEST

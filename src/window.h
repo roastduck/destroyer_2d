@@ -13,6 +13,13 @@ class World;
 class Window
 {
 public:
+    enum CursorType
+    {
+        CURSOR_ARROW = 0,
+        CURSOR_CROSS = 1
+    };
+    static const int CURSOR_TYPE_NUM = 2;
+
     Window();
 
     ~Window() noexcept;
@@ -38,7 +45,17 @@ public:
      */
     GLFWwindow *getReferee() const { return mTarget; }
 
+    /**
+     * Choose a cursor type
+     */
+    void useCursor(CursorType type);
+
 private:
+    void genCursor();
+    void deleteCursor() noexcept;
+
+    GLFWcursor *cursors[CURSOR_TYPE_NUM];
+
     GLFWwindow *mTarget;
     World *mWorld;
 };

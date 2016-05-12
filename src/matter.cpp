@@ -1,4 +1,5 @@
 #include <cassert>
+#include "world.h"
 #include "matter.h"
 
 std::list<ParticleSystem*> ParticleSystem::died;
@@ -174,7 +175,7 @@ ParticleSystem::~ParticleSystem() noexcept
     }
 }
 
-SmallWoodBlock::SmallWoodBlock(World *_world, float x, float y) noexcept
+SmallWoodBlock::SmallWoodBlock(World *_world, float x, float y, float, float) noexcept
     : Rigid(_world, genBodyDef(x, y), genFixtureDefs())
 {}
 
@@ -192,8 +193,8 @@ std::vector<b2FixtureDef> SmallWoodBlock::genFixtureDefs()
     dynamicBox->SetAsBox(1.0f, 1.0f); // 2X2
     b2FixtureDef fixtureDef;
     fixtureDef.shape = dynamicBox;
-    fixtureDef.density = 0.4f;
-    fixtureDef.friction = 0.7f;
+    fixtureDef.density = WOOD_DENSITY;
+    fixtureDef.friction = WOOD_FRICTION;
     return { fixtureDef };
 }
 
@@ -226,6 +227,40 @@ std::vector<b2FixtureDef> Frame::genFixtureDefs(float l, float r, float d, float
     defD.shape = boxD;
     defU.shape = boxU;
     return { defL, defR, defD, defU };
+}
+
+Stick::Stick
+(
+    World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs, float x1, float y1, float x2, float y2
+) noexcept
+    : Rigid(_world, bodyDef, fixtureDefs)
+{
+    // here we should create contacts
+    // TODO
+}
+
+SteelStick::SteelStick(World *_world, float x1, float y1, float x2, float y2) noexcept
+    : Stick(_world, genBodyDef(x1, y1, x2, y2), genFixtureDefs(x1, y1, x2, y2), x1, y1, x2, y2)
+{}
+
+b2BodyDef SteelStick::genBodyDef(float x1, float y1, float x2, float y2)
+{
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position.Set((x1 + x2) / 2, (y1 + y2) / 2);
+    return bodyDef;
+}
+
+std::vector<b2FixtureDef> SteelStick::genFixtureDefs(float x1, float y1, float x2, float y2)
+{
+    b2PolygonShape *dynamicBox = new b2PolygonShape();
+    float length = sqrtf((x1-x2) * (x1-x2) + (y1-y2) * (y1-y2));
+    dynamicBox->SetAsBox(length / 2 + STICK_THICKNESS / 2, STICK_THICKNESS / 2, b2Vec2(0.0f, 0.0f), atan2f(y2-y1, x2-x1));
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = dynamicBox;
+    fixtureDef.density = STEEL_DENSITY;
+    fixtureDef.friction = STEEL_FRICTION;
+    return { fixtureDef };
 }
 
 WaterSquare::WaterSquare(World *_world, float l, float r, float d, float u) noexcept

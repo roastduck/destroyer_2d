@@ -26,6 +26,11 @@ const float ALERT_LINE_WIDTH = 0.2f;
 const float CLICK_INTERVAL = 0.1f;
 
 /*
+ * Shapes
+ */
+const float STICK_THICKNESS = 0.25f;
+
+/*
  * Colors
  */
 const float BG_COLOR_R = 0.0f;
@@ -36,6 +41,11 @@ const float WOOD_COLOR_R = (float)0x85/0xFF;
 const float WOOD_COLOR_G = (float)0x5E/0xFF;
 const float WOOD_COLOR_B = (float)0x42/0xFF;
 const float WOOD_COLOR_A = 1.0f;
+
+const float STEEL_COLOR_R = (float)0xC0/0xFF;
+const float STEEL_COLOR_G = (float)0xC0/0xFF;
+const float STEEL_COLOR_B = (float)0xC0/0xFF;
+const float STEEL_COLOR_A = 1.0f;
 
 const float FRAME_COLOR_R = 1.0f;
 const float FRAME_COLOR_G = 1.0f;
@@ -69,6 +79,11 @@ const float ALERT_SHADOW_COLOR_G = (float)0x27/0xFF;
 const float ALERT_SHADOW_COLOR_B = (float)0x22/0xFF;
 const float ALERT_SHADOW_COLOR_A = 0.2f;
 
+const float TIP_LINE_COLOR_R = (float)0xFF/0xFF;
+const float TIP_LINE_COLOR_G = (float)0x00/0xFF;
+const float TIP_LINE_COLOR_B = (float)0x00/0xFF;
+const float TIP_LINE_COLOR_A = 1.0f;
+
 /*
  * About Render
  */
@@ -79,6 +94,12 @@ const float PARTICLE_SIZE_SCALE = 200.0f;
  */
 const float GRAVITY = 2.5f; // >= 0
 const float PARTICLE_RADIUS = 0.25f; // maybe too small
+
+const float WOOD_DENSITY = 0.4f;
+const float WOOD_FRICTION = 0.7f;
+
+const float STEEL_DENSITY = 7.9f;
+const float STEEL_FRICTION = 0.2f;
 
 /*
  * About Simulation

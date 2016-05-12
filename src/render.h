@@ -2,9 +2,10 @@
 #define RENDER_H_
 
 #include <string>
-#include "window.h"
 #include "loader.h"
 #include "matter.h"
+
+class Window;
 
 class Render
 {
@@ -17,6 +18,8 @@ public:
     void drawRigid(const b2Body *b) noexcept;
 
     void drawParticleSystem(const b2ParticleSystem *s) noexcept;
+
+    void drawLine(float x1, float y1, float x2, float y2) noexcept;
 
     static void setWindow(const Window *_window) { mWindow = _window, updateWindowSize(); }
 

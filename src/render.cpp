@@ -6,6 +6,7 @@
  */
 
 #include <cassert>
+#include "window.h"
 #include "render.h"
 
 // We need these 4 from glext.h, and define them here rather than relying on
@@ -107,6 +108,16 @@ void Render::drawParticleSystem(const b2ParticleSystem *s) noexcept
     assert(s->GetParticleGroupCount() > 0);
     float depth = ((Matter*)(s->GetParticleGroupList()->GetUserData()))->getDepth();
     drawParticles(s->GetPositionBuffer(), PARTICLE_RADIUS, s->GetColorBuffer(), s->GetParticleCount(), depth);
+}
+
+void Render::drawLine(float x1, float y1, float x2, float y2) noexcept
+{
+    glBegin(GL_LINES);
+    glColor4f(TIP_LINE_COLOR_R, TIP_LINE_COLOR_G, TIP_LINE_COLOR_B, TIP_LINE_COLOR_A);
+    glVertex3f(x1, y1, -1.0f);
+    glColor4f(TIP_LINE_COLOR_R, TIP_LINE_COLOR_G, TIP_LINE_COLOR_B, TIP_LINE_COLOR_A);
+    glVertex3f(x2, y2, -1.0f);
+    glEnd();
 }
 
 GLuint Render::genShader(GLenum type, const std::string &source)

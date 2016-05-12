@@ -10,8 +10,9 @@
 #include <ctime>
 #include <vector>
 #include <Box2D/Box2D.h>
-#include "world.h"
 #include "const.h"
+
+class World;
 
 /**
  * Base class of all rigid bodies and particles
@@ -29,6 +30,10 @@ public:
 
     void setDepth(float _depth) { depth = _depth; }
     float getDepth() const { return depth; }
+
+    /// Specify whether user can create objects by drawing lines
+    /// Can be overidden
+    static bool canDrawLine() { return false; }
 
 protected:
     World *world;
@@ -103,13 +108,12 @@ private:
 class SmallWoodBlock : public Rigid
 {
 public:
-    SmallWoodBlock(World *_world, float x, float y) noexcept;
+    SmallWoodBlock(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
 
-    virtual float getColorR() const { return WOOD_COLOR_R; }
-    virtual float getColorG() const { return WOOD_COLOR_G; }
-    virtual float getColorB() const { return WOOD_COLOR_B; }
-    virtual float getColorA() const { return WOOD_COLOR_A; }
-
+    virtual float getColorR() const override { return WOOD_COLOR_R; }
+    virtual float getColorG() const override { return WOOD_COLOR_G; }
+    virtual float getColorB() const override { return WOOD_COLOR_B; }
+    virtual float getColorA() const override { return WOOD_COLOR_A; }
 private:
     static b2BodyDef genBodyDef(float x, float y);
     static std::vector<b2FixtureDef> genFixtureDefs();
@@ -131,6 +135,35 @@ public:
 private:
     static b2BodyDef genBodyDef();
     static std::vector<b2FixtureDef> genFixtureDefs(float l, float r, float d, float u);
+};
+
+/**
+ * Base class with all that canDrawLine()
+ * Will create contact to what is linked
+ */
+class Stick : public Rigid
+{
+public:
+    Stick
+    (
+        World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs, float x1, float y1, float x2, float y2
+    ) noexcept;
+
+    static bool canDrawLine() { return true; }
+};
+
+class SteelStick : public Stick
+{
+public:
+    SteelStick(World *_world, float x1, float y1, float x2 = 0, float y2 = 0) noexcept;
+
+    virtual float getColorR() const override { return STEEL_COLOR_R; }
+    virtual float getColorG() const override { return STEEL_COLOR_G; }
+    virtual float getColorB() const override { return STEEL_COLOR_B; }
+    virtual float getColorA() const override { return STEEL_COLOR_A; }
+private:
+    static b2BodyDef genBodyDef(float x1, float y1, float x2, float y2);
+    static std::vector<b2FixtureDef> genFixtureDefs(float x1, float y1, float x2, float y2);
 };
 
 /**

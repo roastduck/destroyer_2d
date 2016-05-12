@@ -27,11 +27,6 @@ public:
     void setGLOrtho() const;
 
     /**
-     * Draw everything into OpenGL
-     */
-    virtual void drawAll() const noexcept;
-
-    /**
      * Corresponding LiquidFun Object
      */
     b2World *getB2World() const { return physics; }
@@ -45,10 +40,18 @@ public:
      * Return b2World pointer
      */
     b2World *getReferee() const { return physics; }
+
+    Window *getWindow() const { return mWindow; }
     
 protected:
     friend void Window::setWorld(World*);
     friend void MouseHandler::updateMouse();
+
+    /**
+     * Draw every Matter into OpenGL
+     * Things can be drawn out of drawAll
+     */
+    virtual void drawAll() const noexcept;
 
     Window *mWindow;
     MouseHandler *mMouseHandler;
@@ -100,7 +103,7 @@ public:
     TestWorldButtons();
     ~TestWorldButtons();
 private:
-    MouseCallback *callback;
+    MouseCallback *callback1, *callback2;
 };
 
 #endif // COMPILE_TEST
