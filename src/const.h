@@ -23,7 +23,7 @@ enum AlertType
 const float ALERT_LINE_WIDTH = 0.2f;
 
 // minimum interval of two mouse clicks, in sec
-const float CLICK_INTERVAL = 0.1f;
+const float CLICK_INTERVAL = 0.3f;
 
 /*
  * Shapes
