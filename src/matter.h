@@ -29,7 +29,8 @@ public:
     enum RenderMethod
     {
         RENDER_COLOR = 0,
-        RENDER_TEXTURE = 1
+        RENDER_TEXTURE = 1,
+        RENDER_COLOR_WITH_TEXTURE = 2
     };
     virtual RenderMethod getRenderMethod() const { return RENDER_COLOR; }
     // 1. use pure color
@@ -153,6 +154,23 @@ public:
     virtual float getColorG() const override { return WOOD_COLOR_G; }
     virtual float getColorB() const override { return WOOD_COLOR_B; }
     virtual float getColorA() const override { return WOOD_COLOR_A; }
+private:
+    static b2BodyDef genBodyDef(float x, float y);
+    static std::vector<b2FixtureDef> genFixtureDefs();
+};
+
+/**
+ * Steel r=0.5 ball
+ */
+class SmallSteelBall : public Rigid
+{
+public:
+    SmallSteelBall(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
+
+    virtual float getColorR() const override { return STEEL_COLOR_R; }
+    virtual float getColorG() const override { return STEEL_COLOR_G; }
+    virtual float getColorB() const override { return STEEL_COLOR_B; }
+    virtual float getColorA() const override { return STEEL_COLOR_A; }
 private:
     static b2BodyDef genBodyDef(float x, float y);
     static std::vector<b2FixtureDef> genFixtureDefs();

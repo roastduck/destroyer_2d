@@ -16,9 +16,11 @@ public:
 
     static Render &getInstance();
 
-    void drawRigid(const b2Body *b) noexcept;
+    /// @param scale : returned from World::getScale()
+    void drawRigid(const b2Body *b, float scale) noexcept;
 
-    void drawParticleSystem(const b2ParticleSystem *s) noexcept;
+    /// @param scale : returned from World::getScale()
+    void drawParticleSystem(const b2ParticleSystem *s, float scale) noexcept;
 
     void drawLine(float x1, float y1, float x2, float y2) noexcept;
 
@@ -49,13 +51,16 @@ private:
     /// controls the two rendering procedures
     void drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count, float depth) noexcept;
 
+    void genCircleTexture() noexcept;
+
     GLuint getTextureFromPixels(const unsigned char pixels[][4], int width, int height);
 
     /// update windowWidth and windowHeight from mWindow
     /// @return bool. true when changed.
     static bool updateWindowSize();
 
-    GLuint particleTexture1, particleProgram1, particleTexture2, particleProgram2, particleFrameBuffer;
+    GLuint particleTexture1, particleProgram1, particleTexture2, particleProgram2, particleFrameBuffer,
+           circleTexture, circleProgram;
 
     const std::string particleFragmentShader1Source =
         "#version 330\n"
@@ -83,6 +88,16 @@ private:
         "   vec4 temp = texture2D(texture, gl_TexCoord[0].st);\n"
         "   if (temp.a < 0.1) temp = vec4(0, 0, 0, 0); else temp.a = 0.5;\n"
         "   colorOut = temp;\n"
+        "}\n";
+
+    const std::string circleFragmentShaderSource =
+        "#version 330\n"
+        "uniform sampler2D texture;\n"
+        "out vec4 colorOut;\n"
+        "void main()\n"
+        "{\n"
+        "   colorOut = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n"
+        "   if (colorOut.a > 0) gl_FragDepth = gl_FragCoord.z; else gl_FragDepth = 100;\n"
         "}\n";
 
     std::unordered_map<int, GLuint> cachedTexture;

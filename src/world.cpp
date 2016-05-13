@@ -66,10 +66,10 @@ void World::setGLOrtho() const
 void World::drawAll() const noexcept
 {
     for (const b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
-        Render::getInstance().drawRigid(b);
+        Render::getInstance().drawRigid(b, getScale());
 
     for (const b2ParticleSystem *s = physics->GetParticleSystemList(); s; s = s->GetNext())
-        Render::getInstance().drawParticleSystem(s);
+        Render::getInstance().drawParticleSystem(s, getScale());
 }
 
 void World::step()
@@ -87,6 +87,13 @@ void World::step()
         );
 
     ParticleSystem::cleanDied();
+}
+
+float World::getScale() const
+{
+    int px, py;
+    mWindow->getWidthHeight(&px, &py);
+    return ((mCurRightMost - mCurLeftMost) / px + (mCurUpMost - mCurDownMost) / py) / 2;
 }
 
 MainWorld::MainWorld()
@@ -113,13 +120,19 @@ MainWorld::MainWorld()
     buttons[BUTTON_LARGE_WOOD_BLOCK].first->getReferee()->SetType(b2_staticBody);
     curH -= 1.9f;
 
+    curH -= 0.9f;
+    buttons[BUTTON_SMALL_STEEL_BALL].first = new SmallSteelBall(this, mCurLeftMost + 1.2f, curH);
+    buttons[BUTTON_SMALL_STEEL_BALL].second = new NewObjectCallback<SmallSteelBall>(mMouseHandler);
+    buttons[BUTTON_SMALL_STEEL_BALL].first->getReferee()->SetType(b2_staticBody);
+    curH -= 0.9f;
+
     curH -= 1.3f;
     buttons[BUTTON_STEEL_STICK].first = new SteelStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f);
     buttons[BUTTON_STEEL_STICK].second = new NewObjectCallback<SteelStick>(mMouseHandler);
     buttons[BUTTON_STEEL_STICK].first->getReferee()->SetType(b2_staticBody);
     curH -= 1.3f;
 
-    curH -= 1.1f;
+    curH -= 3.0f;
     buttons[BUTTON_DELETE].first = new Button<IMAGE_RED_CROSS>(this, mCurLeftMost + 0.8f, mCurLeftMost + 1.6f, curH - 0.4f, curH + 0.4f);
     buttons[BUTTON_DELETE].second = new DeleteButtonCallback(mMouseHandler);
     curH -= 1.1f;

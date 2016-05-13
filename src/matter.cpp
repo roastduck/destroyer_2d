@@ -221,6 +221,29 @@ std::vector<b2FixtureDef> LargeWoodBlock::genFixtureDefs()
     return { fixtureDef };
 }
 
+SmallSteelBall::SmallSteelBall(World *_world, float x, float y, float, float) noexcept
+    : Rigid(_world, genBodyDef(x, y), genFixtureDefs())
+{}
+
+b2BodyDef SmallSteelBall::genBodyDef(float x, float y)
+{
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position.Set(x, y);
+    return bodyDef;
+}
+
+std::vector<b2FixtureDef> SmallSteelBall::genFixtureDefs()
+{
+    b2CircleShape *dynamicBall = new b2CircleShape();
+    dynamicBall->m_radius = 0.5f;
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = dynamicBall;
+    fixtureDef.density = STEEL_DENSITY;
+    fixtureDef.friction = STEEL_FRICTION;
+    return { fixtureDef };
+}
+
 Frame::Frame(World *_world, float l, float r, float d, float u) noexcept
     : Rigid(_world, genBodyDef(), genFixtureDefs(l, r, d, u))
 {}

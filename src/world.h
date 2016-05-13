@@ -42,6 +42,11 @@ public:
     void step();
 
     /**
+     * Get 1 pixel = ? meter
+     */
+    float getScale() const;
+
+    /**
      * Return b2World pointer
      */
     b2World *getReferee() const { return physics; }
@@ -93,10 +98,11 @@ public:
     {
         BUTTON_SMALL_WOOD_BLOCK = 0,
         BUTTON_LARGE_WOOD_BLOCK = 1,
-        BUTTON_STEEL_STICK = 2,
-        BUTTON_DELETE = 3,
+        BUTTON_SMALL_STEEL_BALL = 2,
+        BUTTON_STEEL_STICK = 3,
+        BUTTON_DELETE = 4,
 
-        BUTTON_NUM = 4
+        BUTTON_NUM = 5
     };
 
 private:

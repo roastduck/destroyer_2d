@@ -60,7 +60,6 @@ const unsigned char WATER_COLOR_A_256 = 0x60;
 // The alpha for particles actually not influencing the
 // color, but the particle size
 
-// For alerts, INCREASE alphas to INCREASE transparency
 const float ALERT_NORMAL_COLOR_R = (float)0x05/0xFF;
 const float ALERT_NORMAL_COLOR_G = (float)0x3E/0xFF;
 const float ALERT_NORMAL_COLOR_B = (float)0xFF/0xFF;
@@ -74,12 +73,12 @@ const float ALERT_HOVER_COLOR_A = 0.5f;
 const float ALERT_WARNING_COLOR_R = (float)0xFF/0xFF;
 const float ALERT_WARNING_COLOR_G = (float)0x00/0xFF;
 const float ALERT_WARNING_COLOR_B = (float)0x00/0xFF;
-const float ALERT_WARNING_COLOR_A = 0.2f;
+const float ALERT_WARNING_COLOR_A = 0.8f;
 
 const float ALERT_SHADOW_COLOR_R = (float)0x32/0xFF;
 const float ALERT_SHADOW_COLOR_G = (float)0x27/0xFF;
 const float ALERT_SHADOW_COLOR_B = (float)0x22/0xFF;
-const float ALERT_SHADOW_COLOR_A = 0.2f;
+const float ALERT_SHADOW_COLOR_A = 0.8f;
 
 const float TIP_LINE_COLOR_R = (float)0xFF/0xFF;
 const float TIP_LINE_COLOR_G = (float)0x00/0xFF;
@@ -89,7 +88,7 @@ const float TIP_LINE_COLOR_A = 1.0f;
 /*
  * About Render
  */
-const float PARTICLE_SIZE_SCALE = 200.0f;
+const float PARTICLE_SIZE_SCALE = 7.0f;
 
 /*
  * Physics

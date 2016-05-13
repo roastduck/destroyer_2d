@@ -70,7 +70,7 @@ void Window::run()
         getWidthHeight(&width, &height);
         glViewport(0, 0, width, height);
 
-        glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 1.0f);
+        glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 0.0f);
         glClearDepth(100.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
