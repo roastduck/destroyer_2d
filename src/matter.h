@@ -141,6 +141,24 @@ private:
 };
 
 /**
+ * Dynamic 3X3 large wooden block
+ * Will Float
+ */
+class LargeWoodBlock : public Rigid
+{
+public:
+    LargeWoodBlock(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
+
+    virtual float getColorR() const override { return WOOD_COLOR_R; }
+    virtual float getColorG() const override { return WOOD_COLOR_G; }
+    virtual float getColorB() const override { return WOOD_COLOR_B; }
+    virtual float getColorA() const override { return WOOD_COLOR_A; }
+private:
+    static b2BodyDef genBodyDef(float x, float y);
+    static std::vector<b2FixtureDef> genFixtureDefs();
+};
+
+/**
  * Frame around the world
  * 1 unit thick
  */

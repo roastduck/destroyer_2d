@@ -107,6 +107,12 @@ MainWorld::MainWorld()
     buttons[BUTTON_SMALL_WOOD_BLOCK].first->getReferee()->SetType(b2_staticBody);
     curH -= 0.9f;
 
+    curH -= 1.9f;
+    buttons[BUTTON_LARGE_WOOD_BLOCK].first = new LargeWoodBlock(this, mCurLeftMost + 2.2f, curH);
+    buttons[BUTTON_LARGE_WOOD_BLOCK].second = new NewObjectCallback<LargeWoodBlock>(mMouseHandler);
+    buttons[BUTTON_LARGE_WOOD_BLOCK].first->getReferee()->SetType(b2_staticBody);
+    curH -= 1.9f;
+
     curH -= 1.3f;
     buttons[BUTTON_STEEL_STICK].first = new SteelStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f);
     buttons[BUTTON_STEEL_STICK].second = new NewObjectCallback<SteelStick>(mMouseHandler);

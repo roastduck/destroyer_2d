@@ -92,10 +92,11 @@ public:
     enum BUTTON_NAME
     {
         BUTTON_SMALL_WOOD_BLOCK = 0,
-        BUTTON_STEEL_STICK = 1,
-        BUTTON_DELETE = 2,
+        BUTTON_LARGE_WOOD_BLOCK = 1,
+        BUTTON_STEEL_STICK = 2,
+        BUTTON_DELETE = 3,
 
-        BUTTON_NUM = 3
+        BUTTON_NUM = 4
     };
 
 private:

@@ -198,6 +198,29 @@ std::vector<b2FixtureDef> SmallWoodBlock::genFixtureDefs()
     return { fixtureDef };
 }
 
+LargeWoodBlock::LargeWoodBlock(World *_world, float x, float y, float, float) noexcept
+    : Rigid(_world, genBodyDef(x, y), genFixtureDefs())
+{}
+
+b2BodyDef LargeWoodBlock::genBodyDef(float x, float y)
+{
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position.Set(x, y);
+    return bodyDef;
+}
+
+std::vector<b2FixtureDef> LargeWoodBlock::genFixtureDefs()
+{
+    b2PolygonShape *dynamicBox = new b2PolygonShape();
+    dynamicBox->SetAsBox(1.5f, 1.5f); // 3X3
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = dynamicBox;
+    fixtureDef.density = WOOD_DENSITY;
+    fixtureDef.friction = WOOD_FRICTION;
+    return { fixtureDef };
+}
+
 Frame::Frame(World *_world, float l, float r, float d, float u) noexcept
     : Rigid(_world, genBodyDef(), genFixtureDefs(l, r, d, u))
 {}
