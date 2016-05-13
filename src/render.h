@@ -2,6 +2,7 @@
 #define RENDER_H_
 
 #include <string>
+#include <unordered_map>
 #include "loader.h"
 #include "matter.h"
 
@@ -28,6 +29,8 @@ private:
 
     float smoothstep(float x) { return x * x * (3 - 2 * x); }
 
+    // Because of glDisable, these gen** functions cannot be used after glEnable-ed
+
     GLuint genShader(GLenum type, const std::string &source);
 
     GLuint genProgram(GLuint vertexShader, GLuint fragmentShader);
@@ -45,6 +48,8 @@ private:
 
     /// controls the two rendering procedures
     void drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count, float depth) noexcept;
+
+    GLuint getTextureFromPixels(const unsigned char pixels[][4], int width, int height);
 
     /// update windowWidth and windowHeight from mWindow
     /// @return bool. true when changed.
@@ -79,6 +84,8 @@ private:
         "   if (temp.a < 0.1) temp = vec4(0, 0, 0, 0); else temp.a = 0.5;\n"
         "   colorOut = temp;\n"
         "}\n";
+
+    std::unordered_map<int, GLuint> cachedTexture;
 
     static const Window *mWindow;
     static int windowWidth, windowHeight;

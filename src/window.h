@@ -16,9 +16,10 @@ public:
     enum CursorType
     {
         CURSOR_ARROW = 0,
-        CURSOR_CROSS = 1
+        CURSOR_CROSS = 1,
+
+        CURSOR_TYPE_NUM = 2
     };
-    static const int CURSOR_TYPE_NUM = 2;
 
     Window();
 

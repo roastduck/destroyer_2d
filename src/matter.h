@@ -6,10 +6,12 @@
 #ifndef MATTER_H_
 #define MATTER_H_
 
-#include <list>
 #include <ctime>
+#include <cassert>
+#include <list>
 #include <vector>
 #include <Box2D/Box2D.h>
+#include "image.h"
 #include "const.h"
 
 class World;
@@ -23,10 +25,20 @@ public:
     Matter(World *_world) noexcept : world(_world), depth(0.0f) {}
     virtual ~Matter() noexcept {}
 
-    virtual float getColorR() const = 0;
-    virtual float getColorG() const = 0;
-    virtual float getColorB() const = 0;
-    virtual float getColorA() const = 0;
+    // choose one of below:
+    enum RenderMethod
+    {
+        RENDER_COLOR = 0,
+        RENDER_TEXTURE = 1
+    };
+    virtual RenderMethod getRenderMethod() const { return RENDER_COLOR; }
+    // 1. use pure color
+    virtual float getColorR() const { assert(false); }
+    virtual float getColorG() const { assert(false); }
+    virtual float getColorB() const { assert(false); }
+    virtual float getColorA() const { assert(false); }
+    // 2. use texture
+    virtual ImageName getImage() const { assert(false); }
 
     void setDepth(float _depth) { depth = _depth; }
     float getDepth() const { return depth; }
@@ -178,6 +190,20 @@ private:
     static std::vector<b2FixtureDef> genFixtureDefs(float x1, float y1, float x2, float y2);
 };
 
+template <ImageName imageName>
+class Button : public Rigid
+{
+public:
+    Button(World *_world, float l, float r, float d, float u) noexcept;
+
+    virtual RenderMethod getRenderMethod() const override { return RENDER_TEXTURE; }
+    virtual ImageName getImage() const override { return imageName; }
+
+private:
+    static b2BodyDef genBodyDef(float l, float r, float d, float u);
+    static std::vector<b2FixtureDef> genFixtureDefs(float l, float r, float d, float u);
+};
+
 /**
  * A square water area
  * This must be use as a pool where the number of particles is static
@@ -196,5 +222,31 @@ private:
     static b2ParticleSystemDef genSystemDef();
     static std::vector<b2ParticleGroupDef> genGroupDefs(float l, float r, float d, float u);
 };
+
+// Here we implement template classes
+
+template <ImageName imageName>
+inline Button<imageName>::Button(World *_world, float l, float r, float d, float u) noexcept
+    : Rigid(_world, genBodyDef(l, r, d, u), genFixtureDefs(l, r, d, u))
+{}
+
+template <ImageName imageName>
+b2BodyDef Button<imageName>::genBodyDef(float l, float r, float d, float u)
+{
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set((l + r) / 2, (d + u)/2);
+    return bodyDef;
+}
+
+template <ImageName imageName>
+std::vector<b2FixtureDef> Button<imageName>::genFixtureDefs(float l, float r, float d, float u)
+{
+    b2PolygonShape *dynamicBox = new b2PolygonShape();
+    dynamicBox->SetAsBox(r - l, u - d);
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = dynamicBox;
+    return { fixtureDef };
+}
 
 #endif // MATTER_H_

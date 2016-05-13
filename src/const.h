@@ -60,6 +60,7 @@ const unsigned char WATER_COLOR_A_256 = 0x60;
 // The alpha for particles actually not influencing the
 // color, but the particle size
 
+// For alerts, INCREASE alphas to INCREASE transparency
 const float ALERT_NORMAL_COLOR_R = (float)0x05/0xFF;
 const float ALERT_NORMAL_COLOR_G = (float)0x3E/0xFF;
 const float ALERT_NORMAL_COLOR_B = (float)0xFF/0xFF;

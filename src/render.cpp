@@ -57,17 +57,53 @@ void Render::drawRigid(const b2Body *b) noexcept
                
                 // the 3 steps must happen EXACTLY in this order !
 
+                // 1. main
                 glBlendFunc(GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA);
 
-                glBegin(GL_POLYGON);
-                for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+                switch (m->getRenderMethod())
                 {
-                    b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
-                    glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
-                    glVertex3f(pos.x, pos.y, m->getDepth());
-                }
-                glEnd();
+                case Matter::RENDER_COLOR:
+                    glBegin(GL_POLYGON);
+                    for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+                    {
+                        b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
+                        glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
+                        glVertex3f(pos.x, pos.y, m->getDepth());
+                    }
+                    glEnd();
+                    break;
 
+                case Matter::RENDER_TEXTURE:
+                    ImageName name = m->getImage();
+                    if (! cachedTexture.count(name))
+                        cachedTexture[name] = getTextureFromPixels(IMAGES[name], IMAGES_W[name], IMAGES_H[name]);
+                    glEnable(GL_TEXTURE_2D);
+                    glBindTexture(GL_TEXTURE_2D, cachedTexture[name]);
+
+                    b2Vec2 center(b->GetPosition());
+                    float scaleX(0), scaleY(0);
+                    for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+                    {
+                        b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
+                        scaleX = std::max(scaleX, pos.x - center.x);
+                        scaleY = std::max(scaleY, pos.y - center.y);
+                    }
+                    glBegin(GL_POLYGON);
+                    for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+                    {
+                        b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
+                        glTexCoord2f((pos.x - center.x) / scaleX * 0.5f + 0.5f, (pos.y - center.y) / scaleY * 0.5f + 0.5f);
+                        glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+                        glVertex3f(pos.x, pos.y, m->getDepth());
+                    }
+                    glEnd();
+
+                    glDisable(GL_TEXTURE_2D);
+
+                    break;
+                }
+
+                // 2. edge
                 glBegin(GL_LINES);
                 for (int _i = 1; _i <= ((b2PolygonShape*)shape)->GetVertexCount() * 2; _i++)
                 {
@@ -78,12 +114,12 @@ void Render::drawRigid(const b2Body *b) noexcept
                 }
                 glEnd();
                 
+                // 3. alert
                 if (m->getAlert())
                 {
                     //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
                     glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);
 
-                    glBegin(GL_POLYGON);
                     for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
                     {
                         b2Vec2 pos(b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i)));
@@ -334,6 +370,22 @@ void Render::drawParticles(const b2Vec2 *centers, float32 radius, const b2Partic
 
     particleRender1(centers, radius, colors, count);
     particleRender2(depth);
+}
+
+GLuint Render::getTextureFromPixels(const unsigned char pixels[][4], int width, int height)
+{
+    GLuint ret;
+    glGenTextures(1, &ret);
+    glEnable(GL_TEXTURE_2D);
+
+    glBindTexture(GL_TEXTURE_2D, ret);
+    glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+
+    glDisable(GL_TEXTURE_2D);
+    return ret;
 }
 
 bool Render::updateWindowSize()

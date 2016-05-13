@@ -121,6 +121,8 @@ TestWorldButtons::TestWorldButtons()
     SteelStick *button2 = new SteelStick(this, -6.0f, 3.0f, -8.0f, 5.0f);
     button2->getReferee()->SetType(b2_staticBody);
     mMouseHandler->addButton(button2, callback2);
+
+    Button<IMAGE_RED_CROSS> *button3 = new Button<IMAGE_RED_CROSS>(this, -7.3f, -6.7f, 1.4f, 2.0f);
 }
 
 TestWorldButtons::~TestWorldButtons()
