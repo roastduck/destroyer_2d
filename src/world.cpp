@@ -47,6 +47,14 @@ World::~World() noexcept
     delete physics;
 }
 
+void World::setView(float l, float r, float d, float u)
+{
+    mCurLeftMost = l;
+    mCurRightMost = r;
+    mCurDownMost = d;
+    mCurUpMost = u;
+}
+
 void World::setGLOrtho() const
 {
     glMatrixMode(GL_PROJECTION);
@@ -81,6 +89,46 @@ void World::step()
     ParticleSystem::cleanDied();
 }
 
+MainWorld::MainWorld()
+    : World(0, BATTLE_W, 0, BATTLE_H)
+{
+    float padding = (BATTLE_H - BUILD_H) / 2;
+    setView(padding, padding + BUILD_W, padding, padding + BUILD_H);
+
+    buildFrame = new Frame(this, mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost);
+    new WaterSquare(this, mLeftMost, mRightMost, mDownMost, mCurDownMost - 1.0f);
+
+    memset(buttons, 0, sizeof buttons);
+    float curH = mCurUpMost;
+
+    curH -= 0.9f;
+    buttons[BUTTON_SMALL_WOOD_BLOCK].first = new SmallWoodBlock(this, mCurLeftMost + 1.2f, curH);
+    buttons[BUTTON_SMALL_WOOD_BLOCK].second = new NewObjectCallback<SmallWoodBlock>(mMouseHandler);
+    buttons[BUTTON_SMALL_WOOD_BLOCK].first->getReferee()->SetType(b2_staticBody);
+    curH -= 0.9f;
+
+    curH -= 1.3f;
+    buttons[BUTTON_STEEL_STICK].first = new SteelStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f);
+    buttons[BUTTON_STEEL_STICK].second = new NewObjectCallback<SteelStick>(mMouseHandler);
+    buttons[BUTTON_STEEL_STICK].first->getReferee()->SetType(b2_staticBody);
+    curH -= 1.3f;
+
+    curH -= 1.1f;
+    buttons[BUTTON_DELETE].first = new Button<IMAGE_RED_CROSS>(this, mCurLeftMost + 0.8f, mCurLeftMost + 1.6f, curH - 0.4f, curH + 0.4f);
+    buttons[BUTTON_DELETE].second = new DeleteButtonCallback(mMouseHandler);
+    curH -= 1.1f;
+
+    for (int i = 0; i < BUTTON_NUM; i++)
+        mMouseHandler->addButton(buttons[i].first, buttons[i].second);
+}
+
+MainWorld::~MainWorld()
+{
+    for (int i = 0; i < BUTTON_NUM; i++)
+        if (buttons[i].second)
+            delete buttons[i].second; // delete callbacks
+}
+
 #ifdef COMPILE_TEST
 
 TestWorldDisplayTriangle::TestWorldDisplayTriangle()
@@ -105,30 +153,6 @@ TestWorldSimplePhysics::TestWorldSimplePhysics()
     new SmallWoodBlock(this, -5.0f, 5.0f);
     new SmallWoodBlock(this, -4.0f, 8.0f);
     new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
-}
-
-TestWorldButtons::TestWorldButtons()
-    : World(-10, 10, -10, 10)
-{
-    new WaterSquare(this, -10.0f, 10.0f, -10.0f, -8.0f);
-
-    callback1 = new NewObjectCallback<SmallWoodBlock>(mMouseHandler);
-    SmallWoodBlock *button1 = new SmallWoodBlock(this, -7.0f, 7.0f);
-    button1->getReferee()->SetType(b2_staticBody);
-    mMouseHandler->addButton(button1, callback1);
-
-    callback2 = new NewObjectCallback<SteelStick>(mMouseHandler);
-    SteelStick *button2 = new SteelStick(this, -6.0f, 3.0f, -8.0f, 5.0f);
-    button2->getReferee()->SetType(b2_staticBody);
-    mMouseHandler->addButton(button2, callback2);
-
-    Button<IMAGE_RED_CROSS> *button3 = new Button<IMAGE_RED_CROSS>(this, -7.3f, -6.7f, 1.4f, 2.0f);
-}
-
-TestWorldButtons::~TestWorldButtons()
-{
-    delete callback1;
-    delete callback2;
 }
 
 #endif // COMPILE_TEST

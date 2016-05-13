@@ -22,7 +22,7 @@ class World;
 class Matter
 {
 public:
-    Matter(World *_world) noexcept : world(_world), depth(0.0f) {}
+    Matter(World *_world) noexcept : world(_world), depth(0.0f), isUserCreated(false) {}
     virtual ~Matter() noexcept {}
 
     // choose one of below:
@@ -47,11 +47,17 @@ public:
     /// Can be overidden
     static bool canDrawLine() { return false; }
 
+    /// mark to be created by players
+    void setIsUserCreated(bool b) { isUserCreated = b; }
+    /// determine whether it is created by players
+    bool getIsUserCreated() const { return isUserCreated; }
+
 protected:
     World *world;
 
 private:
     float depth;
+    bool isUserCreated;
 };
 
 /**
@@ -117,7 +123,7 @@ private:
 };
 
 /**
- * Dynamic 2X2 small wooden block
+ * Dynamic 1X1 small wooden block
  * Will Float
  */
 class SmallWoodBlock : public Rigid
@@ -136,6 +142,7 @@ private:
 
 /**
  * Frame around the world
+ * 1 unit thick
  */
 class Frame : public Rigid
 {

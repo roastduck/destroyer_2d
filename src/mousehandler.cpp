@@ -13,6 +13,8 @@ MouseHandler::MouseHandler(World *_world)
 
 void MouseHandler::addButton(Rigid *_rigid, MouseCallback *_callback)
 {
+    assert(_rigid != NULL);
+    assert(_callback != NULL);
     buttons.push_back(std::make_pair(_rigid, _callback));
 }
 

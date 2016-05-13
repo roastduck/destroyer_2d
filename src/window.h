@@ -17,8 +17,9 @@ public:
     {
         CURSOR_ARROW = 0,
         CURSOR_CROSS = 1,
+        CURSOR_DELETE = 2,
 
-        CURSOR_TYPE_NUM = 2
+        CURSOR_TYPE_NUM = 3
     };
 
     Window();

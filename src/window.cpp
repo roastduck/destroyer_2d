@@ -1,6 +1,7 @@
 #include <cassert>
 #include <iostream>
 #include <stdexcept>
+#include "image.h"
 #include "world.h"
 #include "window.h"
 #include "render.h"
@@ -123,6 +124,11 @@ void Window::genCursor()
     }
 
     cursors[CURSOR_CROSS] = glfwCreateCursor(&image, 7, 7);
+
+    image.width = IMAGES_W[IMAGE_RED_CROSS];
+    image.height = IMAGES_H[IMAGE_RED_CROSS];
+    image.pixels = (unsigned char *)IMAGES[IMAGE_RED_CROSS];
+    cursors[CURSOR_DELETE] = glfwCreateCursor(&image, 7, 7);
 }
 
 void Window::deleteCursor() noexcept

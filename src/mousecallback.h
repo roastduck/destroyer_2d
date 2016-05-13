@@ -41,8 +41,10 @@ public:
     void leftClick(float x, float y) override
     {
         if (toPut->tryPutDown())
+        {
+            toPut->setIsUserCreated(true);
             createNew(x, y);
-        else
+        } else
             toPut->setAlert(ALERT_WARNING, CLOCKS_PER_SEC);
     }
 
@@ -96,6 +98,8 @@ public:
             ToPut *p = new ToPut(mMouseHandler->getWorld(), sx, sy, x, y);
             if (! p->tryPutDown())
                 delete p;
+            else
+                p->setIsUserCreated(true);
         } else
         {
             drawing = true;
@@ -134,6 +138,51 @@ public:
             callback = new PuttingCallback<ToPut>(mMouseHandler, x, y);
         // callback will be deleted when switching mouse status
         mMouseHandler->setStatus(MouseHandler::MOUSE_PUTTING, callback);
+    }
+};
+
+class DeletingCallback : public MouseCallback
+{
+public:
+    DeletingCallback(MouseHandler *_handler) : MouseCallback(_handler)
+    {
+        mMouseHandler->getWorld()->getWindow()->useCursor(Window::CURSOR_DELETE);
+    }
+
+    ~DeletingCallback()
+    {
+        mMouseHandler->getWorld()->getWindow()->useCursor(Window::CURSOR_ARROW);
+    }
+   
+    void leftClick(float x, float y) override
+    {
+        for (b2Body *b = mMouseHandler->getWorld()->getB2World()->GetBodyList(); b; b = b->GetNext())
+            if (((Matter*)(b->GetUserData()))->getIsUserCreated())
+            {
+                bool chosen(false);
+                for (b2Fixture *f = b->GetFixtureList(); f && ! chosen; f = f->GetNext())
+                    if (f->TestPoint(b2Vec2(x, y)))
+                        chosen = true;
+                if (! chosen) continue;
+                delete (Matter*)(b->GetUserData());
+                break;
+            }
+    }
+
+    void rightClick(float x, float y) override
+    {
+        mMouseHandler->setStatus(MouseHandler::MOUSE_FREE);
+    }
+};
+
+class DeleteButtonCallback : public MouseCallback
+{
+public:
+    DeleteButtonCallback(MouseHandler *_handler) : MouseCallback(_handler) {}
+
+    void leftClick(float, float) override
+    {
+        mMouseHandler->setStatus(MouseHandler::MOUSE_PUTTING, new DeletingCallback(mMouseHandler));
     }
 };
 

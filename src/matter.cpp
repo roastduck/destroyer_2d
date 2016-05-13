@@ -190,7 +190,7 @@ b2BodyDef SmallWoodBlock::genBodyDef(float x, float y)
 std::vector<b2FixtureDef> SmallWoodBlock::genFixtureDefs()
 {
     b2PolygonShape *dynamicBox = new b2PolygonShape();
-    dynamicBox->SetAsBox(1.0f, 1.0f); // 2X2
+    dynamicBox->SetAsBox(0.5f, 0.5f); // 1X1
     b2FixtureDef fixtureDef;
     fixtureDef.shape = dynamicBox;
     fixtureDef.density = WOOD_DENSITY;

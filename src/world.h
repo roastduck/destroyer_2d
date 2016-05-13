@@ -21,6 +21,11 @@ public:
     virtual ~World() noexcept;
 
     /**
+     * Set part of the whole world as current view.
+     */
+    void setView(float l, float r, float d, float u);
+
+    /**
      * Set OpenGL with orthographic projection
      * To disply corresponding area
      */
@@ -73,6 +78,34 @@ public:
     void SayGoodbye(b2ParticleGroup *group) override;
 };
 
+/**
+ * This world is the main scenery of the game.
+ * Players first build a ship in a limited area.
+ * When clicked Battle, he will be set free and play.
+ */
+class MainWorld : public World
+{
+public:
+    MainWorld();
+    ~MainWorld();
+
+    enum BUTTON_NAME
+    {
+        BUTTON_SMALL_WOOD_BLOCK = 0,
+        BUTTON_STEEL_STICK = 1,
+        BUTTON_DELETE = 2,
+
+        BUTTON_NUM = 3
+    };
+
+private:
+    static constexpr float BUILD_W = 30.0f, BUILD_H = 23.0f;
+    static constexpr float BATTLE_W = 100.0f, BATTLE_H = 40.0f;
+
+    std::pair<Rigid*, MouseCallback*> buttons[BUTTON_NUM];
+    Rigid *buildFrame;
+};
+
 #ifdef COMPILE_TEST
 
 /**
@@ -92,18 +125,6 @@ class TestWorldSimplePhysics : public World
 {
 public:
     TestWorldSimplePhysics();
-};
-
-/**
- * display buttons
- */
-class TestWorldButtons : public World
-{
-public:
-    TestWorldButtons();
-    ~TestWorldButtons();
-private:
-    MouseCallback *callback1, *callback2;
 };
 
 #endif // COMPILE_TEST

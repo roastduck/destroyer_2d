@@ -13,7 +13,7 @@ typedef const unsigned char (*pixel_t)[4];
 #define BEGIN {
 #define END { 0, 0, 0, 0 } };
 #define X { R, G, B, A },
-#define _ { 0x00, 0x00, 0x00, 0xFF },
+#define _ { 0x00, 0x00, 0x00, 0x00 },
 
 /*
  * RED_CROSS

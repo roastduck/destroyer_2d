@@ -4,7 +4,7 @@
 int main()
 {
     Window window;
-    TestWorldButtons world;
+    MainWorld world;
     window.setWorld(&world);
     window.run();
     return 0;

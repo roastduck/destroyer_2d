@@ -94,7 +94,7 @@ const float PARTICLE_SIZE_SCALE = 200.0f;
 /*
  * Physics
  */
-const float GRAVITY = 2.5f; // >= 0
+const float GRAVITY = 9.8f; // >= 0
 const float PARTICLE_RADIUS = 0.25f; // maybe too small
 
 const float WOOD_DENSITY = 0.4f;
