@@ -106,14 +106,14 @@ void Render::drawRigid(const b2Body *b, float worldScale) noexcept
                     for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
                     {
                         pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
-                        scaleX = std::max(scaleX, pos.x - center.x);
-                        scaleY = std::max(scaleY, pos.y - center.y);
+                        scaleX = std::max(scaleX, fabsf(pos.x - center.x));
+                        scaleY = std::max(scaleY, fabsf(pos.y - center.y));
                     }
                     glBegin(GL_POLYGON);
                     for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
                     {
                         pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
-                        glTexCoord2f((pos.x - center.x) / scaleX * 0.5f + 0.5f, (pos.y - center.y) / scaleY * 0.5f + 0.5f);
+                        glTexCoord2f((pos.x - center.x) / scaleX * 0.5f + 0.5f, (pos.y - center.y) / -scaleY * 0.5f + 0.5f);
                         if (m->getRenderMethod() == Matter::RENDER_COLOR_WITH_TEXTURE)
                             glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
                         else

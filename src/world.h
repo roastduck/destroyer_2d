@@ -39,7 +39,7 @@ public:
     /**
      * Run next simulation step
      */
-    void step();
+    virtual void step();
 
     /**
      * Get 1 pixel = ? meter
@@ -134,26 +134,59 @@ class MainWorld : public World
 {
 public:
     MainWorld();
-    ~MainWorld();
 
-    enum BUTTON_NAME
+    enum BuildingButtonName
     {
         BUTTON_SMALL_WOOD_BLOCK = 0,
         BUTTON_LARGE_WOOD_BLOCK = 1,
         BUTTON_SMALL_STEEL_BALL = 2,
         BUTTON_STEEL_STICK = 3,
         BUTTON_DELETE = 4,
+        BUTTON_LAUNCH = 5,
 
-        BUTTON_NUM = 5
+        BUTTON_NUM = 6
     };
 
-private:
-    static constexpr float BUILD_W = 30.0f, BUILD_H = 23.0f;
-    static constexpr float BATTLE_W = 100.0f, BATTLE_H = 40.0f;
+    enum WorldStatus
+    {
+        STATUS_BUILDING = 0,
+        STATUS_BATTLE = 1,
+        STATUS_NOTIFY_LAUNCH = 2,
+        STATUS_CANCEL_BATTLE = 3
+    };
 
-    std::pair<Rigid*, MouseCallback*> buttons[BUTTON_NUM];
-    MouseCallback *draggingCallback;
-    Rigid *buildFrame;
+    /**
+     * Switch from building to battle in the next round
+     */
+    void notifyLaunch() { status = STATUS_NOTIFY_LAUNCH; }
+
+    /**
+     * Cancel battle in the next round
+     */
+    void cancelBattle() { status = STATUS_CANCEL_BATTLE; }
+
+    void step() override;
+
+private:
+    void makeBuildingButtons();
+    void makeBattleButtons();
+
+    /**
+     * Switch from building to battle
+     */
+    void launch();
+
+    /**
+     * Focus on the ship built by players
+     */
+    void focus();
+
+    static constexpr float BUILD_W = 30.0f, BUILD_H = 23.0f;
+    static constexpr float BATTLE_W = 100.0f, BATTLE_H = 60.0f;
+
+    Rigid *buildFrame, *cancelButton;
+
+    WorldStatus status;
 };
 
 #ifdef COMPILE_TEST

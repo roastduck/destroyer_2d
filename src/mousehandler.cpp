@@ -12,11 +12,30 @@ MouseHandler::MouseHandler(World *_world)
       status(MOUSE_FREE), mFreeCallback(NULL), mPuttingCallback(NULL)
 {}
 
+MouseHandler::~MouseHandler()
+{
+    cleanButtons();
+    if (mFreeCallback)
+        delete mFreeCallback;
+    if (mPuttingCallback)
+        delete mPuttingCallback;
+}
+
 void MouseHandler::addButton(Rigid *_rigid, MouseCallback *_callback)
 {
     assert(_rigid != NULL);
     assert(_callback != NULL);
     buttons.push_back(std::make_pair(_rigid, _callback));
+}
+
+void MouseHandler::cleanButtons()
+{
+    for (const auto &x : buttons)
+    {
+        delete x.first;
+        delete x.second;
+    }
+    buttons.clear();
 }
 
 void MouseHandler::process()
@@ -63,8 +82,8 @@ void MouseHandler::updateMouse()
     } else
         leftClicked = rightClicked = false;
 
-    leftHold = (! leftClicked && leftPressing);
-    rightHold = (! rightClicked && rightPressing);
+    leftHold = leftPressing;
+    rightHold = rightPressing;
 }
 
 void MouseHandler::triggerCallback(MouseCallback *callback)

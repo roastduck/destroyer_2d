@@ -26,11 +26,17 @@ public:
     };
 
     MouseHandler(World *_world);
+    ~MouseHandler();
 
     /**
      * add a button to the button list
      */
     void addButton(Rigid *_rigid, MouseCallback *_callback);
+
+    /**
+     * Clean all the buttons and delete the corresponding callbacks
+     */
+    void cleanButtons();
 
     /**
      * main entry to process

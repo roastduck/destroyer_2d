@@ -49,6 +49,8 @@ Window::Window()
 
 Window::~Window() noexcept
 {
+    if (mWorld)
+        delete mWorld;
     deleteCursor();
     if (mTarget)
         glfwDestroyWindow(mTarget);
@@ -57,6 +59,8 @@ Window::~Window() noexcept
 
 void Window::setWorld(World *world)
 {
+    if (mWorld)
+        delete mWorld;
     mWorld = world;
     world->mWindow = this;
 }

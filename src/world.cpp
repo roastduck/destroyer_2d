@@ -159,17 +159,28 @@ float World::getScale() const
     return ((mCurRightMost - mCurLeftMost) / px + (mCurUpMost - mCurDownMost) / py) / 2;
 }
 
-MainWorld::MainWorld()
-    : World(0, BATTLE_W, 0, BATTLE_H)
+class LaunchCallback : public MouseCallback
 {
-    float padding = (BATTLE_H - BUILD_H) / 2;
-    setView(padding, padding + BUILD_W, padding, padding + BUILD_H);
+public:
+    LaunchCallback(MouseHandler *_handler) : MouseCallback(_handler) {}
+    void leftClick(float, float) { ((MainWorld*)(mMouseHandler->getWorld()))->notifyLaunch(); }
+};
 
-    buildFrame = new Frame(this, mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost);
-    new WaterSquare(this, mLeftMost, mRightMost, mDownMost, mCurDownMost - 1.0f);
+class CancelCallback : public MouseCallback
+{
+public:
+    CancelCallback(MouseHandler *_handler) : MouseCallback(_handler) {}
+    void leftClick(float, float) { ((MainWorld*)(mMouseHandler->getWorld()))->cancelBattle(); }
+};
 
+/// This is called during construction
+void MainWorld::makeBuildingButtons()
+{
+    // Mousehandler will take charge of destructions of button rigids and callbacks
+    std::pair<Rigid*, MouseCallback*> buttons[BUTTON_NUM];
     memset(buttons, 0, sizeof buttons);
     float curH = mCurUpMost;
+    float mx = (mCurLeftMost+mCurRightMost)/2;
 
     curH -= 0.9f;
     buttons[BUTTON_SMALL_WOOD_BLOCK].first = new SmallWoodBlock(this, mCurLeftMost + 1.2f, curH);
@@ -200,20 +211,119 @@ MainWorld::MainWorld()
     buttons[BUTTON_DELETE].second = new DeleteButtonCallback(mMouseHandler);
     curH -= 1.1f;
 
+    buttons[BUTTON_LAUNCH].first = new Button<IMAGE_LAUNCH>(this, mx - 2.0f, mx + 2.0f, mCurUpMost - 2.0f, mCurUpMost - 1.0f);
+    buttons[BUTTON_LAUNCH].second = new LaunchCallback(mMouseHandler);
+
     for (int i = 0; i < BUTTON_NUM; i++)
         mMouseHandler->addButton(buttons[i].first, buttons[i].second);
-
-    draggingCallback = new DraggingCallback(mMouseHandler);
-    mMouseHandler->setFreeCallback(draggingCallback);
 }
 
-MainWorld::~MainWorld()
+MainWorld::MainWorld()
+    : World(0, BATTLE_W, 0, BATTLE_H), status(STATUS_BUILDING)
 {
-    for (int i = 0; i < BUTTON_NUM; i++)
-        if (buttons[i].second)
-            delete buttons[i].second; // delete callbacks
+    float padding = (BATTLE_H - BUILD_H) / 2;
+    setView(padding, padding + BUILD_W, padding, padding + BUILD_H);
 
-    if (draggingCallback) delete draggingCallback;
+    buildFrame = new Frame(this, mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost);
+    new WaterSquare(this, mLeftMost, mRightMost, mDownMost, mCurDownMost - 1.0f);
+
+    makeBuildingButtons();
+
+    mMouseHandler->setFreeCallback(new DraggingCallback(mMouseHandler));
+}
+
+void MainWorld::makeBattleButtons()
+{
+    cancelButton = new Button<IMAGE_RED_CROSS>(this, -0.4f, 0.4f, -0.4f, 0.4f);
+    cancelButton->getReferee()->SetActive(false);
+    mMouseHandler->addButton(cancelButton, new CancelCallback(mMouseHandler));
+}
+
+void MainWorld::launch()
+{
+    status = STATUS_BATTLE;
+    mMouseHandler->cleanButtons();
+    mMouseHandler->setFreeCallback(NULL);
+    makeBattleButtons();
+
+    delete buildFrame;
+    buildFrame = NULL;
+}
+
+void MainWorld::focus()
+{
+    float l(INFINITY), r(-INFINITY), d(INFINITY), u(-INFINITY);
+    for (b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
+        if (((Matter*)(b->GetUserData()))->getIsUserCreated())
+        {
+            b2Vec2 pos(b->GetPosition());
+            l = std::min(l, pos.x - 9.0f);
+            r = std::max(r, pos.x + 27.0f);
+            d = std::min(d, pos.y - 9.0f);
+            u = std::max(u, pos.y + 9.0f);
+        }
+    if (l == INFINITY)
+        l = mLeftMost, r = mRightMost, d = mDownMost, u = mUpMost;
+
+    if ((r - l) < (u - d) * 1.33f)
+    {
+        float m = (l + r) / 2;
+        l = m - (u - d) * 1.33f / 2;
+        r = m + (u - d) * 1.33f / 2;
+    } else
+    {
+        float m = (d + u) / 2;
+        d = m - (r - l) / 1.33f / 2;
+        u = m + (r - l) / 1.33f / 2;
+    }
+
+    l = std::max(l, mLeftMost);
+    r = std::min(r, mRightMost);
+    d = std::max(d, mDownMost);
+    u = std::min(u, mUpMost);
+
+    assert(l <= r && d <= u);
+    if ((r - l) > (u - d) * 1.33f)
+    {
+        float m = (l + r) / 2;
+        l = m - (u - d) * 1.33f / 2;
+        r = m + (u - d) * 1.33f / 2;
+    } else
+    {
+        float m = (d + u) / 2;
+        d = m - (r - l) / 1.33f / 2;
+        u = m + (r - l) / 1.33f / 2;
+    }
+
+    float dl = std::max(std::min(l - mCurLeftMost, FOCUS_SPEED), -FOCUS_SPEED);
+    float dr = std::max(std::min(r - mCurRightMost, FOCUS_SPEED), -FOCUS_SPEED);
+    float dd = std::max(std::min(d - mCurDownMost, FOCUS_SPEED), -FOCUS_SPEED);
+    float du = std::max(std::min(u - mCurUpMost, FOCUS_SPEED), -FOCUS_SPEED);
+    setView(mCurLeftMost+dl, mCurRightMost+dr, mCurDownMost+dd, mCurUpMost+du);
+
+    cancelButton->getReferee()->SetTransform(
+        b2Vec2(mCurLeftMost + 0.8f, mCurUpMost - 0.8f),
+        cancelButton->getReferee()->GetAngle()
+    );
+}
+
+void MainWorld::step()
+{
+    switch (status)
+    {
+    case STATUS_BUILDING:
+        break;
+    case STATUS_BATTLE:
+        focus();
+        break;
+    case STATUS_NOTIFY_LAUNCH:
+        launch();
+        break;
+    case STATUS_CANCEL_BATTLE:
+        mWindow->setWorld(new MainWorld());
+        return;
+    }
+    World::step();
 }
 
 #ifdef COMPILE_TEST

@@ -25,13 +25,15 @@ const float ALERT_LINE_WIDTH = 0.2f;
 // minimum interval of two mouse clicks, in sec
 const float CLICK_INTERVAL = 0.3f;
 
+const float FOCUS_SPEED = 2.0f;
+
 /*
  * Shapes
  */
 const float STICK_THICKNESS = 0.3f;
 const float STICK_END_THICKNESS = 0.5f;
 
-const float WATER_PARTICLE_SIZE_SCALE = 7.0f;
+const float WATER_PARTICLE_SIZE_SCALE = 6.0f;
 const float DUST_PARTICLE_SIZE_SCALE = 1.0f;
 
 /*
@@ -92,7 +94,7 @@ const float TIP_LINE_COLOR_A = 1.0f;
  * Physics
  */
 const float GRAVITY = 9.8f; // >= 0
-const float PARTICLE_RADIUS = 0.25f; // maybe too small
+const float PARTICLE_RADIUS = 0.35f; // maybe too small
 
 const float WOOD_DENSITY = 0.4f;
 const float WOOD_FRICTION = 0.7f;

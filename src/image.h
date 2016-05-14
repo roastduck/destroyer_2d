@@ -11,8 +11,9 @@ void initImage();
 enum ImageName
 {
     IMAGE_RED_CROSS = 0,
+    IMAGE_LAUNCH = 1,
 
-    IMAGE_NUM = 1
+    IMAGE_NUM = 2
 };
 
 typedef const unsigned char (*pixel_t)[4];
@@ -67,11 +68,56 @@ END
 #undef b
 #undef a
 
+/*
+ * LAUNCH
+ */
+#define R 0xFF
+#define G 0x00
+#define B 0x00
+#define A 0xFF
+
+#define r 0xFF
+#define g 0xFF
+#define b 0x66
+#define a 0xFF
+
+const int LAUNCH_W = 64;
+const int LAUNCH_H = 16;
+const unsigned char LAUNCH[LAUNCH_W * LAUNCH_H + 1][4] =
+BEGIN
+X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+X _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ X
+X _ _ X X _ _ _ _ _ _ _ _ _ X X X _ _ _ _ _ X X _ _ _ _ X X _ _ X X _ _ _ _ _ X X _ _ _ _ X X X X X _ _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X _ _ _ _ _ _ _ _ X X X X X _ _ _ _ X X _ _ _ _ X X _ _ X X _ _ _ _ _ X X _ _ _ X X X X X X X _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X _ _ _ _ _ _ _ X X X _ X X X _ _ _ X X _ _ _ _ X X _ _ X X X _ _ _ _ X X _ _ X X _ _ _ _ X X _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X _ _ _ _ _ _ X X X _ _ _ X X X _ _ X X _ _ _ _ X X _ _ X X X X _ _ _ X X _ _ X X _ _ _ _ _ _ _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X _ _ _ _ _ _ X X _ _ _ _ _ X X _ _ X X _ _ _ _ X X _ _ X X X X X _ _ X X _ _ X X _ _ _ _ _ _ _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X _ _ _ _ _ _ X X _ _ _ _ _ X X _ _ X X _ _ _ _ X X _ _ X X _ X X _ _ X X _ _ X X _ _ _ _ _ _ _ _ X X X X X X X X _ _ X
+X _ _ X X _ _ _ _ _ _ X X _ _ _ _ _ X X _ _ X X _ _ _ _ X X _ _ X X _ _ X X _ X X _ _ X X _ _ _ _ _ _ _ _ X X X X X X X X _ _ X
+X _ _ X X _ _ _ _ _ _ X X X X X X X X X _ _ X X _ _ _ _ X X _ _ X X _ _ X X X X X _ _ X X _ _ _ _ _ _ _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X _ _ _ _ _ _ X X X X X X X X X _ _ X X _ _ _ _ X X _ _ X X _ _ _ X X X X _ _ X X _ _ _ _ _ _ _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X _ _ _ _ _ _ X X _ _ _ _ _ X X _ _ X X _ _ _ _ X X _ _ X X _ _ _ _ X X X _ _ X X _ _ _ _ X X _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X X X X X X _ X X _ _ _ _ _ X X _ _ X X X X X X X X _ _ X X _ _ _ _ _ X X _ _ _ X X X X X X X _ _ X X _ _ _ _ X X _ _ X
+X _ _ X X X X X X X _ X X _ _ _ _ _ X X _ _ _ X X X X X X _ _ _ X X _ _ _ _ _ X X _ _ _ _ X X X X X _ _ _ X X _ _ _ _ X X _ _ X
+X _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ X
+X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+END
+
+#undef R
+#undef G
+#undef B
+#undef A
+
+#undef r
+#undef g
+#undef b
+#undef a
+
 #undef X
 #undef _
 
-const pixel_t IMAGES[IMAGE_NUM] = { RED_CROSS };
-const int IMAGES_W[IMAGE_NUM] = { RED_CROSS_W };
-const int IMAGES_H[IMAGE_NUM] = { RED_CROSS_H };
+const pixel_t IMAGES[IMAGE_NUM] = { RED_CROSS, LAUNCH };
+const int IMAGES_W[IMAGE_NUM] = { RED_CROSS_W, LAUNCH_W };
+const int IMAGES_H[IMAGE_NUM] = { RED_CROSS_H, LAUNCH_H };
 
 #endif // IMAGE_H_

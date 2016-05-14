@@ -4,9 +4,8 @@
 int main()
 {
     Window window;
-    MainWorld world;
-    //TestWorldSimplePhysics world;
-    window.setWorld(&world);
+    window.setWorld(new MainWorld());
+    // Window will take charge of destruction of World
     window.run();
     return 0;
 }
