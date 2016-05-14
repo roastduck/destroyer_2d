@@ -83,6 +83,11 @@ public:
     float getAlertColorB() const;
     float getAlertColorA() const;
 
+    /// rigids are undestroyable by default
+    virtual float getStrength() const { return INFINITY; }
+    /// create a damage effect and delete the rigid
+    void damage();
+
     /// used in putting process when cursor moves
     /// set the object to (x, y)
     virtual bool tryMoveTo(float x, float y, float angle);
@@ -114,7 +119,10 @@ public:
     static void setDied(ParticleSystem *system) { died.push_back(system); }
 
     /// Clean all died
-    static void cleanDied() { for (ParticleSystem *s : died) delete s; died.clear(); }
+    static void cleanDied();
+
+    /// displayed radius = ? * physics radius
+    virtual float getDisplayedRadiusScale() const = 0;
 
 protected:
     b2ParticleSystem *physics;
@@ -136,6 +144,7 @@ public:
     virtual float getColorG() const override { return WOOD_COLOR_G; }
     virtual float getColorB() const override { return WOOD_COLOR_B; }
     virtual float getColorA() const override { return WOOD_COLOR_A; }
+    virtual float getStrength() const override { return WOOD_STRENGTH; }
 private:
     static b2BodyDef genBodyDef(float x, float y);
     static std::vector<b2FixtureDef> genFixtureDefs();
@@ -154,6 +163,7 @@ public:
     virtual float getColorG() const override { return WOOD_COLOR_G; }
     virtual float getColorB() const override { return WOOD_COLOR_B; }
     virtual float getColorA() const override { return WOOD_COLOR_A; }
+    virtual float getStrength() const override { return WOOD_STRENGTH; }
 private:
     static b2BodyDef genBodyDef(float x, float y);
     static std::vector<b2FixtureDef> genFixtureDefs();
@@ -171,6 +181,7 @@ public:
     virtual float getColorG() const override { return STEEL_COLOR_G; }
     virtual float getColorB() const override { return STEEL_COLOR_B; }
     virtual float getColorA() const override { return STEEL_COLOR_A; }
+    virtual float getStrength() const override { return STEEL_STRENGTH; }
 private:
     static b2BodyDef genBodyDef(float x, float y);
     static std::vector<b2FixtureDef> genFixtureDefs();
@@ -228,6 +239,7 @@ public:
     virtual float getColorG() const override { return STEEL_COLOR_G; }
     virtual float getColorB() const override { return STEEL_COLOR_B; }
     virtual float getColorA() const override { return STEEL_COLOR_A; }
+    virtual float getStrength() const override { return STEEL_STRENGTH; }
 private:
     static b2BodyDef genBodyDef(float x1, float y1, float x2, float y2);
     static std::vector<b2FixtureDef> genFixtureDefs(float x1, float y1, float x2, float y2);
@@ -256,14 +268,45 @@ class WaterSquare : public ParticleSystem
 public:
     WaterSquare(World *_world, float l, float r, float d, float u) noexcept;
 
-    virtual float getColorR() const { return (float)WATER_COLOR_R_256/0xFF; }
-    virtual float getColorG() const { return (float)WATER_COLOR_G_256/0xFF; }
-    virtual float getColorB() const { return (float)WATER_COLOR_B_256/0xFF; }
-    virtual float getColorA() const { return (float)WATER_COLOR_A_256/0xFF; }
+    virtual float getColorR() const override { return (float)WATER_COLOR_R_256/0xFF; }
+    virtual float getColorG() const override { return (float)WATER_COLOR_G_256/0xFF; }
+    virtual float getColorB() const override { return (float)WATER_COLOR_B_256/0xFF; }
+    virtual float getColorA() const override { return (float)WATER_COLOR_A_256/0xFF; }
+    virtual float getDisplayedRadiusScale() const override { return WATER_PARTICLE_SIZE_SCALE; }
 
 private:
     static b2ParticleSystemDef genSystemDef();
     static std::vector<b2ParticleGroupDef> genGroupDefs(float l, float r, float d, float u);
+};
+
+/**
+ * Dust rised when a rigid is damaged
+ */
+class Dust : public ParticleSystem
+{
+public:
+    /// @param v : linear velocity
+    /// @param w : angular velocity
+    Dust(
+        World *_world, const b2Vec2 &pos, const std::vector<b2Shape*> &shapes,
+        const b2Vec2 &v, float w,
+        float _colorR, float _colorG, float _colorB, float _colorA
+    ) noexcept;
+
+    virtual float getColorR() const override { return colorR; }
+    virtual float getColorG() const override { return colorG; }
+    virtual float getColorB() const override { return colorB; }
+    virtual float getColorA() const override { return colorA; }
+    virtual float getDisplayedRadiusScale() const override { return DUST_PARTICLE_SIZE_SCALE; }
+private:
+    static b2ParticleSystemDef genSystemDef();
+    static std::vector<b2ParticleGroupDef> genGroupDefs(
+        const b2Vec2 &pos, const std::vector<b2Shape*> &shapes,
+        const b2Vec2 &v, float w,
+        float _colorR, float _colorG, float _colorB, float _colorA
+    );
+
+    float colorR, colorG, colorB, colorA;
 };
 
 // Here we implement template classes

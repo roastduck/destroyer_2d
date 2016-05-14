@@ -50,7 +50,7 @@ Render::Render()
     genCircleTexture();
 }
 
-void Render::drawRigid(const b2Body *b, float scale) noexcept
+void Render::drawRigid(const b2Body *b, float worldScale) noexcept
 {
     glEnable(GL_BLEND);
 
@@ -67,7 +67,18 @@ void Render::drawRigid(const b2Body *b, float scale) noexcept
                
                 // the 3 steps must happen EXACTLY in this order !
 
-                // 1. main
+                // 1. edge
+                glBegin(GL_LINES);
+                for (int _i = 1; _i <= ((b2PolygonShape*)shape)->GetVertexCount() * 2; _i++)
+                {
+                    int i = _i / 2 % ((b2PolygonShape*)shape)->GetVertexCount();
+                    pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
+                    glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+                    glVertex3f(pos.x, pos.y, m->getDepth());
+                }
+                glEnd();
+                
+                // 2. main
                 glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE);
                 switch (m->getRenderMethod())
                 {
@@ -119,17 +130,6 @@ void Render::drawRigid(const b2Body *b, float scale) noexcept
                     assert(false);
                 }
 
-                // 2. edge
-                glBegin(GL_LINES);
-                for (int _i = 1; _i <= ((b2PolygonShape*)shape)->GetVertexCount() * 2; _i++)
-                {
-                    int i = _i / 2 % ((b2PolygonShape*)shape)->GetVertexCount();
-                    pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
-                    glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
-                    glVertex3f(pos.x, pos.y, m->getDepth());
-                }
-                glEnd();
-                
                 // 3. alert
                 glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
                 if (m->getAlert())
@@ -155,7 +155,7 @@ void Render::drawRigid(const b2Body *b, float scale) noexcept
                 glEnable(GL_POINT_SPRITE);
                 glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
 
-                glPointSize(shape->m_radius * 2 / scale);
+                glPointSize(shape->m_radius * 2 / worldScale);
 
                 pos = b->GetWorldPoint(((b2CircleShape*)shape)->GetVertex(0));
 
@@ -198,11 +198,12 @@ void Render::drawRigid(const b2Body *b, float scale) noexcept
     glDisable(GL_BLEND);
 }
 
-void Render::drawParticleSystem(const b2ParticleSystem *s, float scale) noexcept
+void Render::drawParticleSystem(const b2ParticleSystem *s, float worldScale) noexcept
 {
     assert(s->GetParticleGroupCount() > 0);
     float depth = ((Matter*)(s->GetParticleGroupList()->GetUserData()))->getDepth();
-    drawParticles(s->GetPositionBuffer(), PARTICLE_RADIUS / scale, s->GetColorBuffer(), s->GetParticleCount(), depth);
+    float displayedScale = ((ParticleSystem*)(s->GetParticleGroupList()->GetUserData()))->getDisplayedRadiusScale();
+    drawParticles(s->GetPositionBuffer(), PARTICLE_RADIUS * displayedScale / worldScale, s->GetColorBuffer(), s->GetParticleCount(), depth);
 }
 
 void Render::drawLine(float x1, float y1, float x2, float y2) noexcept
@@ -361,7 +362,7 @@ void Render::particleRender1(const b2Vec2 *centers, float32 radius, const b2Part
     glEnable(GL_POINT_SPRITE);
     glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
 
-    glPointSize(radius * PARTICLE_SIZE_SCALE);
+    glPointSize(radius);
 
     glEnable(GL_BLEND);
     glBlendFuncSeparate(GL_ONE, GL_ZERO, GL_ONE, GL_ONE); // this is used for alpha test

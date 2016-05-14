@@ -1,6 +1,9 @@
+#include <cstdlib>
 #include <cassert>
 #include "world.h"
 #include "matter.h"
+
+static float random(float l, float r) { return (float)rand() / RAND_MAX * (r-l) + l; }
 
 std::list<ParticleSystem*> ParticleSystem::died;
 
@@ -119,6 +122,34 @@ float Rigid::getAlertColorA() const
     }
 }
 
+void Rigid::damage()
+{
+    std::vector<b2Shape*> shapes; // should clone
+    for (const b2Fixture *f = physics->GetFixtureList(); f; f = f->GetNext())
+    {
+        b2Shape *p;
+        switch (f->GetShape()->GetType())
+        {
+        case b2Shape::e_circle:
+            p = new b2CircleShape(*((b2CircleShape*)(f->GetShape())));
+            break;
+        case b2Shape::e_polygon:
+            p = new b2PolygonShape(*((b2PolygonShape*)(f->GetShape())));
+            break;
+        default:
+            assert(false);
+        }
+        shapes.push_back(p);
+    }
+    new Dust(
+        world, physics->GetPosition(), shapes,
+        physics->GetLinearVelocity(), physics->GetAngularVelocity(),
+        getColorR(), getColorG(), getColorB(), getColorA()
+    );
+
+    delete this;
+}
+
 bool Rigid::tryMoveTo(float x, float y, float angle)
 {
     physics->SetTransform(b2Vec2(x, y), angle);
@@ -165,6 +196,18 @@ ParticleSystem::~ParticleSystem() noexcept
             died.erase(i);
         i = _i;
     }
+}
+
+void ParticleSystem::cleanDied()
+{
+    for (auto i = died.begin(); i != died.end();)
+    {
+        auto _i = i;
+        _i ++;
+        delete *i;
+        i = _i;
+    }
+    // died will be cleared in destructor
 }
 
 SmallWoodBlock::SmallWoodBlock(World *_world, float x, float y, float, float) noexcept
@@ -365,5 +408,51 @@ std::vector<b2ParticleGroupDef> WaterSquare::genGroupDefs(float l, float r, floa
     groupDef.position.Set((l+r)*0.5f, (d+u)*0.5f);
     groupDef.color.Set(WATER_COLOR_R_256, WATER_COLOR_G_256, WATER_COLOR_B_256, WATER_COLOR_A_256);
     return { groupDef };
+}
+
+Dust::Dust(
+    World *_world, const b2Vec2 &pos, const std::vector<b2Shape*> &shapes,
+    const b2Vec2 &v, float w,
+    float _colorR, float _colorG, float _colorB, float _colorA
+) noexcept
+    : ParticleSystem(_world, genSystemDef(), genGroupDefs(pos, shapes, v, w, _colorR, _colorG, _colorB, _colorA)),
+      colorR(_colorR), colorG(_colorG), colorB(_colorB), colorA(_colorA)
+{
+    for (int i = 0; i < physics->GetParticleCount(); i++)
+    {
+        physics->SetParticleLifetime(i, random(0, 3));
+        physics->GetPositionBuffer()[i].x += random(-0.1f, 0.1f);
+        physics->GetPositionBuffer()[i].y += random(-0.1f, 0.1f);
+        physics->GetVelocityBuffer()[i].x += random(-0.7f, 0.7f);
+        physics->GetVelocityBuffer()[i].y += random(-0.7f, 0.7f);
+    }
+}
+
+b2ParticleSystemDef Dust::genSystemDef()
+{
+    b2ParticleSystemDef systemDef;
+    systemDef.radius = PARTICLE_RADIUS;
+    systemDef.destroyByAge = true;
+    systemDef.gravityScale = 0.0f;
+    return systemDef;
+}
+
+std::vector<b2ParticleGroupDef> Dust::genGroupDefs(
+    const b2Vec2 &pos, const std::vector<b2Shape*> &shapes,
+    const b2Vec2 &v, float w,
+    float _colorR, float _colorG, float _colorB, float _colorA
+)
+{
+    std::vector<b2ParticleGroupDef> ret(shapes.size());
+    for (size_t i = 0; i < ret.size(); i++)
+    {
+        ret[i].shape = shapes[i];
+        ret[i].flags = b2_powderParticle;
+        ret[i].position = pos;
+        ret[i].linearVelocity = v;
+        ret[i].angularVelocity = w;
+        ret[i].color.Set(_colorR * 0xFF, _colorG * 0xFF, _colorB * 0xFF, _colorA * 0xFF);
+    }
+    return ret;
 }
 

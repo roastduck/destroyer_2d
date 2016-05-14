@@ -31,6 +31,9 @@ const float CLICK_INTERVAL = 0.3f;
 const float STICK_THICKNESS = 0.3f;
 const float STICK_END_THICKNESS = 0.5f;
 
+const float WATER_PARTICLE_SIZE_SCALE = 7.0f;
+const float DUST_PARTICLE_SIZE_SCALE = 1.0f;
+
 /*
  * Colors
  */
@@ -86,11 +89,6 @@ const float TIP_LINE_COLOR_B = (float)0x00/0xFF;
 const float TIP_LINE_COLOR_A = 1.0f;
 
 /*
- * About Render
- */
-const float PARTICLE_SIZE_SCALE = 7.0f;
-
-/*
  * Physics
  */
 const float GRAVITY = 9.8f; // >= 0
@@ -99,10 +97,13 @@ const float PARTICLE_RADIUS = 0.25f; // maybe too small
 const float WOOD_DENSITY = 0.4f;
 const float WOOD_FRICTION = 0.7f;
 const float WOOD_RESTITUTION = 0.5f;
+const float WOOD_STRENGTH = 100.0f;
+// strength means how much impulse can it stand with. It's not physics but imaginary...
 
 const float STEEL_DENSITY = 7.9f;
 const float STEEL_FRICTION = 0.2f;
 const float STEEL_RESTITUTION = 0.56f;
+const float STEEL_STRENGTH = 250.0f;
 
 /*
  * About Simulation

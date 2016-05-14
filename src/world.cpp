@@ -35,6 +35,20 @@ void World::MyDestructionListener::unsubscribe(b2DestructionListener *p)
 
 World::MyDestructionListener World::myDestructionListener;
 
+void World::MyContactListener::PostSolve(b2Contact *contact, const b2ContactImpulse *impulse)
+{
+    b2Body *b1 = contact->GetFixtureA()->GetBody(), *b2 = contact->GetFixtureB()->GetBody();
+    Rigid *r1 = b1->GetType() == b2_dynamicBody ? (Rigid*)(b1->GetUserData()) : NULL;
+    Rigid *r2 = b2->GetType() == b2_dynamicBody ? (Rigid*)(b2->GetUserData()) : NULL;
+    for (int i = 0; i < impulse->count; i++)
+    {
+        if (r1 && impulse->normalImpulses[i] > r1->getStrength())
+            destroying.push_back(r1);
+        if (r2 && impulse->normalImpulses[i] > r2->getStrength())
+            destroying.push_back(r2);
+    }
+}
+
 bool World::GlobalTestPoint::ReportFixture(b2Fixture *_f)
 {
     if (_f->TestPoint(p))
@@ -54,6 +68,7 @@ World::World(float leftMost, float rightMost, float downMost, float upMost) noex
       physics(new b2World(b2Vec2(0.0f, -GRAVITY)))
 {
     physics->SetDestructionListener(&myDestructionListener);
+    physics->SetContactListener(&myContactListener);
 
     frameBody = (new Frame(this, leftMost, rightMost, downMost, upMost))->getReferee();
 }
@@ -102,6 +117,15 @@ void World::setGLOrtho() const
     glMatrixMode(GL_MODELVIEW);
 }
 
+void World::examContact()
+{
+    sort(myContactListener.destroying.begin(), myContactListener.destroying.end());
+    for (auto i = myContactListener.destroying.begin(); i != myContactListener.destroying.end(); i++)
+        if (i == myContactListener.destroying.begin() || *i != *(i-1))
+            (*i)->damage();
+    myContactListener.destroying.clear();
+}
+
 void World::drawAll() const noexcept
 {
     for (const b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
@@ -114,7 +138,7 @@ void World::drawAll() const noexcept
 void World::step()
 {
     mMouseHandler->process();
-
+    examContact();
     drawAll();
 
     physics->Step
@@ -213,8 +237,8 @@ void TestWorldDisplayTriangle::drawAll() const noexcept
 TestWorldSimplePhysics::TestWorldSimplePhysics()
     : World(-10, 10, -10, 10)
 {
-    new SmallWoodBlock(this, -5.0f, 5.0f);
-    new SmallWoodBlock(this, -4.0f, 8.0f);
+    new LargeWoodBlock(this, -5.0f, 5.0f);
+    new SmallSteelBall(this, -4.0f, 8.0f);
     new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
 }
 

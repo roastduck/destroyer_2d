@@ -16,11 +16,11 @@ public:
 
     static Render &getInstance();
 
-    /// @param scale : returned from World::getScale()
-    void drawRigid(const b2Body *b, float scale) noexcept;
+    /// @param worldScale : returned from World::getScale()
+    void drawRigid(const b2Body *b, float worldScale) noexcept;
 
-    /// @param scale : returned from World::getScale()
-    void drawParticleSystem(const b2ParticleSystem *s, float scale) noexcept;
+    /// @param worldScale : returned from World::getScale()
+    void drawParticleSystem(const b2ParticleSystem *s, float worldScale) noexcept;
 
     void drawLine(float x1, float y1, float x2, float y2) noexcept;
 

@@ -92,10 +92,24 @@ protected:
     friend void MouseHandler::updateMouse();
 
     /**
+     * Examine contacts and make danmages
+     */
+    void examContact();
+
+    class MyContactListener final : public b2ContactListener
+    {
+    public:
+        void PostSolve(b2Contact *contact, const b2ContactImpulse *impulse) override;
+    private:
+        friend void World::examContact();
+        std::vector<Rigid*> destroying;
+    } myContactListener;
+
+    /**
      * Draw every Matter into OpenGL
      * Things can be drawn out of drawAll
      */
-    virtual void drawAll() const noexcept;
+    virtual void drawAll() const noexcept; /// will be overriden in test classes
 
     Window *mWindow;
     MouseHandler *mMouseHandler;
