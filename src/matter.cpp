@@ -4,14 +4,6 @@
 
 std::list<ParticleSystem*> ParticleSystem::died;
 
-void MyDestructionListener::SayGoodbye(b2ParticleGroup *group)
-{
-    b2ParticleSystem *system = group->GetParticleSystem();
-    assert(system->GetParticleGroupCount() > 0);
-    if (system->GetParticleGroupCount() == 1)
-        ParticleSystem::setDied((ParticleSystem*)(system->GetParticleGroupList()->GetUserData()));
-}
-
 Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs) noexcept
     : Matter(_world), alert(ALERT_NONE), defaultAlert(ALERT_NONE), alertExpireClock(0)
 {
@@ -327,6 +319,7 @@ b2BodyDef SteelStick::genBodyDef(float x1, float y1, float x2, float y2)
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set((x1 + x2) / 2, (y1 + y2) / 2);
+    bodyDef.bullet = true;
     return bodyDef;
 }
 

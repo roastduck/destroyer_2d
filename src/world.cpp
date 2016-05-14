@@ -3,7 +3,47 @@
 #include "matter.h"
 #include "mousecallback.h"
 
-static MyDestructionListener myDestructionListener;
+void World::MyDestructionListener::SayGoodbye(b2Joint* joint)
+{
+    for (auto s : subscribers) s->SayGoodbye(joint);
+}
+
+void World::MyDestructionListener::SayGoodbye(b2Fixture *fixture)
+{
+    for (auto s : subscribers) s->SayGoodbye(fixture);
+}
+
+void World::MyDestructionListener::SayGoodbye(b2ParticleGroup *group)
+{
+    for (auto s : subscribers) s->SayGoodbye(group);
+
+    b2ParticleSystem *system = group->GetParticleSystem();
+    assert(system->GetParticleGroupCount() > 0);
+    if (system->GetParticleGroupCount() == 1)
+        ParticleSystem::setDied((ParticleSystem*)(system->GetParticleGroupList()->GetUserData()));
+}
+
+void World::MyDestructionListener::subscribe(b2DestructionListener *p)
+{
+    subscribers.push_back(p);
+}
+
+void World::MyDestructionListener::unsubscribe(b2DestructionListener *p)
+{
+    subscribers.erase(std::find(subscribers.begin(), subscribers.end(), p));
+}
+
+World::MyDestructionListener World::myDestructionListener;
+
+bool World::GlobalTestPoint::ReportFixture(b2Fixture *_f)
+{
+    if (_f->TestPoint(p))
+    {
+        fixture = _f; // answer
+        return false; // stop
+    } else
+        return true; // continue
+}
 
 World::World(float leftMost, float rightMost, float downMost, float upMost) noexcept
     : mWindow(NULL), mMouseHandler(new MouseHandler(this)),
@@ -15,8 +55,7 @@ World::World(float leftMost, float rightMost, float downMost, float upMost) noex
 {
     physics->SetDestructionListener(&myDestructionListener);
 
-    new Frame(this, leftMost, rightMost, downMost, upMost);
-    // will keep track of it from LiquidFun
+    frameBody = (new Frame(this, leftMost, rightMost, downMost, upMost))->getReferee();
 }
 
 /**
@@ -139,6 +178,9 @@ MainWorld::MainWorld()
 
     for (int i = 0; i < BUTTON_NUM; i++)
         mMouseHandler->addButton(buttons[i].first, buttons[i].second);
+
+    draggingCallback = new DraggingCallback(mMouseHandler);
+    mMouseHandler->setFreeCallback(draggingCallback);
 }
 
 MainWorld::~MainWorld()
@@ -146,6 +188,8 @@ MainWorld::~MainWorld()
     for (int i = 0; i < BUTTON_NUM; i++)
         if (buttons[i].second)
             delete buttons[i].second; // delete callbacks
+
+    if (draggingCallback) delete draggingCallback;
 }
 
 #ifdef COMPILE_TEST

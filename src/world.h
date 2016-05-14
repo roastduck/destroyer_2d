@@ -47,12 +47,46 @@ public:
     float getScale() const;
 
     /**
+     * Framebody can be used as a anchor
+     */
+    b2Body *getFrameBody() const { return frameBody; }
+
+    /**
      * Return b2World pointer
      */
     b2World *getReferee() const { return physics; }
 
     Window *getWindow() const { return mWindow; }
     
+    /**
+     * Manger for all destruction listener
+     */
+    class MyDestructionListener final : public b2DestructionListener
+    {
+    public:
+        void SayGoodbye(b2Joint* joint) override;
+        void SayGoodbye(b2Fixture *fixture) override;
+        void SayGoodbye(b2ParticleGroup *group) override;
+        // we will not manipulate single particle
+        void subscribe(b2DestructionListener *p);
+        void unsubscribe(b2DestructionListener *p);
+    private:
+        std::list<b2DestructionListener*> subscribers;
+    };
+    static MyDestructionListener myDestructionListener;
+
+    /**
+     * A helper for finding a fixture overlapping with a point
+     */
+    class GlobalTestPoint final : public b2QueryCallback
+    {
+    public:
+        GlobalTestPoint(const b2Vec2 &_p) : p(_p), fixture(NULL) {}
+        bool ReportFixture(b2Fixture *_f) override;
+        b2Vec2 p;
+        b2Fixture *fixture; /// the answer
+    };
+
 protected:
     friend void Window::setWorld(World*);
     friend void MouseHandler::updateMouse();
@@ -72,15 +106,9 @@ protected:
     
     // LiquidFun b2world object
     b2World *physics;
-};
 
-// Methods for particle systems are implemented in matter.cpp
-class MyDestructionListener : public b2DestructionListener
-{
-public:
-    void SayGoodbye(b2Joint* joint) override {}
-    void SayGoodbye(b2Fixture *fixture) override {}
-    void SayGoodbye(b2ParticleGroup *group) override;
+    // outer frame
+    b2Body *frameBody;
 };
 
 /**
@@ -110,6 +138,7 @@ private:
     static constexpr float BATTLE_W = 100.0f, BATTLE_H = 40.0f;
 
     std::pair<Rigid*, MouseCallback*> buttons[BUTTON_NUM];
+    MouseCallback *draggingCallback;
     Rigid *buildFrame;
 };
 

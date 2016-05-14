@@ -7,8 +7,9 @@
 
 MouseHandler::MouseHandler(World *_world)
     : mWorld(_world),
-      leftClicked(false), rightClicked(false), lastClickedClock(clock()),
-      status(MOUSE_FREE), mPuttingCallback(NULL)
+      leftClicked(false), rightClicked(false), leftHold(false), rightHold(false),
+      leftRelease(false), rightRelease(false), lastClickedClock(clock()),
+      status(MOUSE_FREE), mFreeCallback(NULL), mPuttingCallback(NULL)
 {}
 
 void MouseHandler::addButton(Rigid *_rigid, MouseCallback *_callback)
@@ -46,15 +47,41 @@ void MouseHandler::updateMouse()
     worldX = _x / _w * (mWorld->mCurRightMost - mWorld->mCurLeftMost) + mWorld->mCurLeftMost;
     worldY = _y / _h * (mWorld->mCurUpMost - mWorld->mCurDownMost) + mWorld->mCurDownMost;
 
+    bool leftPressing = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS);
+    bool rightPressing = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS);
+
+    leftRelease = (! leftPressing && leftHold);
+    rightRelease = (! rightPressing && rightHold);
+
     clock_t now = clock();
     if (now - lastClickedClock > CLICK_INTERVAL * CLOCKS_PER_SEC)
     {
-        leftClicked = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS);
-        rightClicked = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS);
+        leftClicked = leftPressing;
+        rightClicked = rightPressing;
         if (leftClicked || rightClicked)
             lastClickedClock = now;
     } else
         leftClicked = rightClicked = false;
+
+    leftHold = (! leftClicked && leftPressing);
+    rightHold = (! rightClicked && rightPressing);
+}
+
+void MouseHandler::triggerCallback(MouseCallback *callback)
+{
+    if (callback)
+    {
+        if (leftClicked)
+            callback->leftClick(worldX, worldY);
+        if (rightClicked)
+            callback->rightClick(worldX, worldY);
+        if (leftRelease)
+            callback->leftRelease(worldX, worldY);
+        if (rightRelease)
+            callback->rightRelease(worldX, worldY);
+        if (!leftClicked && !rightClicked && !leftRelease && !rightRelease)
+            callback->move(worldX, worldY);
+    }
 }
 
 void MouseHandler::processFree()
@@ -67,38 +94,45 @@ void MouseHandler::processFree()
                 button.second->leftClick(worldX, worldY);
         } else
             button.first->setAlert(ALERT_NORMAL);
+    triggerCallback(mFreeCallback);
 }
 
 void MouseHandler::processPutting()
 {
-    if (mPuttingCallback)
-    {
-        if (leftClicked)
-            mPuttingCallback->leftClick(worldX, worldY);
-        else if (rightClicked)
-            mPuttingCallback->rightClick(worldX, worldY);
-        else
-            mPuttingCallback->move(worldX, worldY);
-    }
+    triggerCallback(mPuttingCallback);
 }
 
-void MouseHandler::reset()
+void MouseHandler::setFreeCallback(MouseCallback *callback)
 {
-    if (mPuttingCallback)
-    {
-        delete mPuttingCallback;
-        mPuttingCallback = 0;
-    }
-    for (const auto &button : buttons)
-        button.first->setAlert(ALERT_NORMAL);
+    if (mFreeCallback) delete mFreeCallback;
+    mFreeCallback = callback;
 }
 
-void MouseHandler::setStatus(MouseStatus _status, MouseCallback *puttingCallback)
+void MouseHandler::setPuttingCallback(MouseCallback *callback)
+{
+    if (mPuttingCallback) delete mPuttingCallback;
+    mPuttingCallback = callback;
+}
+
+void MouseHandler::setStatus(MouseStatus _status, MouseCallback *callback)
 {
     if (_status == status) return;
     reset();
 
     status = _status;
-    mPuttingCallback = puttingCallback;
+    if (callback)
+    {
+        if (status == MOUSE_FREE)
+            setFreeCallback(callback);
+        if (status == MOUSE_PUTTING)
+            setPuttingCallback(callback);
+    }
+}
+
+void MouseHandler::reset()
+{
+    setPuttingCallback(NULL);
+    for (const auto &button : buttons)
+        button.first->setAlert(ALERT_NORMAL);
 }
 

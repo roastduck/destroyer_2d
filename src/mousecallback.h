@@ -12,6 +12,14 @@
 #include "render.h"
 #include "mousehandler.h"
 
+/**
+ * Handle according to mouse behaviors
+ * leftClick and rightClick will be triggered only once in
+ * a time interval.
+ * When mouse button actually released, leftRelease or
+ * rightRelease will be triggered.
+ * move will be triggered when all above are not triggerd.
+ */
 class MouseCallback
 {
 public:
@@ -20,6 +28,8 @@ public:
 
     virtual void leftClick(float x, float y) {}
     virtual void rightClick(float x, float y) {}
+    virtual void leftRelease(float x, float y) {}
+    virtual void rightRelease(float x, float y) {}
     virtual void move(float x, float y) {}
 protected:
     MouseHandler *mMouseHandler;
@@ -156,17 +166,13 @@ public:
    
     void leftClick(float x, float y) override
     {
-        for (b2Body *b = mMouseHandler->getWorld()->getB2World()->GetBodyList(); b; b = b->GetNext())
-            if (((Matter*)(b->GetUserData()))->getIsUserCreated())
-            {
-                bool chosen(false);
-                for (b2Fixture *f = b->GetFixtureList(); f && ! chosen; f = f->GetNext())
-                    if (f->TestPoint(b2Vec2(x, y)))
-                        chosen = true;
-                if (! chosen) continue;
-                delete (Matter*)(b->GetUserData());
-                break;
-            }
+        World::GlobalTestPoint callback(b2Vec2(x, y));
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(x - 0.001f, y - 0.001f);
+        aabb.upperBound = b2Vec2(x + 0.001f, y + 0.001f);
+        mMouseHandler->getWorld()->getB2World()->QueryAABB(&callback, aabb);
+        if (callback.fixture && ((Matter*)(callback.fixture->GetBody()->GetUserData()))->getIsUserCreated())
+            delete (Matter*)(callback.fixture->GetBody()->GetUserData());
     }
 
     void rightClick(float x, float y) override
@@ -184,6 +190,75 @@ public:
     {
         mMouseHandler->setStatus(MouseHandler::MOUSE_PUTTING, new DeletingCallback(mMouseHandler));
     }
+};
+
+class DraggingCallback : public MouseCallback
+{
+    typedef b2MouseJoint *JointPointer;
+public:
+    class LocalListener : public b2DestructionListener
+    {
+    public:
+        LocalListener(JointPointer &_joint) : joint(_joint) {}
+
+        void SayGoodbye(b2Joint* _joint) override
+        {
+            if (joint == _joint) joint = 0;
+        }
+        void SayGoodbye(b2Fixture*) override {}
+
+    private:
+        JointPointer &joint;
+    } localListener;
+
+    DraggingCallback(MouseHandler *_handler) : MouseCallback(_handler), localListener(joint), joint(NULL)
+    {
+        World::myDestructionListener.subscribe(&localListener);
+    }
+
+    ~DraggingCallback()
+    {
+        if (joint)
+            mMouseHandler->getWorld()->getB2World()->DestroyJoint(joint);
+        World::myDestructionListener.unsubscribe(&localListener);
+    }
+
+    void leftClick(float x, float y) override
+    {
+        if (joint != NULL) return;
+
+        World::GlobalTestPoint callback(b2Vec2(x, y));
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(x - 0.001f, y - 0.001f);
+        aabb.upperBound = b2Vec2(x + 0.001f, y + 0.001f);
+        mMouseHandler->getWorld()->getB2World()->QueryAABB(&callback, aabb);
+        if (! callback.fixture || callback.fixture->GetBody()->GetType() != b2_dynamicBody) return;
+
+        b2MouseJointDef jointDef;
+        jointDef.target.Set(x, y);
+        jointDef.bodyA = mMouseHandler->getWorld()->getFrameBody();
+        jointDef.bodyB = callback.fixture->GetBody();
+        jointDef.maxForce = 1000.0f * callback.fixture->GetBody()->GetMass();
+        joint = (JointPointer)(mMouseHandler->getWorld()->getB2World()->CreateJoint(&jointDef));
+    }
+
+    void leftRelease(float, float) override
+    {
+        if (joint)
+        {
+            mMouseHandler->getWorld()->getB2World()->DestroyJoint(joint);
+            joint = NULL;
+        }
+    }
+
+    void move(float x, float y) override
+    {
+        if (joint)
+            joint->SetTarget(b2Vec2(x, y));
+    }
+
+private:
+    JointPointer joint;
 };
 
 #endif // MOUSECALLBACK_H_

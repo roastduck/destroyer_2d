@@ -44,15 +44,29 @@ public:
     void updateMouse();
 
     /**
-     * set woring status
-     * callback used for MOUSE_PUTTING can be set through the 2nd parameter, and
-     * will be deleted in `reset`.
+     * Set callback that used at MOUSE_FREE when is not on buttons.
+     * This callback will NOT be deleted when switching status.
      */
-    void setStatus(MouseStatus _status, MouseCallback *puttingCallback = NULL);
+    void setFreeCallback(MouseCallback *callback);
+
+    /**
+     * Set callback that used at MOUSE_PUTTING.
+     * This callback will be deleted when switching status.
+     */
+    void setPuttingCallback(MouseCallback *callback);
+
+    /**
+     * set woring status
+     * callback used for corresponding status can be set through the 2nd parameter,
+     * ONLY if it is not NULL.
+     */
+    void setStatus(MouseStatus _status, MouseCallback *callback = NULL);
 
     World *getWorld() const { return mWorld; }
 
 private:
+    void triggerCallback(MouseCallback *callback);
+
     void processFree();
     void processPutting();
 
@@ -61,13 +75,13 @@ private:
     World *mWorld;
 
     float worldX, worldY; // cursor in world coordinates
-    bool leftClicked, rightClicked;
+    bool leftClicked, rightClicked, leftHold, rightHold, leftRelease, rightRelease;
     clock_t lastClickedClock;
 
     MouseStatus status;
 
     std::list< std::pair<Rigid*, MouseCallback*> > buttons;
-    MouseCallback *mPuttingCallback;
+    MouseCallback *mFreeCallback, *mPuttingCallback;
 };
 
 #endif // MOUSEHANDLER_H_
