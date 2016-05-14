@@ -187,6 +187,7 @@ std::vector<b2FixtureDef> SmallWoodBlock::genFixtureDefs()
     fixtureDef.shape = dynamicBox;
     fixtureDef.density = WOOD_DENSITY;
     fixtureDef.friction = WOOD_FRICTION;
+    fixtureDef.restitution = WOOD_RESTITUTION;
     return { fixtureDef };
 }
 
@@ -210,6 +211,7 @@ std::vector<b2FixtureDef> LargeWoodBlock::genFixtureDefs()
     fixtureDef.shape = dynamicBox;
     fixtureDef.density = WOOD_DENSITY;
     fixtureDef.friction = WOOD_FRICTION;
+    fixtureDef.restitution = WOOD_RESTITUTION;
     return { fixtureDef };
 }
 
@@ -233,6 +235,7 @@ std::vector<b2FixtureDef> SmallSteelBall::genFixtureDefs()
     fixtureDef.shape = dynamicBall;
     fixtureDef.density = STEEL_DENSITY;
     fixtureDef.friction = STEEL_FRICTION;
+    fixtureDef.restitution = STEEL_RESTITUTION;
     return { fixtureDef };
 }
 
@@ -335,6 +338,7 @@ std::vector<b2FixtureDef> SteelStick::genFixtureDefs(float x1, float y1, float x
     b2FixtureDef mainDef, end1Def, end2Def;
     mainDef.density = end1Def.density = end2Def.density = STEEL_DENSITY;
     mainDef.friction = end1Def.friction = end2Def.friction = STEEL_FRICTION;
+    mainDef.restitution = end1Def.restitution = end2Def.restitution = STEEL_RESTITUTION;
     mainDef.shape = mainBox, end1Def.shape = end1Box, end2Def.shape = end2Box;
     return { mainDef, end1Def, end2Def };
 }

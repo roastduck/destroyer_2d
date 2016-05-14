@@ -98,9 +98,11 @@ const float PARTICLE_RADIUS = 0.25f; // maybe too small
 
 const float WOOD_DENSITY = 0.4f;
 const float WOOD_FRICTION = 0.7f;
+const float WOOD_RESTITUTION = 0.5f;
 
 const float STEEL_DENSITY = 7.9f;
 const float STEEL_FRICTION = 0.2f;
+const float STEEL_RESTITUTION = 0.56f;
 
 /*
  * About Simulation
