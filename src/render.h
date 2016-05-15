@@ -22,7 +22,12 @@ public:
     /// @param worldScale : returned from World::getScale()
     void drawParticleSystem(const b2ParticleSystem *s, float worldScale) noexcept;
 
+    /// draw a line from (x1,y1) to (x2,y2) (in world coordinates)
     void drawLine(float x1, float y1, float x2, float y2) noexcept;
+
+    /// draw a popup window with text, and with lower-left (l,d) and upper-right(r,u)
+    /// (in world coordinates)
+    void drawPopup(const std::string &s, float l, float r, float d, float u) noexcept;
 
     static void setWindow(const Window *_window) { mWindow = _window, updateWindowSize(); }
 
@@ -53,7 +58,8 @@ private:
 
     void genCircleTexture() noexcept;
 
-    GLuint getTextureFromPixels(const unsigned char pixels[][4], int width, int height);
+    GLuint getTextureFromPixels(const unsigned char pixels[][4], int width, int height) noexcept;
+    GLuint getTextureFromText(const std::string &s) noexcept;
 
     /// update windowWidth and windowHeight from mWindow
     /// @return bool. true when changed.
@@ -100,7 +106,8 @@ private:
         "   if (colorOut.a > 0) gl_FragDepth = gl_FragCoord.z; else gl_FragDepth = 100;\n"
         "}\n";
 
-    std::unordered_map<int, GLuint> cachedTexture;
+    std::unordered_map<int, GLuint> cachedImage;
+    std::unordered_map<std::string, GLuint> cachedText;
 
     static const Window *mWindow;
     static int windowWidth, windowHeight;

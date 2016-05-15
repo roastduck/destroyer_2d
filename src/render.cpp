@@ -5,7 +5,10 @@
  * continuous surface.
  */
 
+#include <cctype>
+#include <cstring>
 #include <cassert>
+#include <algorithm>
 #include "window.h"
 #include "render.h"
 
@@ -96,10 +99,10 @@ void Render::drawRigid(const b2Body *b, float worldScale) noexcept
                 case Matter::RENDER_TEXTURE:
                 case Matter::RENDER_COLOR_WITH_TEXTURE:
                     name = m->getImage();
-                    if (! cachedTexture.count(name))
-                        cachedTexture[name] = getTextureFromPixels(IMAGES[name], IMAGES_W[name], IMAGES_H[name]);
+                    if (! cachedImage.count(name))
+                        cachedImage[name] = getTextureFromPixels(IMAGES[name], IMAGES_W[name], IMAGES_H[name]);
                     glEnable(GL_TEXTURE_2D);
-                    glBindTexture(GL_TEXTURE_2D, cachedTexture[name]);
+                    glBindTexture(GL_TEXTURE_2D, cachedImage[name]);
 
                     center = b->GetPosition();
                     scaleX = scaleY = 0;
@@ -214,6 +217,35 @@ void Render::drawLine(float x1, float y1, float x2, float y2) noexcept
     glColor4f(TIP_LINE_COLOR_R, TIP_LINE_COLOR_G, TIP_LINE_COLOR_B, TIP_LINE_COLOR_A);
     glVertex3f(x2, y2, -1.0f);
     glEnd();
+}
+
+void Render::drawPopup(const std::string &s, float l, float r, float d, float u) noexcept
+{
+    assert(l < r && d < u);
+    const float X[4] = { l, r, r, l }, Y[4] = { d, d, u, u };
+
+    if (! cachedText.count(s))
+        cachedText[s] = getTextureFromText(s);
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, cachedText[s]);
+    glBegin(GL_QUADS);
+    for (int i = 0; i < 4; i++)
+    {
+        glTexCoord2f(X[i]==l ? 0.0f : 1.0f, Y[i]==d ? 1.0f : 0.0f);
+        glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(X[i], Y[i], -2.0f);
+    }
+    glEnd();
+    glDisable(GL_TEXTURE_2D);
+
+    glLineWidth(POPUP_BOARDER);
+    glBegin(GL_LINES);
+    for (int i = 1; i <= 8; i++)
+    {
+        glColor4f(POPUP_BOARDER_R, POPUP_BOARDER_G, POPUP_BOARDER_B, POPUP_BOARDER_A);
+        glVertex3f(X[i/2%4], Y[i/2%4], -2.0f);
+    }
+    glEnd();
+    glLineWidth(1.0f);
 }
 
 GLuint Render::genShader(GLenum type, const std::string &source)
@@ -462,7 +494,7 @@ void Render::genCircleTexture() noexcept
     glDisable(GL_TEXTURE_2D);
 }
 
-GLuint Render::getTextureFromPixels(const unsigned char pixels[][4], int width, int height)
+GLuint Render::getTextureFromPixels(const unsigned char pixels[][4], int width, int height) noexcept
 {
     GLuint ret;
     glGenTextures(1, &ret);
@@ -475,6 +507,42 @@ GLuint Render::getTextureFromPixels(const unsigned char pixels[][4], int width, 
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 
     glDisable(GL_TEXTURE_2D);
+    return ret;
+}
+
+GLuint Render::getTextureFromText(const std::string &s) noexcept
+{
+    int lines(1), columns(0), maxLength(0);
+    for (char c : s)
+    {
+        assert(isupper(c) || c==',' || c=='.' || c==' ' || c=='\n');
+        if (c == '\n')
+            lines++, columns = 0;
+        else
+            columns++;
+        maxLength = std::max(maxLength, columns);
+    }
+
+    assert(maxLength > 0);
+    int h = lines * FONT_H + 2 * POPUP_PADDING, w = maxLength * FONT_W + 2 * POPUP_PADDING;
+    unsigned char *raw = new unsigned char [h * w * 4];
+    auto pixels = (unsigned char (*) [4]) raw;
+    std::fill((unsigned*)pixels, ((unsigned*)pixels) + h * w, *((unsigned*)FONT_BG_COLOR));
+
+    int i(POPUP_PADDING), j(POPUP_PADDING);
+    for (char c : s)
+        if (c == '\n')
+            i += FONT_H, j = POPUP_PADDING;
+        else
+        {
+            int id = c==',' ? 26 : c=='.' ? 27 : c==' ' ? 28 : c-'A';
+            for (int p = 0; p < FONT_H; p++)
+                for (int q = 0; q < FONT_W; q++)
+                    memcpy(pixels[(i+p) * w + (j+q)], FONT[id][p * FONT_W + q], 4);
+            j += FONT_W;
+        }
+    int ret = getTextureFromPixels(pixels, w, h);
+    delete [] raw;
     return ret;
 }
 

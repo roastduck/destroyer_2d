@@ -135,19 +135,37 @@ void World::drawAll() const noexcept
         Render::getInstance().drawParticleSystem(s, getScale());
 }
 
+void World::displayPopup(const std::string &s, float l, float r, float d, float u)
+{
+    popupMsg = s, popupL = l, popupR = r, popupD = d, popupU = u;
+    mMouseHandler->setEnableCallback(false);
+}
+
+void World::canclePopup()
+{
+    popupMsg.clear();
+    mMouseHandler->setEnableCallback(true);
+}
+
 void World::step()
 {
     mMouseHandler->process();
-    examContact();
     drawAll();
 
-    physics->Step
-        (
-         TIME_STEP,
-         VELOCITY_ITERATIONS,
-         POSITION_ITERATIONS,
-         b2CalculateParticleIterations(GRAVITY, PARTICLE_RADIUS, TIME_STEP)
-        );
+    if (! popupMsg.empty())
+    {
+        Render::getInstance().drawPopup(popupMsg, popupL, popupR, popupD, popupU);
+    } else
+    {
+        physics->Step
+            (
+             TIME_STEP,
+             VELOCITY_ITERATIONS,
+             POSITION_ITERATIONS,
+             b2CalculateParticleIterations(GRAVITY, PARTICLE_RADIUS, TIME_STEP)
+            );
+        examContact();
+    }
 
     ParticleSystem::cleanDied();
 }
@@ -249,6 +267,10 @@ MainWorld::MainWorld()
     makeBuildingButtons();
 
     mMouseHandler->setFreeCallback(new DraggingCallback(mMouseHandler));
+
+    float mx = (mCurLeftMost + mCurRightMost) / 2,
+          my = (mCurDownMost + mCurUpMost) / 2;
+    displayPopup(buildingHelpMsg, mx - 13.0f, mx + 13.0f, my - 3.5f, my + 3.5f);
 }
 
 void MainWorld::makeBattleButtons()
@@ -331,6 +353,8 @@ void MainWorld::step()
     switch (status)
     {
     case STATUS_BUILDING:
+        if (isDisplayingPopup() && (mWindow->IsKeyPressed() || mMouseHandler->getLeftClicked()))
+            canclePopup();
         break;
     case STATUS_BATTLE:
         focus();

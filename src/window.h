@@ -5,6 +5,8 @@
 #ifndef WINDOW_H_
 #define WINDOW_H_
 
+#include <list>
+#include <unordered_set>
 #include "loader.h"
 #include "const.h"
 
@@ -52,14 +54,30 @@ public:
      */
     void useCursor(CursorType type);
 
+    /**
+     * If any key pressed?
+     */
+    bool IsKeyPressed() const { return ! keyPressed.empty(); }
+
+    /**
+     * If the given key pressed?
+     */
+    bool IsKeyPressed(int key) const { return keyPressed.count(key); }
+
 private:
+    friend void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+
     void genCursor();
     void deleteCursor() noexcept;
+
+    std::unordered_set<int> keyPressed;
 
     GLFWcursor *cursors[CURSOR_TYPE_NUM];
 
     GLFWwindow *mTarget;
     World *mWorld;
+
+    static std::list<Window*> instanceList;
 };
 
 #endif // WORLD_H_

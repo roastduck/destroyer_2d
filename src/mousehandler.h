@@ -68,6 +68,14 @@ public:
      */
     void setStatus(MouseStatus _status, MouseCallback *callback = NULL);
 
+    /**
+     * Enable/disable all callbacks
+     */
+    void setEnableCallback(bool _enable) { enableCallback = _enable; }
+
+    bool getLeftClicked() const { return leftClicked; }
+    bool getRightClicked() const { return rightClicked; }
+
     World *getWorld() const { return mWorld; }
 
 private:
@@ -88,6 +96,8 @@ private:
 
     std::list< std::pair<Rigid*, MouseCallback*> > buttons;
     MouseCallback *mFreeCallback, *mPuttingCallback;
+
+    bool enableCallback;
 };
 
 #endif // MOUSEHANDLER_H_

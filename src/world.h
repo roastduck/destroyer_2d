@@ -6,6 +6,7 @@
 #ifndef WORLD_H_
 #define WORLD_H_
 
+#include <string>
 #include <Box2D/Box2D.h>
 #include "window.h"
 #include "mousehandler.h"
@@ -92,6 +93,40 @@ protected:
     friend void MouseHandler::updateMouse();
 
     /**
+     * Draw every Matter into OpenGL
+     * Things can be drawn out of drawAll
+     */
+    virtual void drawAll() const noexcept; /// will be overriden in test classes
+
+    /**
+     * Display a popup window until calling cancelPopup()
+     * located with lower-left (l,d) and upper-right(r,u)
+     * in world coordinates
+     */
+    void displayPopup(const std::string &s, float l, float r, float d, float u);
+
+    /**
+     * Cancel popup window
+     */
+    void canclePopup();
+
+    /**
+     * Is it displaying popup window?
+     */
+    bool isDisplayingPopup() { return ! popupMsg.empty(); }
+
+    Window *mWindow;
+    MouseHandler *mMouseHandler;
+
+    // borders of the whole world and the displayed part in world coordinates
+    float mLeftMost, mRightMost, mDownMost, mUpMost;
+    float mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost;
+    
+    // LiquidFun b2world object
+    b2World *physics;
+
+private:
+    /**
      * Examine contacts and make danmages
      */
     void examContact();
@@ -105,21 +140,9 @@ protected:
         std::vector<Rigid*> destroying;
     } myContactListener;
 
-    /**
-     * Draw every Matter into OpenGL
-     * Things can be drawn out of drawAll
-     */
-    virtual void drawAll() const noexcept; /// will be overriden in test classes
-
-    Window *mWindow;
-    MouseHandler *mMouseHandler;
-
-    // borders of the whole world and the displayed part in world coordinates
-    float mLeftMost, mRightMost, mDownMost, mUpMost;
-    float mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost;
-    
-    // LiquidFun b2world object
-    b2World *physics;
+    // popup window
+    std::string popupMsg;
+    float popupL, popupR, popupD, popupU;
 
     // outer frame
     b2Body *frameBody;
@@ -175,6 +198,13 @@ private:
     Rigid *buildFrame, *cancelButton;
 
     WorldStatus status;
+
+    const std::string buildingHelpMsg =
+        "WELCOME\n"
+        "YOU CAN PICK MATERIALS FROM THE LEFT TO BUILD YOUR SHIP.\n"
+        "WHEN FINISHED, CLICK LAUNCH BUTTON TO BATTLE.\n"
+        "\n"
+        "... PRESS ANY KEY TO CONTINUE ...";
 };
 
 #ifdef COMPILE_TEST

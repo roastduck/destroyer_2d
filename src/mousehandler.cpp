@@ -41,17 +41,18 @@ void MouseHandler::cleanButtons()
 void MouseHandler::process()
 {
     updateMouse();
-    switch (status)
-    {
-    case MOUSE_FREE:
-        processFree();
-        break;
-    case MOUSE_PUTTING:
-        processPutting();
-        break;
-    default:
-        assert(false);
-    }
+    if (enableCallback)
+        switch (status)
+        {
+        case MOUSE_FREE:
+            processFree();
+            break;
+        case MOUSE_PUTTING:
+            processPutting();
+            break;
+        default:
+            assert(false);
+        }
 }
 
 void MouseHandler::updateMouse()

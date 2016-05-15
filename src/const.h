@@ -22,6 +22,9 @@ enum AlertType
 
 const float ALERT_LINE_WIDTH = 0.2f;
 
+const int POPUP_PADDING = 20; // in pixels
+const int POPUP_BOARDER = 5;
+
 // minimum interval of two mouse clicks, in sec
 const float CLICK_INTERVAL = 0.3f;
 
@@ -90,6 +93,11 @@ const float TIP_LINE_COLOR_G = (float)0x00/0xFF;
 const float TIP_LINE_COLOR_B = (float)0x00/0xFF;
 const float TIP_LINE_COLOR_A = 1.0f;
 
+const float POPUP_BOARDER_R = (float)0x3D/0xFF;
+const float POPUP_BOARDER_G = (float)0x2B/0xFF;
+const float POPUP_BOARDER_B = (float)0x1F/0xFF;
+const float POPUP_BOARDER_A = 1.0f;
+
 /*
  * Physics
  */
@@ -110,7 +118,7 @@ const float STEEL_STRENGTH = 250.0f;
 /*
  * About Simulation
  */
-const float TIME_STEP = 1.0f / 60.0f;
+const float TIME_STEP = 1.0f / 45.0f;
 const int VELOCITY_ITERATIONS = 6;
 const int POSITION_ITERATIONS = 3;
 

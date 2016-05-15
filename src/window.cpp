@@ -6,15 +6,25 @@
 #include "window.h"
 #include "render.h"
 
+std::list<Window*> Window::instanceList;
+
 static void error_callback(int error, const char *description)
 {
     throw std::runtime_error(description);
+}
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    for (Window *w : Window::instanceList)
+        w->keyPressed.insert(key);
 }
 
 Window::Window()
     : mWorld(NULL)
 {
     std::cout << "Loading ..." << std::endl;
+
+    instanceList.push_back(this);
 
     if (! glfwInit())
         throw std::runtime_error("Error loading GLFW");
@@ -38,6 +48,8 @@ Window::Window()
         glDepthFunc(GL_LEQUAL);
 
         genCursor();
+        
+        glfwSetKeyCallback(mTarget, key_callback);
     } catch (...)
     {
         if (mTarget)
@@ -55,6 +67,12 @@ Window::~Window() noexcept
     if (mTarget)
         glfwDestroyWindow(mTarget);
     glfwTerminate();
+    for (auto i = instanceList.begin(); i != instanceList.end(); i++)
+        if (*i == this)
+        {
+            instanceList.erase(i);
+            break;
+        }
 }
 
 void Window::setWorld(World *world)
@@ -80,6 +98,7 @@ void Window::run()
 
         mWorld->setGLOrtho();
         mWorld->step();
+        keyPressed.clear();
 
         switch (glGetError())
         {
