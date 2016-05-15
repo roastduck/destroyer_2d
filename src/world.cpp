@@ -176,6 +176,19 @@ public:
 /// This is called during construction
 void MainWorld::makeBuildingButtons()
 {
+    enum BuildingButtonName
+    {
+        BUTTON_SMALL_WOOD_BLOCK = 0,
+        BUTTON_LARGE_WOOD_BLOCK = 1,
+        BUTTON_SMALL_STEEL_BALL = 2,
+        BUTTON_WOOD_STICK = 3,
+        BUTTON_STEEL_STICK = 4,
+        BUTTON_DELETE = 5,
+        BUTTON_LAUNCH = 6,
+
+        BUTTON_NUM = 7
+    };
+
     // Mousehandler will take charge of destructions of button rigids and callbacks
     std::pair<Rigid*, MouseCallback*> buttons[BUTTON_NUM];
     memset(buttons, 0, sizeof buttons);
@@ -199,6 +212,12 @@ void MainWorld::makeBuildingButtons()
     buttons[BUTTON_SMALL_STEEL_BALL].second = new NewObjectCallback<SmallSteelBall>(mMouseHandler);
     buttons[BUTTON_SMALL_STEEL_BALL].first->getReferee()->SetType(b2_staticBody);
     curH -= 0.9f;
+
+    curH -= 1.3f;
+    buttons[BUTTON_WOOD_STICK].first = new WoodStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f);
+    buttons[BUTTON_WOOD_STICK].second = new NewObjectCallback<WoodStick>(mMouseHandler);
+    buttons[BUTTON_WOOD_STICK].first->getReferee()->SetType(b2_staticBody);
+    curH -= 1.3f;
 
     curH -= 1.3f;
     buttons[BUTTON_STEEL_STICK].first = new SteelStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f);

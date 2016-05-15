@@ -215,7 +215,7 @@ class Stick : public Rigid
 public:
     Stick
     (
-        World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs, float _x1, float _y1, float _x2, float _y2
+        World *_world, float _x1, float _y1, float _x2, float _y2, float density, float friction, float restitution
     ) noexcept;
 
     static bool canDrawLine() { return true; }
@@ -228,6 +228,12 @@ public:
 
 protected:
     float x1, y1, x2, y2; // two ends
+
+private:
+    static b2BodyDef genBodyDef(float x1, float y1, float x2, float y2);
+    static std::vector<b2FixtureDef> genFixtureDefs(
+        float x1, float y1, float x2, float y2, float density, float friction, float restitution
+    );
 };
 
 class SteelStick : public Stick
@@ -240,9 +246,18 @@ public:
     virtual float getColorB() const override { return STEEL_COLOR_B; }
     virtual float getColorA() const override { return STEEL_COLOR_A; }
     virtual float getStrength() const override { return STEEL_STRENGTH; }
-private:
-    static b2BodyDef genBodyDef(float x1, float y1, float x2, float y2);
-    static std::vector<b2FixtureDef> genFixtureDefs(float x1, float y1, float x2, float y2);
+};
+
+class WoodStick : public Stick
+{
+public:
+    WoodStick(World *_world, float x1, float y1, float x2 = 0, float y2 = 0) noexcept;
+
+    virtual float getColorR() const override { return WOOD_COLOR_R; }
+    virtual float getColorG() const override { return WOOD_COLOR_G; }
+    virtual float getColorB() const override { return WOOD_COLOR_B; }
+    virtual float getColorA() const override { return WOOD_COLOR_A; }
+    virtual float getStrength() const override { return WOOD_STRENGTH; }
 };
 
 template <ImageName imageName>

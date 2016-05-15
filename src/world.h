@@ -135,18 +135,6 @@ class MainWorld : public World
 public:
     MainWorld();
 
-    enum BuildingButtonName
-    {
-        BUTTON_SMALL_WOOD_BLOCK = 0,
-        BUTTON_LARGE_WOOD_BLOCK = 1,
-        BUTTON_SMALL_STEEL_BALL = 2,
-        BUTTON_STEEL_STICK = 3,
-        BUTTON_DELETE = 4,
-        BUTTON_LAUNCH = 5,
-
-        BUTTON_NUM = 6
-    };
-
     enum WorldStatus
     {
         STATUS_BUILDING = 0,

@@ -315,9 +315,9 @@ std::vector<b2FixtureDef> Frame::genFixtureDefs(float l, float r, float d, float
 
 Stick::Stick
 (
-    World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs, float _x1, float _y1, float _x2, float _y2
+    World *_world, float _x1, float _y1, float _x2, float _y2, float density, float friction, float restitution
 ) noexcept
-    : Rigid(_world, bodyDef, fixtureDefs),
+    : Rigid(_world, genBodyDef(_x1, _y1, _x2, _y2), genFixtureDefs(_x1, _y1, _x2, _y2, density, friction, restitution)),
       x1(_x1), y1(_y1), x2(_x2), y2(_y2)
 {}
 
@@ -356,11 +356,7 @@ bool Stick::tryPutDown()
     return true;
 }
 
-SteelStick::SteelStick(World *_world, float x1, float y1, float x2, float y2) noexcept
-    : Stick(_world, genBodyDef(x1, y1, x2, y2), genFixtureDefs(x1, y1, x2, y2), x1, y1, x2, y2)
-{}
-
-b2BodyDef SteelStick::genBodyDef(float x1, float y1, float x2, float y2)
+b2BodyDef Stick::genBodyDef(float x1, float y1, float x2, float y2)
 {
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
@@ -369,7 +365,9 @@ b2BodyDef SteelStick::genBodyDef(float x1, float y1, float x2, float y2)
     return bodyDef;
 }
 
-std::vector<b2FixtureDef> SteelStick::genFixtureDefs(float x1, float y1, float x2, float y2)
+std::vector<b2FixtureDef> Stick::genFixtureDefs(
+    float x1, float y1, float x2, float y2, float density, float friction, float restitution
+)
 {
     b2PolygonShape *mainBox = new b2PolygonShape(),
                    *end1Box = new b2PolygonShape(), *end2Box = new b2PolygonShape();
@@ -379,12 +377,20 @@ std::vector<b2FixtureDef> SteelStick::genFixtureDefs(float x1, float y1, float x
     end1Box->SetAsBox(STICK_END_THICKNESS / 2, STICK_END_THICKNESS / 2, b2Vec2((x1-x2) / 2, (y1-y2) / 2), angle);
     end2Box->SetAsBox(STICK_END_THICKNESS / 2, STICK_END_THICKNESS / 2, b2Vec2((x2-x1) / 2, (y2-y1) / 2), angle);
     b2FixtureDef mainDef, end1Def, end2Def;
-    mainDef.density = end1Def.density = end2Def.density = STEEL_DENSITY;
-    mainDef.friction = end1Def.friction = end2Def.friction = STEEL_FRICTION;
-    mainDef.restitution = end1Def.restitution = end2Def.restitution = STEEL_RESTITUTION;
+    mainDef.density = end1Def.density = end2Def.density = density;
+    mainDef.friction = end1Def.friction = end2Def.friction = friction;
+    mainDef.restitution = end1Def.restitution = end2Def.restitution = restitution;
     mainDef.shape = mainBox, end1Def.shape = end1Box, end2Def.shape = end2Box;
     return { mainDef, end1Def, end2Def };
 }
+
+SteelStick::SteelStick(World *_world, float x1, float y1, float x2, float y2) noexcept
+    : Stick(_world, x1, y1, x2, y2, STEEL_DENSITY, STEEL_FRICTION, STEEL_RESTITUTION)
+{}
+
+WoodStick::WoodStick(World *_world, float x1, float y1, float x2, float y2) noexcept
+    : Stick(_world, x1, y1, x2, y2, WOOD_DENSITY, WOOD_FRICTION, WOOD_RESTITUTION)
+{}
 
 WaterSquare::WaterSquare(World *_world, float l, float r, float d, float u) noexcept
     : ParticleSystem(_world, genSystemDef(), genGroupDefs(l, r, d, u))
