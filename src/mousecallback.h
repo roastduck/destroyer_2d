@@ -104,6 +104,7 @@ public:
     {
         if (drawing)
         {
+            if (b2Vec2(sx - x, sy - y).Length() < 1.5f * STICK_END_THICKNESS) return;
             drawing = false;
             ToPut *p = new ToPut(mMouseHandler->getWorld(), sx, sy, x, y);
             if (! p->tryPutDown())
