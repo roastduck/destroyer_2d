@@ -101,7 +101,7 @@ const float POPUP_BOARDER_A = 1.0f;
 /*
  * Physics
  */
-const float GRAVITY = 9.8f; // >= 0
+const float GRAVITY = 3.0f; // >= 0
 const float PARTICLE_RADIUS = 0.35f; // maybe too small
 
 const float WOOD_DENSITY = 0.4f;
