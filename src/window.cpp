@@ -16,7 +16,8 @@ static void error_callback(int error, const char *description)
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     for (Window *w : Window::instanceList)
-        w->keyPressed.insert(key);
+        if (w->mTarget == window)
+            w->keyPressed.insert(key);
 }
 
 Window::Window()
