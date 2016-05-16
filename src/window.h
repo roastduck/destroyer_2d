@@ -55,14 +55,24 @@ public:
     void useCursor(CursorType type);
 
     /**
-     * If any key pressed?
+     * If any key being pressed (not pressed last time)? Return 0 or the key.
      */
-    bool IsKeyPressed() const { return ! keyPressed.empty(); }
+    int isKeyPressed() const { return keyPressed.empty() ? 0 : *(keyPressed.begin()); }
 
     /**
-     * If the given key pressed?
+     * If the given key being pressed?
      */
-    bool IsKeyPressed(int key) const { return keyPressed.count(key); }
+    bool isKeyPressed(int key) const { return keyPressed.count(key); }
+
+    /**
+     * If any key down? Return 0 or the key.
+     */
+    int isKeyDown() const { return keyDown.empty() ? 0 : *(keyDown.begin()); }
+
+    /**
+     * If the given key down?
+     */
+    bool isKeyDown(int key) const { return keyDown.count(key); }
 
 private:
     friend void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
@@ -70,7 +80,7 @@ private:
     void genCursor();
     void deleteCursor() noexcept;
 
-    std::unordered_set<int> keyPressed;
+    std::unordered_set<int> keyPressed, keyDown;
 
     GLFWcursor *cursors[CURSOR_TYPE_NUM];
 

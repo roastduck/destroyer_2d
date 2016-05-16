@@ -60,6 +60,11 @@ public:
     Window *getWindow() const { return mWindow; }
     
     /**
+     * Require to bind a key to Rigid r
+     */
+    void requireKey(Rigid *r);
+    
+    /**
      * Manger for all destruction listener
      */
     class MyDestructionListener final : public b2DestructionListener
@@ -102,18 +107,20 @@ protected:
      * Display a popup window until calling cancelPopup()
      * located with lower-left (l,d) and upper-right(r,u)
      * in world coordinates
+     * s = "" means not to display
      */
     void displayPopup(const std::string &s, float l, float r, float d, float u);
 
     /**
      * Cancel popup window
      */
-    void canclePopup();
+    void cancelPopup();
 
     /**
-     * Is it displaying popup window?
+     * What is displaying in popup window?
+     * s = "" means not displaying
      */
-    bool isDisplayingPopup() { return ! popupMsg.empty(); }
+    const std::string &getPopup() { return popupMsg; }
 
     Window *mWindow;
     MouseHandler *mMouseHandler;
@@ -121,6 +128,7 @@ protected:
     // borders of the whole world and the displayed part in world coordinates
     float mLeftMost, mRightMost, mDownMost, mUpMost;
     float mCurLeftMost, mCurRightMost, mCurDownMost, mCurUpMost;
+    float mx, my; // center of x and y axises
     
     // LiquidFun b2world object
     b2World *physics;
@@ -130,6 +138,11 @@ private:
      * Examine contacts and make danmages
      */
     void examContact();
+
+    /**
+     * Check keyboard Actions
+     */
+    void checkKeyboard();
 
     class MyContactListener final : public b2ContactListener
     {
@@ -146,6 +159,12 @@ private:
 
     // outer frame
     b2Body *frameBody;
+
+    Rigid *requiringKey;
+    std::string bindMsg =
+        "  PLEASE CHOOSE A KEY TO HANDLE THIS OBJECT.\n"
+        "\n"
+        "  ...MUST BE A LETTER...\n";
 };
 
 /**
@@ -199,12 +218,21 @@ private:
 
     WorldStatus status;
 
-    const std::string buildingHelpMsg =
-        "WELCOME\n"
-        "YOU CAN PICK MATERIALS FROM THE LEFT TO BUILD YOUR SHIP.\n"
-        "WHEN FINISHED, CLICK LAUNCH BUTTON TO BATTLE.\n"
-        "\n"
-        "... PRESS ANY KEY TO CONTINUE ...";
+    const std::string
+        buildingMsg1 =
+            "  WELCOME\n"
+            "  YOU CAN PICK MATERIALS FROM THE LEFT TO BUILD YOUR SHIP.\n"
+            "CLICK ON THE LEFT TO PUT THINGS, ON THE RIGHT TO CANCEL.\n"
+            "  WHEN FINISHED, CLICK LAUNCH BUTTON TO BATTLE.\n"
+            "\n"
+            "  ... PRESS ANY KEY TO CONTINUE ...",
+        buildingMsg2 =
+            "  NOTICE THAT DIFFERENT MATERIALS HAVE DIFFERENT PROPERTIES.\n"
+            "  REMEMBER TO PUT ENGINES WITH RED ARROWS TO PROVIDE POWER.\n"
+            "  BESIDES, USE THE CROSS THE DELETE THINGS, AND YOU CAN DRAG\n"
+            "THINGS WITH YOUR CURSOR.\n"
+            "\n"
+            "  ... PRESS ANY KEY TO CONTINUE ...";
 };
 
 #ifdef COMPILE_TEST

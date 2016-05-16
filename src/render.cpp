@@ -61,7 +61,7 @@ void Render::drawRigid(const b2Body *b, float worldScale) noexcept
     for (const b2Fixture *f = b->GetFixtureList(); f; f = f->GetNext())
     {
         const b2Shape *shape = f->GetShape();
-        b2Vec2 center, pos;
+        b2Vec2 center, pos, localCenter, localPos;
         float scaleX, scaleY;
         ImageName name;
         switch (shape->GetType())
@@ -108,15 +108,18 @@ void Render::drawRigid(const b2Body *b, float worldScale) noexcept
                     scaleX = scaleY = 0;
                     for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
                     {
-                        pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
-                        scaleX = std::max(scaleX, fabsf(pos.x - center.x));
-                        scaleY = std::max(scaleY, fabsf(pos.y - center.y));
+                        localCenter = ((b2PolygonShape*)shape)->m_centroid;
+                        localPos = ((b2PolygonShape*)shape)->GetVertex(i);
+                        scaleX = std::max(scaleX, fabsf(localPos.x - localCenter.x));
+                        scaleY = std::max(scaleY, fabsf(localPos.y - localCenter.y));
                     }
                     glBegin(GL_POLYGON);
                     for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
                     {
-                        pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
-                        glTexCoord2f((pos.x - center.x) / scaleX * 0.5f + 0.5f, (pos.y - center.y) / -scaleY * 0.5f + 0.5f);
+                        localCenter = ((b2PolygonShape*)shape)->m_centroid;
+                        localPos = ((b2PolygonShape*)shape)->GetVertex(i);
+                        pos = b->GetWorldPoint(localPos);
+                        glTexCoord2f((localPos.x - localCenter.x) / scaleX * 0.5f + 0.5f, (localPos.y - localCenter.y) / -scaleY * 0.5f + 0.5f);
                         if (m->getRenderMethod() == Matter::RENDER_COLOR_WITH_TEXTURE)
                             glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
                         else
@@ -195,6 +198,26 @@ void Render::drawRigid(const b2Body *b, float worldScale) noexcept
 
             default:
                 assert(false);
+        }
+
+        int key = m->getKeyBinded();
+        if (key)
+        {
+            if (! cachedLetter.count(key))
+                cachedLetter[key] = getTextureFromLetter(key);
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, cachedLetter[key]);
+
+            b2Vec2 pos(b->GetPosition() + b2Vec2(0.5f, 0.5f));
+            float d = m->getDepth() - 0.5f;
+            glBegin(GL_QUADS);
+            glTexCoord2f(0.0f, 1.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x - 0.3f, pos.y - 0.3f, d);
+            glTexCoord2f(1.0f, 1.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x + 0.3f, pos.y - 0.3f, d);
+            glTexCoord2f(1.0f, 0.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x + 0.3f, pos.y + 0.3f, d);
+            glTexCoord2f(0.0f, 0.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x - 0.3f, pos.y + 0.3f, d);
+            glEnd();
+
+            glDisable(GL_TEXTURE_2D);
         }
     }
 
@@ -544,6 +567,12 @@ GLuint Render::getTextureFromText(const std::string &s) noexcept
     int ret = getTextureFromPixels(pixels, w, h);
     delete [] raw;
     return ret;
+}
+
+GLuint Render::getTextureFromLetter(char c) noexcept
+{
+    assert(isupper(c));
+    return getTextureFromPixels(FONT[c - 'A'], FONT_W, FONT_H);
 }
 
 bool Render::updateWindowSize()

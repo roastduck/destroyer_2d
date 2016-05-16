@@ -115,6 +115,9 @@ const float STEEL_FRICTION = 0.2f;
 const float STEEL_RESTITUTION = 0.56f;
 const float STEEL_STRENGTH = 250.0f;
 
+const float SMALL_ENGINE_FORCE = 50.0f;
+const float LARGE_ENGINE_FORCE = 500.0f;
+
 /*
  * About Simulation
  */

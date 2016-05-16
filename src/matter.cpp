@@ -210,11 +210,11 @@ void ParticleSystem::cleanDied()
     // died will be cleared in destructor
 }
 
-SmallWoodBlock::SmallWoodBlock(World *_world, float x, float y, float, float) noexcept
-    : Rigid(_world, genBodyDef(x, y), genFixtureDefs())
+Block::Block(World *_world, float x, float y, float w, float h, float density, float friction, float restitution) noexcept
+    : Rigid(_world, genBodyDef(x, y), genFixtureDefs(w, h, density, friction, restitution))
 {}
 
-b2BodyDef SmallWoodBlock::genBodyDef(float x, float y)
+b2BodyDef Block::genBodyDef(float x, float y)
 {
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
@@ -222,40 +222,33 @@ b2BodyDef SmallWoodBlock::genBodyDef(float x, float y)
     return bodyDef;
 }
 
-std::vector<b2FixtureDef> SmallWoodBlock::genFixtureDefs()
+std::vector<b2FixtureDef> Block::genFixtureDefs(float w, float h, float density, float friction, float restitution)
 {
     b2PolygonShape *dynamicBox = new b2PolygonShape();
-    dynamicBox->SetAsBox(0.5f, 0.5f); // 1X1
+    dynamicBox->SetAsBox(w / 2, h / 2);
     b2FixtureDef fixtureDef;
     fixtureDef.shape = dynamicBox;
-    fixtureDef.density = WOOD_DENSITY;
-    fixtureDef.friction = WOOD_FRICTION;
-    fixtureDef.restitution = WOOD_RESTITUTION;
+    fixtureDef.density = density;
+    fixtureDef.friction = friction;
+    fixtureDef.restitution = restitution;
     return { fixtureDef };
 }
+
+SmallWoodBlock::SmallWoodBlock(World *_world, float x, float y, float, float) noexcept
+    : Block(_world, x, y, 1.0f, 1.0f, WOOD_DENSITY, WOOD_FRICTION, WOOD_RESTITUTION)
+{}
 
 LargeWoodBlock::LargeWoodBlock(World *_world, float x, float y, float, float) noexcept
-    : Rigid(_world, genBodyDef(x, y), genFixtureDefs())
+    : Block(_world, x, y, 3.0f, 3.0f, WOOD_DENSITY, WOOD_FRICTION, WOOD_RESTITUTION)
 {}
 
-b2BodyDef LargeWoodBlock::genBodyDef(float x, float y)
-{
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(x, y);
-    return bodyDef;
-}
+Engine::Engine(World *_world, float x, float y, float w, float h, float _force) noexcept
+    : Block(_world, x, y, w, h, STEEL_DENSITY, STEEL_FRICTION, STEEL_RESTITUTION), key(0), force(_force)
+{}
 
-std::vector<b2FixtureDef> LargeWoodBlock::genFixtureDefs()
+void Engine::keyPressed()
 {
-    b2PolygonShape *dynamicBox = new b2PolygonShape();
-    dynamicBox->SetAsBox(1.5f, 1.5f); // 3X3
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = dynamicBox;
-    fixtureDef.density = WOOD_DENSITY;
-    fixtureDef.friction = WOOD_FRICTION;
-    fixtureDef.restitution = WOOD_RESTITUTION;
-    return { fixtureDef };
+    physics->ApplyForceToCenter(physics->GetWorldVector(b2Vec2(force, 0.0f)), true);
 }
 
 SmallSteelBall::SmallSteelBall(World *_world, float x, float y, float, float) noexcept

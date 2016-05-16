@@ -1,3 +1,6 @@
+#include <cctype>
+#include <vector>
+#include "image.h"
 #include "world.h"
 #include "render.h"
 #include "matter.h"
@@ -63,12 +66,13 @@ World::World(float leftMost, float rightMost, float downMost, float upMost) noex
     : mWindow(NULL), mMouseHandler(new MouseHandler(this)),
       mLeftMost(leftMost), mRightMost(rightMost),
       mDownMost(downMost), mUpMost(upMost),
-      mCurLeftMost(leftMost), mCurRightMost(rightMost),
-      mCurDownMost(downMost), mCurUpMost(upMost),
-      physics(new b2World(b2Vec2(0.0f, -GRAVITY)))
+      physics(new b2World(b2Vec2(0.0f, -GRAVITY))),
+      requiringKey(NULL)
 {
     physics->SetDestructionListener(&myDestructionListener);
     physics->SetContactListener(&myContactListener);
+
+    setView(leftMost, rightMost, downMost, upMost);
 
     frameBody = (new Frame(this, leftMost, rightMost, downMost, upMost))->getReferee();
 }
@@ -107,6 +111,9 @@ void World::setView(float l, float r, float d, float u)
     mCurRightMost = r;
     mCurDownMost = d;
     mCurUpMost = u;
+
+    mx = (mCurLeftMost + mCurRightMost) / 2;
+    my = (mCurDownMost + mCurUpMost) / 2;
 }
 
 void World::setGLOrtho() const
@@ -126,6 +133,16 @@ void World::examContact()
     myContactListener.destroying.clear();
 }
 
+void World::checkKeyboard()
+{
+    for (b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
+    {
+        Rigid *r = (Rigid*)(b->GetUserData());
+        if (r->getKeyBinded() && mWindow->isKeyDown(r->getKeyBinded()))
+            r->keyPressed();
+    }
+}
+
 void World::drawAll() const noexcept
 {
     for (const b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
@@ -135,13 +152,19 @@ void World::drawAll() const noexcept
         Render::getInstance().drawParticleSystem(s, getScale());
 }
 
+void World::requireKey(Rigid *r)
+{
+    requiringKey = r;
+    displayPopup(bindMsg, mx - 13.0f, mx + 13.0f, my - 2.0f, my + 2.0f);
+}
+
 void World::displayPopup(const std::string &s, float l, float r, float d, float u)
 {
     popupMsg = s, popupL = l, popupR = r, popupD = d, popupU = u;
     mMouseHandler->setEnableCallback(false);
 }
 
-void World::canclePopup()
+void World::cancelPopup()
 {
     popupMsg.clear();
     mMouseHandler->setEnableCallback(true);
@@ -149,6 +172,13 @@ void World::canclePopup()
 
 void World::step()
 {
+    int keyPressed = mWindow->isKeyPressed();
+    if (requiringKey && keyPressed > 0 && keyPressed < 256 && isupper(keyPressed))
+    {
+        requiringKey->bindKey(keyPressed);
+        requiringKey = 0, cancelPopup();
+    }
+
     mMouseHandler->process();
     drawAll();
 
@@ -157,6 +187,7 @@ void World::step()
         Render::getInstance().drawPopup(popupMsg, popupL, popupR, popupD, popupU);
     } else
     {
+        checkKeyboard();
         physics->Step
             (
              TIME_STEP,
@@ -194,65 +225,77 @@ public:
 /// This is called during construction
 void MainWorld::makeBuildingButtons()
 {
-    enum BuildingButtonName
-    {
-        BUTTON_SMALL_WOOD_BLOCK = 0,
-        BUTTON_LARGE_WOOD_BLOCK = 1,
-        BUTTON_SMALL_STEEL_BALL = 2,
-        BUTTON_WOOD_STICK = 3,
-        BUTTON_STEEL_STICK = 4,
-        BUTTON_DELETE = 5,
-        BUTTON_LAUNCH = 6,
-
-        BUTTON_NUM = 7
-    };
-
     // Mousehandler will take charge of destructions of button rigids and callbacks
-    std::pair<Rigid*, MouseCallback*> buttons[BUTTON_NUM];
-    memset(buttons, 0, sizeof buttons);
+    typedef std::pair<Rigid*, MouseCallback*> button_t;
+    std::vector<button_t> buttons;
     float curH = mCurUpMost;
-    float mx = (mCurLeftMost+mCurRightMost)/2;
 
     curH -= 0.9f;
-    buttons[BUTTON_SMALL_WOOD_BLOCK].first = new SmallWoodBlock(this, mCurLeftMost + 1.2f, curH);
-    buttons[BUTTON_SMALL_WOOD_BLOCK].second = new NewObjectCallback<SmallWoodBlock>(mMouseHandler);
-    buttons[BUTTON_SMALL_WOOD_BLOCK].first->getReferee()->SetType(b2_staticBody);
+    buttons.push_back(button_t(
+        new SmallWoodBlock(this, mCurLeftMost + 1.2f, curH),
+        new NewObjectCallback<SmallWoodBlock>(mMouseHandler)
+    ));
     curH -= 0.9f;
 
     curH -= 1.9f;
-    buttons[BUTTON_LARGE_WOOD_BLOCK].first = new LargeWoodBlock(this, mCurLeftMost + 2.2f, curH);
-    buttons[BUTTON_LARGE_WOOD_BLOCK].second = new NewObjectCallback<LargeWoodBlock>(mMouseHandler);
-    buttons[BUTTON_LARGE_WOOD_BLOCK].first->getReferee()->SetType(b2_staticBody);
+    buttons.push_back(button_t(
+        new LargeWoodBlock(this, mCurLeftMost + 2.2f, curH),
+        new NewObjectCallback<LargeWoodBlock>(mMouseHandler)
+    ));
     curH -= 1.9f;
 
     curH -= 0.9f;
-    buttons[BUTTON_SMALL_STEEL_BALL].first = new SmallSteelBall(this, mCurLeftMost + 1.2f, curH);
-    buttons[BUTTON_SMALL_STEEL_BALL].second = new NewObjectCallback<SmallSteelBall>(mMouseHandler);
-    buttons[BUTTON_SMALL_STEEL_BALL].first->getReferee()->SetType(b2_staticBody);
+    buttons.push_back(button_t(
+        new SmallEngine(this, mCurLeftMost + 1.5f, curH),
+        new NewObjectCallback<SmallEngine>(mMouseHandler)
+    ));
+    curH -= 0.9f;
+
+    curH -= 1.8f;
+    buttons.push_back(button_t(
+        new LargeEngine(this, mCurLeftMost + 2.5f, curH),
+        new NewObjectCallback<LargeEngine>(mMouseHandler)
+    ));
+    curH -= 1.8f;
+
+    curH -= 0.9f;
+    buttons.push_back(button_t(
+        new SmallSteelBall(this, mCurLeftMost + 1.2f, curH),
+        new NewObjectCallback<SmallSteelBall>(mMouseHandler)
+    ));
     curH -= 0.9f;
 
     curH -= 1.3f;
-    buttons[BUTTON_WOOD_STICK].first = new WoodStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f);
-    buttons[BUTTON_WOOD_STICK].second = new NewObjectCallback<WoodStick>(mMouseHandler);
-    buttons[BUTTON_WOOD_STICK].first->getReferee()->SetType(b2_staticBody);
+    buttons.push_back(button_t(
+        new WoodStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f),
+        new NewObjectCallback<WoodStick>(mMouseHandler)
+    ));
     curH -= 1.3f;
 
     curH -= 1.3f;
-    buttons[BUTTON_STEEL_STICK].first = new SteelStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f);
-    buttons[BUTTON_STEEL_STICK].second = new NewObjectCallback<SteelStick>(mMouseHandler);
-    buttons[BUTTON_STEEL_STICK].first->getReferee()->SetType(b2_staticBody);
+    buttons.push_back(button_t(
+        new SteelStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f),
+        new NewObjectCallback<SteelStick>(mMouseHandler)
+    ));
     curH -= 1.3f;
 
     curH -= 3.0f;
-    buttons[BUTTON_DELETE].first = new Button<IMAGE_RED_CROSS>(this, mCurLeftMost + 0.8f, mCurLeftMost + 1.6f, curH - 0.4f, curH + 0.4f);
-    buttons[BUTTON_DELETE].second = new DeleteButtonCallback(mMouseHandler);
+    buttons.push_back(button_t(
+        new Button<IMAGE_RED_CROSS>(this, mCurLeftMost + 0.8f, mCurLeftMost + 1.6f, curH - 0.4f, curH + 0.4f),
+        new DeleteButtonCallback(mMouseHandler)
+    ));
     curH -= 1.1f;
 
-    buttons[BUTTON_LAUNCH].first = new Button<IMAGE_LAUNCH>(this, mx - 2.0f, mx + 2.0f, mCurUpMost - 2.0f, mCurUpMost - 1.0f);
-    buttons[BUTTON_LAUNCH].second = new LaunchCallback(mMouseHandler);
+    buttons.push_back(button_t(
+        new Button<IMAGE_LAUNCH>(this, mx - 2.0f, mx + 2.0f, mCurUpMost - 2.0f, mCurUpMost - 1.0f),
+        new LaunchCallback(mMouseHandler)
+    ));
 
-    for (int i = 0; i < BUTTON_NUM; i++)
-        mMouseHandler->addButton(buttons[i].first, buttons[i].second);
+    for (const auto &b : buttons)
+    {
+        b.first->getReferee()->SetType(b2_staticBody);
+        mMouseHandler->addButton(b.first, b.second);
+    }
 }
 
 MainWorld::MainWorld()
@@ -268,9 +311,7 @@ MainWorld::MainWorld()
 
     mMouseHandler->setFreeCallback(new DraggingCallback(mMouseHandler));
 
-    float mx = (mCurLeftMost + mCurRightMost) / 2,
-          my = (mCurDownMost + mCurUpMost) / 2;
-    displayPopup(buildingHelpMsg, mx - 13.0f, mx + 13.0f, my - 3.5f, my + 3.5f);
+    displayPopup(buildingMsg1, mx - 13.0f, mx + 13.0f, my - 3.7f, my + 3.7f);
 }
 
 void MainWorld::makeBattleButtons()
@@ -353,8 +394,10 @@ void MainWorld::step()
     switch (status)
     {
     case STATUS_BUILDING:
-        if (isDisplayingPopup() && (mWindow->IsKeyPressed() || mMouseHandler->getLeftClicked()))
-            canclePopup();
+        if (getPopup() == buildingMsg2 && (mWindow->isKeyPressed() || mMouseHandler->getLeftClicked()))
+            cancelPopup();
+        if (getPopup() == buildingMsg1 && (mWindow->isKeyPressed() || mMouseHandler->getLeftClicked()))
+            displayPopup(buildingMsg2, mx - 13.0f, mx + 13.0f, my - 3.7f, my + 3.7f);
         break;
     case STATUS_BATTLE:
         focus();

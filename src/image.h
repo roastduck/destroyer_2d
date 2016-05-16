@@ -13,9 +13,10 @@ void initImage();
 enum ImageName
 {
     IMAGE_RED_CROSS = 0,
-    IMAGE_LAUNCH = 1,
+    IMAGE_RED_ARROW = 1,
+    IMAGE_LAUNCH = 2,
 
-    IMAGE_NUM = 2
+    IMAGE_NUM = 3
 };
 
 typedef const unsigned char (*pixel_t)[4];
@@ -57,6 +58,28 @@ X _ X X X X X _ _ X X X X X _ X
 X _ _ X X X _ _ _ _ X X X _ _ X
 X _ _ _ X _ _ _ _ _ _ X _ _ _ X
 X _ _ _ _ _ _ _ _ _ _ _ _ _ _ X
+X X X X X X X X X X X X X X X X
+END;
+
+const int RED_ARROW_W = 16;
+const int RED_ARROW_H = 16;
+const unsigned char RED_ARROW[RED_ARROW_W * RED_ARROW_H + 1][4] =
+BEGIN
+X X X X X X X X X X X X X X X X
+X X X X X X X X X X X X X X X X
+X X _ _ _ _ _ _ _ _ _ _ _ _ X X
+X X _ _ _ _ _ _ X _ _ _ _ _ X X
+X X _ _ _ _ _ _ X X _ _ _ _ X X
+X X _ _ _ _ _ _ X X X _ _ _ X X
+X X _ _ _ _ _ _ X X X X _ _ X X
+X X _ X X X X X X X X X X _ X X
+X X _ X X X X X X X X X X _ X X
+X X _ _ _ _ _ _ X X X X _ _ X X
+X X _ _ _ _ _ _ X X X _ _ _ X X
+X X _ _ _ _ _ _ X X _ _ _ _ X X
+X X _ _ _ _ _ _ X _ _ _ _ _ X X
+X X _ _ _ _ _ _ _ _ _ _ _ _ X X
+X X X X X X X X X X X X X X X X
 X X X X X X X X X X X X X X X X
 END;
 
@@ -670,8 +693,8 @@ END
 #undef X
 #undef _
 
-const pixel_t IMAGES[IMAGE_NUM] = { RED_CROSS, LAUNCH };
-const int IMAGES_W[IMAGE_NUM] = { RED_CROSS_W, LAUNCH_W };
-const int IMAGES_H[IMAGE_NUM] = { RED_CROSS_H, LAUNCH_H };
+const pixel_t IMAGES[IMAGE_NUM] = { RED_CROSS, RED_ARROW, LAUNCH };
+const int IMAGES_W[IMAGE_NUM] = { RED_CROSS_W, RED_ARROW_W, LAUNCH_W };
+const int IMAGES_H[IMAGE_NUM] = { RED_CROSS_H, RED_ARROW_H, LAUNCH_H };
 
 #endif // IMAGE_H_

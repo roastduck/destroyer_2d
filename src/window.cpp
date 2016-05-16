@@ -17,7 +17,11 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 {
     for (Window *w : Window::instanceList)
         if (w->mTarget == window)
-            w->keyPressed.insert(key);
+        {
+            w->keyDown.insert(key);
+            if (action == GLFW_PRESS)
+                w->keyPressed.insert(key);
+        }
 }
 
 Window::Window()
@@ -99,7 +103,9 @@ void Window::run()
 
         mWorld->setGLOrtho();
         mWorld->step();
+
         keyPressed.clear();
+        keyDown.clear();
 
         switch (glGetError())
         {

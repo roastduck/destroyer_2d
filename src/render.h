@@ -60,6 +60,7 @@ private:
 
     GLuint getTextureFromPixels(const unsigned char pixels[][4], int width, int height) noexcept;
     GLuint getTextureFromText(const std::string &s) noexcept;
+    GLuint getTextureFromLetter(char c) noexcept;
 
     /// update windowWidth and windowHeight from mWindow
     /// @return bool. true when changed.
@@ -108,6 +109,7 @@ private:
 
     std::unordered_map<int, GLuint> cachedImage;
     std::unordered_map<std::string, GLuint> cachedText;
+    std::unordered_map<char, GLuint> cachedLetter;
 
     static const Window *mWindow;
     static int windowWidth, windowHeight;

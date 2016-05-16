@@ -95,6 +95,16 @@ public:
     /// if not overlap with others, set it free, or else display alert
     virtual bool tryPutDown();
 
+    /// bind a key on the keyboard to control it
+    /// 0 = none
+    virtual void bindKey(int _key) { assert(false); }
+    /// what has it bind?
+    virtual int getKeyBinded() const { return 0; }
+    /// shoud we bind a key to it?
+    virtual bool shouldBind() const { return false; }
+    /// what should it do when the key above is pressed
+    virtual void keyPressed() {}
+
 protected:
     b2Body *physics;
 
@@ -132,10 +142,22 @@ private:
 };
 
 /**
+ * Base class of all dynamic square rigids
+ */
+class Block : public Rigid
+{
+public:
+    Block(World *_world, float x, float y, float w, float h, float density, float friction, float restitution) noexcept;
+private:
+    static b2BodyDef genBodyDef(float x, float y);
+    static std::vector<b2FixtureDef> genFixtureDefs(float w, float h, float density, float friction, float restitution);
+};
+
+/**
  * Dynamic 1X1 small wooden block
  * Will Float
  */
-class SmallWoodBlock : public Rigid
+class SmallWoodBlock : public Block
 {
 public:
     SmallWoodBlock(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
@@ -145,16 +167,13 @@ public:
     virtual float getColorB() const override { return WOOD_COLOR_B; }
     virtual float getColorA() const override { return WOOD_COLOR_A; }
     virtual float getStrength() const override { return WOOD_STRENGTH; }
-private:
-    static b2BodyDef genBodyDef(float x, float y);
-    static std::vector<b2FixtureDef> genFixtureDefs();
 };
 
 /**
  * Dynamic 3X3 large wooden block
  * Will Float
  */
-class LargeWoodBlock : public Rigid
+class LargeWoodBlock : public Block
 {
 public:
     LargeWoodBlock(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
@@ -164,9 +183,55 @@ public:
     virtual float getColorB() const override { return WOOD_COLOR_B; }
     virtual float getColorA() const override { return WOOD_COLOR_A; }
     virtual float getStrength() const override { return WOOD_STRENGTH; }
+};
+
+/**
+ * Base class of engines
+ */
+class Engine : public Block
+{
+protected:
+    Engine(World *_world, float x, float y, float w, float h, float _force) noexcept;
+
+public:
+    virtual RenderMethod getRenderMethod() const override { return RENDER_TEXTURE; }
+    virtual ImageName getImage() const override { return IMAGE_RED_ARROW; }
+    virtual float getColorR() const override { return STEEL_COLOR_R; }
+    virtual float getColorG() const override { return STEEL_COLOR_G; }
+    virtual float getColorB() const override { return STEEL_COLOR_B; }
+    virtual float getColorA() const override { return STEEL_COLOR_A; } // colors are used when damaged
+    virtual float getStrength() const override { return STEEL_STRENGTH; }
+
+    void bindKey(int _key) override { key = _key; }
+    int getKeyBinded() const override { return key; }
+    bool shouldBind() const override { return true; }
+    void keyPressed() override;
+
 private:
-    static b2BodyDef genBodyDef(float x, float y);
-    static std::vector<b2FixtureDef> genFixtureDefs();
+    int key;
+    float force;
+};
+
+/**
+ * 1X2 Small engine that will provide a 50N force
+ */
+class SmallEngine : public Engine
+{
+public:
+    SmallEngine(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept
+        : Engine(_world, x, y, 2.0f, 1.0f, SMALL_ENGINE_FORCE)
+    {}
+};
+
+/**
+ * 2X4 Large engine that will provide a 500N force
+ */
+class LargeEngine : public Engine
+{
+public:
+    LargeEngine(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept
+        : Engine(_world, x, y, 4.0f, 2.0f, LARGE_ENGINE_FORCE)
+    {}
 };
 
 /**

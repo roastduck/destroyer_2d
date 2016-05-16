@@ -53,6 +53,8 @@ public:
         if (toPut->tryPutDown())
         {
             toPut->setIsUserCreated(true);
+            if (toPut->shouldBind())
+                mMouseHandler->getWorld()->requireKey(toPut);
             createNew(x, y);
         } else
             toPut->setAlert(ALERT_WARNING, CLOCKS_PER_SEC);
