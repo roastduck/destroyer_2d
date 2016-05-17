@@ -3,6 +3,9 @@
 third_party/glfw-3.1.2
 third_party/liquidfun
 
+saved_game/*
+!saved_game/README.md
+
 */.ycm_extra_conf.py
 */.ycm_extra_conf.pyc
 */Debug

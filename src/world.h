@@ -24,18 +24,13 @@ public:
     /**
      * Set part of the whole world as current view.
      */
-    void setView(float l, float r, float d, float u);
+    virtual void setView(float l, float r, float d, float u); /// will be overriden in test classes
 
     /**
      * Set OpenGL with orthographic projection
      * To disply corresponding area
      */
     void setGLOrtho() const;
-
-    /**
-     * Corresponding LiquidFun Object
-     */
-    b2World *getB2World() const { return physics; }
 
     /**
      * Run next simulation step
@@ -254,6 +249,13 @@ class TestWorldSimplePhysics : public World
 {
 public:
     TestWorldSimplePhysics();
+};
+
+class TestWorldFullView : public MainWorld
+{
+public:
+    TestWorldFullView();
+    void setView(float l, float r, float u, float d) override;
 };
 
 #endif // COMPILE_TEST

@@ -15,6 +15,7 @@
 #include "const.h"
 
 class World;
+class Saver;
 
 /**
  * Base class of all rigid bodies and particles
@@ -70,6 +71,7 @@ private:
 class Rigid : public Matter
 {
 public:
+    Rigid(World *_world, b2Body *b);
     /// NOTICE: Pointer to b2Shape in fixtureDefs will be deleted
     Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs) noexcept;
     virtual ~Rigid() noexcept;
@@ -150,6 +152,7 @@ private:
 class Block : public Rigid
 {
 public:
+    Block(World *_world, b2Body *b) : Rigid(_world, b) {}
     Block(World *_world, float x, float y, float w, float h, float density, float friction, float restitution) noexcept;
 private:
     static b2BodyDef genBodyDef(float x, float y);
@@ -163,6 +166,7 @@ private:
 class SmallWoodBlock : public Block
 {
 public:
+    SmallWoodBlock(World *_world, b2Body *b) : Block(_world, b) {}
     SmallWoodBlock(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
 
     virtual float getColorR() const override { return WOOD_COLOR_R; }
@@ -179,6 +183,7 @@ public:
 class LargeWoodBlock : public Block
 {
 public:
+    LargeWoodBlock(World *_world, b2Body *b) : Block(_world, b) {}
     LargeWoodBlock(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
 
     virtual float getColorR() const override { return WOOD_COLOR_R; }
@@ -194,6 +199,7 @@ public:
 class Engine : public Block
 {
 protected:
+    Engine(World *_world, b2Body *b, float _force) : Block(_world, b), force(_force) {}
     Engine(World *_world, float x, float y, float w, float h, float _force) noexcept;
 
 public:
@@ -211,6 +217,7 @@ public:
     void keyPressed() override;
 
 private:
+    friend Saver;
     int key;
     float force;
 };
@@ -221,6 +228,7 @@ private:
 class SmallEngine : public Engine
 {
 public:
+    SmallEngine(World *_world, b2Body *b) : Engine(_world, b, SMALL_ENGINE_FORCE) {}
     SmallEngine(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept
         : Engine(_world, x, y, 2.0f, 1.0f, SMALL_ENGINE_FORCE)
     {}
@@ -232,6 +240,7 @@ public:
 class LargeEngine : public Engine
 {
 public:
+    LargeEngine(World *_world, b2Body *b) : Engine(_world, b, LARGE_ENGINE_FORCE) {}
     LargeEngine(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept
         : Engine(_world, x, y, 4.0f, 2.0f, LARGE_ENGINE_FORCE)
     {}
@@ -243,6 +252,7 @@ public:
 class SmallSteelBall : public Rigid
 {
 public:
+    SmallSteelBall(World *_world, b2Body *b) : Rigid(_world, b) {}
     SmallSteelBall(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
 
     virtual float getColorR() const override { return STEEL_COLOR_R; }
@@ -281,6 +291,7 @@ private:
 class Stick : public Rigid
 {
 public:
+    Stick(World *_world, b2Body *b) : Rigid(_world, b) {}
     Stick
     (
         World *_world, float _x1, float _y1, float _x2, float _y2, float density, float friction, float restitution
@@ -307,6 +318,7 @@ private:
 class SteelStick : public Stick
 {
 public:
+    SteelStick(World *_world, b2Body *b) : Stick(_world, b) {}
     SteelStick(World *_world, float x1, float y1, float x2 = 0, float y2 = 0) noexcept;
 
     virtual float getColorR() const override { return STEEL_COLOR_R; }
@@ -319,6 +331,7 @@ public:
 class WoodStick : public Stick
 {
 public:
+    WoodStick(World *_world, b2Body *b) : Stick(_world, b) {}
     WoodStick(World *_world, float x1, float y1, float x2 = 0, float y2 = 0) noexcept;
 
     virtual float getColorR() const override { return WOOD_COLOR_R; }

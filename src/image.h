@@ -3,6 +3,8 @@
  * that will be generated to textures
  * Future developers can use a image loader to replace
  * this
+ * I just don't want to use too many third-party projects
+ * in the homework
  */
 
 #ifndef IMAGE_H_

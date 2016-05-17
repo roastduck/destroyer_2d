@@ -7,10 +7,16 @@ static float random(float l, float r) { return (float)rand() / RAND_MAX * (r-l) 
 
 std::list<ParticleSystem*> ParticleSystem::died;
 
-Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs) noexcept
-    : Matter(_world), alert(ALERT_NONE), defaultAlert(ALERT_NONE), alertExpireClock(0)
+Rigid::Rigid(World *_world, b2Body *b)
+    : Matter(_world), physics(b), alert(ALERT_NONE), defaultAlert(ALERT_NONE), alertExpireClock(0)
 {
-    physics = world->getB2World()->CreateBody(&bodyDef);
+    if (physics) physics->SetUserData(this);
+}
+
+Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2FixtureDef> &fixtureDefs) noexcept
+    : Rigid(_world, NULL)
+{
+    physics = world->getReferee()->CreateBody(&bodyDef);
     physics->SetUserData(this);
     for (const b2FixtureDef &fixtureDef : fixtureDefs)
     {
@@ -22,7 +28,7 @@ Rigid::Rigid(World *_world, const b2BodyDef &bodyDef, const std::vector<b2Fixtur
 
 Rigid::~Rigid() noexcept
 {
-    world->getB2World()->DestroyBody(physics);
+    world->getReferee()->DestroyBody(physics);
 }
 
 void Rigid::setAlert(AlertType _alert, clock_t expire)
@@ -158,7 +164,7 @@ bool Rigid::tryMoveTo(float x, float y, float angle)
 
 bool Rigid::tryPutDown()
 {
-    for (b2Body *b = world->getB2World()->GetBodyList(); b; b = b->GetNext())
+    for (b2Body *b = world->getReferee()->GetBodyList(); b; b = b->GetNext())
         if (b != physics)
             for (b2Fixture *f1 = b->GetFixtureList(); f1; f1 = f1->GetNext())
                 for (b2Fixture *f2 = physics->GetFixtureList(); f2; f2 = f2->GetNext())
@@ -175,7 +181,7 @@ bool Rigid::tryPutDown()
 ParticleSystem::ParticleSystem(World *_world, const b2ParticleSystemDef &systemDef, const std::vector<b2ParticleGroupDef> &groupDefs) noexcept
     : Matter(_world)
 {
-    physics = world->getB2World()->CreateParticleSystem(&systemDef);
+    physics = world->getReferee()->CreateParticleSystem(&systemDef);
     for (const b2ParticleGroupDef &groupDef : groupDefs)
     {
         b2ParticleGroup *group = physics->CreateParticleGroup(groupDef);
@@ -187,7 +193,7 @@ ParticleSystem::ParticleSystem(World *_world, const b2ParticleSystemDef &systemD
 
 ParticleSystem::~ParticleSystem() noexcept
 {
-    world->getB2World()->DestroyParticleSystem(physics);
+    world->getReferee()->DestroyParticleSystem(physics);
     for (auto i = died.begin(); i != died.end();)
     {
         auto _i(i);
@@ -316,7 +322,7 @@ Stick::Stick
 
 bool Stick::tryPutDown()
 {
-    for (b2Body *b = world->getB2World()->GetBodyList(); b; b = b->GetNext())
+    for (b2Body *b = world->getReferee()->GetBodyList(); b; b = b->GetNext())
         if (b != physics)
         {
             bool overlap(false);
@@ -338,12 +344,12 @@ bool Stick::tryPutDown()
             if (end & 1)
             {
                 jointDef.Initialize(b, physics, b2Vec2(x1, y1));
-                world->getB2World()->CreateJoint(&jointDef);
+                world->getReferee()->CreateJoint(&jointDef);
             }
             if (end & 2)
             {
                 jointDef.Initialize(b, physics, b2Vec2(x2, y2));
-                world->getB2World()->CreateJoint(&jointDef);
+                world->getReferee()->CreateJoint(&jointDef);
             }
         }
     return true;

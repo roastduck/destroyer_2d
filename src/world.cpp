@@ -2,6 +2,7 @@
 #include <vector>
 #include "image.h"
 #include "world.h"
+#include "saver.h"
 #include "render.h"
 #include "matter.h"
 #include "mousecallback.h"
@@ -311,6 +312,8 @@ MainWorld::MainWorld()
 
     mMouseHandler->setFreeCallback(new DraggingCallback(mMouseHandler));
 
+    Saver::getInstance().loadFrom(this, { "saved_game", "_default.txt" });
+
     displayPopup(buildingMsg1, mx - 13.0f, mx + 13.0f, my - 3.7f, my + 3.7f);
 }
 
@@ -323,6 +326,8 @@ void MainWorld::makeBattleButtons()
 
 void MainWorld::launch()
 {
+    Saver::getInstance().saveTo(this, { "saved_game", "_default.txt" });
+
     status = STATUS_BATTLE;
     mMouseHandler->cleanButtons();
     mMouseHandler->setFreeCallback(NULL);
@@ -436,6 +441,20 @@ TestWorldSimplePhysics::TestWorldSimplePhysics()
     new LargeWoodBlock(this, -5.0f, 5.0f);
     new SmallSteelBall(this, -4.0f, 8.0f);
     new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
+}
+
+TestWorldFullView::TestWorldFullView()
+    : MainWorld()
+{
+    setView(0, 0, 0, 0);
+}
+
+void TestWorldFullView::setView(float, float, float, float)
+{
+    mCurLeftMost = mLeftMost;
+    mCurRightMost = mRightMost;
+    mCurDownMost = mDownMost;
+    mCurUpMost = mUpMost;
 }
 
 #endif // COMPILE_TEST

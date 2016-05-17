@@ -173,7 +173,7 @@ public:
         b2AABB aabb;
         aabb.lowerBound = b2Vec2(x - 0.001f, y - 0.001f);
         aabb.upperBound = b2Vec2(x + 0.001f, y + 0.001f);
-        mMouseHandler->getWorld()->getB2World()->QueryAABB(&callback, aabb);
+        mMouseHandler->getWorld()->getReferee()->QueryAABB(&callback, aabb);
         if (callback.fixture && ((Matter*)(callback.fixture->GetBody()->GetUserData()))->getIsUserCreated())
             delete (Matter*)(callback.fixture->GetBody()->GetUserData());
     }
@@ -222,7 +222,7 @@ public:
     ~DraggingCallback()
     {
         if (joint)
-            mMouseHandler->getWorld()->getB2World()->DestroyJoint(joint);
+            mMouseHandler->getWorld()->getReferee()->DestroyJoint(joint);
         World::myDestructionListener.unsubscribe(&localListener);
     }
 
@@ -234,7 +234,7 @@ public:
         b2AABB aabb;
         aabb.lowerBound = b2Vec2(x - 0.001f, y - 0.001f);
         aabb.upperBound = b2Vec2(x + 0.001f, y + 0.001f);
-        mMouseHandler->getWorld()->getB2World()->QueryAABB(&callback, aabb);
+        mMouseHandler->getWorld()->getReferee()->QueryAABB(&callback, aabb);
         if (! callback.fixture || callback.fixture->GetBody()->GetType() != b2_dynamicBody) return;
 
         b2MouseJointDef jointDef;
@@ -242,14 +242,14 @@ public:
         jointDef.bodyA = mMouseHandler->getWorld()->getFrameBody();
         jointDef.bodyB = callback.fixture->GetBody();
         jointDef.maxForce = 1000.0f * callback.fixture->GetBody()->GetMass();
-        joint = (JointPointer)(mMouseHandler->getWorld()->getB2World()->CreateJoint(&jointDef));
+        joint = (JointPointer)(mMouseHandler->getWorld()->getReferee()->CreateJoint(&jointDef));
     }
 
     void leftRelease(float, float) override
     {
         if (joint)
         {
-            mMouseHandler->getWorld()->getB2World()->DestroyJoint(joint);
+            mMouseHandler->getWorld()->getReferee()->DestroyJoint(joint);
             joint = NULL;
         }
     }
