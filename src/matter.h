@@ -25,6 +25,9 @@ public:
     Matter(World *_world) noexcept : world(_world), depth(0.0f), isUserCreated(false) {}
     virtual ~Matter() noexcept {}
 
+    Matter(const Matter &) = delete;
+    Matter &operator=(const Matter &) = delete;
+
     // choose one of below:
     enum RenderMethod
     {
