@@ -41,6 +41,7 @@ private:
         ID_SMALL_ENGINE,
         ID_LARGE_ENGINE,
         ID_SMALL_STEEL_BALL,
+        ID_BOMB,
         ID_STEEL_STICK,
         ID_WOOD_STICK
     };

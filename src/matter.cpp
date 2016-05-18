@@ -281,6 +281,37 @@ std::vector<b2FixtureDef> SmallSteelBall::genFixtureDefs()
     return { fixtureDef };
 }
 
+Bomb::Bomb(World *_world, float x, float y, float, float) noexcept
+    : Rigid(_world, genBodyDef(x, y), genFixtureDefs()), key(0)
+{}
+
+b2BodyDef Bomb::genBodyDef(float x, float y)
+{
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position.Set(x, y);
+    return bodyDef;
+}
+
+void Bomb::damage()
+{
+    new Flame(world, physics->GetPosition(), physics->GetFixtureList()->GetShape()->m_radius);
+
+    delete this;
+}
+
+std::vector<b2FixtureDef> Bomb::genFixtureDefs()
+{
+    b2CircleShape *dynamicBall = new b2CircleShape();
+    dynamicBall->m_radius = 0.5f;
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = dynamicBall;
+    fixtureDef.density = BOMB_DENSITY;
+    fixtureDef.friction = BOMB_FRICTION;
+    fixtureDef.restitution = BOMB_RESTITUTION;
+    return { fixtureDef };
+}
+
 Frame::Frame(World *_world, float l, float r, float d, float u) noexcept
     : Rigid(_world, genBodyDef(), genFixtureDefs(l, r, d, u))
 {}
@@ -290,6 +321,7 @@ b2BodyDef Frame::genBodyDef()
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;
     bodyDef.position.Set(0.0f, 0.0f);
+    bodyDef.bullet = true;
     return bodyDef;
 }
 
@@ -457,6 +489,44 @@ std::vector<b2ParticleGroupDef> Dust::genGroupDefs(
         ret[i].linearVelocity = v;
         ret[i].angularVelocity = w;
         ret[i].color.Set(_colorR * 0xFF, _colorG * 0xFF, _colorB * 0xFF, _colorA * 0xFF);
+    }
+    return ret;
+}
+
+Flame::Flame(World *_world, const b2Vec2 &pos, float radius) noexcept
+    : ParticleSystem(_world, genSystemDef(), genGroupDefs(pos, radius))
+{
+    for (int i = 0; i < physics->GetParticleCount(); i++)
+    {
+        physics->SetParticleLifetime(i, random(0, 3));
+        physics->GetVelocityBuffer()[i].x = random(-100.0f, 100.0f);
+        physics->GetVelocityBuffer()[i].y = random(-100.0f, 100.0f);
+    }
+}
+
+b2ParticleSystemDef Flame::genSystemDef()
+{
+    b2ParticleSystemDef systemDef;
+    systemDef.radius = PARTICLE_RADIUS;
+    systemDef.density = 100.0f;
+    systemDef.destroyByAge = true;
+    systemDef.gravityScale = 0.0f;
+    return systemDef;
+}
+
+std::vector<b2ParticleGroupDef> Flame::genGroupDefs(const b2Vec2 &pos, float radius)
+{
+    const int NUM = 20;
+    b2CircleShape *shape[NUM];
+    std::vector<b2ParticleGroupDef> ret(NUM);
+    for (int i = 0; i < NUM; i++)
+    {
+        shape[i] = new b2CircleShape();
+        shape[i]->m_radius = radius;
+        ret[i].shape = shape[i];
+        ret[i].flags = b2_powderParticle;
+        ret[i].position = pos;
+        ret[i].color.Set(FLAME_COLOR_R_256, FLAME_COLOR_G_256, FLAME_COLOR_B_256, FLAME_COLOR_A_256);
     }
     return ret;
 }

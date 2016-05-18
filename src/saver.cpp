@@ -107,6 +107,7 @@ Saver::MatterId Saver::getMatterId(const Matter *m)
     if (tid == typeid(SmallEngine)) return ID_SMALL_ENGINE;
     if (tid == typeid(LargeEngine)) return ID_LARGE_ENGINE;
     if (tid == typeid(SmallSteelBall)) return ID_SMALL_STEEL_BALL;
+    if (tid == typeid(Bomb)) return ID_BOMB;
     if (tid == typeid(SteelStick)) return ID_STEEL_STICK;
     if (tid == typeid(WoodStick)) return ID_WOOD_STICK;
     assert(false);
@@ -273,6 +274,9 @@ void Saver::getMatterData(std::ostream &os, const Matter *m)
     os << id                                                << ' ';
     switch (id)
     {
+    case ID_BOMB:
+        os << ((Bomb*)m)->key                               << ' ';
+        break;
     case ID_SMALL_ENGINE:
     case ID_LARGE_ENGINE:
         os << ((Engine*)m)->key                             << ' ';
@@ -305,6 +309,11 @@ Matter *Saver::setMatterData(std::istream &is, World *world, b2Body *b)
         break;
     case ID_SMALL_STEEL_BALL:
         m = new SmallSteelBall(world, b);
+        break;
+    case ID_BOMB:
+        m = new Bomb(world, b);
+        is >> ((Bomb*)m)->key;
+        ((Bomb*)m)->bindClock = clock();
         break;
     case ID_STEEL_STICK:
         m = new SteelStick(world, b);

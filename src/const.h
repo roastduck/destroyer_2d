@@ -38,6 +38,7 @@ const float STICK_END_THICKNESS = 0.5f;
 
 const float WATER_PARTICLE_SIZE_SCALE = 6.0f;
 const float DUST_PARTICLE_SIZE_SCALE = 1.0f;
+const float FLAME_PARTICLE_SIZE_SCALE = DUST_PARTICLE_SIZE_SCALE;
 
 /*
  * Colors
@@ -56,6 +57,11 @@ const float STEEL_COLOR_G = (float)0xC0/0xFF;
 const float STEEL_COLOR_B = (float)0xC0/0xFF;
 const float STEEL_COLOR_A = 1.0f;
 
+const float BOMB_COLOR_R = (float)0x7A/0xFF;
+const float BOMB_COLOR_G = (float)0x00/0xFF;
+const float BOMB_COLOR_B = (float)0x00/0xFF;
+const float BOMB_COLOR_A = 1.0f;
+
 const float FRAME_COLOR_R = 1.0f;
 const float FRAME_COLOR_G = 1.0f;
 const float FRAME_COLOR_B = 1.0f;
@@ -67,6 +73,11 @@ const unsigned char WATER_COLOR_B_256 = 0xFF;
 const unsigned char WATER_COLOR_A_256 = 0x60;
 // The alpha for particles actually not influencing the
 // color, but the particle size
+
+const unsigned char FLAME_COLOR_R_256 = 0xFF;
+const unsigned char FLAME_COLOR_G_256 = 0xFF;
+const unsigned char FLAME_COLOR_B_256 = 0x00;
+const unsigned char FLAME_COLOR_A_256 = 0xFF;
 
 const float ALERT_NORMAL_COLOR_R = (float)0x05/0xFF;
 const float ALERT_NORMAL_COLOR_G = (float)0x3E/0xFF;
@@ -107,13 +118,18 @@ const float PARTICLE_RADIUS = 0.35f; // maybe too small
 const float WOOD_DENSITY = 0.4f;
 const float WOOD_FRICTION = 0.7f;
 const float WOOD_RESTITUTION = 0.5f;
-const float WOOD_STRENGTH = 100.0f;
+const float WOOD_STRENGTH = 60.0f;
 // strength means how much impulse can it stand with. It's not physics but imaginary...
 
 const float STEEL_DENSITY = 7.9f;
 const float STEEL_FRICTION = 0.2f;
 const float STEEL_RESTITUTION = 0.56f;
 const float STEEL_STRENGTH = 250.0f;
+
+const float BOMB_DENSITY = 4.0f;
+const float BOMB_FRICTION = STEEL_FRICTION;
+const float BOMB_RESTITUTION = STEEL_RESTITUTION;
+const float BOMB_STRENGTH = 150.0f;
 
 const float SMALL_ENGINE_FORCE = 50.0f;
 const float LARGE_ENGINE_FORCE = 500.0f;

@@ -136,11 +136,13 @@ void World::examContact()
 
 void World::checkKeyboard()
 {
-    for (b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
+    for (b2Body *b = physics->GetBodyList(); b;)
     {
+        b2Body *_b = b->GetNext();
         Rigid *r = (Rigid*)(b->GetUserData());
         if (r->getKeyBinded() && mWindow->isKeyDown(r->getKeyBinded()))
-            r->keyPressed();
+            r->keyPressed(); // may destroy itself
+        b = _b;
     }
 }
 
@@ -259,21 +261,28 @@ void MainWorld::makeBuildingButtons()
     ));
     curH -= 1.8f;
 
-    curH -= 0.9f;
+    curH -= 0.8f;
     buttons.push_back(button_t(
         new SmallSteelBall(this, mCurLeftMost + 1.2f, curH),
         new NewObjectCallback<SmallSteelBall>(mMouseHandler)
     ));
-    curH -= 0.9f;
+    curH -= 0.8f;
+
+    curH -= 0.8f;
+    buttons.push_back(button_t(
+        new Bomb(this, mCurLeftMost + 1.2f, curH),
+        new NewObjectCallback<Bomb>(mMouseHandler)
+    ));
+    curH -= 0.8f;
 
     curH -= 1.3f;
     buttons.push_back(button_t(
         new WoodStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f),
         new NewObjectCallback<WoodStick>(mMouseHandler)
     ));
-    curH -= 1.3f;
+    curH -= 0.8f;
 
-    curH -= 1.3f;
+    curH -= 0.8f;
     buttons.push_back(button_t(
         new SteelStick(this, mCurLeftMost + 0.4f, curH + 0.7f, mCurLeftMost + 1.8f, curH - 0.7f),
         new NewObjectCallback<SteelStick>(mMouseHandler)

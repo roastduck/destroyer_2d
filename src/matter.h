@@ -91,7 +91,7 @@ public:
     /// rigids are undestroyable by default
     virtual float getStrength() const { return INFINITY; }
     /// create a damage effect and delete the rigid
-    void damage();
+    virtual void damage();
 
     /// used in putting process when cursor moves
     /// set the object to (x, y)
@@ -266,6 +266,36 @@ private:
 };
 
 /**
+ * r=0.5 round bomb
+ */
+class Bomb : public Rigid
+{
+public:
+    Bomb(World *_world, b2Body *b) : Rigid(_world, b) {}
+    Bomb(World *_world, float x, float y, float notused1 = 0, float notused2 = 0) noexcept;
+
+    virtual float getColorR() const override { return BOMB_COLOR_R; }
+    virtual float getColorG() const override { return BOMB_COLOR_G; }
+    virtual float getColorB() const override { return BOMB_COLOR_B; }
+    virtual float getColorA() const override { return BOMB_COLOR_A; }
+    virtual float getStrength() const override { return BOMB_STRENGTH; }
+    
+    void damage() override;
+    void bindKey(int _key) override { key = _key, bindClock = clock(); }
+    int getKeyBinded() const override { return key; }
+    bool shouldBind() const override { return true; }
+    void keyPressed() override { if (clock() - bindClock > CLICK_INTERVAL * CLOCKS_PER_SEC) damage(); }
+
+private:
+    static b2BodyDef genBodyDef(float x, float y);
+    static std::vector<b2FixtureDef> genFixtureDefs();
+
+    friend Saver;
+    int key;
+    clock_t bindClock;
+};
+
+/**
  * Frame around the world
  * 1 unit thick
  */
@@ -403,6 +433,24 @@ private:
     );
 
     float colorR, colorG, colorB, colorA;
+};
+
+/**
+ * Set when bomb exploses
+ */
+class Flame : public ParticleSystem
+{
+public:
+    Flame(World *_world, const b2Vec2 &pos, float radius) noexcept;
+
+    virtual float getColorR() const override { return (float)FLAME_COLOR_R_256/0xFF; }
+    virtual float getColorG() const override { return (float)FLAME_COLOR_G_256/0xFF; }
+    virtual float getColorB() const override { return (float)FLAME_COLOR_B_256/0xFF; }
+    virtual float getColorA() const override { return (float)FLAME_COLOR_A_256/0xFF; }
+    virtual float getDisplayedRadiusScale() const override { return FLAME_PARTICLE_SIZE_SCALE; }
+private:
+    static b2ParticleSystemDef genSystemDef();
+    static std::vector<b2ParticleGroupDef> genGroupDefs(const b2Vec2 &pos, float radius);
 };
 
 // Here we implement template classes
