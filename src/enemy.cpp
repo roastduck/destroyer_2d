@@ -28,7 +28,10 @@ bool Enemy::getKeyDown(int key)
 {
     clock_t now = clock();
     while (! actions.empty() && startClock + actions.back().sec * CLOCKS_PER_SEC > now)
+    {
         keyDown[actions.back().key - 'A'] = actions.back().flag == action_t::PRESS ? true : false;
+        actions.pop_back();
+    }
     return keyDown[key];
 }
 

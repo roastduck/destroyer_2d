@@ -134,6 +134,9 @@ const float BOMB_STRENGTH = 150.0f;
 const float SMALL_ENGINE_FORCE = 30.0f;
 const float LARGE_ENGINE_FORCE = 300.0f;
 
+// increase water gravity scale to increase floatage
+const float WATER_GRAVITY_SCALE = 1.3f;
+
 /*
  * About Simulation
  */

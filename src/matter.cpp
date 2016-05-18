@@ -432,6 +432,7 @@ b2ParticleSystemDef WaterSquare::genSystemDef()
     b2ParticleSystemDef systemDef;
     systemDef.radius = PARTICLE_RADIUS;
     systemDef.destroyByAge = false;
+    systemDef.gravityScale = WATER_GRAVITY_SCALE;
     return systemDef;
 }
 
