@@ -55,150 +55,30 @@ Render::Render()
 
 void Render::drawRigid(const b2Body *b, float worldScale) noexcept
 {
-    glEnable(GL_BLEND);
-
     const Rigid *m = (const Rigid*)b->GetUserData();
     for (const b2Fixture *f = b->GetFixtureList(); f; f = f->GetNext())
     {
         const b2Shape *shape = f->GetShape();
-        b2Vec2 center, pos, localCenter, localPos;
-        float scaleX, scaleY;
-        ImageName name;
+        FixtureRenderer *renderer = NULL;
         switch (shape->GetType())
         {
             case b2Shape::e_polygon:
-               
-                // the 3 steps must happen EXACTLY in this order !
-
-                // 1. edge
-                glBegin(GL_LINES);
-                for (int _i = 1; _i <= ((b2PolygonShape*)shape)->GetVertexCount() * 2; _i++)
-                {
-                    int i = _i / 2 % ((b2PolygonShape*)shape)->GetVertexCount();
-                    pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
-                    glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
-                    glVertex3f(pos.x, pos.y, m->getDepth());
-                }
-                glEnd();
-                
-                // 2. main
-                glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE);
-                switch (m->getRenderMethod())
-                {
-                case Matter::RENDER_COLOR:
-                    glBegin(GL_POLYGON);
-                    for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
-                    {
-                        pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
-                        glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
-                        glVertex3f(pos.x, pos.y, m->getDepth());
-                    }
-                    glEnd();
-                    break;
-
-                case Matter::RENDER_TEXTURE:
-                case Matter::RENDER_COLOR_WITH_TEXTURE:
-                    name = m->getImage();
-                    if (! cachedImage.count(name))
-                        cachedImage[name] = getTextureFromPixels(IMAGES[name], IMAGES_W[name], IMAGES_H[name]);
-                    glEnable(GL_TEXTURE_2D);
-                    glBindTexture(GL_TEXTURE_2D, cachedImage[name]);
-
-                    center = b->GetPosition();
-                    scaleX = scaleY = 0;
-                    for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
-                    {
-                        localCenter = ((b2PolygonShape*)shape)->m_centroid;
-                        localPos = ((b2PolygonShape*)shape)->GetVertex(i);
-                        scaleX = std::max(scaleX, fabsf(localPos.x - localCenter.x));
-                        scaleY = std::max(scaleY, fabsf(localPos.y - localCenter.y));
-                    }
-                    glBegin(GL_POLYGON);
-                    for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
-                    {
-                        localCenter = ((b2PolygonShape*)shape)->m_centroid;
-                        localPos = ((b2PolygonShape*)shape)->GetVertex(i);
-                        pos = b->GetWorldPoint(localPos);
-                        glTexCoord2f((localPos.x - localCenter.x) / scaleX * 0.5f + 0.5f, (localPos.y - localCenter.y) / -scaleY * 0.5f + 0.5f);
-                        if (m->getRenderMethod() == Matter::RENDER_COLOR_WITH_TEXTURE)
-                            glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
-                        else
-                            glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-                        glVertex3f(pos.x, pos.y, m->getDepth());
-                    }
-                    glEnd();
-
-                    glDisable(GL_TEXTURE_2D);
-
-                    break;
-
-                default:
-                    assert(false);
-                }
-
-                // 3. alert
-                glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-                if (m->getAlert())
-                {
-                    glBegin(GL_POLYGON);
-                    for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
-                    {
-                        pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
-                        glColor4f(m->getAlertColorR(), m->getAlertColorG(), m->getAlertColorB(), m->getAlertColorA());
-                        glVertex3f(pos.x - ALERT_LINE_WIDTH, pos.y - ALERT_LINE_WIDTH, m->getDepth() + 1.0f);
-                    }
-                    glEnd();
-                }
-
+                renderer = new PolygonRenderer(b, f, worldScale);
                 break;
-
             case b2Shape::e_circle:
-                glEnable(GL_TEXTURE_2D);
-                glBindTexture(GL_TEXTURE_2D, circleTexture);
-                glUseProgram(circleProgram);
-
-                glEnable(GL_POINT_SMOOTH);
-                glEnable(GL_POINT_SPRITE);
-                glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
-
-                glPointSize(shape->m_radius * 2 / worldScale);
-
-                pos = b->GetWorldPoint(((b2CircleShape*)shape)->GetVertex(0));
-
-                // the 2 steps must happen EXACTLY in this order !
-
-                // 1. main
-                switch (m->getRenderMethod())
-                {
-                case Matter::RENDER_COLOR:
-                    glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE);
-                    glBegin(GL_POINTS);
-                    glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
-                    glVertex3f(pos.x, pos.y, m->getDepth());
-                    glEnd();
-                    break;
-                default:
-                    assert(false);
-                }
-                    
-                // 2. alert
-                glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-                if (m->getAlert())
-                {
-                    glBegin(GL_POINTS);
-                    glColor4f(m->getAlertColorR(), m->getAlertColorG(), m->getAlertColorB(), m->getAlertColorA());
-                    glVertex3f(pos.x - ALERT_LINE_WIDTH, pos.y - ALERT_LINE_WIDTH, m->getDepth() + 1.0f);
-                    glEnd();
-                }
-
-                glUseProgram(0);
-                glDisable(GL_TEXTURE_2D);
-
+                renderer = new CircleRenderer(b, f, worldScale);
                 break;
-
             default:
                 assert(false);
         }
+        // DO NOT render any other thing before deleting renderer
+        // the 3 steps must happen EXACTLY in this order !
+        renderer->drawEdge();
+        renderer->drawMain();
+        renderer->drawAlert();
+        assert(renderer != NULL);
+        delete renderer;
+        renderer = NULL;
 
         int key = m->getKeyBinded();
         if (key)
@@ -220,8 +100,6 @@ void Render::drawRigid(const b2Body *b, float worldScale) noexcept
             glDisable(GL_TEXTURE_2D);
         }
     }
-
-    glDisable(GL_BLEND);
 }
 
 void Render::drawParticleSystem(const b2ParticleSystem *s, float worldScale) noexcept
@@ -269,6 +147,156 @@ void Render::drawPopup(const std::string &s, float l, float r, float d, float u)
     }
     glEnd();
     glLineWidth(1.0f);
+}
+
+Render::FixtureRenderer::FixtureRenderer(const b2Body *_b, const b2Fixture *_f, float _scale) noexcept
+    : render(Render::getInstance()), b(_b), m((Rigid*)(b->GetUserData())), f(_f),
+      shape(f->GetShape()), worldScale(_scale)
+{}
+
+void Render::PolygonRenderer::drawEdge() noexcept
+{
+    glBegin(GL_LINES);
+    for (int _i = 1; _i <= ((b2PolygonShape*)shape)->GetVertexCount() * 2; _i++)
+    {
+        int i = _i / 2 % ((b2PolygonShape*)shape)->GetVertexCount();
+        b2Vec2 pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
+        glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+        glVertex3f(pos.x, pos.y, m->getDepth());
+    }
+    glEnd();
+}
+
+void Render::PolygonRenderer::drawMain() noexcept
+{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE);
+    switch (m->getRenderMethod())
+    {
+    case Matter::RENDER_COLOR:
+        glBegin(GL_POLYGON);
+        for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+        {
+            b2Vec2 pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
+            glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
+            glVertex3f(pos.x, pos.y, m->getDepth());
+        }
+        glEnd();
+        break;
+
+    case Matter::RENDER_TEXTURE:
+    case Matter::RENDER_COLOR_WITH_TEXTURE:
+        {
+            auto name = m->getImage();
+            if (! render.cachedImage.count(name))
+                render.cachedImage[name] = render.getTextureFromPixels(IMAGES[name], IMAGES_W[name], IMAGES_H[name]);
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, render.cachedImage[name]);
+
+            float scaleX = 0, scaleY = 0;
+            for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+            {
+                b2Vec2 localCenter = ((b2PolygonShape*)shape)->m_centroid;
+                b2Vec2 localPos = ((b2PolygonShape*)shape)->GetVertex(i);
+                scaleX = std::max(scaleX, fabsf(localPos.x - localCenter.x));
+                scaleY = std::max(scaleY, fabsf(localPos.y - localCenter.y));
+            }
+            glBegin(GL_POLYGON);
+            for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+            {
+                b2Vec2 localCenter = ((b2PolygonShape*)shape)->m_centroid;
+                b2Vec2 localPos = ((b2PolygonShape*)shape)->GetVertex(i);
+                b2Vec2 pos = b->GetWorldPoint(localPos);
+                glTexCoord2f((localPos.x - localCenter.x) / scaleX * 0.5f + 0.5f, (localPos.y - localCenter.y) / -scaleY * 0.5f + 0.5f);
+                if (m->getRenderMethod() == Matter::RENDER_COLOR_WITH_TEXTURE)
+                    glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
+                else
+                    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+                glVertex3f(pos.x, pos.y, m->getDepth());
+            }
+            glEnd();
+
+            glDisable(GL_TEXTURE_2D);
+        }
+
+        break;
+
+    default:
+        assert(false);
+    }
+    glDisable(GL_BLEND);
+}
+
+void Render::PolygonRenderer::drawAlert() noexcept
+{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    if (m->getAlert())
+    {
+        glBegin(GL_POLYGON);
+        for (int i = 0; i < ((b2PolygonShape*)shape)->GetVertexCount(); i++)
+        {
+            b2Vec2 pos = b->GetWorldPoint(((b2PolygonShape*)shape)->GetVertex(i));
+            glColor4f(m->getAlertColorR(), m->getAlertColorG(), m->getAlertColorB(), m->getAlertColorA());
+            glVertex3f(pos.x - ALERT_LINE_WIDTH, pos.y - ALERT_LINE_WIDTH, m->getDepth() + 1.0f);
+        }
+        glEnd();
+    }
+    glDisable(GL_BLEND);
+}
+
+Render::CircleRenderer::CircleRenderer(const b2Body *_b, const b2Fixture *_f, float _scale) noexcept
+    : FixtureRenderer(_b, _f, _scale)
+{
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, render.circleTexture);
+    glUseProgram(render.circleProgram);
+
+    glEnable(GL_POINT_SMOOTH);
+    glEnable(GL_POINT_SPRITE);
+    glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
+
+    glPointSize(shape->m_radius * 2 / worldScale);
+
+    pos = b->GetWorldPoint(((b2CircleShape*)shape)->GetVertex(0));
+}
+
+void Render::CircleRenderer::drawMain() noexcept
+{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE);
+    switch (m->getRenderMethod())
+    {
+    case Matter::RENDER_COLOR:
+        glBegin(GL_POINTS);
+        glColor4f(m->getColorR(), m->getColorG(), m->getColorB(), m->getColorA());
+        glVertex3f(pos.x, pos.y, m->getDepth());
+        glEnd();
+        break;
+    default:
+        assert(false);
+    }
+    glDisable(GL_BLEND);
+}
+
+void Render::CircleRenderer::drawAlert() noexcept
+{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    if (m->getAlert())
+    {
+        glBegin(GL_POINTS);
+        glColor4f(m->getAlertColorR(), m->getAlertColorG(), m->getAlertColorB(), m->getAlertColorA());
+        glVertex3f(pos.x - ALERT_LINE_WIDTH, pos.y - ALERT_LINE_WIDTH, m->getDepth() + 1.0f);
+        glEnd();
+    }
+    glDisable(GL_BLEND);
+}
+
+Render::CircleRenderer::~CircleRenderer() noexcept
+{
+    glUseProgram(0);
+    glDisable(GL_TEXTURE_2D);
 }
 
 GLuint Render::genShader(GLenum type, const std::string &source)

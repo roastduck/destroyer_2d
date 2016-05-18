@@ -34,6 +34,47 @@ public:
 private:
     Render();
 
+    class FixtureRenderer
+    {
+    public:
+        FixtureRenderer(const b2Body *_b, const b2Fixture *_f, float _scale) noexcept;
+        virtual ~FixtureRenderer() noexcept {}
+        virtual void drawEdge() noexcept {}
+        virtual void drawMain() noexcept {}
+        virtual void drawAlert() noexcept {}
+    protected:
+        Render &render;
+        const b2Body *b;
+        const Rigid *m;
+        const b2Fixture *f;
+        const b2Shape *shape;
+        float worldScale;
+    };
+
+    class PolygonRenderer : public FixtureRenderer
+    {
+    public:
+        PolygonRenderer(const b2Body *_b, const b2Fixture *_f, float _scale) noexcept : FixtureRenderer(_b, _f, _scale) {}
+        void drawEdge() noexcept override;
+        void drawMain() noexcept override;
+        void drawAlert() noexcept override;
+    };
+
+    class CircleRenderer : public FixtureRenderer
+    {
+    public:
+        CircleRenderer(const b2Body *_b, const b2Fixture *_f, float _scale) noexcept;
+        ~CircleRenderer() noexcept;
+        void drawMain() noexcept override;
+        void drawAlert() noexcept override;
+    private:
+        b2Vec2 pos;
+    };
+
+    friend FixtureRenderer;
+    friend PolygonRenderer;
+    friend CircleRenderer;
+
     float smoothstep(float x) { return x * x * (3 - 2 * x); }
 
     // Because of glDisable, these gen** functions cannot be used after glEnable-ed

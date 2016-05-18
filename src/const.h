@@ -74,7 +74,7 @@ const float ALERT_NORMAL_COLOR_B = (float)0xFF/0xFF;
 const float ALERT_NORMAL_COLOR_A = 0.5f;
 
 const float ALERT_HOVER_COLOR_R = (float)0xFF/0xFF;
-const float ALERT_HOVER_COLOR_G = (float)0x77/0xFF;
+const float ALERT_HOVER_COLOR_G = (float)0xFF/0xFF;
 const float ALERT_HOVER_COLOR_B = (float)0x00/0xFF;
 const float ALERT_HOVER_COLOR_A = 0.5f;
 
