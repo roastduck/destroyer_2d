@@ -1,8 +1,10 @@
 #include <cctype>
 #include <vector>
+#include <fstream>
 #include "image.h"
 #include "world.h"
 #include "saver.h"
+#include "enemy.h"
 #include "render.h"
 #include "matter.h"
 #include "mousecallback.h"
@@ -140,7 +142,7 @@ void World::checkKeyboard()
     {
         b2Body *_b = b->GetNext();
         Rigid *r = (Rigid*)(b->GetUserData());
-        if (r->getKeyBinded() && mWindow->isKeyDown(r->getKeyBinded()))
+        if (r->getKeyBinded() && playerKeyDown(r->getPlayer(), r->getKeyBinded()))
             r->keyPressed(); // may destroy itself
         b = _b;
     }
@@ -308,8 +310,8 @@ void MainWorld::makeBuildingButtons()
     }
 }
 
-MainWorld::MainWorld()
-    : World(0, BATTLE_W, 0, BATTLE_H), status(STATUS_BUILDING)
+MainWorld::MainWorld(int _level)
+    : World(0, BATTLE_W, 0, BATTLE_H), status(STATUS_BUILDING), level(_level)
 {
     float padding = (BATTLE_H - BUILD_H) / 2;
     setView(padding, padding + BUILD_W, padding, padding + BUILD_H);
@@ -323,7 +325,21 @@ MainWorld::MainWorld()
 
     Saver::getInstance().loadFrom(this, { "saved_game", "_default.txt" });
 
-    displayPopup(buildingMsg1, mx - 13.0f, mx + 13.0f, my - 3.7f, my + 3.7f);
+    if (loadLevel())
+        levelMsg = std::string("LEVEL ") + NUMBER_NAME[level] + "\n... PRESS ANY KEY TO CONTINUE ...";
+    else
+        levelMsg = "ALL LEVEL CLEARED.\n... PRESS ANY KEY TO CONTINUE ...";
+
+    if (level == 0)
+        displayPopup(buildingMsg1, mx - 13.0f, mx + 13.0f, my - 3.7f, my + 3.7f);
+    else
+        displayPopup(levelMsg, mx - 8.0f, mx + 8.0f, my - 1.0f, my + 1.0f);
+}
+
+MainWorld::~MainWorld()
+{
+    for (auto x : enemies)
+        delete x.second;
 }
 
 void MainWorld::makeBattleButtons()
@@ -341,6 +357,9 @@ void MainWorld::launch()
     mMouseHandler->cleanButtons();
     mMouseHandler->setFreeCallback(NULL);
     makeBattleButtons();
+
+    for (auto x : enemies)
+        x.second->start();
 
     delete buildFrame;
     buildFrame = NULL;
@@ -403,12 +422,45 @@ void MainWorld::focus()
     );
 }
 
+bool MainWorld::loadLevel()
+{
+    std::ifstream is(Saver::getInstance().makePath({ "res", "levels", "level" + std::to_string(level) + ".txt" }));
+    if (! is.good()) return false;
+    std::string name;
+    float offsetX;
+    while (is >> name >> offsetX)
+    {
+        Enemy *e = new Enemy(this, { "res", "levels", name }, offsetX);
+        enemies[e->getId()] = e;
+    }
+    return true;
+}
+
+bool MainWorld::levelCleared() const
+{
+    float winX = mRightMost - BUILD_W;
+    Render::getInstance().drawLine(winX, mUpMost, winX, mDownMost);
+
+    int leftCnt(0), rightCnt(0);
+    for (const b2Body *b = physics->GetBodyList(); b; b = b->GetNext())
+        if (((Matter*)(b->GetUserData()))->getIsUserCreated())
+            (b->GetPosition().x < winX ? leftCnt : rightCnt) ++;
+    return (float)rightCnt / (leftCnt + rightCnt) >= WIN_PROPOSION;
+}
+
+bool MainWorld::playerKeyDown(int p, int key)
+{
+    if (p == -1) return World::playerKeyDown(p, key);
+    assert(enemies.count(p));
+    return enemies[p]->getKeyDown(key);
+}
+
 void MainWorld::step()
 {
     switch (status)
     {
     case STATUS_BUILDING:
-        if (getPopup() == buildingMsg2 && (mWindow->isKeyPressed() || mMouseHandler->getLeftClicked()))
+        if ((getPopup() == buildingMsg2 || getPopup() == levelMsg) && (mWindow->isKeyPressed() || mMouseHandler->getLeftClicked()))
             cancelPopup();
         if (getPopup() == buildingMsg1 && (mWindow->isKeyPressed() || mMouseHandler->getLeftClicked()))
             displayPopup(buildingMsg2, mx - 13.0f, mx + 13.0f, my - 3.7f, my + 3.7f);
@@ -424,6 +476,8 @@ void MainWorld::step()
         return;
     }
     World::step();
+    if (levelCleared())
+        mWindow->setWorld(new MainWorld(level + 1));
 }
 
 #ifdef COMPILE_TEST

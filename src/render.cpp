@@ -80,24 +80,27 @@ void Render::drawRigid(const b2Body *b, float worldScale) noexcept
         delete renderer;
         renderer = NULL;
 
-        int key = m->getKeyBinded();
-        if (key)
+        if (m->getIsUserCreated())
         {
-            if (! cachedLetter.count(key))
-                cachedLetter[key] = getTextureFromLetter(key);
-            glEnable(GL_TEXTURE_2D);
-            glBindTexture(GL_TEXTURE_2D, cachedLetter[key]);
+            int key = m->getKeyBinded();
+            if (key)
+            {
+                if (! cachedLetter.count(key))
+                    cachedLetter[key] = getTextureFromLetter(key);
+                glEnable(GL_TEXTURE_2D);
+                glBindTexture(GL_TEXTURE_2D, cachedLetter[key]);
 
-            b2Vec2 pos(b->GetPosition() + b2Vec2(0.5f, 0.5f));
-            float d = m->getDepth() - 0.5f;
-            glBegin(GL_QUADS);
-            glTexCoord2f(0.0f, 1.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x - 0.3f, pos.y - 0.3f, d);
-            glTexCoord2f(1.0f, 1.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x + 0.3f, pos.y - 0.3f, d);
-            glTexCoord2f(1.0f, 0.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x + 0.3f, pos.y + 0.3f, d);
-            glTexCoord2f(0.0f, 0.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x - 0.3f, pos.y + 0.3f, d);
-            glEnd();
+                b2Vec2 pos(b->GetPosition() + b2Vec2(0.5f, 0.5f));
+                float d = m->getDepth() - 0.5f;
+                glBegin(GL_QUADS);
+                glTexCoord2f(0.0f, 1.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x - 0.3f, pos.y - 0.3f, d);
+                glTexCoord2f(1.0f, 1.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x + 0.3f, pos.y - 0.3f, d);
+                glTexCoord2f(1.0f, 0.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x + 0.3f, pos.y + 0.3f, d);
+                glTexCoord2f(0.0f, 0.0f), glColor4f(1.0f, 1.0f, 1.0f, 1.0f), glVertex3f(pos.x - 0.3f, pos.y + 0.3f, d);
+                glEnd();
 
-            glDisable(GL_TEXTURE_2D);
+                glDisable(GL_TEXTURE_2D);
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ class Saver;
 class Matter
 {
 public:
-    Matter(World *_world) noexcept : world(_world), depth(0.0f), isUserCreated(false) {}
+    Matter(World *_world) noexcept : world(_world), depth(0.0f), player(0) {}
     virtual ~Matter() noexcept {}
 
     Matter(const Matter &) = delete;
@@ -52,17 +52,20 @@ public:
     /// Can be overidden
     static bool canDrawLine() { return false; }
 
-    /// mark to be created by players
-    void setIsUserCreated(bool b) { isUserCreated = b; }
-    /// determine whether it is created by players
-    bool getIsUserCreated() const { return isUserCreated; }
+    /// player = -1 : user, 0 : none, >0 : enemy
+    void setPlayer(int _player) { assert(_player >= -1); player = _player; }
+    int getPlayer() const { return player; }
+    /// mark to be created by users
+    void setIsUserCreated(bool b) { setPlayer(b ? -1 : 0); }
+    /// determine whether it is created by users
+    bool getIsUserCreated() const { return getPlayer() == -1; }
 
 protected:
     World *world;
 
 private:
     float depth;
-    bool isUserCreated;
+    int player;
 };
 
 /**
@@ -223,7 +226,7 @@ private:
 };
 
 /**
- * 1X2 Small engine that will provide a 50N force
+ * 1X2 Small engine that will provide a 30N force
  */
 class SmallEngine : public Engine
 {
@@ -235,7 +238,7 @@ public:
 };
 
 /**
- * 2X4 Large engine that will provide a 500N force
+ * 2X4 Large engine that will provide a 300N force
  */
 class LargeEngine : public Engine
 {

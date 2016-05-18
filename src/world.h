@@ -6,10 +6,13 @@
 #ifndef WORLD_H_
 #define WORLD_H_
 
+#include <unordered_map>
 #include <string>
 #include <Box2D/Box2D.h>
 #include "window.h"
 #include "mousehandler.h"
+
+class Enemy;
 
 class World
 {
@@ -117,6 +120,11 @@ protected:
      */
     const std::string &getPopup() { return popupMsg; }
 
+    /**
+     * Is player p's key down?
+     */
+    virtual bool playerKeyDown(int p, int key) { assert(p == -1); return mWindow->isKeyDown(key); }
+
     Window *mWindow;
     MouseHandler *mMouseHandler;
 
@@ -170,7 +178,8 @@ private:
 class MainWorld : public World
 {
 public:
-    MainWorld();
+    MainWorld(int _level = 0);
+    ~MainWorld();
 
     enum WorldStatus
     {
@@ -206,19 +215,30 @@ private:
      */
     void focus();
 
+    bool loadLevel();
+
+    bool levelCleared() const;
+
+    bool playerKeyDown(int p, int key) override;
+
     static constexpr float BUILD_W = 30.0f, BUILD_H = 23.0f;
-    static constexpr float BATTLE_W = 100.0f, BATTLE_H = 60.0f;
+    static constexpr float BATTLE_W = 130.0f, BATTLE_H = 60.0f;
 
     Rigid *buildFrame, *cancelButton;
 
     WorldStatus status;
+
+    int level;
+    std::unordered_map<int, Enemy*> enemies;
+
+    std::string levelMsg;
 
     const std::string
         buildingMsg1 =
             "  WELCOME\n"
             "  YOU CAN PICK MATERIALS FROM THE LEFT TO BUILD YOUR SHIP.\n"
             "CLICK ON THE LEFT TO PUT THINGS, ON THE RIGHT TO CANCEL.\n"
-            "  WHEN FINISHED, CLICK LAUNCH BUTTON TO BATTLE.\n"
+            "  WHEN FINISHED, CLICK LAUNCH AND MOVE TO THE RIGHT TO WIN.\n"
             "\n"
             "  ... PRESS ANY KEY TO CONTINUE ...",
         buildingMsg2 =

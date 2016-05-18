@@ -131,8 +131,8 @@ const float BOMB_FRICTION = STEEL_FRICTION;
 const float BOMB_RESTITUTION = STEEL_RESTITUTION;
 const float BOMB_STRENGTH = 150.0f;
 
-const float SMALL_ENGINE_FORCE = 50.0f;
-const float LARGE_ENGINE_FORCE = 500.0f;
+const float SMALL_ENGINE_FORCE = 30.0f;
+const float LARGE_ENGINE_FORCE = 300.0f;
 
 /*
  * About Simulation
@@ -140,5 +140,15 @@ const float LARGE_ENGINE_FORCE = 500.0f;
 const float TIME_STEP = 1.0f / 45.0f;
 const int VELOCITY_ITERATIONS = 6;
 const int POSITION_ITERATIONS = 3;
+
+/*
+ * Game
+ */
+const float WIN_PROPOSION = 0.9;
+
+/*
+ * text
+ */
+const char NUMBER_NAME[10][10] = { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE" };
 
 #endif // CONST_H_

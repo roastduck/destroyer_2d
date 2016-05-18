@@ -29,11 +29,11 @@ public:
     void saveTo(const World *world, std::vector<std::string> path) noexcept;
     /// The path is as that in saveTo
     /// Returns false when fails
-    bool loadFrom(World *world, std::vector<std::string> path, float offsetX = 0) noexcept;
+    bool loadFrom(World *world, std::vector<std::string> path, float offsetX = 0, int player = -1) noexcept;
 
-private:
     std::string makePath(std::vector<std::string> path);
 
+private:
     enum MatterId
     {
         ID_SMALL_WOOD_BLOCK,
@@ -65,7 +65,7 @@ private:
     b2Joint *setJointData(std::istream &is, b2World *w);
 
     void getMatterData(std::ostream &os, const Matter *m);
-    Matter *setMatterData(std::istream &is, World *world, b2Body *b);
+    Matter *setMatterData(std::istream &is, World *world, b2Body *b, int player);
 
     std::unordered_map<const b2Body*, int> tempId; /// used while saving
     std::unordered_map<int, b2Body*> tempAddr; /// used while loading

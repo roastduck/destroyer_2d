@@ -50,7 +50,7 @@ void Saver::saveTo(const World *world, std::vector<std::string> path) noexcept
     dataStream << IO_STOP                                   << ' ';
 }
 
-bool Saver::loadFrom(World *world, std::vector<std::string> path, float offsetX) noexcept
+bool Saver::loadFrom(World *world, std::vector<std::string> path, float offsetX, int player) noexcept
 {
     std::ifstream dataStream(makePath(path));
     if (! dataStream.good()) return false;
@@ -65,7 +65,7 @@ bool Saver::loadFrom(World *world, std::vector<std::string> path, float offsetX)
             b2Body *b = setBodyData(dataStream, w, offsetX);
             while (getFlag(dataStream) == IO_CONTINUE)
                 setFixtureData(dataStream, b);
-            setMatterData(dataStream, world, b);
+            setMatterData(dataStream, world, b, player);
             tempAddr[maxId++] = b;
         }
         while (getFlag(dataStream) == IO_CONTINUE)
@@ -286,7 +286,7 @@ void Saver::getMatterData(std::ostream &os, const Matter *m)
     }
 }
 
-Matter *Saver::setMatterData(std::istream &is, World *world, b2Body *b)
+Matter *Saver::setMatterData(std::istream &is, World *world, b2Body *b, int player)
 {
     MatterId id;
     readEnum(is, id);
@@ -322,7 +322,7 @@ Matter *Saver::setMatterData(std::istream &is, World *world, b2Body *b)
         m = new WoodStick(world, b);
         break;
     }
-    m->setIsUserCreated(true);
+    m->setPlayer(player);
     return m;
 }
 
