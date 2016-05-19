@@ -4,7 +4,7 @@
 int main()
 {
     Window window;
-    window.setWorld(new MainWorld());
+    window.setWorld(new MainWorld() /*TestWorldFullView(1)*/);
     // Window will take charge of destruction of World
     window.run();
     return 0;

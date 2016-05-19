@@ -140,7 +140,7 @@ const float WATER_GRAVITY_SCALE = 1.3f;
 /*
  * About Simulation
  */
-const float TIME_STEP = 1.0f / 45.0f;
+const float TIME_STEP = 1.0f / 40.0f;
 const int VELOCITY_ITERATIONS = 6;
 const int POSITION_ITERATIONS = 3;
 

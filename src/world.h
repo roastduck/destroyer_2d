@@ -222,7 +222,7 @@ private:
     bool playerKeyDown(int p, int key) override;
 
     static constexpr float BUILD_W = 30.0f, BUILD_H = 23.0f;
-    static constexpr float BATTLE_W = 130.0f, BATTLE_H = 60.0f;
+    static constexpr float BATTLE_W = 180.0f, BATTLE_H = 60.0f;
 
     Rigid *buildFrame, *cancelButton;
 
@@ -274,7 +274,7 @@ public:
 class TestWorldFullView : public MainWorld
 {
 public:
-    TestWorldFullView();
+    TestWorldFullView(int _level);
     void setView(float l, float r, float u, float d) override;
 };
 

@@ -472,7 +472,7 @@ void MainWorld::step()
         launch();
         break;
     case STATUS_CANCEL_BATTLE:
-        mWindow->setWorld(new MainWorld());
+        mWindow->setWorld(new MainWorld(level));
         return;
     }
     World::step();
@@ -506,8 +506,8 @@ TestWorldSimplePhysics::TestWorldSimplePhysics()
     new WaterSquare(this, -10.0f, 10.0f, -10.0f, 0.0f);
 }
 
-TestWorldFullView::TestWorldFullView()
-    : MainWorld()
+TestWorldFullView::TestWorldFullView(int _level)
+    : MainWorld(_level)
 {
     setView(0, 0, 0, 0);
 }
