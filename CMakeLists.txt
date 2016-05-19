@@ -34,6 +34,7 @@ target_include_directories(
     Destroyer2D
     PRIVATE ${CMAKE_BINARY_DIR}/third_party/glfw-3.1.2/include
     PRIVATE ${CMAKE_BINARY_DIR}/third_party/liquidfun/Box2D
+    PRIVATE ${CMAKE_BINARY_DIR}/third_party/
 )
 
 set_target_properties(
