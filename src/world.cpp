@@ -326,14 +326,14 @@ MainWorld::MainWorld(int _level)
     Saver::getInstance().loadFrom(this, { "saved_game", "_default.txt" });
 
     if (loadLevel())
-        levelMsg = std::string("LEVEL ") + NUMBER_NAME[level] + "\n... PRESS ANY KEY TO CONTINUE ...";
+        levelMsg = std::string("LEVEL ") + NUMBER_NAME[level] + ". DO SOME MODIFICATION AND GO ON.\n... PRESS ANY KEY TO CONTINUE ...";
     else
         levelMsg = "ALL LEVEL CLEARED.\n... PRESS ANY KEY TO CONTINUE ...";
 
     if (level == 0)
         displayPopup(buildingMsg1, mx - 13.0f, mx + 13.0f, my - 3.7f, my + 3.7f);
     else
-        displayPopup(levelMsg, mx - 8.0f, mx + 8.0f, my - 1.0f, my + 1.0f);
+        displayPopup(levelMsg, mx - 9.0f, mx + 9.0f, my - 1.5f, my + 1.5f);
 }
 
 MainWorld::~MainWorld()

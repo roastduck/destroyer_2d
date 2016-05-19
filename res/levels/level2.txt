@@ -1,0 +1,3 @@
+missiles 40
+mines 60
+mines 80
