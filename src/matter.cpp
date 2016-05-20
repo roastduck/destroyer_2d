@@ -75,6 +75,7 @@ float Rigid::getAlertColorR() const
     default:
         assert(false);
     }
+    return 0;
 }
 
 float Rigid::getAlertColorG() const
@@ -92,6 +93,7 @@ float Rigid::getAlertColorG() const
     default:
         assert(false);
     }
+    return 0;
 }
 
 float Rigid::getAlertColorB() const
@@ -109,6 +111,7 @@ float Rigid::getAlertColorB() const
     default:
         assert(false);
     }
+    return 0;
 }
 
 float Rigid::getAlertColorA() const
@@ -126,6 +129,7 @@ float Rigid::getAlertColorA() const
     default:
         assert(false);
     }
+    return 0;
 }
 
 void Rigid::damage()

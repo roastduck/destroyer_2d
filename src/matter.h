@@ -38,12 +38,12 @@ public:
     };
     virtual RenderMethod getRenderMethod() const { return RENDER_COLOR; }
     // 1. use pure color
-    virtual float getColorR() const { assert(false); }
-    virtual float getColorG() const { assert(false); }
-    virtual float getColorB() const { assert(false); }
-    virtual float getColorA() const { assert(false); }
+    virtual float getColorR() const { assert(false); return 0; }
+    virtual float getColorG() const { assert(false); return 0; }
+    virtual float getColorB() const { assert(false); return 0; }
+    virtual float getColorA() const { assert(false); return 0; }
     // 2. use texture
-    virtual ImageName getImage() const { assert(false); }
+    virtual ImageName getImage() const { assert(false); return (ImageName)0; }
 
     void setDepth(float _depth) { depth = _depth; }
     float getDepth() const { return depth; }
