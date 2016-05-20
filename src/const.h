@@ -147,7 +147,7 @@ const int POSITION_ITERATIONS = 3;
 /*
  * Game
  */
-const float WIN_PROPOSION = 0.9;
+const float WIN_PROPOSION = 0.7;
 
 /*
  * text

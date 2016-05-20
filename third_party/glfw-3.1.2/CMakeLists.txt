@@ -117,6 +117,9 @@ endif()
 if (MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
+    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MTd /ZI")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd /ZI")
+
     if (NOT USE_MSVC_RUNTIME_LIBRARY_DLL)
         foreach (flag CMAKE_C_FLAGS
                         CMAKE_C_FLAGS_DEBUG
@@ -133,9 +136,6 @@ if (MSVC)
 
         endforeach()
     endif()
-
-    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /ZI")
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /ZI")
 endif()
 
 if (MINGW)

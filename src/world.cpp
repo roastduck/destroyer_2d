@@ -373,7 +373,7 @@ void MainWorld::focus()
         {
             b2Vec2 pos(b->GetPosition());
             l = std::min(l, pos.x - 9.0f);
-            r = std::max(r, pos.x + 27.0f);
+            r = std::max(r, pos.x + 18.0f);
             d = std::min(d, pos.y - 9.0f);
             u = std::max(u, pos.y + 9.0f);
         }
@@ -400,9 +400,10 @@ void MainWorld::focus()
     assert(l <= r && d <= u);
     if ((r - l) > (u - d) * 1.33f)
     {
-        float m = (l + r) / 2;
-        l = m - (u - d) * 1.33f / 2;
-        r = m + (u - d) * 1.33f / 2;
+        //float m = (l + r) / 2;
+        //l = m - (u - d) * 1.33f / 2;
+        //r = m + (u - d) * 1.33f / 2;
+        l = r - (u - d) * 1.33f;
     } else
     {
         float m = (d + u) / 2;

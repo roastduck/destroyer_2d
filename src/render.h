@@ -111,8 +111,8 @@ private:
            circleTexture, circleProgram;
 
     const std::string particleFragmentShader1Source =
-        "#version 330\n"
-        "layout(location = 0) out vec4 color;\n" // corresponding to DrawBuffers[0]
+        "#version 130\n"
+        "out vec4 color;\n" // corresponding to DrawBuffers[0]
         "uniform sampler2D texture;\n"
         "void main()\n"
         "{\n"
@@ -120,7 +120,7 @@ private:
         "}\n";
 
     const std::string particleVertexShader2Source =
-        "#version 330\n"
+        "#version 130\n"
         "void main()\n"
         "{\n"
         "   gl_Position = gl_Vertex;\n"
@@ -128,7 +128,7 @@ private:
         "}\n";
 
     const std::string particleFragmentShader2Source =
-        "#version 330\n"
+        "#version 130\n"
         "uniform sampler2D texture;\n"
         "out vec4 colorOut;\n"
         "void main()\n"
