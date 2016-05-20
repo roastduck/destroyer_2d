@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['saveto',['saveTo',['../classSaver.html#a999e36bd249d1ed0bf4748991a72d2f9',1,'Saver']]],
+  ['saygoodbye',['SayGoodbye',['../classDraggingCallback_1_1LocalListener.html#aedc2cc229bce114eda98ee8d470acca9',1,'DraggingCallback::LocalListener::SayGoodbye(b2Joint *_joint) override'],['../classDraggingCallback_1_1LocalListener.html#a9cc8d876dc60495f9c8ba0c328db31d5',1,'DraggingCallback::LocalListener::SayGoodbye(b2Fixture *) override'],['../classWorld_1_1MyDestructionListener.html#afb69a87d5d2bfea63bb9fed16e6b6677',1,'World::MyDestructionListener::SayGoodbye(b2Joint *joint) override'],['../classWorld_1_1MyDestructionListener.html#abf208c075a30abc88da5d8d91378de9a',1,'World::MyDestructionListener::SayGoodbye(b2Fixture *fixture) override'],['../classWorld_1_1MyDestructionListener.html#a1cabe04394a461a952bbf027157b9628',1,'World::MyDestructionListener::SayGoodbye(b2ParticleGroup *group) override']]],
+  ['setalert',['setAlert',['../classRigid.html#a331f9af4f9ff0c701bed05c87da1f809',1,'Rigid']]],
+  ['setdefalutalert',['setDefalutAlert',['../classRigid.html#a1ad83f3f9bb440deef6b5b0c74bd8ff3',1,'Rigid']]],
+  ['setdepth',['setDepth',['../classMatter.html#a678834a886a610754ea863751fb6c046',1,'Matter']]],
+  ['setdied',['setDied',['../classParticleSystem.html#a95379b5f53c63735dc9c7f76ac47ba98',1,'ParticleSystem']]],
+  ['setenablecallback',['setEnableCallback',['../classMouseHandler.html#a3a64869cf23c6d979ce6ac4a0127a93e',1,'MouseHandler']]],
+  ['setfreecallback',['setFreeCallback',['../classMouseHandler.html#a24de5aaed3df346eae098cd830f168dd',1,'MouseHandler']]],
+  ['setglortho',['setGLOrtho',['../classWorld.html#a4fedfa711acf1d711333f63d28692879',1,'World']]],
+  ['setisusercreated',['setIsUserCreated',['../classMatter.html#a72a6f33a55d6df477dc8e684924bee55',1,'Matter']]],
+  ['setplayer',['setPlayer',['../classMatter.html#a3e7f9e8ade54d7c5fbb82da57f5b0ff8',1,'Matter']]],
+  ['setputtingcallback',['setPuttingCallback',['../classMouseHandler.html#a8b2e24e7199d4a33562c87b50f135fb2',1,'MouseHandler']]],
+  ['setstatus',['setStatus',['../classMouseHandler.html#a8f252c03ffcfe43b09086a9f5201792b',1,'MouseHandler']]],
+  ['setview',['setView',['../classWorld.html#a2675f967ea85876d123357c2ffafc7ea',1,'World']]],
+  ['setwindow',['setWindow',['../classRender.html#ae6344724a34c4ec00fc3f9de97a7cdb6',1,'Render']]],
+  ['setworld',['setWorld',['../classWindow.html#a0038b02fa4141ac2684a62b0884ca776',1,'Window']]],
+  ['shouldbind',['shouldBind',['../classRigid.html#a213d4ddd819ea799b7a29961b0d66f39',1,'Rigid::shouldBind()'],['../classEngine.html#a5f949b7b1d1c621de8940470adbc3901',1,'Engine::shouldBind()'],['../classBomb.html#a3d417c9a938026479149709b76f43b6a',1,'Bomb::shouldBind()']]],
+  ['smallengine',['SmallEngine',['../classSmallEngine.html#a76117f2efaa1d74f0c992bf0201c2244',1,'SmallEngine::SmallEngine(World *_world, b2Body *b)'],['../classSmallEngine.html#a31761c59f4f039e5c735fec59191a531',1,'SmallEngine::SmallEngine(World *_world, float x, float y, float notused1=0, float notused2=0) noexcept']]],
+  ['smallsteelball',['SmallSteelBall',['../classSmallSteelBall.html#a1ea5ad306a9f2f58c1258b04a2f54c3a',1,'SmallSteelBall::SmallSteelBall(World *_world, b2Body *b)'],['../classSmallSteelBall.html#a157358874deba10b80ba47dacdb53d8a',1,'SmallSteelBall::SmallSteelBall(World *_world, float x, float y, float notused1=0, float notused2=0) noexcept']]],
+  ['smallwoodblock',['SmallWoodBlock',['../classSmallWoodBlock.html#aca92d8073d1d1cad52895e0597260c14',1,'SmallWoodBlock::SmallWoodBlock(World *_world, b2Body *b)'],['../classSmallWoodBlock.html#a6569dfd449c961b00003e32b7a7ec0b8',1,'SmallWoodBlock::SmallWoodBlock(World *_world, float x, float y, float notused1=0, float notused2=0) noexcept']]],
+  ['start',['start',['../classEnemy.html#a71641016b8ea6de06deeda6926600da8',1,'Enemy']]],
+  ['steelstick',['SteelStick',['../classSteelStick.html#a0839171231876f5ae62810dcb4f0f797',1,'SteelStick::SteelStick(World *_world, b2Body *b)'],['../classSteelStick.html#a157cab49946d6e4a51cf45efbf4e63e7',1,'SteelStick::SteelStick(World *_world, float x1, float y1, float x2=0, float y2=0) noexcept']]],
+  ['step',['step',['../classWorld.html#a63a22c1ea89297d49095004c79d40ce6',1,'World::step()'],['../classMainWorld.html#a8ac7fe4b17bb3ca29a0382b93a24731e',1,'MainWorld::step()']]],
+  ['stick',['Stick',['../classStick.html#a1c2a811e6afc5809f0fcb5fbb401ec16',1,'Stick::Stick(World *_world, b2Body *b)'],['../classStick.html#ad34dcd633c860e086b9c65201ecdc89c',1,'Stick::Stick(World *_world, float _x1, float _y1, float _x2, float _y2, float density, float friction, float restitution) noexcept']]],
+  ['subscribe',['subscribe',['../classWorld_1_1MyDestructionListener.html#ac01b1f54aed1b55c959a2e58f21a0017',1,'World::MyDestructionListener']]]
+];

@@ -1,0 +1,139 @@
+\hypertarget{classMainWorld}{}\section{Main\+World Class Reference}
+\label{classMainWorld}\index{Main\+World@{Main\+World}}
+
+
+This world is the main scenery of the game.  
+
+
+
+
+{\ttfamily \#include $<$world.\+h$>$}
+
+
+
+Inheritance diagram for Main\+World\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMainWorld__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Main\+World\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMainWorld__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3}{World\+Status} \{ \hyperlink{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3af96d574a62f6b5920f3fad277d995fb7}{S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+I\+L\+D\+I\+N\+G} = 0, 
+\hyperlink{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3a56955ec18d3375dec123f1d3d65c7393}{S\+T\+A\+T\+U\+S\+\_\+\+B\+A\+T\+T\+L\+E} = 1, 
+\hyperlink{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3adf5d74eb401b14e4f5f33d375d6ffedd}{S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+L\+A\+U\+N\+C\+H} = 2, 
+\hyperlink{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3a0adce04cf20701967507ab5eb64e2011}{S\+T\+A\+T\+U\+S\+\_\+\+C\+A\+N\+C\+E\+L\+\_\+\+B\+A\+T\+T\+L\+E} = 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMainWorld_a46e56e826f563bf0255ad7e44944d286}{Main\+World} (int \+\_\+level=0)
+\item 
+\hyperlink{classMainWorld_ace9d329c017b003879831dcd8295cfe0}{$\sim$\+Main\+World} ()
+\item 
+void \hyperlink{classMainWorld_a7b7a15580a43911c7252d179b320bddd}{notify\+Launch} ()
+\begin{DoxyCompactList}\small\item\em Switch from building to battle in the next round. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWorld_a223280718d44259c485fbbaaf74c34e5}{cancel\+Battle} ()
+\begin{DoxyCompactList}\small\item\em Cancel battle in the next round. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWorld_a8ac7fe4b17bb3ca29a0382b93a24731e}{step} () override
+\begin{DoxyCompactList}\small\item\em Run next simulation step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This world is the main scenery of the game. 
+
+Players first build a ship in a limited area. When clicked Battle, he will be set free and play. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3}{}\index{Main\+World@{Main\+World}!World\+Status@{World\+Status}}
+\index{World\+Status@{World\+Status}!Main\+World@{Main\+World}}
+\subsubsection[{World\+Status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Main\+World\+::\+World\+Status}}\label{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+I\+L\+D\+I\+N\+G@{S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+I\+L\+D\+I\+N\+G}!Main\+World@{Main\+World}}\index{Main\+World@{Main\+World}!S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+I\+L\+D\+I\+N\+G@{S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+I\+L\+D\+I\+N\+G}}\item[{\em 
+\hypertarget{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3af96d574a62f6b5920f3fad277d995fb7}{}S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+I\+L\+D\+I\+N\+G\label{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3af96d574a62f6b5920f3fad277d995fb7}
+}]\index{S\+T\+A\+T\+U\+S\+\_\+\+B\+A\+T\+T\+L\+E@{S\+T\+A\+T\+U\+S\+\_\+\+B\+A\+T\+T\+L\+E}!Main\+World@{Main\+World}}\index{Main\+World@{Main\+World}!S\+T\+A\+T\+U\+S\+\_\+\+B\+A\+T\+T\+L\+E@{S\+T\+A\+T\+U\+S\+\_\+\+B\+A\+T\+T\+L\+E}}\item[{\em 
+\hypertarget{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3a56955ec18d3375dec123f1d3d65c7393}{}S\+T\+A\+T\+U\+S\+\_\+\+B\+A\+T\+T\+L\+E\label{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3a56955ec18d3375dec123f1d3d65c7393}
+}]\index{S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+L\+A\+U\+N\+C\+H@{S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+L\+A\+U\+N\+C\+H}!Main\+World@{Main\+World}}\index{Main\+World@{Main\+World}!S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+L\+A\+U\+N\+C\+H@{S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+L\+A\+U\+N\+C\+H}}\item[{\em 
+\hypertarget{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3adf5d74eb401b14e4f5f33d375d6ffedd}{}S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+L\+A\+U\+N\+C\+H\label{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3adf5d74eb401b14e4f5f33d375d6ffedd}
+}]\index{S\+T\+A\+T\+U\+S\+\_\+\+C\+A\+N\+C\+E\+L\+\_\+\+B\+A\+T\+T\+L\+E@{S\+T\+A\+T\+U\+S\+\_\+\+C\+A\+N\+C\+E\+L\+\_\+\+B\+A\+T\+T\+L\+E}!Main\+World@{Main\+World}}\index{Main\+World@{Main\+World}!S\+T\+A\+T\+U\+S\+\_\+\+C\+A\+N\+C\+E\+L\+\_\+\+B\+A\+T\+T\+L\+E@{S\+T\+A\+T\+U\+S\+\_\+\+C\+A\+N\+C\+E\+L\+\_\+\+B\+A\+T\+T\+L\+E}}\item[{\em 
+\hypertarget{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3a0adce04cf20701967507ab5eb64e2011}{}S\+T\+A\+T\+U\+S\+\_\+\+C\+A\+N\+C\+E\+L\+\_\+\+B\+A\+T\+T\+L\+E\label{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3a0adce04cf20701967507ab5eb64e2011}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMainWorld_a46e56e826f563bf0255ad7e44944d286}{}\index{Main\+World@{Main\+World}!Main\+World@{Main\+World}}
+\index{Main\+World@{Main\+World}!Main\+World@{Main\+World}}
+\subsubsection[{Main\+World}]{\setlength{\rightskip}{0pt plus 5cm}Main\+World\+::\+Main\+World (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+level = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classMainWorld_a46e56e826f563bf0255ad7e44944d286}
+\hypertarget{classMainWorld_ace9d329c017b003879831dcd8295cfe0}{}\index{Main\+World@{Main\+World}!````~Main\+World@{$\sim$\+Main\+World}}
+\index{````~Main\+World@{$\sim$\+Main\+World}!Main\+World@{Main\+World}}
+\subsubsection[{$\sim$\+Main\+World}]{\setlength{\rightskip}{0pt plus 5cm}Main\+World\+::$\sim$\+Main\+World (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMainWorld_ace9d329c017b003879831dcd8295cfe0}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMainWorld_a223280718d44259c485fbbaaf74c34e5}{}\index{Main\+World@{Main\+World}!cancel\+Battle@{cancel\+Battle}}
+\index{cancel\+Battle@{cancel\+Battle}!Main\+World@{Main\+World}}
+\subsubsection[{cancel\+Battle}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+World\+::cancel\+Battle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classMainWorld_a223280718d44259c485fbbaaf74c34e5}
+
+
+Cancel battle in the next round. 
+
+\hypertarget{classMainWorld_a7b7a15580a43911c7252d179b320bddd}{}\index{Main\+World@{Main\+World}!notify\+Launch@{notify\+Launch}}
+\index{notify\+Launch@{notify\+Launch}!Main\+World@{Main\+World}}
+\subsubsection[{notify\+Launch}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+World\+::notify\+Launch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classMainWorld_a7b7a15580a43911c7252d179b320bddd}
+
+
+Switch from building to battle in the next round. 
+
+\hypertarget{classMainWorld_a8ac7fe4b17bb3ca29a0382b93a24731e}{}\index{Main\+World@{Main\+World}!step@{step}}
+\index{step@{step}!Main\+World@{Main\+World}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+World\+::step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classMainWorld_a8ac7fe4b17bb3ca29a0382b93a24731e}
+
+
+Run next simulation step. 
+
+
+
+Reimplemented from \hyperlink{classWorld_a63a22c1ea89297d49095004c79d40ce6}{World}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{world_8h}{world.\+h}\item 
+\hyperlink{world_8cpp}{world.\+cpp}\end{DoxyCompactItemize}

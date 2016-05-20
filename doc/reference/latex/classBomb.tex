@@ -1,0 +1,225 @@
+\hypertarget{classBomb}{}\section{Bomb Class Reference}
+\label{classBomb}\index{Bomb@{Bomb}}
+
+
+r=0.\+5 round bomb  
+
+
+
+
+{\ttfamily \#include $<$matter.\+h$>$}
+
+
+
+Inheritance diagram for Bomb\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classBomb__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Bomb\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classBomb__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBomb_a99f489e0cc76550410a9cc59aff6a22e}{Bomb} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, b2\+Body $\ast$\hyperlink{image_8h_ab2d05693952610f937e5acb3c4a8fa1b}{b})
+\item 
+\hyperlink{classBomb_a0f6e7d6049ed0415cdd2ae811592555e}{Bomb} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, float x, float y, float notused1=0, float notused2=0) noexcept
+\item 
+virtual float \hyperlink{classBomb_aa95b13c06660f7eaee26dbb75cda41ed}{get\+Color\+R} () const override
+\item 
+virtual float \hyperlink{classBomb_a393fa1faa9cfdadb0d0202983de6e16b}{get\+Color\+G} () const override
+\item 
+virtual float \hyperlink{classBomb_a31ede414b7c9c3ef82ea201975d7fd25}{get\+Color\+B} () const override
+\item 
+virtual float \hyperlink{classBomb_a19e85b4632b547de51bde57844065efa}{get\+Color\+A} () const override
+\item 
+virtual float \hyperlink{classBomb_a6b09b40f7fb92d9145da7c1c1fe087cb}{get\+Strength} () const override
+\begin{DoxyCompactList}\small\item\em rigids are undestroyable by default \end{DoxyCompactList}\item 
+void \hyperlink{classBomb_a2bbbb0e9a6972b8276ec19ccac4daa7c}{damage} () override
+\begin{DoxyCompactList}\small\item\em create a damage effect and delete the rigid \end{DoxyCompactList}\item 
+void \hyperlink{classBomb_a68b2be434320ab67f9000e545b3dcfcd}{bind\+Key} (int \+\_\+key) override
+\begin{DoxyCompactList}\small\item\em bind a key on the keyboard to control it 0 = none \end{DoxyCompactList}\item 
+int \hyperlink{classBomb_a3e7950bb3de74e07e738a7f94b92a860}{get\+Key\+Binded} () const override
+\begin{DoxyCompactList}\small\item\em what has it bind? \end{DoxyCompactList}\item 
+bool \hyperlink{classBomb_a3d417c9a938026479149709b76f43b6a}{should\+Bind} () const override
+\begin{DoxyCompactList}\small\item\em shoud we bind a key to it? \end{DoxyCompactList}\item 
+void \hyperlink{classBomb_a9fe5b989387cc07b82b3da3ccfc3d0db}{key\+Pressed} () override
+\begin{DoxyCompactList}\small\item\em what should it do when the key above is pressed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+r=0.\+5 round bomb 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBomb_a99f489e0cc76550410a9cc59aff6a22e}{}\index{Bomb@{Bomb}!Bomb@{Bomb}}
+\index{Bomb@{Bomb}!Bomb@{Bomb}}
+\subsubsection[{Bomb}]{\setlength{\rightskip}{0pt plus 5cm}Bomb\+::\+Bomb (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{\+\_\+world, }
+\item[{b2\+Body $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classBomb_a99f489e0cc76550410a9cc59aff6a22e}
+\hypertarget{classBomb_a0f6e7d6049ed0415cdd2ae811592555e}{}\index{Bomb@{Bomb}!Bomb@{Bomb}}
+\index{Bomb@{Bomb}!Bomb@{Bomb}}
+\subsubsection[{Bomb}]{\setlength{\rightskip}{0pt plus 5cm}Bomb\+::\+Bomb (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{\+\_\+world, }
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{notused1 = {\ttfamily 0}, }
+\item[{float}]{notused2 = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [noexcept]}}\label{classBomb_a0f6e7d6049ed0415cdd2ae811592555e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBomb_a68b2be434320ab67f9000e545b3dcfcd}{}\index{Bomb@{Bomb}!bind\+Key@{bind\+Key}}
+\index{bind\+Key@{bind\+Key}!Bomb@{Bomb}}
+\subsubsection[{bind\+Key}]{\setlength{\rightskip}{0pt plus 5cm}void Bomb\+::bind\+Key (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a68b2be434320ab67f9000e545b3dcfcd}
+
+
+bind a key on the keyboard to control it 0 = none 
+
+
+
+Reimplemented from \hyperlink{classRigid_a5d8922b10420ad452b6d9400d5ecc511}{Rigid}.
+
+\hypertarget{classBomb_a2bbbb0e9a6972b8276ec19ccac4daa7c}{}\index{Bomb@{Bomb}!damage@{damage}}
+\index{damage@{damage}!Bomb@{Bomb}}
+\subsubsection[{damage}]{\setlength{\rightskip}{0pt plus 5cm}void Bomb\+::damage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a2bbbb0e9a6972b8276ec19ccac4daa7c}
+
+
+create a damage effect and delete the rigid 
+
+
+
+Reimplemented from \hyperlink{classRigid_a0b64c3d4381acc32987c18d6746f8e35}{Rigid}.
+
+\hypertarget{classBomb_a19e85b4632b547de51bde57844065efa}{}\index{Bomb@{Bomb}!get\+Color\+A@{get\+Color\+A}}
+\index{get\+Color\+A@{get\+Color\+A}!Bomb@{Bomb}}
+\subsubsection[{get\+Color\+A}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Bomb\+::get\+Color\+A (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a19e85b4632b547de51bde57844065efa}
+
+
+Reimplemented from \hyperlink{classMatter_aa44ee7ba48cb9a582a6f86e1e9e2ef38}{Matter}.
+
+\hypertarget{classBomb_a31ede414b7c9c3ef82ea201975d7fd25}{}\index{Bomb@{Bomb}!get\+Color\+B@{get\+Color\+B}}
+\index{get\+Color\+B@{get\+Color\+B}!Bomb@{Bomb}}
+\subsubsection[{get\+Color\+B}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Bomb\+::get\+Color\+B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a31ede414b7c9c3ef82ea201975d7fd25}
+
+
+Reimplemented from \hyperlink{classMatter_af830da17da427c84c7f6deee4a91b3d4}{Matter}.
+
+\hypertarget{classBomb_a393fa1faa9cfdadb0d0202983de6e16b}{}\index{Bomb@{Bomb}!get\+Color\+G@{get\+Color\+G}}
+\index{get\+Color\+G@{get\+Color\+G}!Bomb@{Bomb}}
+\subsubsection[{get\+Color\+G}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Bomb\+::get\+Color\+G (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a393fa1faa9cfdadb0d0202983de6e16b}
+
+
+Reimplemented from \hyperlink{classMatter_aa3fcdc82f788fbf873ec3ff4808f614a}{Matter}.
+
+\hypertarget{classBomb_aa95b13c06660f7eaee26dbb75cda41ed}{}\index{Bomb@{Bomb}!get\+Color\+R@{get\+Color\+R}}
+\index{get\+Color\+R@{get\+Color\+R}!Bomb@{Bomb}}
+\subsubsection[{get\+Color\+R}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Bomb\+::get\+Color\+R (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_aa95b13c06660f7eaee26dbb75cda41ed}
+
+
+Reimplemented from \hyperlink{classMatter_a926d246584228c3e3b102dbfd42036ec}{Matter}.
+
+\hypertarget{classBomb_a3e7950bb3de74e07e738a7f94b92a860}{}\index{Bomb@{Bomb}!get\+Key\+Binded@{get\+Key\+Binded}}
+\index{get\+Key\+Binded@{get\+Key\+Binded}!Bomb@{Bomb}}
+\subsubsection[{get\+Key\+Binded}]{\setlength{\rightskip}{0pt plus 5cm}int Bomb\+::get\+Key\+Binded (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a3e7950bb3de74e07e738a7f94b92a860}
+
+
+what has it bind? 
+
+
+
+Reimplemented from \hyperlink{classRigid_a4e5382b25c00ff97745b04120e51cb56}{Rigid}.
+
+\hypertarget{classBomb_a6b09b40f7fb92d9145da7c1c1fe087cb}{}\index{Bomb@{Bomb}!get\+Strength@{get\+Strength}}
+\index{get\+Strength@{get\+Strength}!Bomb@{Bomb}}
+\subsubsection[{get\+Strength}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Bomb\+::get\+Strength (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a6b09b40f7fb92d9145da7c1c1fe087cb}
+
+
+rigids are undestroyable by default 
+
+
+
+Reimplemented from \hyperlink{classRigid_aac83bf941605a8cbccf06a5d4b200fee}{Rigid}.
+
+\hypertarget{classBomb_a9fe5b989387cc07b82b3da3ccfc3d0db}{}\index{Bomb@{Bomb}!key\+Pressed@{key\+Pressed}}
+\index{key\+Pressed@{key\+Pressed}!Bomb@{Bomb}}
+\subsubsection[{key\+Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void Bomb\+::key\+Pressed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a9fe5b989387cc07b82b3da3ccfc3d0db}
+
+
+what should it do when the key above is pressed 
+
+
+
+Reimplemented from \hyperlink{classRigid_a769957138e3ca40a4a6b1da4cf52eea8}{Rigid}.
+
+\hypertarget{classBomb_a3d417c9a938026479149709b76f43b6a}{}\index{Bomb@{Bomb}!should\+Bind@{should\+Bind}}
+\index{should\+Bind@{should\+Bind}!Bomb@{Bomb}}
+\subsubsection[{should\+Bind}]{\setlength{\rightskip}{0pt plus 5cm}bool Bomb\+::should\+Bind (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classBomb_a3d417c9a938026479149709b76f43b6a}
+
+
+shoud we bind a key to it? 
+
+
+
+Reimplemented from \hyperlink{classRigid_a213d4ddd819ea799b7a29961b0d66f39}{Rigid}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{matter_8h}{matter.\+h}\item 
+\hyperlink{matter_8cpp}{matter.\+cpp}\end{DoxyCompactItemize}

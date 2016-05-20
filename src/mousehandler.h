@@ -1,7 +1,3 @@
-/**
- * Forwards mouse actions to Matter
- */
-
 #ifndef MOUSEHANDLER_H_
 #define MOUSEHANDLER_H_
 
@@ -16,6 +12,9 @@ class Rigid;
 
 class MouseCallback;
 
+/**
+ * Forwards mouse actions to Matter
+ */
 class MouseHandler
 {
 public:

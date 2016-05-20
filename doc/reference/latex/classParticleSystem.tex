@@ -1,0 +1,138 @@
+\hypertarget{classParticleSystem}{}\section{Particle\+System Class Reference}
+\label{classParticleSystem}\index{Particle\+System@{Particle\+System}}
+
+
+Base class of all particle systems.  
+
+
+
+
+{\ttfamily \#include $<$matter.\+h$>$}
+
+
+
+Inheritance diagram for Particle\+System\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classParticleSystem__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Particle\+System\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classParticleSystem__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classParticleSystem_abbb50f9bc17e323468e70a2e99fe8a10}{Particle\+System} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, const b2\+Particle\+System\+Def \&system\+Def, const std\+::vector$<$ b2\+Particle\+Group\+Def $>$ \&group\+Defs) noexcept
+\begin{DoxyCompactList}\small\item\em N\+O\+T\+I\+C\+E\+: Pointer to b2\+Shape in group\+Defs will be deleted. \end{DoxyCompactList}\item 
+virtual \hyperlink{classParticleSystem_a257c75371728135e1209f0549d8eeb15}{$\sim$\+Particle\+System} () noexcept
+\item 
+b2\+Particle\+System $\ast$ \hyperlink{classParticleSystem_a7a3ebd9985d271a93fedcdb3894ebb8b}{get\+Referee} () const 
+\item 
+virtual float \hyperlink{classParticleSystem_a5b3bcfbc82de5d335f55173b049da517}{get\+Displayed\+Radius\+Scale} () const =0
+\begin{DoxyCompactList}\small\item\em displayed radius = ? $\ast$ physics radius \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classParticleSystem_a95379b5f53c63735dc9c7f76ac47ba98}{set\+Died} (\hyperlink{classParticleSystem}{Particle\+System} $\ast$system)
+\begin{DoxyCompactList}\small\item\em Set to delete it in next round. \end{DoxyCompactList}\item 
+static void \hyperlink{classParticleSystem_a38a1e26b5200ce585e17c71553273882}{clean\+Died} ()
+\begin{DoxyCompactList}\small\item\em Clean all died. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Particle\+System $\ast$ \hyperlink{classParticleSystem_a899787ecc1f14a30cd903a884ec7575e}{physics}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Base class of all particle systems. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classParticleSystem_abbb50f9bc17e323468e70a2e99fe8a10}{}\index{Particle\+System@{Particle\+System}!Particle\+System@{Particle\+System}}
+\index{Particle\+System@{Particle\+System}!Particle\+System@{Particle\+System}}
+\subsubsection[{Particle\+System}]{\setlength{\rightskip}{0pt plus 5cm}Particle\+System\+::\+Particle\+System (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{\+\_\+world, }
+\item[{const b2\+Particle\+System\+Def \&}]{system\+Def, }
+\item[{const std\+::vector$<$ b2\+Particle\+Group\+Def $>$ \&}]{group\+Defs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [noexcept]}}\label{classParticleSystem_abbb50f9bc17e323468e70a2e99fe8a10}
+
+
+N\+O\+T\+I\+C\+E\+: Pointer to b2\+Shape in group\+Defs will be deleted. 
+
+\hypertarget{classParticleSystem_a257c75371728135e1209f0549d8eeb15}{}\index{Particle\+System@{Particle\+System}!````~Particle\+System@{$\sim$\+Particle\+System}}
+\index{````~Particle\+System@{$\sim$\+Particle\+System}!Particle\+System@{Particle\+System}}
+\subsubsection[{$\sim$\+Particle\+System}]{\setlength{\rightskip}{0pt plus 5cm}Particle\+System\+::$\sim$\+Particle\+System (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}\label{classParticleSystem_a257c75371728135e1209f0549d8eeb15}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classParticleSystem_a38a1e26b5200ce585e17c71553273882}{}\index{Particle\+System@{Particle\+System}!clean\+Died@{clean\+Died}}
+\index{clean\+Died@{clean\+Died}!Particle\+System@{Particle\+System}}
+\subsubsection[{clean\+Died}]{\setlength{\rightskip}{0pt plus 5cm}void Particle\+System\+::clean\+Died (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classParticleSystem_a38a1e26b5200ce585e17c71553273882}
+
+
+Clean all died. 
+
+\hypertarget{classParticleSystem_a5b3bcfbc82de5d335f55173b049da517}{}\index{Particle\+System@{Particle\+System}!get\+Displayed\+Radius\+Scale@{get\+Displayed\+Radius\+Scale}}
+\index{get\+Displayed\+Radius\+Scale@{get\+Displayed\+Radius\+Scale}!Particle\+System@{Particle\+System}}
+\subsubsection[{get\+Displayed\+Radius\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Particle\+System\+::get\+Displayed\+Radius\+Scale (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classParticleSystem_a5b3bcfbc82de5d335f55173b049da517}
+
+
+displayed radius = ? $\ast$ physics radius 
+
+
+
+Implemented in \hyperlink{classFlame_a472dc6269e6e13b4628abd2392726fd8}{Flame}, \hyperlink{classDust_a6e96475d0b48ffcfb443c014ad369276}{Dust}, and \hyperlink{classWaterSquare_aefb21ab0a4f52f3fbd998d2c7e4feed4}{Water\+Square}.
+
+\hypertarget{classParticleSystem_a7a3ebd9985d271a93fedcdb3894ebb8b}{}\index{Particle\+System@{Particle\+System}!get\+Referee@{get\+Referee}}
+\index{get\+Referee@{get\+Referee}!Particle\+System@{Particle\+System}}
+\subsubsection[{get\+Referee}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Particle\+System$\ast$ Particle\+System\+::get\+Referee (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classParticleSystem_a7a3ebd9985d271a93fedcdb3894ebb8b}
+\hypertarget{classParticleSystem_a95379b5f53c63735dc9c7f76ac47ba98}{}\index{Particle\+System@{Particle\+System}!set\+Died@{set\+Died}}
+\index{set\+Died@{set\+Died}!Particle\+System@{Particle\+System}}
+\subsubsection[{set\+Died}]{\setlength{\rightskip}{0pt plus 5cm}static void Particle\+System\+::set\+Died (
+\begin{DoxyParamCaption}
+\item[{{\bf Particle\+System} $\ast$}]{system}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classParticleSystem_a95379b5f53c63735dc9c7f76ac47ba98}
+
+
+Set to delete it in next round. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classParticleSystem_a899787ecc1f14a30cd903a884ec7575e}{}\index{Particle\+System@{Particle\+System}!physics@{physics}}
+\index{physics@{physics}!Particle\+System@{Particle\+System}}
+\subsubsection[{physics}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Particle\+System$\ast$ Particle\+System\+::physics\hspace{0.3cm}{\ttfamily [protected]}}\label{classParticleSystem_a899787ecc1f14a30cd903a884ec7575e}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{matter_8h}{matter.\+h}\item 
+\hyperlink{matter_8cpp}{matter.\+cpp}\end{DoxyCompactItemize}

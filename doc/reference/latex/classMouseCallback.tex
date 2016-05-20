@@ -1,0 +1,143 @@
+\hypertarget{classMouseCallback}{}\section{Mouse\+Callback Class Reference}
+\label{classMouseCallback}\index{Mouse\+Callback@{Mouse\+Callback}}
+
+
+This file consists of template classes of mouse callback listeners.  
+
+
+
+
+{\ttfamily \#include $<$mousecallback.\+h$>$}
+
+
+
+Inheritance diagram for Mouse\+Callback\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMouseCallback__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mouse\+Callback\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classMouseCallback__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMouseCallback_a0c6cd1db4b3bce0802f12256c6d7bf50}{Mouse\+Callback} (\hyperlink{classMouseHandler}{Mouse\+Handler} $\ast$\+\_\+handler)
+\item 
+virtual \hyperlink{classMouseCallback_a98466ace1354c848bd341b6baf5c92b5}{$\sim$\+Mouse\+Callback} ()
+\item 
+virtual void \hyperlink{classMouseCallback_a5ae88358471f1b48e3f6a730aaf0ba13}{left\+Click} (float x, float y)
+\item 
+virtual void \hyperlink{classMouseCallback_aa4a0c30b50b48972d0a48b9aff6344c5}{right\+Click} (float x, float y)
+\item 
+virtual void \hyperlink{classMouseCallback_a2a57b20538c6c7bf4a590140852bdd24}{left\+Release} (float x, float y)
+\item 
+virtual void \hyperlink{classMouseCallback_ab308a03d06ee903955875b36e1f31565}{right\+Release} (float x, float y)
+\item 
+virtual void \hyperlink{classMouseCallback_a9a667f1501597e44af0e0d9f1dfcbd6a}{move} (float x, float y)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMouseHandler}{Mouse\+Handler} $\ast$ \hyperlink{classMouseCallback_a6977cef81442eaa57f63d1995b31a240}{m\+Mouse\+Handler}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file consists of template classes of mouse callback listeners. 
+
+Handle according to mouse behaviors left\+Click and right\+Click will be triggered only once in a time interval. When mouse button actually released, left\+Release or right\+Release will be triggered. move will be triggered when all above are not triggerd. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMouseCallback_a0c6cd1db4b3bce0802f12256c6d7bf50}{}\index{Mouse\+Callback@{Mouse\+Callback}!Mouse\+Callback@{Mouse\+Callback}}
+\index{Mouse\+Callback@{Mouse\+Callback}!Mouse\+Callback@{Mouse\+Callback}}
+\subsubsection[{Mouse\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}Mouse\+Callback\+::\+Mouse\+Callback (
+\begin{DoxyParamCaption}
+\item[{{\bf Mouse\+Handler} $\ast$}]{\+\_\+handler}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classMouseCallback_a0c6cd1db4b3bce0802f12256c6d7bf50}
+\hypertarget{classMouseCallback_a98466ace1354c848bd341b6baf5c92b5}{}\index{Mouse\+Callback@{Mouse\+Callback}!````~Mouse\+Callback@{$\sim$\+Mouse\+Callback}}
+\index{````~Mouse\+Callback@{$\sim$\+Mouse\+Callback}!Mouse\+Callback@{Mouse\+Callback}}
+\subsubsection[{$\sim$\+Mouse\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}virtual Mouse\+Callback\+::$\sim$\+Mouse\+Callback (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMouseCallback_a98466ace1354c848bd341b6baf5c92b5}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMouseCallback_a5ae88358471f1b48e3f6a730aaf0ba13}{}\index{Mouse\+Callback@{Mouse\+Callback}!left\+Click@{left\+Click}}
+\index{left\+Click@{left\+Click}!Mouse\+Callback@{Mouse\+Callback}}
+\subsubsection[{left\+Click}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mouse\+Callback\+::left\+Click (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMouseCallback_a5ae88358471f1b48e3f6a730aaf0ba13}
+
+
+Reimplemented in \hyperlink{classDraggingCallback_a20b673ac127fd52f7bf8453467930cf5}{Dragging\+Callback}, \hyperlink{classCancelCallback_a2cbc9b79d82ab408d767938351b1eb54}{Cancel\+Callback}, \hyperlink{classLaunchCallback_ab86a248b06b3c32bd26cb5bd9aa60745}{Launch\+Callback}, \hyperlink{classDeleteButtonCallback_ac4332c88d4198bb182c24ce4fb1f85ab}{Delete\+Button\+Callback}, \hyperlink{classDeletingCallback_a99382467c294e9a6410592216ceccb19}{Deleting\+Callback}, \hyperlink{classNewObjectCallback_af13d7431504377e66175b9ef9ae3e6fc}{New\+Object\+Callback$<$ To\+Put $>$}, \hyperlink{classPuttingLineCallback_a5a4c924a90e4b2ec3a359ae1f958d168}{Putting\+Line\+Callback$<$ To\+Put $>$}, and \hyperlink{classPuttingCallback_a95d8a7c64a5c1967982c0e6ef0d36969}{Putting\+Callback$<$ To\+Put $>$}.
+
+\hypertarget{classMouseCallback_a2a57b20538c6c7bf4a590140852bdd24}{}\index{Mouse\+Callback@{Mouse\+Callback}!left\+Release@{left\+Release}}
+\index{left\+Release@{left\+Release}!Mouse\+Callback@{Mouse\+Callback}}
+\subsubsection[{left\+Release}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mouse\+Callback\+::left\+Release (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMouseCallback_a2a57b20538c6c7bf4a590140852bdd24}
+
+
+Reimplemented in \hyperlink{classDraggingCallback_a33ea59d939d8e3fa366e595628e8ac4f}{Dragging\+Callback}.
+
+\hypertarget{classMouseCallback_a9a667f1501597e44af0e0d9f1dfcbd6a}{}\index{Mouse\+Callback@{Mouse\+Callback}!move@{move}}
+\index{move@{move}!Mouse\+Callback@{Mouse\+Callback}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mouse\+Callback\+::move (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMouseCallback_a9a667f1501597e44af0e0d9f1dfcbd6a}
+
+
+Reimplemented in \hyperlink{classDraggingCallback_a8d1541c9219f67864ab64279b53d3ad4}{Dragging\+Callback}, \hyperlink{classPuttingLineCallback_abc6f400a8e408faa4ae2ebbc8eef8dca}{Putting\+Line\+Callback$<$ To\+Put $>$}, and \hyperlink{classPuttingCallback_a9d82e38a9f790cbfeb4bf24f81110deb}{Putting\+Callback$<$ To\+Put $>$}.
+
+\hypertarget{classMouseCallback_aa4a0c30b50b48972d0a48b9aff6344c5}{}\index{Mouse\+Callback@{Mouse\+Callback}!right\+Click@{right\+Click}}
+\index{right\+Click@{right\+Click}!Mouse\+Callback@{Mouse\+Callback}}
+\subsubsection[{right\+Click}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mouse\+Callback\+::right\+Click (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMouseCallback_aa4a0c30b50b48972d0a48b9aff6344c5}
+
+
+Reimplemented in \hyperlink{classDeletingCallback_a2c33b247519be8e2e49b938f467d6eec}{Deleting\+Callback}, \hyperlink{classPuttingLineCallback_a87d406ea7eb6fb24f2777b9bb8032a5a}{Putting\+Line\+Callback$<$ To\+Put $>$}, and \hyperlink{classPuttingCallback_a9be086c4e02d2d9911876bbe17840f10}{Putting\+Callback$<$ To\+Put $>$}.
+
+\hypertarget{classMouseCallback_ab308a03d06ee903955875b36e1f31565}{}\index{Mouse\+Callback@{Mouse\+Callback}!right\+Release@{right\+Release}}
+\index{right\+Release@{right\+Release}!Mouse\+Callback@{Mouse\+Callback}}
+\subsubsection[{right\+Release}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Mouse\+Callback\+::right\+Release (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMouseCallback_ab308a03d06ee903955875b36e1f31565}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMouseCallback_a6977cef81442eaa57f63d1995b31a240}{}\index{Mouse\+Callback@{Mouse\+Callback}!m\+Mouse\+Handler@{m\+Mouse\+Handler}}
+\index{m\+Mouse\+Handler@{m\+Mouse\+Handler}!Mouse\+Callback@{Mouse\+Callback}}
+\subsubsection[{m\+Mouse\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mouse\+Handler}$\ast$ Mouse\+Callback\+::m\+Mouse\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\label{classMouseCallback_a6977cef81442eaa57f63d1995b31a240}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mousecallback_8h}{mousecallback.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,211 @@
+\hypertarget{classMouseHandler}{}\section{Mouse\+Handler Class Reference}
+\label{classMouseHandler}\index{Mouse\+Handler@{Mouse\+Handler}}
+
+
+Forwards mouse actions to \hyperlink{classMatter}{Matter}.  
+
+
+
+
+{\ttfamily \#include $<$mousehandler.\+h$>$}
+
+
+
+Collaboration diagram for Mouse\+Handler\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classMouseHandler__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classMouseHandler_af967315727aa1d435d55cc704e64fd1a}{Mouse\+Status} \{ \hyperlink{classMouseHandler_af967315727aa1d435d55cc704e64fd1aa5aba71e1304fdbe0f2899b6b1345d74a}{M\+O\+U\+S\+E\+\_\+\+F\+R\+E\+E} = 0, 
+\hyperlink{classMouseHandler_af967315727aa1d435d55cc704e64fd1aa440928d86f44f388601ede4e6b91df76}{M\+O\+U\+S\+E\+\_\+\+P\+U\+T\+T\+I\+N\+G} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMouseHandler_a2c79a128cb7e48f556cb228a3b14f291}{Mouse\+Handler} (\hyperlink{classWorld}{World} $\ast$\+\_\+world)
+\item 
+\hyperlink{classMouseHandler_a316de94666a31919abaadbb3ff16a18f}{$\sim$\+Mouse\+Handler} ()
+\item 
+void \hyperlink{classMouseHandler_a27fd9eb5eba52764d5ff6245018ee228}{add\+Button} (\hyperlink{classRigid}{Rigid} $\ast$\+\_\+rigid, \hyperlink{classMouseCallback}{Mouse\+Callback} $\ast$\+\_\+callback)
+\begin{DoxyCompactList}\small\item\em add a button to the button list \end{DoxyCompactList}\item 
+void \hyperlink{classMouseHandler_aece2b15ab5c31a8cc1befc5f18133f27}{clean\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em Clean all the buttons and delete the corresponding callbacks. \end{DoxyCompactList}\item 
+void \hyperlink{classMouseHandler_a367ef9b85ee425a85beefdbd16a39768}{process} ()
+\begin{DoxyCompactList}\small\item\em main entry to process \end{DoxyCompactList}\item 
+void \hyperlink{classMouseHandler_a0a7df02e71fbbb14f5a80163ee065c8b}{update\+Mouse} ()
+\begin{DoxyCompactList}\small\item\em update current mouse status from G\+L\+F\+W should be public for \hyperlink{classWorld}{World} to set it as friend \end{DoxyCompactList}\item 
+void \hyperlink{classMouseHandler_a24de5aaed3df346eae098cd830f168dd}{set\+Free\+Callback} (\hyperlink{classMouseCallback}{Mouse\+Callback} $\ast$callback)
+\begin{DoxyCompactList}\small\item\em Set callback that used at M\+O\+U\+S\+E\+\_\+\+F\+R\+E\+E when is not on buttons. \end{DoxyCompactList}\item 
+void \hyperlink{classMouseHandler_a8b2e24e7199d4a33562c87b50f135fb2}{set\+Putting\+Callback} (\hyperlink{classMouseCallback}{Mouse\+Callback} $\ast$callback)
+\begin{DoxyCompactList}\small\item\em Set callback that used at M\+O\+U\+S\+E\+\_\+\+P\+U\+T\+T\+I\+N\+G. \end{DoxyCompactList}\item 
+void \hyperlink{classMouseHandler_a8f252c03ffcfe43b09086a9f5201792b}{set\+Status} (\hyperlink{classMouseHandler_af967315727aa1d435d55cc704e64fd1a}{Mouse\+Status} \+\_\+status, \hyperlink{classMouseCallback}{Mouse\+Callback} $\ast$callback=N\+U\+L\+L)
+\begin{DoxyCompactList}\small\item\em set woring status callback used for corresponding status can be set through the 2nd parameter, O\+N\+L\+Y if it is not N\+U\+L\+L. \end{DoxyCompactList}\item 
+void \hyperlink{classMouseHandler_a3a64869cf23c6d979ce6ac4a0127a93e}{set\+Enable\+Callback} (bool \+\_\+enable)
+\begin{DoxyCompactList}\small\item\em Enable/disable all callbacks. \end{DoxyCompactList}\item 
+bool \hyperlink{classMouseHandler_ae0bda6b1555601ea331951e813848260}{get\+Left\+Clicked} () const 
+\item 
+bool \hyperlink{classMouseHandler_ac94dc769799b712128bc6af848d187e3}{get\+Right\+Clicked} () const 
+\item 
+\hyperlink{classWorld}{World} $\ast$ \hyperlink{classMouseHandler_a35f26398677136e135a72286f40e7f61}{get\+World} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Forwards mouse actions to \hyperlink{classMatter}{Matter}. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classMouseHandler_af967315727aa1d435d55cc704e64fd1a}{}\index{Mouse\+Handler@{Mouse\+Handler}!Mouse\+Status@{Mouse\+Status}}
+\index{Mouse\+Status@{Mouse\+Status}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{Mouse\+Status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Mouse\+Handler\+::\+Mouse\+Status}}\label{classMouseHandler_af967315727aa1d435d55cc704e64fd1a}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\+O\+U\+S\+E\+\_\+\+F\+R\+E\+E@{M\+O\+U\+S\+E\+\_\+\+F\+R\+E\+E}!Mouse\+Handler@{Mouse\+Handler}}\index{Mouse\+Handler@{Mouse\+Handler}!M\+O\+U\+S\+E\+\_\+\+F\+R\+E\+E@{M\+O\+U\+S\+E\+\_\+\+F\+R\+E\+E}}\item[{\em 
+\hypertarget{classMouseHandler_af967315727aa1d435d55cc704e64fd1aa5aba71e1304fdbe0f2899b6b1345d74a}{}M\+O\+U\+S\+E\+\_\+\+F\+R\+E\+E\label{classMouseHandler_af967315727aa1d435d55cc704e64fd1aa5aba71e1304fdbe0f2899b6b1345d74a}
+}]\index{M\+O\+U\+S\+E\+\_\+\+P\+U\+T\+T\+I\+N\+G@{M\+O\+U\+S\+E\+\_\+\+P\+U\+T\+T\+I\+N\+G}!Mouse\+Handler@{Mouse\+Handler}}\index{Mouse\+Handler@{Mouse\+Handler}!M\+O\+U\+S\+E\+\_\+\+P\+U\+T\+T\+I\+N\+G@{M\+O\+U\+S\+E\+\_\+\+P\+U\+T\+T\+I\+N\+G}}\item[{\em 
+\hypertarget{classMouseHandler_af967315727aa1d435d55cc704e64fd1aa440928d86f44f388601ede4e6b91df76}{}M\+O\+U\+S\+E\+\_\+\+P\+U\+T\+T\+I\+N\+G\label{classMouseHandler_af967315727aa1d435d55cc704e64fd1aa440928d86f44f388601ede4e6b91df76}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMouseHandler_a2c79a128cb7e48f556cb228a3b14f291}{}\index{Mouse\+Handler@{Mouse\+Handler}!Mouse\+Handler@{Mouse\+Handler}}
+\index{Mouse\+Handler@{Mouse\+Handler}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{Mouse\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}Mouse\+Handler\+::\+Mouse\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{\+\_\+world}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_a2c79a128cb7e48f556cb228a3b14f291}
+\hypertarget{classMouseHandler_a316de94666a31919abaadbb3ff16a18f}{}\index{Mouse\+Handler@{Mouse\+Handler}!````~Mouse\+Handler@{$\sim$\+Mouse\+Handler}}
+\index{````~Mouse\+Handler@{$\sim$\+Mouse\+Handler}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{$\sim$\+Mouse\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}Mouse\+Handler\+::$\sim$\+Mouse\+Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_a316de94666a31919abaadbb3ff16a18f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMouseHandler_a27fd9eb5eba52764d5ff6245018ee228}{}\index{Mouse\+Handler@{Mouse\+Handler}!add\+Button@{add\+Button}}
+\index{add\+Button@{add\+Button}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{add\+Button}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::add\+Button (
+\begin{DoxyParamCaption}
+\item[{{\bf Rigid} $\ast$}]{\+\_\+rigid, }
+\item[{{\bf Mouse\+Callback} $\ast$}]{\+\_\+callback}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_a27fd9eb5eba52764d5ff6245018ee228}
+
+
+add a button to the button list 
+
+\hypertarget{classMouseHandler_aece2b15ab5c31a8cc1befc5f18133f27}{}\index{Mouse\+Handler@{Mouse\+Handler}!clean\+Buttons@{clean\+Buttons}}
+\index{clean\+Buttons@{clean\+Buttons}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{clean\+Buttons}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::clean\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_aece2b15ab5c31a8cc1befc5f18133f27}
+
+
+Clean all the buttons and delete the corresponding callbacks. 
+
+\hypertarget{classMouseHandler_ae0bda6b1555601ea331951e813848260}{}\index{Mouse\+Handler@{Mouse\+Handler}!get\+Left\+Clicked@{get\+Left\+Clicked}}
+\index{get\+Left\+Clicked@{get\+Left\+Clicked}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{get\+Left\+Clicked}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::get\+Left\+Clicked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classMouseHandler_ae0bda6b1555601ea331951e813848260}
+\hypertarget{classMouseHandler_ac94dc769799b712128bc6af848d187e3}{}\index{Mouse\+Handler@{Mouse\+Handler}!get\+Right\+Clicked@{get\+Right\+Clicked}}
+\index{get\+Right\+Clicked@{get\+Right\+Clicked}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{get\+Right\+Clicked}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::get\+Right\+Clicked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classMouseHandler_ac94dc769799b712128bc6af848d187e3}
+\hypertarget{classMouseHandler_a35f26398677136e135a72286f40e7f61}{}\index{Mouse\+Handler@{Mouse\+Handler}!get\+World@{get\+World}}
+\index{get\+World@{get\+World}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{get\+World}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World}$\ast$ Mouse\+Handler\+::get\+World (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classMouseHandler_a35f26398677136e135a72286f40e7f61}
+\hypertarget{classMouseHandler_a367ef9b85ee425a85beefdbd16a39768}{}\index{Mouse\+Handler@{Mouse\+Handler}!process@{process}}
+\index{process@{process}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_a367ef9b85ee425a85beefdbd16a39768}
+
+
+main entry to process 
+
+\hypertarget{classMouseHandler_a3a64869cf23c6d979ce6ac4a0127a93e}{}\index{Mouse\+Handler@{Mouse\+Handler}!set\+Enable\+Callback@{set\+Enable\+Callback}}
+\index{set\+Enable\+Callback@{set\+Enable\+Callback}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{set\+Enable\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::set\+Enable\+Callback (
+\begin{DoxyParamCaption}
+\item[{bool}]{\+\_\+enable}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classMouseHandler_a3a64869cf23c6d979ce6ac4a0127a93e}
+
+
+Enable/disable all callbacks. 
+
+\hypertarget{classMouseHandler_a24de5aaed3df346eae098cd830f168dd}{}\index{Mouse\+Handler@{Mouse\+Handler}!set\+Free\+Callback@{set\+Free\+Callback}}
+\index{set\+Free\+Callback@{set\+Free\+Callback}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{set\+Free\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::set\+Free\+Callback (
+\begin{DoxyParamCaption}
+\item[{{\bf Mouse\+Callback} $\ast$}]{callback}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_a24de5aaed3df346eae098cd830f168dd}
+
+
+Set callback that used at M\+O\+U\+S\+E\+\_\+\+F\+R\+E\+E when is not on buttons. 
+
+This callback will N\+O\+T be deleted when switching status. \hypertarget{classMouseHandler_a8b2e24e7199d4a33562c87b50f135fb2}{}\index{Mouse\+Handler@{Mouse\+Handler}!set\+Putting\+Callback@{set\+Putting\+Callback}}
+\index{set\+Putting\+Callback@{set\+Putting\+Callback}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{set\+Putting\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::set\+Putting\+Callback (
+\begin{DoxyParamCaption}
+\item[{{\bf Mouse\+Callback} $\ast$}]{callback}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_a8b2e24e7199d4a33562c87b50f135fb2}
+
+
+Set callback that used at M\+O\+U\+S\+E\+\_\+\+P\+U\+T\+T\+I\+N\+G. 
+
+This callback will be deleted when switching status. \hypertarget{classMouseHandler_a8f252c03ffcfe43b09086a9f5201792b}{}\index{Mouse\+Handler@{Mouse\+Handler}!set\+Status@{set\+Status}}
+\index{set\+Status@{set\+Status}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{set\+Status}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::set\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf Mouse\+Status}}]{\+\_\+status, }
+\item[{{\bf Mouse\+Callback} $\ast$}]{callback = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_a8f252c03ffcfe43b09086a9f5201792b}
+
+
+set woring status callback used for corresponding status can be set through the 2nd parameter, O\+N\+L\+Y if it is not N\+U\+L\+L. 
+
+\hypertarget{classMouseHandler_a0a7df02e71fbbb14f5a80163ee065c8b}{}\index{Mouse\+Handler@{Mouse\+Handler}!update\+Mouse@{update\+Mouse}}
+\index{update\+Mouse@{update\+Mouse}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{update\+Mouse}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::update\+Mouse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMouseHandler_a0a7df02e71fbbb14f5a80163ee065c8b}
+
+
+update current mouse status from G\+L\+F\+W should be public for \hyperlink{classWorld}{World} to set it as friend 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mousehandler_8h}{mousehandler.\+h}\item 
+\hyperlink{mousehandler_8cpp}{mousehandler.\+cpp}\end{DoxyCompactItemize}

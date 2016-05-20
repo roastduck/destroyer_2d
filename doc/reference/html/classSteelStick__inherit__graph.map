@@ -1,0 +1,5 @@
+<map id="SteelStick" name="SteelStick">
+<area shape="rect" id="node2" href="$classStick.html" title="Base class with all that canDrawLine() Will create contact to what is linked. " alt="" coords="19,564,137,744"/>
+<area shape="rect" id="node3" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="13,292,143,516"/>
+<area shape="rect" id="node4" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="5,5,151,244"/>
+</map>

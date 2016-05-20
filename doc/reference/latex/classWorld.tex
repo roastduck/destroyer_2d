@@ -1,0 +1,366 @@
+\hypertarget{classWorld}{}\section{World Class Reference}
+\label{classWorld}\index{World@{World}}
+
+
+All object in a scenario Interact with Open\+G\+L and Liquid\+Fun.  
+
+
+
+
+{\ttfamily \#include $<$world.\+h$>$}
+
+
+
+Inheritance diagram for World\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classWorld__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for World\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWorld__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classWorld_1_1GlobalTestPoint}{Global\+Test\+Point}
+\begin{DoxyCompactList}\small\item\em A helper for finding a fixture overlapping with a point. \end{DoxyCompactList}\item 
+class \hyperlink{classWorld_1_1MyDestructionListener}{My\+Destruction\+Listener}
+\begin{DoxyCompactList}\small\item\em Manger for all destruction listener. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorld_a18f20395a332752c4a3d98f2b0e98cff}{World} (float left\+Most, float right\+Most, float down\+Most, float up\+Most) noexcept
+\begin{DoxyCompactList}\small\item\em Initialize with the border of whole world. \end{DoxyCompactList}\item 
+virtual \hyperlink{classWorld_adf6c3b010a0b8eb87805a5bc71b8924c}{$\sim$\+World} () noexcept
+\begin{DoxyCompactList}\small\item\em delete \hyperlink{classMatter}{Matter} objects and then delete physics \end{DoxyCompactList}\item 
+virtual void \hyperlink{classWorld_a2675f967ea85876d123357c2ffafc7ea}{set\+View} (float l, float \hyperlink{image_8h_a62969232668331297e2dca1ae2ddd10d}{r}, float d, float u)
+\begin{DoxyCompactList}\small\item\em Set part of the whole world as current view. \end{DoxyCompactList}\item 
+void \hyperlink{classWorld_a4fedfa711acf1d711333f63d28692879}{set\+G\+L\+Ortho} () const 
+\begin{DoxyCompactList}\small\item\em will be overriden in test classes \end{DoxyCompactList}\item 
+virtual void \hyperlink{classWorld_a63a22c1ea89297d49095004c79d40ce6}{step} ()
+\begin{DoxyCompactList}\small\item\em Run next simulation step. \end{DoxyCompactList}\item 
+float \hyperlink{classWorld_aae107a7cff8f2a7ed88b74248f33d5a3}{get\+Scale} () const 
+\begin{DoxyCompactList}\small\item\em Get 1 pixel = ? meter. \end{DoxyCompactList}\item 
+b2\+Body $\ast$ \hyperlink{classWorld_a216fe468428599cef4058dd704d3dfc6}{get\+Frame\+Body} () const 
+\begin{DoxyCompactList}\small\item\em Framebody can be used as a anchor. \end{DoxyCompactList}\item 
+b2\+World $\ast$ \hyperlink{classWorld_a168a98614eb17737e8f74b2e6417f457}{get\+Referee} () const 
+\begin{DoxyCompactList}\small\item\em Return b2\+World pointer. \end{DoxyCompactList}\item 
+\hyperlink{classWindow}{Window} $\ast$ \hyperlink{classWorld_a79ac276692fe3e6cddc8401528ed39b8}{get\+Window} () const 
+\item 
+void \hyperlink{classWorld_a1da0d80d5a3fcf7858efefeaa9054569}{require\+Key} (\hyperlink{classRigid}{Rigid} $\ast$\hyperlink{image_8h_a62969232668331297e2dca1ae2ddd10d}{r})
+\begin{DoxyCompactList}\small\item\em Require to bind a key to \hyperlink{classRigid}{Rigid} r. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classWorld_1_1MyDestructionListener}{My\+Destruction\+Listener} \hyperlink{classWorld_a9fe52553a01225766d31480cc99b79ef}{my\+Destruction\+Listener}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classWorld_a2cc743491ca1c39add8c1298c6f0778d}{draw\+All} () const noexcept
+\begin{DoxyCompactList}\small\item\em Draw every \hyperlink{classMatter}{Matter} into Open\+G\+L Things can be drawn out of draw\+All. \end{DoxyCompactList}\item 
+void \hyperlink{classWorld_a6c2c794397ae3dad108e43caae240adb}{display\+Popup} (const std\+::string \&s, float l, float \hyperlink{image_8h_a62969232668331297e2dca1ae2ddd10d}{r}, float d, float u)
+\begin{DoxyCompactList}\small\item\em will be overriden in test classes \end{DoxyCompactList}\item 
+void \hyperlink{classWorld_aa8d19774db3f3833896990b57ad8eacc}{cancel\+Popup} ()
+\begin{DoxyCompactList}\small\item\em Cancel popup window. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classWorld_a30d3c544a65693194b705689970842e3}{get\+Popup} ()
+\begin{DoxyCompactList}\small\item\em What is displaying in popup window? s = \char`\"{}\char`\"{} means not displaying. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classWorld_a13622f99e647f20c7704b8857651323c}{player\+Key\+Down} (int p, int key)
+\begin{DoxyCompactList}\small\item\em Is player p\textquotesingle{}s key down? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWindow}{Window} $\ast$ \hyperlink{classWorld_a9e60dc10845f02ed5866182140069be1}{m\+Window}
+\item 
+\hyperlink{classMouseHandler}{Mouse\+Handler} $\ast$ \hyperlink{classWorld_a9bab67b954d8de400ec06b07fa88c22b}{m\+Mouse\+Handler}
+\item 
+float \hyperlink{classWorld_aeecec3f91f92f263de2eadcb5a87fabd}{m\+Left\+Most}
+\item 
+float \hyperlink{classWorld_a2faeb13aa9c7217552654b2292e50f6a}{m\+Right\+Most}
+\item 
+float \hyperlink{classWorld_ab643703f63f5c3f8976d1a36b4ca9308}{m\+Down\+Most}
+\item 
+float \hyperlink{classWorld_a339db81bbb99ccf53f3cac5e9763d024}{m\+Up\+Most}
+\item 
+float \hyperlink{classWorld_ac0a6a277c98bb22fbb5fd8c8b30da604}{m\+Cur\+Left\+Most}
+\item 
+float \hyperlink{classWorld_aa4304f0ded86d76a21f4fdaaa56ad382}{m\+Cur\+Right\+Most}
+\item 
+float \hyperlink{classWorld_a6c703fe8401bc1516dd6e8c474a8a74f}{m\+Cur\+Down\+Most}
+\item 
+float \hyperlink{classWorld_a657ccdad21b3984bf8c8837f500ac45e}{m\+Cur\+Up\+Most}
+\item 
+float \hyperlink{classWorld_a3a9816094376a49c55d2ba878ad33271}{mx}
+\item 
+float \hyperlink{classWorld_a3ef0e1ad2396eab18e18684f11d91529}{my}
+\item 
+b2\+World $\ast$ \hyperlink{classWorld_a99f3098ee94a83726a1ea67ea515417f}{physics}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorld_a114ccd993c0013f7d74f046d597bdf35}{Window\+::set\+World} (\hyperlink{classWorld}{World} $\ast$)
+\item 
+void \hyperlink{classWorld_a881adea56e40e4fed79d7c7b68f41a91}{Mouse\+Handler\+::update\+Mouse} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+All object in a scenario Interact with Open\+G\+L and Liquid\+Fun. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classWorld_a18f20395a332752c4a3d98f2b0e98cff}{}\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\subsubsection[{World}]{\setlength{\rightskip}{0pt plus 5cm}World\+::\+World (
+\begin{DoxyParamCaption}
+\item[{float}]{left\+Most, }
+\item[{float}]{right\+Most, }
+\item[{float}]{down\+Most, }
+\item[{float}]{up\+Most}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [noexcept]}}\label{classWorld_a18f20395a332752c4a3d98f2b0e98cff}
+
+
+Initialize with the border of whole world. 
+
+\hypertarget{classWorld_adf6c3b010a0b8eb87805a5bc71b8924c}{}\index{World@{World}!````~World@{$\sim$\+World}}
+\index{````~World@{$\sim$\+World}!World@{World}}
+\subsubsection[{$\sim$\+World}]{\setlength{\rightskip}{0pt plus 5cm}World\+::$\sim$\+World (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}\label{classWorld_adf6c3b010a0b8eb87805a5bc71b8924c}
+
+
+delete \hyperlink{classMatter}{Matter} objects and then delete physics 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classWorld_aa8d19774db3f3833896990b57ad8eacc}{}\index{World@{World}!cancel\+Popup@{cancel\+Popup}}
+\index{cancel\+Popup@{cancel\+Popup}!World@{World}}
+\subsubsection[{cancel\+Popup}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::cancel\+Popup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_aa8d19774db3f3833896990b57ad8eacc}
+
+
+Cancel popup window. 
+
+\hypertarget{classWorld_a6c2c794397ae3dad108e43caae240adb}{}\index{World@{World}!display\+Popup@{display\+Popup}}
+\index{display\+Popup@{display\+Popup}!World@{World}}
+\subsubsection[{display\+Popup}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::display\+Popup (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s, }
+\item[{float}]{l, }
+\item[{float}]{r, }
+\item[{float}]{d, }
+\item[{float}]{u}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a6c2c794397ae3dad108e43caae240adb}
+
+
+will be overriden in test classes 
+
+Display a popup window until calling \hyperlink{classWorld_aa8d19774db3f3833896990b57ad8eacc}{cancel\+Popup()} located with lower-\/left (l,d) and upper-\/right(r,u) in world coordinates s = \char`\"{}\char`\"{} means not to display \hypertarget{classWorld_a2cc743491ca1c39add8c1298c6f0778d}{}\index{World@{World}!draw\+All@{draw\+All}}
+\index{draw\+All@{draw\+All}!World@{World}}
+\subsubsection[{draw\+All}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::draw\+All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}\label{classWorld_a2cc743491ca1c39add8c1298c6f0778d}
+
+
+Draw every \hyperlink{classMatter}{Matter} into Open\+G\+L Things can be drawn out of draw\+All. 
+
+\hypertarget{classWorld_a216fe468428599cef4058dd704d3dfc6}{}\index{World@{World}!get\+Frame\+Body@{get\+Frame\+Body}}
+\index{get\+Frame\+Body@{get\+Frame\+Body}!World@{World}}
+\subsubsection[{get\+Frame\+Body}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Body$\ast$ World\+::get\+Frame\+Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWorld_a216fe468428599cef4058dd704d3dfc6}
+
+
+Framebody can be used as a anchor. 
+
+\hypertarget{classWorld_a30d3c544a65693194b705689970842e3}{}\index{World@{World}!get\+Popup@{get\+Popup}}
+\index{get\+Popup@{get\+Popup}!World@{World}}
+\subsubsection[{get\+Popup}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string\& World\+::get\+Popup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classWorld_a30d3c544a65693194b705689970842e3}
+
+
+What is displaying in popup window? s = \char`\"{}\char`\"{} means not displaying. 
+
+\hypertarget{classWorld_a168a98614eb17737e8f74b2e6417f457}{}\index{World@{World}!get\+Referee@{get\+Referee}}
+\index{get\+Referee@{get\+Referee}!World@{World}}
+\subsubsection[{get\+Referee}]{\setlength{\rightskip}{0pt plus 5cm}b2\+World$\ast$ World\+::get\+Referee (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWorld_a168a98614eb17737e8f74b2e6417f457}
+
+
+Return b2\+World pointer. 
+
+\hypertarget{classWorld_aae107a7cff8f2a7ed88b74248f33d5a3}{}\index{World@{World}!get\+Scale@{get\+Scale}}
+\index{get\+Scale@{get\+Scale}!World@{World}}
+\subsubsection[{get\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::get\+Scale (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classWorld_aae107a7cff8f2a7ed88b74248f33d5a3}
+
+
+Get 1 pixel = ? meter. 
+
+\hypertarget{classWorld_a79ac276692fe3e6cddc8401528ed39b8}{}\index{World@{World}!get\+Window@{get\+Window}}
+\index{get\+Window@{get\+Window}!World@{World}}
+\subsubsection[{get\+Window}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window}$\ast$ World\+::get\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWorld_a79ac276692fe3e6cddc8401528ed39b8}
+\hypertarget{classWorld_a13622f99e647f20c7704b8857651323c}{}\index{World@{World}!player\+Key\+Down@{player\+Key\+Down}}
+\index{player\+Key\+Down@{player\+Key\+Down}!World@{World}}
+\subsubsection[{player\+Key\+Down}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool World\+::player\+Key\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{p, }
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{classWorld_a13622f99e647f20c7704b8857651323c}
+
+
+Is player p\textquotesingle{}s key down? 
+
+\hypertarget{classWorld_a1da0d80d5a3fcf7858efefeaa9054569}{}\index{World@{World}!require\+Key@{require\+Key}}
+\index{require\+Key@{require\+Key}!World@{World}}
+\subsubsection[{require\+Key}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::require\+Key (
+\begin{DoxyParamCaption}
+\item[{{\bf Rigid} $\ast$}]{r}
+\end{DoxyParamCaption}
+)}\label{classWorld_a1da0d80d5a3fcf7858efefeaa9054569}
+
+
+Require to bind a key to \hyperlink{classRigid}{Rigid} r. 
+
+\hypertarget{classWorld_a4fedfa711acf1d711333f63d28692879}{}\index{World@{World}!set\+G\+L\+Ortho@{set\+G\+L\+Ortho}}
+\index{set\+G\+L\+Ortho@{set\+G\+L\+Ortho}!World@{World}}
+\subsubsection[{set\+G\+L\+Ortho}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::set\+G\+L\+Ortho (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classWorld_a4fedfa711acf1d711333f63d28692879}
+
+
+will be overriden in test classes 
+
+Set Open\+G\+L with orthographic projection To disply corresponding area \hypertarget{classWorld_a2675f967ea85876d123357c2ffafc7ea}{}\index{World@{World}!set\+View@{set\+View}}
+\index{set\+View@{set\+View}!World@{World}}
+\subsubsection[{set\+View}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::set\+View (
+\begin{DoxyParamCaption}
+\item[{float}]{l, }
+\item[{float}]{r, }
+\item[{float}]{d, }
+\item[{float}]{u}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classWorld_a2675f967ea85876d123357c2ffafc7ea}
+
+
+Set part of the whole world as current view. 
+
+\hypertarget{classWorld_a63a22c1ea89297d49095004c79d40ce6}{}\index{World@{World}!step@{step}}
+\index{step@{step}!World@{World}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classWorld_a63a22c1ea89297d49095004c79d40ce6}
+
+
+Run next simulation step. 
+
+
+
+Reimplemented in \hyperlink{classMainWorld_a8ac7fe4b17bb3ca29a0382b93a24731e}{Main\+World}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classWorld_a881adea56e40e4fed79d7c7b68f41a91}{}\index{World@{World}!Mouse\+Handler\+::update\+Mouse@{Mouse\+Handler\+::update\+Mouse}}
+\index{Mouse\+Handler\+::update\+Mouse@{Mouse\+Handler\+::update\+Mouse}!World@{World}}
+\subsubsection[{Mouse\+Handler\+::update\+Mouse}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Mouse\+Handler\+::update\+Mouse} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classWorld_a881adea56e40e4fed79d7c7b68f41a91}
+\hypertarget{classWorld_a114ccd993c0013f7d74f046d597bdf35}{}\index{World@{World}!Window\+::set\+World@{Window\+::set\+World}}
+\index{Window\+::set\+World@{Window\+::set\+World}!World@{World}}
+\subsubsection[{Window\+::set\+World}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Window\+::set\+World} (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classWorld_a114ccd993c0013f7d74f046d597bdf35}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classWorld_a6c703fe8401bc1516dd6e8c474a8a74f}{}\index{World@{World}!m\+Cur\+Down\+Most@{m\+Cur\+Down\+Most}}
+\index{m\+Cur\+Down\+Most@{m\+Cur\+Down\+Most}!World@{World}}
+\subsubsection[{m\+Cur\+Down\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Cur\+Down\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a6c703fe8401bc1516dd6e8c474a8a74f}
+\hypertarget{classWorld_ac0a6a277c98bb22fbb5fd8c8b30da604}{}\index{World@{World}!m\+Cur\+Left\+Most@{m\+Cur\+Left\+Most}}
+\index{m\+Cur\+Left\+Most@{m\+Cur\+Left\+Most}!World@{World}}
+\subsubsection[{m\+Cur\+Left\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Cur\+Left\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_ac0a6a277c98bb22fbb5fd8c8b30da604}
+\hypertarget{classWorld_aa4304f0ded86d76a21f4fdaaa56ad382}{}\index{World@{World}!m\+Cur\+Right\+Most@{m\+Cur\+Right\+Most}}
+\index{m\+Cur\+Right\+Most@{m\+Cur\+Right\+Most}!World@{World}}
+\subsubsection[{m\+Cur\+Right\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Cur\+Right\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_aa4304f0ded86d76a21f4fdaaa56ad382}
+\hypertarget{classWorld_a657ccdad21b3984bf8c8837f500ac45e}{}\index{World@{World}!m\+Cur\+Up\+Most@{m\+Cur\+Up\+Most}}
+\index{m\+Cur\+Up\+Most@{m\+Cur\+Up\+Most}!World@{World}}
+\subsubsection[{m\+Cur\+Up\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Cur\+Up\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a657ccdad21b3984bf8c8837f500ac45e}
+\hypertarget{classWorld_ab643703f63f5c3f8976d1a36b4ca9308}{}\index{World@{World}!m\+Down\+Most@{m\+Down\+Most}}
+\index{m\+Down\+Most@{m\+Down\+Most}!World@{World}}
+\subsubsection[{m\+Down\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Down\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_ab643703f63f5c3f8976d1a36b4ca9308}
+\hypertarget{classWorld_aeecec3f91f92f263de2eadcb5a87fabd}{}\index{World@{World}!m\+Left\+Most@{m\+Left\+Most}}
+\index{m\+Left\+Most@{m\+Left\+Most}!World@{World}}
+\subsubsection[{m\+Left\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Left\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_aeecec3f91f92f263de2eadcb5a87fabd}
+\hypertarget{classWorld_a9bab67b954d8de400ec06b07fa88c22b}{}\index{World@{World}!m\+Mouse\+Handler@{m\+Mouse\+Handler}}
+\index{m\+Mouse\+Handler@{m\+Mouse\+Handler}!World@{World}}
+\subsubsection[{m\+Mouse\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mouse\+Handler}$\ast$ World\+::m\+Mouse\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a9bab67b954d8de400ec06b07fa88c22b}
+\hypertarget{classWorld_a2faeb13aa9c7217552654b2292e50f6a}{}\index{World@{World}!m\+Right\+Most@{m\+Right\+Most}}
+\index{m\+Right\+Most@{m\+Right\+Most}!World@{World}}
+\subsubsection[{m\+Right\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Right\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a2faeb13aa9c7217552654b2292e50f6a}
+\hypertarget{classWorld_a339db81bbb99ccf53f3cac5e9763d024}{}\index{World@{World}!m\+Up\+Most@{m\+Up\+Most}}
+\index{m\+Up\+Most@{m\+Up\+Most}!World@{World}}
+\subsubsection[{m\+Up\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Up\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a339db81bbb99ccf53f3cac5e9763d024}
+\hypertarget{classWorld_a9e60dc10845f02ed5866182140069be1}{}\index{World@{World}!m\+Window@{m\+Window}}
+\index{m\+Window@{m\+Window}!World@{World}}
+\subsubsection[{m\+Window}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window}$\ast$ World\+::m\+Window\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a9e60dc10845f02ed5866182140069be1}
+\hypertarget{classWorld_a3a9816094376a49c55d2ba878ad33271}{}\index{World@{World}!mx@{mx}}
+\index{mx@{mx}!World@{World}}
+\subsubsection[{mx}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::mx\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a3a9816094376a49c55d2ba878ad33271}
+\hypertarget{classWorld_a3ef0e1ad2396eab18e18684f11d91529}{}\index{World@{World}!my@{my}}
+\index{my@{my}!World@{World}}
+\subsubsection[{my}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::my\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a3ef0e1ad2396eab18e18684f11d91529}
+\hypertarget{classWorld_a9fe52553a01225766d31480cc99b79ef}{}\index{World@{World}!my\+Destruction\+Listener@{my\+Destruction\+Listener}}
+\index{my\+Destruction\+Listener@{my\+Destruction\+Listener}!World@{World}}
+\subsubsection[{my\+Destruction\+Listener}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World\+::\+My\+Destruction\+Listener} World\+::my\+Destruction\+Listener\hspace{0.3cm}{\ttfamily [static]}}\label{classWorld_a9fe52553a01225766d31480cc99b79ef}
+\hypertarget{classWorld_a99f3098ee94a83726a1ea67ea515417f}{}\index{World@{World}!physics@{physics}}
+\index{physics@{physics}!World@{World}}
+\subsubsection[{physics}]{\setlength{\rightskip}{0pt plus 5cm}b2\+World$\ast$ World\+::physics\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a99f3098ee94a83726a1ea67ea515417f}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{world_8h}{world.\+h}\item 
+\hyperlink{world_8cpp}{world.\+cpp}\end{DoxyCompactItemize}

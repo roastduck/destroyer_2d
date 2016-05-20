@@ -1,0 +1,6 @@
+<map id="Stick" name="Stick">
+<area shape="rect" id="node4" href="$classSteelStick.html" title="{SteelStick\n||+ SteelStick()\l+ SteelStick()\l+ getColorR()\l+ getColorG()\l+ getColorB()\l+ getColorA()\l+ getStrength()\l}" alt="" coords="5,792,115,957"/>
+<area shape="rect" id="node5" href="$classWoodStick.html" title="{WoodStick\n||+ WoodStick()\l+ WoodStick()\l+ getColorR()\l+ getColorG()\l+ getColorB()\l+ getColorA()\l+ getStrength()\l}" alt="" coords="139,792,248,957"/>
+<area shape="rect" id="node2" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="62,292,191,516"/>
+<area shape="rect" id="node3" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="54,5,199,244"/>
+</map>

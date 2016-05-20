@@ -1,0 +1,221 @@
+\hypertarget{classWindow}{}\section{Window Class Reference}
+\label{classWindow}\index{Window@{Window}}
+
+
+This class interact with G\+L\+F\+W.  
+
+
+
+
+{\ttfamily \#include $<$window.\+h$>$}
+
+
+
+Collaboration diagram for Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{classWindow__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classWindow_a777c693a4c2b74e712839aa15189e07f}{Cursor\+Type} \{ \hyperlink{classWindow_a777c693a4c2b74e712839aa15189e07fadc371b755e3336f07c17227a754a829e}{C\+U\+R\+S\+O\+R\+\_\+\+A\+R\+R\+O\+W} = 0, 
+\hyperlink{classWindow_a777c693a4c2b74e712839aa15189e07faf6561d7cc9ae11d29f3004c0f2ab33e3}{C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S} = 1, 
+\hyperlink{classWindow_a777c693a4c2b74e712839aa15189e07fa2ed9ada326b2dfd626e2d2adcbd8691f}{C\+U\+R\+S\+O\+R\+\_\+\+D\+E\+L\+E\+T\+E} = 2, 
+\hyperlink{classWindow_a777c693a4c2b74e712839aa15189e07fad4d3e8c6d4b72f1b918b63b0f18888d3}{C\+U\+R\+S\+O\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M} = 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWindow_a74e6087da23d3c24e9fac0245e5ec92c}{Window} ()
+\item 
+\hyperlink{classWindow_ae6b4e3e731f32506a8ae77790b08584e}{$\sim$\+Window} () noexcept
+\item 
+void \hyperlink{classWindow_ae137ec42ddc87d666d49661484410091}{run} ()
+\begin{DoxyCompactList}\small\item\em Run until the window closes. \end{DoxyCompactList}\item 
+void \hyperlink{classWindow_a0038b02fa4141ac2684a62b0884ca776}{set\+World} (\hyperlink{classWorld}{World} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Set the world to display Will keep track to the pointer. \end{DoxyCompactList}\item 
+void \hyperlink{classWindow_ab52aaa3a6e68b05684df07c54caa42b0}{get\+Width\+Height} (int $\ast$width, int $\ast$height) const 
+\begin{DoxyCompactList}\small\item\em Get current window width and height. \end{DoxyCompactList}\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{classWindow_a98ef189d2c7ac79179669aa3ad4c2f2c}{get\+Referee} () const 
+\begin{DoxyCompactList}\small\item\em Return G\+L\+F\+Wwindow pointer. \end{DoxyCompactList}\item 
+void \hyperlink{classWindow_ae8a1d3d51a2546a07ca839a6d47298e6}{use\+Cursor} (\hyperlink{classWindow_a777c693a4c2b74e712839aa15189e07f}{Cursor\+Type} type)
+\begin{DoxyCompactList}\small\item\em Choose a cursor type. \end{DoxyCompactList}\item 
+int \hyperlink{classWindow_a81c38391a3e466507cadd7baea94e748}{is\+Key\+Pressed} () const 
+\begin{DoxyCompactList}\small\item\em If any key being pressed (not pressed last time)? Return 0 or the key. \end{DoxyCompactList}\item 
+bool \hyperlink{classWindow_a70650bc742d83d02d88ea8e4d439c604}{is\+Key\+Pressed} (int key) const 
+\begin{DoxyCompactList}\small\item\em If the given key being pressed? \end{DoxyCompactList}\item 
+int \hyperlink{classWindow_ad58881f941c43e6dc19761cae3ab8f39}{is\+Key\+Down} () const 
+\begin{DoxyCompactList}\small\item\em If any key down? Return 0 or the key. \end{DoxyCompactList}\item 
+bool \hyperlink{classWindow_a6a9f53b08efd0a9caae810ea8ae687ac}{is\+Key\+Down} (int key) const 
+\begin{DoxyCompactList}\small\item\em If the given key down? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWindow_a286930f4e8ede059b83ff6eafa2ff718}{key\+\_\+callback} (G\+L\+F\+Wwindow $\ast$window, int key, int scancode, int action, int mods)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class interact with G\+L\+F\+W. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classWindow_a777c693a4c2b74e712839aa15189e07f}{}\index{Window@{Window}!Cursor\+Type@{Cursor\+Type}}
+\index{Cursor\+Type@{Cursor\+Type}!Window@{Window}}
+\subsubsection[{Cursor\+Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Window\+::\+Cursor\+Type}}\label{classWindow_a777c693a4c2b74e712839aa15189e07f}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{C\+U\+R\+S\+O\+R\+\_\+\+A\+R\+R\+O\+W@{C\+U\+R\+S\+O\+R\+\_\+\+A\+R\+R\+O\+W}!Window@{Window}}\index{Window@{Window}!C\+U\+R\+S\+O\+R\+\_\+\+A\+R\+R\+O\+W@{C\+U\+R\+S\+O\+R\+\_\+\+A\+R\+R\+O\+W}}\item[{\em 
+\hypertarget{classWindow_a777c693a4c2b74e712839aa15189e07fadc371b755e3336f07c17227a754a829e}{}C\+U\+R\+S\+O\+R\+\_\+\+A\+R\+R\+O\+W\label{classWindow_a777c693a4c2b74e712839aa15189e07fadc371b755e3336f07c17227a754a829e}
+}]\index{C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S@{C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S}!Window@{Window}}\index{Window@{Window}!C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S@{C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S}}\item[{\em 
+\hypertarget{classWindow_a777c693a4c2b74e712839aa15189e07faf6561d7cc9ae11d29f3004c0f2ab33e3}{}C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S\label{classWindow_a777c693a4c2b74e712839aa15189e07faf6561d7cc9ae11d29f3004c0f2ab33e3}
+}]\index{C\+U\+R\+S\+O\+R\+\_\+\+D\+E\+L\+E\+T\+E@{C\+U\+R\+S\+O\+R\+\_\+\+D\+E\+L\+E\+T\+E}!Window@{Window}}\index{Window@{Window}!C\+U\+R\+S\+O\+R\+\_\+\+D\+E\+L\+E\+T\+E@{C\+U\+R\+S\+O\+R\+\_\+\+D\+E\+L\+E\+T\+E}}\item[{\em 
+\hypertarget{classWindow_a777c693a4c2b74e712839aa15189e07fa2ed9ada326b2dfd626e2d2adcbd8691f}{}C\+U\+R\+S\+O\+R\+\_\+\+D\+E\+L\+E\+T\+E\label{classWindow_a777c693a4c2b74e712839aa15189e07fa2ed9ada326b2dfd626e2d2adcbd8691f}
+}]\index{C\+U\+R\+S\+O\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M@{C\+U\+R\+S\+O\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M}!Window@{Window}}\index{Window@{Window}!C\+U\+R\+S\+O\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M@{C\+U\+R\+S\+O\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M}}\item[{\em 
+\hypertarget{classWindow_a777c693a4c2b74e712839aa15189e07fad4d3e8c6d4b72f1b918b63b0f18888d3}{}C\+U\+R\+S\+O\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M\label{classWindow_a777c693a4c2b74e712839aa15189e07fad4d3e8c6d4b72f1b918b63b0f18888d3}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classWindow_a74e6087da23d3c24e9fac0245e5ec92c}{}\index{Window@{Window}!Window@{Window}}
+\index{Window@{Window}!Window@{Window}}
+\subsubsection[{Window}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classWindow_a74e6087da23d3c24e9fac0245e5ec92c}
+\hypertarget{classWindow_ae6b4e3e731f32506a8ae77790b08584e}{}\index{Window@{Window}!````~Window@{$\sim$\+Window}}
+\index{````~Window@{$\sim$\+Window}!Window@{Window}}
+\subsubsection[{$\sim$\+Window}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::$\sim$\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [noexcept]}}\label{classWindow_ae6b4e3e731f32506a8ae77790b08584e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classWindow_a98ef189d2c7ac79179669aa3ad4c2f2c}{}\index{Window@{Window}!get\+Referee@{get\+Referee}}
+\index{get\+Referee@{get\+Referee}!Window@{Window}}
+\subsubsection[{get\+Referee}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+F\+Wwindow$\ast$ Window\+::get\+Referee (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWindow_a98ef189d2c7ac79179669aa3ad4c2f2c}
+
+
+Return G\+L\+F\+Wwindow pointer. 
+
+\hypertarget{classWindow_ab52aaa3a6e68b05684df07c54caa42b0}{}\index{Window@{Window}!get\+Width\+Height@{get\+Width\+Height}}
+\index{get\+Width\+Height@{get\+Width\+Height}!Window@{Window}}
+\subsubsection[{get\+Width\+Height}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::get\+Width\+Height (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{width, }
+\item[{int $\ast$}]{height}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWindow_ab52aaa3a6e68b05684df07c54caa42b0}
+
+
+Get current window width and height. 
+
+\hypertarget{classWindow_ad58881f941c43e6dc19761cae3ab8f39}{}\index{Window@{Window}!is\+Key\+Down@{is\+Key\+Down}}
+\index{is\+Key\+Down@{is\+Key\+Down}!Window@{Window}}
+\subsubsection[{is\+Key\+Down}]{\setlength{\rightskip}{0pt plus 5cm}int Window\+::is\+Key\+Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWindow_ad58881f941c43e6dc19761cae3ab8f39}
+
+
+If any key down? Return 0 or the key. 
+
+\hypertarget{classWindow_a6a9f53b08efd0a9caae810ea8ae687ac}{}\index{Window@{Window}!is\+Key\+Down@{is\+Key\+Down}}
+\index{is\+Key\+Down@{is\+Key\+Down}!Window@{Window}}
+\subsubsection[{is\+Key\+Down}]{\setlength{\rightskip}{0pt plus 5cm}bool Window\+::is\+Key\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWindow_a6a9f53b08efd0a9caae810ea8ae687ac}
+
+
+If the given key down? 
+
+\hypertarget{classWindow_a81c38391a3e466507cadd7baea94e748}{}\index{Window@{Window}!is\+Key\+Pressed@{is\+Key\+Pressed}}
+\index{is\+Key\+Pressed@{is\+Key\+Pressed}!Window@{Window}}
+\subsubsection[{is\+Key\+Pressed}]{\setlength{\rightskip}{0pt plus 5cm}int Window\+::is\+Key\+Pressed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWindow_a81c38391a3e466507cadd7baea94e748}
+
+
+If any key being pressed (not pressed last time)? Return 0 or the key. 
+
+\hypertarget{classWindow_a70650bc742d83d02d88ea8e4d439c604}{}\index{Window@{Window}!is\+Key\+Pressed@{is\+Key\+Pressed}}
+\index{is\+Key\+Pressed@{is\+Key\+Pressed}!Window@{Window}}
+\subsubsection[{is\+Key\+Pressed}]{\setlength{\rightskip}{0pt plus 5cm}bool Window\+::is\+Key\+Pressed (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classWindow_a70650bc742d83d02d88ea8e4d439c604}
+
+
+If the given key being pressed? 
+
+\hypertarget{classWindow_ae137ec42ddc87d666d49661484410091}{}\index{Window@{Window}!run@{run}}
+\index{run@{run}!Window@{Window}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classWindow_ae137ec42ddc87d666d49661484410091}
+
+
+Run until the window closes. 
+
+\hypertarget{classWindow_a0038b02fa4141ac2684a62b0884ca776}{}\index{Window@{Window}!set\+World@{set\+World}}
+\index{set\+World@{set\+World}!Window@{Window}}
+\subsubsection[{set\+World}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::set\+World (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}\label{classWindow_a0038b02fa4141ac2684a62b0884ca776}
+
+
+Set the world to display Will keep track to the pointer. 
+
+\hypertarget{classWindow_ae8a1d3d51a2546a07ca839a6d47298e6}{}\index{Window@{Window}!use\+Cursor@{use\+Cursor}}
+\index{use\+Cursor@{use\+Cursor}!Window@{Window}}
+\subsubsection[{use\+Cursor}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::use\+Cursor (
+\begin{DoxyParamCaption}
+\item[{{\bf Cursor\+Type}}]{type}
+\end{DoxyParamCaption}
+)}\label{classWindow_ae8a1d3d51a2546a07ca839a6d47298e6}
+
+
+Choose a cursor type. 
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classWindow_a286930f4e8ede059b83ff6eafa2ff718}{}\index{Window@{Window}!key\+\_\+callback@{key\+\_\+callback}}
+\index{key\+\_\+callback@{key\+\_\+callback}!Window@{Window}}
+\subsubsection[{key\+\_\+callback}]{\setlength{\rightskip}{0pt plus 5cm}void key\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{G\+L\+F\+Wwindow $\ast$}]{window, }
+\item[{int}]{key, }
+\item[{int}]{scancode, }
+\item[{int}]{action, }
+\item[{int}]{mods}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classWindow_a286930f4e8ede059b83ff6eafa2ff718}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{window_8h}{window.\+h}\item 
+\hyperlink{window_8cpp}{window.\+cpp}\end{DoxyCompactItemize}

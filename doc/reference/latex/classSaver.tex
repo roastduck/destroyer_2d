@@ -1,0 +1,90 @@
+\hypertarget{classSaver}{}\section{Saver Class Reference}
+\label{classSaver}\index{Saver@{Saver}}
+
+
+\hyperlink{classSaver}{Saver} manages game saving and loading.  
+
+
+
+
+{\ttfamily \#include $<$saver.\+h$>$}
+
+
+
+Collaboration diagram for Saver\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{classSaver__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSaver_a999e36bd249d1ed0bf4748991a72d2f9}{save\+To} (const \hyperlink{classWorld}{World} $\ast$world, std\+::vector$<$ std\+::string $>$ path) noexcept
+\begin{DoxyCompactList}\small\item\em If the path should be dir1/dir2/save, path = \{dir1, dir2, save\} This enhanced cross-\/platform behavior. \end{DoxyCompactList}\item 
+bool \hyperlink{classSaver_a349f98e86636f4ba13a8912b8d56a235}{load\+From} (\hyperlink{classWorld}{World} $\ast$world, std\+::vector$<$ std\+::string $>$ path, float offset\+X=0, int player=-\/1) noexcept
+\begin{DoxyCompactList}\small\item\em The path is as that in save\+To Returns false when fails. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classSaver_a9483a0cd5284f84cb3b138aa44b6969e}{make\+Path} (std\+::vector$<$ std\+::string $>$ path)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classSaver}{Saver} \& \hyperlink{classSaver_ae756def2e0ce4c2317b355a9fd12073e}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Singleton is for convenient. One can still instantiate this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classSaver}{Saver} manages game saving and loading. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classSaver_ae756def2e0ce4c2317b355a9fd12073e}{}\index{Saver@{Saver}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Saver@{Saver}}
+\subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Saver}\& Saver\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classSaver_ae756def2e0ce4c2317b355a9fd12073e}
+
+
+Singleton is for convenient. One can still instantiate this class. 
+
+\hypertarget{classSaver_a349f98e86636f4ba13a8912b8d56a235}{}\index{Saver@{Saver}!load\+From@{load\+From}}
+\index{load\+From@{load\+From}!Saver@{Saver}}
+\subsubsection[{load\+From}]{\setlength{\rightskip}{0pt plus 5cm}bool Saver\+::load\+From (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{world, }
+\item[{std\+::vector$<$ std\+::string $>$}]{path, }
+\item[{float}]{offset\+X = {\ttfamily 0}, }
+\item[{int}]{player = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [noexcept]}}\label{classSaver_a349f98e86636f4ba13a8912b8d56a235}
+
+
+The path is as that in save\+To Returns false when fails. 
+
+\hypertarget{classSaver_a9483a0cd5284f84cb3b138aa44b6969e}{}\index{Saver@{Saver}!make\+Path@{make\+Path}}
+\index{make\+Path@{make\+Path}!Saver@{Saver}}
+\subsubsection[{make\+Path}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Saver\+::make\+Path (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::string $>$}]{path}
+\end{DoxyParamCaption}
+)}\label{classSaver_a9483a0cd5284f84cb3b138aa44b6969e}
+\hypertarget{classSaver_a999e36bd249d1ed0bf4748991a72d2f9}{}\index{Saver@{Saver}!save\+To@{save\+To}}
+\index{save\+To@{save\+To}!Saver@{Saver}}
+\subsubsection[{save\+To}]{\setlength{\rightskip}{0pt plus 5cm}void Saver\+::save\+To (
+\begin{DoxyParamCaption}
+\item[{const {\bf World} $\ast$}]{world, }
+\item[{std\+::vector$<$ std\+::string $>$}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [noexcept]}}\label{classSaver_a999e36bd249d1ed0bf4748991a72d2f9}
+
+
+If the path should be dir1/dir2/save, path = \{dir1, dir2, save\} This enhanced cross-\/platform behavior. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{saver_8h}{saver.\+h}\item 
+\hyperlink{saver_8cpp}{saver.\+cpp}\end{DoxyCompactItemize}

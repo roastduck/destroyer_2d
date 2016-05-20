@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="5,183,117,209"/>
+<area shape="rect" id="node2" href="$classCancelCallback.html" title="CancelCallback" alt="" coords="195,5,309,32"/>
+<area shape="rect" id="node3" href="$classDeleteButtonCallback.html" title="DeleteButtonCallback" alt="" coords="177,56,327,83"/>
+<area shape="rect" id="node4" href="$classDeletingCallback.html" title="DeletingCallback" alt="" coords="191,107,313,133"/>
+<area shape="rect" id="node5" href="$classDraggingCallback.html" title="DraggingCallback" alt="" coords="189,157,315,184"/>
+<area shape="rect" id="node6" href="$classLaunchCallback.html" title="LaunchCallback" alt="" coords="195,208,309,235"/>
+<area shape="rect" id="node7" href="$classNewObjectCallback.html" title="NewObjectCallback\&lt;\l ToPut \&gt;" alt="" coords="179,259,325,301"/>
+<area shape="rect" id="node8" href="$classPuttingCallback.html" title="Callbacks of putting normal things that ! canDrawLine() " alt="" coords="165,325,339,352"/>
+<area shape="rect" id="node9" href="$classPuttingLineCallback.html" title="Putting rigids with canDrawLine() " alt="" coords="183,377,321,418"/>
+</map>

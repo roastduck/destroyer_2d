@@ -1,0 +1,278 @@
+\hypertarget{classMatter}{}\section{Matter Class Reference}
+\label{classMatter}\index{Matter@{Matter}}
+
+
+Base class of all rigid bodies and particles.  
+
+
+
+
+{\ttfamily \#include $<$matter.\+h$>$}
+
+
+
+Inheritance diagram for Matter\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMatter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Matter\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMatter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classMatter_ade1ce1bf81f25377f689d103cd431907}{Render\+Method} \{ \hyperlink{classMatter_ade1ce1bf81f25377f689d103cd431907ad7201b31cb7302539e30e60b05464bae}{R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R} = 0, 
+\hyperlink{classMatter_ade1ce1bf81f25377f689d103cd431907a0a15cf1b6cb2aa933e52d880a175c932}{R\+E\+N\+D\+E\+R\+\_\+\+T\+E\+X\+T\+U\+R\+E} = 1, 
+\hyperlink{classMatter_ade1ce1bf81f25377f689d103cd431907ae26bb08225540fe1771201e859e04021}{R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+W\+I\+T\+H\+\_\+\+T\+E\+X\+T\+U\+R\+E} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMatter_a7553dd6bd2e7863c2fd59c388916a87b}{Matter} (\hyperlink{classWorld}{World} $\ast$\+\_\+world) noexcept
+\item 
+virtual \hyperlink{classMatter_a2087311945c6e5fe470bf404f85e4bde}{$\sim$\+Matter} () noexcept
+\item 
+\hyperlink{classMatter_ae3afe6f6b9571ee1e2fe401a90d5c407}{Matter} (const \hyperlink{classMatter}{Matter} \&)=delete
+\item 
+\hyperlink{classMatter}{Matter} \& \hyperlink{classMatter_a3e44ded88dc43c882843ccaf6ceaeda0}{operator=} (const \hyperlink{classMatter}{Matter} \&)=delete
+\item 
+virtual \hyperlink{classMatter_ade1ce1bf81f25377f689d103cd431907}{Render\+Method} \hyperlink{classMatter_a3d6823a375fe0a537837b905b44af5bd}{get\+Render\+Method} () const 
+\item 
+virtual float \hyperlink{classMatter_a926d246584228c3e3b102dbfd42036ec}{get\+Color\+R} () const 
+\item 
+virtual float \hyperlink{classMatter_aa3fcdc82f788fbf873ec3ff4808f614a}{get\+Color\+G} () const 
+\item 
+virtual float \hyperlink{classMatter_af830da17da427c84c7f6deee4a91b3d4}{get\+Color\+B} () const 
+\item 
+virtual float \hyperlink{classMatter_aa44ee7ba48cb9a582a6f86e1e9e2ef38}{get\+Color\+A} () const 
+\item 
+virtual \hyperlink{image_8h_af9361b398b5cfcafbe93f82e8eaeb080}{Image\+Name} \hyperlink{classMatter_ad6202a62e4ae27dde457c56520f1865e}{get\+Image} () const 
+\item 
+void \hyperlink{classMatter_a678834a886a610754ea863751fb6c046}{set\+Depth} (float \+\_\+depth)
+\item 
+float \hyperlink{classMatter_aa0f6ed46b01aac5f7404635cbba56c3e}{get\+Depth} () const 
+\item 
+void \hyperlink{classMatter_a3e7f9e8ade54d7c5fbb82da57f5b0ff8}{set\+Player} (int \+\_\+player)
+\begin{DoxyCompactList}\small\item\em player = -\/1 \+: user, 0 \+: none, $>$0 \+: enemy \end{DoxyCompactList}\item 
+int \hyperlink{classMatter_a5942bf485f1c095b0abd79ea13239cc7}{get\+Player} () const 
+\item 
+void \hyperlink{classMatter_a72a6f33a55d6df477dc8e684924bee55}{set\+Is\+User\+Created} (bool \hyperlink{image_8h_ab2d05693952610f937e5acb3c4a8fa1b}{b})
+\begin{DoxyCompactList}\small\item\em mark to be created by users \end{DoxyCompactList}\item 
+bool \hyperlink{classMatter_ac46cc6630fca6195dc0cd455505a8d84}{get\+Is\+User\+Created} () const 
+\begin{DoxyCompactList}\small\item\em determine whether it is created by users \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classMatter_afe85d0688495f35bfe2cf4443c5fc34f}{can\+Draw\+Line} ()
+\begin{DoxyCompactList}\small\item\em Specify whether user can create objects by drawing lines Can be overidden. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorld}{World} $\ast$ \hyperlink{classMatter_abdc5b13e2427e41c45af024acae015f1}{world}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base class of all rigid bodies and particles. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classMatter_ade1ce1bf81f25377f689d103cd431907}{}\index{Matter@{Matter}!Render\+Method@{Render\+Method}}
+\index{Render\+Method@{Render\+Method}!Matter@{Matter}}
+\subsubsection[{Render\+Method}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Matter\+::\+Render\+Method}}\label{classMatter_ade1ce1bf81f25377f689d103cd431907}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R@{R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R}!Matter@{Matter}}\index{Matter@{Matter}!R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R@{R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R}}\item[{\em 
+\hypertarget{classMatter_ade1ce1bf81f25377f689d103cd431907ad7201b31cb7302539e30e60b05464bae}{}R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R\label{classMatter_ade1ce1bf81f25377f689d103cd431907ad7201b31cb7302539e30e60b05464bae}
+}]\index{R\+E\+N\+D\+E\+R\+\_\+\+T\+E\+X\+T\+U\+R\+E@{R\+E\+N\+D\+E\+R\+\_\+\+T\+E\+X\+T\+U\+R\+E}!Matter@{Matter}}\index{Matter@{Matter}!R\+E\+N\+D\+E\+R\+\_\+\+T\+E\+X\+T\+U\+R\+E@{R\+E\+N\+D\+E\+R\+\_\+\+T\+E\+X\+T\+U\+R\+E}}\item[{\em 
+\hypertarget{classMatter_ade1ce1bf81f25377f689d103cd431907a0a15cf1b6cb2aa933e52d880a175c932}{}R\+E\+N\+D\+E\+R\+\_\+\+T\+E\+X\+T\+U\+R\+E\label{classMatter_ade1ce1bf81f25377f689d103cd431907a0a15cf1b6cb2aa933e52d880a175c932}
+}]\index{R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+W\+I\+T\+H\+\_\+\+T\+E\+X\+T\+U\+R\+E@{R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+W\+I\+T\+H\+\_\+\+T\+E\+X\+T\+U\+R\+E}!Matter@{Matter}}\index{Matter@{Matter}!R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+W\+I\+T\+H\+\_\+\+T\+E\+X\+T\+U\+R\+E@{R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+W\+I\+T\+H\+\_\+\+T\+E\+X\+T\+U\+R\+E}}\item[{\em 
+\hypertarget{classMatter_ade1ce1bf81f25377f689d103cd431907ae26bb08225540fe1771201e859e04021}{}R\+E\+N\+D\+E\+R\+\_\+\+C\+O\+L\+O\+R\+\_\+\+W\+I\+T\+H\+\_\+\+T\+E\+X\+T\+U\+R\+E\label{classMatter_ade1ce1bf81f25377f689d103cd431907ae26bb08225540fe1771201e859e04021}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMatter_a7553dd6bd2e7863c2fd59c388916a87b}{}\index{Matter@{Matter}!Matter@{Matter}}
+\index{Matter@{Matter}!Matter@{Matter}}
+\subsubsection[{Matter}]{\setlength{\rightskip}{0pt plus 5cm}Matter\+::\+Matter (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{\+\_\+world}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}\label{classMatter_a7553dd6bd2e7863c2fd59c388916a87b}
+\hypertarget{classMatter_a2087311945c6e5fe470bf404f85e4bde}{}\index{Matter@{Matter}!````~Matter@{$\sim$\+Matter}}
+\index{````~Matter@{$\sim$\+Matter}!Matter@{Matter}}
+\subsubsection[{$\sim$\+Matter}]{\setlength{\rightskip}{0pt plus 5cm}virtual Matter\+::$\sim$\+Matter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}\label{classMatter_a2087311945c6e5fe470bf404f85e4bde}
+\hypertarget{classMatter_ae3afe6f6b9571ee1e2fe401a90d5c407}{}\index{Matter@{Matter}!Matter@{Matter}}
+\index{Matter@{Matter}!Matter@{Matter}}
+\subsubsection[{Matter}]{\setlength{\rightskip}{0pt plus 5cm}Matter\+::\+Matter (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matter} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{classMatter_ae3afe6f6b9571ee1e2fe401a90d5c407}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMatter_afe85d0688495f35bfe2cf4443c5fc34f}{}\index{Matter@{Matter}!can\+Draw\+Line@{can\+Draw\+Line}}
+\index{can\+Draw\+Line@{can\+Draw\+Line}!Matter@{Matter}}
+\subsubsection[{can\+Draw\+Line}]{\setlength{\rightskip}{0pt plus 5cm}static bool Matter\+::can\+Draw\+Line (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classMatter_afe85d0688495f35bfe2cf4443c5fc34f}
+
+
+Specify whether user can create objects by drawing lines Can be overidden. 
+
+\hypertarget{classMatter_aa44ee7ba48cb9a582a6f86e1e9e2ef38}{}\index{Matter@{Matter}!get\+Color\+A@{get\+Color\+A}}
+\index{get\+Color\+A@{get\+Color\+A}!Matter@{Matter}}
+\subsubsection[{get\+Color\+A}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Matter\+::get\+Color\+A (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMatter_aa44ee7ba48cb9a582a6f86e1e9e2ef38}
+
+
+Reimplemented in \hyperlink{classFlame_a9730bb5ff22bdf2ab579eb9ae1d8a37f}{Flame}, \hyperlink{classDust_a6a61ed84ae1cbba8d0cdbc102a343f0f}{Dust}, \hyperlink{classWaterSquare_a7f549f3b3c9b7a350aa2ae62c4db7ce5}{Water\+Square}, \hyperlink{classWoodStick_a4fd46786dec67fff538e6b6c1df6fe47}{Wood\+Stick}, \hyperlink{classSteelStick_ac4d726f343aa8cd6c2d3306855ba48c2}{Steel\+Stick}, \hyperlink{classFrame_a99769eacd74a31fc9d198f83bc6616db}{Frame}, \hyperlink{classBomb_a19e85b4632b547de51bde57844065efa}{Bomb}, \hyperlink{classSmallSteelBall_a2d11278708166ac6b05165baf86c1046}{Small\+Steel\+Ball}, \hyperlink{classEngine_aefe56a242ce462d18958c2e217a0df7a}{Engine}, \hyperlink{classLargeWoodBlock_a74390f6c417c547b18db713696d2a12d}{Large\+Wood\+Block}, and \hyperlink{classSmallWoodBlock_a88c753e9e05364d2a872250bed48563d}{Small\+Wood\+Block}.
+
+\hypertarget{classMatter_af830da17da427c84c7f6deee4a91b3d4}{}\index{Matter@{Matter}!get\+Color\+B@{get\+Color\+B}}
+\index{get\+Color\+B@{get\+Color\+B}!Matter@{Matter}}
+\subsubsection[{get\+Color\+B}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Matter\+::get\+Color\+B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMatter_af830da17da427c84c7f6deee4a91b3d4}
+
+
+Reimplemented in \hyperlink{classFlame_abbd9b48e0a3744f4a9c59df52e8c8ca1}{Flame}, \hyperlink{classDust_a088431d5f6a114d93f12cae63592a8dd}{Dust}, \hyperlink{classWaterSquare_a6dd404113fa8377a06d4dd62fd711578}{Water\+Square}, \hyperlink{classWoodStick_a2483dcaaadabd32b1a23789727b777fe}{Wood\+Stick}, \hyperlink{classSteelStick_aa766a601b7b048d7afbe593d7a1b544d}{Steel\+Stick}, \hyperlink{classFrame_aac730f8f9ae5f59cb6a1814d56a8eefa}{Frame}, \hyperlink{classBomb_a31ede414b7c9c3ef82ea201975d7fd25}{Bomb}, \hyperlink{classSmallSteelBall_a7ebf920ae4d29ca94edc7ad390031c37}{Small\+Steel\+Ball}, \hyperlink{classEngine_aefc235452646da3c6b9b77c625ef3278}{Engine}, \hyperlink{classLargeWoodBlock_ac2499af4b661efeeee7662dff8af48f2}{Large\+Wood\+Block}, and \hyperlink{classSmallWoodBlock_ad85ea47531644ea51905b2fbe014122d}{Small\+Wood\+Block}.
+
+\hypertarget{classMatter_aa3fcdc82f788fbf873ec3ff4808f614a}{}\index{Matter@{Matter}!get\+Color\+G@{get\+Color\+G}}
+\index{get\+Color\+G@{get\+Color\+G}!Matter@{Matter}}
+\subsubsection[{get\+Color\+G}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Matter\+::get\+Color\+G (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMatter_aa3fcdc82f788fbf873ec3ff4808f614a}
+
+
+Reimplemented in \hyperlink{classFlame_a52151a48e25d77440ea47b3479501d36}{Flame}, \hyperlink{classDust_a386313dcd344747fb28bb809f6243bf8}{Dust}, \hyperlink{classWaterSquare_ae63df10dd32846cca279aef4f86da099}{Water\+Square}, \hyperlink{classWoodStick_a97395092b892cab30d590cb87177bcac}{Wood\+Stick}, \hyperlink{classSteelStick_a3af94ded9f36368b79a5913de3ecef3a}{Steel\+Stick}, \hyperlink{classFrame_a44139c9e8bee6504c43bb6bc21b1d599}{Frame}, \hyperlink{classBomb_a393fa1faa9cfdadb0d0202983de6e16b}{Bomb}, \hyperlink{classSmallSteelBall_a8d15df33cfeb00bd61060c7197250989}{Small\+Steel\+Ball}, \hyperlink{classEngine_abd2e81839210c4c98b6cad705af25cec}{Engine}, \hyperlink{classLargeWoodBlock_ae422ccf33effdf80ee4bf7688de05b92}{Large\+Wood\+Block}, and \hyperlink{classSmallWoodBlock_ac83d1610c7a0acf7ac8a1eb569b92380}{Small\+Wood\+Block}.
+
+\hypertarget{classMatter_a926d246584228c3e3b102dbfd42036ec}{}\index{Matter@{Matter}!get\+Color\+R@{get\+Color\+R}}
+\index{get\+Color\+R@{get\+Color\+R}!Matter@{Matter}}
+\subsubsection[{get\+Color\+R}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Matter\+::get\+Color\+R (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMatter_a926d246584228c3e3b102dbfd42036ec}
+
+
+Reimplemented in \hyperlink{classFlame_a3cdb607d9cadaeb164494ea2334c4bf8}{Flame}, \hyperlink{classDust_a2e5d596ac110553eb401eae59641fb5a}{Dust}, \hyperlink{classWaterSquare_ae34b29db832bbe03ce6521493a17fac3}{Water\+Square}, \hyperlink{classWoodStick_a7c22e5a82627ab9a90fcd0236eacb4bc}{Wood\+Stick}, \hyperlink{classSteelStick_aaa82c2460e492c249074058a83245634}{Steel\+Stick}, \hyperlink{classFrame_a1f5aa3b4dd7b90959a95c1e54f01a1e4}{Frame}, \hyperlink{classBomb_aa95b13c06660f7eaee26dbb75cda41ed}{Bomb}, \hyperlink{classSmallSteelBall_aa15f3c1c1a2596edecb048b8a32f5d55}{Small\+Steel\+Ball}, \hyperlink{classEngine_a9ad7ea816b850dc812b6a792493a803e}{Engine}, \hyperlink{classLargeWoodBlock_a3eeebdbf61b9f33a02b5c845f31ba428}{Large\+Wood\+Block}, and \hyperlink{classSmallWoodBlock_a8cb7ec9e82df6465c1d069e1d3167d4c}{Small\+Wood\+Block}.
+
+\hypertarget{classMatter_aa0f6ed46b01aac5f7404635cbba56c3e}{}\index{Matter@{Matter}!get\+Depth@{get\+Depth}}
+\index{get\+Depth@{get\+Depth}!Matter@{Matter}}
+\subsubsection[{get\+Depth}]{\setlength{\rightskip}{0pt plus 5cm}float Matter\+::get\+Depth (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classMatter_aa0f6ed46b01aac5f7404635cbba56c3e}
+\hypertarget{classMatter_ad6202a62e4ae27dde457c56520f1865e}{}\index{Matter@{Matter}!get\+Image@{get\+Image}}
+\index{get\+Image@{get\+Image}!Matter@{Matter}}
+\subsubsection[{get\+Image}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Image\+Name} Matter\+::get\+Image (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMatter_ad6202a62e4ae27dde457c56520f1865e}
+
+
+Reimplemented in \hyperlink{classButton_a75331f4a815ee394a223812681460e09}{Button$<$ image\+Name $>$}, and \hyperlink{classEngine_a130b5e67a05c2ea6f9c2f5d7a4fc60dd}{Engine}.
+
+\hypertarget{classMatter_ac46cc6630fca6195dc0cd455505a8d84}{}\index{Matter@{Matter}!get\+Is\+User\+Created@{get\+Is\+User\+Created}}
+\index{get\+Is\+User\+Created@{get\+Is\+User\+Created}!Matter@{Matter}}
+\subsubsection[{get\+Is\+User\+Created}]{\setlength{\rightskip}{0pt plus 5cm}bool Matter\+::get\+Is\+User\+Created (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classMatter_ac46cc6630fca6195dc0cd455505a8d84}
+
+
+determine whether it is created by users 
+
+\hypertarget{classMatter_a5942bf485f1c095b0abd79ea13239cc7}{}\index{Matter@{Matter}!get\+Player@{get\+Player}}
+\index{get\+Player@{get\+Player}!Matter@{Matter}}
+\subsubsection[{get\+Player}]{\setlength{\rightskip}{0pt plus 5cm}int Matter\+::get\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classMatter_a5942bf485f1c095b0abd79ea13239cc7}
+\hypertarget{classMatter_a3d6823a375fe0a537837b905b44af5bd}{}\index{Matter@{Matter}!get\+Render\+Method@{get\+Render\+Method}}
+\index{get\+Render\+Method@{get\+Render\+Method}!Matter@{Matter}}
+\subsubsection[{get\+Render\+Method}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Render\+Method} Matter\+::get\+Render\+Method (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classMatter_a3d6823a375fe0a537837b905b44af5bd}
+
+
+Reimplemented in \hyperlink{classButton_a50233f0c531652154ecc0f8f7dc26571}{Button$<$ image\+Name $>$}, and \hyperlink{classEngine_a72c7a3ea05ac92bdb909e11b20d8d6fc}{Engine}.
+
+\hypertarget{classMatter_a3e44ded88dc43c882843ccaf6ceaeda0}{}\index{Matter@{Matter}!operator=@{operator=}}
+\index{operator=@{operator=}!Matter@{Matter}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matter}\& Matter\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matter} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{classMatter_a3e44ded88dc43c882843ccaf6ceaeda0}
+\hypertarget{classMatter_a678834a886a610754ea863751fb6c046}{}\index{Matter@{Matter}!set\+Depth@{set\+Depth}}
+\index{set\+Depth@{set\+Depth}!Matter@{Matter}}
+\subsubsection[{set\+Depth}]{\setlength{\rightskip}{0pt plus 5cm}void Matter\+::set\+Depth (
+\begin{DoxyParamCaption}
+\item[{float}]{\+\_\+depth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classMatter_a678834a886a610754ea863751fb6c046}
+\hypertarget{classMatter_a72a6f33a55d6df477dc8e684924bee55}{}\index{Matter@{Matter}!set\+Is\+User\+Created@{set\+Is\+User\+Created}}
+\index{set\+Is\+User\+Created@{set\+Is\+User\+Created}!Matter@{Matter}}
+\subsubsection[{set\+Is\+User\+Created}]{\setlength{\rightskip}{0pt plus 5cm}void Matter\+::set\+Is\+User\+Created (
+\begin{DoxyParamCaption}
+\item[{bool}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classMatter_a72a6f33a55d6df477dc8e684924bee55}
+
+
+mark to be created by users 
+
+\hypertarget{classMatter_a3e7f9e8ade54d7c5fbb82da57f5b0ff8}{}\index{Matter@{Matter}!set\+Player@{set\+Player}}
+\index{set\+Player@{set\+Player}!Matter@{Matter}}
+\subsubsection[{set\+Player}]{\setlength{\rightskip}{0pt plus 5cm}void Matter\+::set\+Player (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classMatter_a3e7f9e8ade54d7c5fbb82da57f5b0ff8}
+
+
+player = -\/1 \+: user, 0 \+: none, $>$0 \+: enemy 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMatter_abdc5b13e2427e41c45af024acae015f1}{}\index{Matter@{Matter}!world@{world}}
+\index{world@{world}!Matter@{Matter}}
+\subsubsection[{world}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World}$\ast$ Matter\+::world\hspace{0.3cm}{\ttfamily [protected]}}\label{classMatter_abdc5b13e2427e41c45af024acae015f1}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{matter_8h}{matter.\+h}\end{DoxyCompactItemize}

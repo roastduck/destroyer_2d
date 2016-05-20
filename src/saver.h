@@ -1,7 +1,3 @@
-/**
- * Saver manages game saving and loading
- */
-
 #ifndef SAVER_H_
 #define SAVER_H_
 
@@ -14,6 +10,9 @@
 class World;
 class Matter;
 
+/**
+ * Saver manages game saving and loading
+ */
 class Saver
 {
 public:

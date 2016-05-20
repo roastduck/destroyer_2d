@@ -1,0 +1,6 @@
+<map id="ParticleSystem" name="ParticleSystem">
+<area shape="rect" id="node3" href="$classDust.html" title="Dust rised when a rigid is damaged. " alt="" coords="5,491,197,641"/>
+<area shape="rect" id="node4" href="$classFlame.html" title="Set when bomb exploses. " alt="" coords="221,491,413,641"/>
+<area shape="rect" id="node5" href="$classWaterSquare.html" title="A square water area This must be use as a pool where the number of particles is static. " alt="" coords="437,491,629,641"/>
+<area shape="rect" id="node2" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="245,5,390,244"/>
+</map>

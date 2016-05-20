@@ -1,0 +1,148 @@
+\hypertarget{classStick}{}\section{Stick Class Reference}
+\label{classStick}\index{Stick@{Stick}}
+
+
+Base class with all that \hyperlink{classStick_ad2b8a92274aed6d25d79c8b4033b2bfb}{can\+Draw\+Line()} Will create contact to what is linked.  
+
+
+
+
+{\ttfamily \#include $<$matter.\+h$>$}
+
+
+
+Inheritance diagram for Stick\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classStick__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Stick\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classStick__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classStick_a1c2a811e6afc5809f0fcb5fbb401ec16}{Stick} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, b2\+Body $\ast$\hyperlink{image_8h_ab2d05693952610f937e5acb3c4a8fa1b}{b})
+\item 
+\hyperlink{classStick_ad34dcd633c860e086b9c65201ecdc89c}{Stick} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, float \+\_\+x1, float \+\_\+y1, float \+\_\+x2, float \+\_\+y2, float density, float friction, float restitution) noexcept
+\item 
+bool \hyperlink{classStick_ad4976e8f57eaf797ab6f4c997795f493}{try\+Move\+To} (float x, float y, float angle) override
+\begin{DoxyCompactList}\small\item\em Do nothing. There is already a C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S. \end{DoxyCompactList}\item 
+bool \hyperlink{classStick_a279b6f02d394d224382007a23edd69a2}{try\+Put\+Down} () override
+\begin{DoxyCompactList}\small\item\em Return false if overlapped with others but not on two ends. Create joint in two ends. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classStick_ad2b8a92274aed6d25d79c8b4033b2bfb}{can\+Draw\+Line} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classStick_a64598c448a15601cca5da6f1746db6bd}{x1}
+\item 
+float \hyperlink{classStick_aa90dd67e8ce5ea1ea2106ad46c05b012}{y1}
+\item 
+float \hyperlink{classStick_aa0c2a77310a9cbb517cfe62545bb77f4}{x2}
+\item 
+float \hyperlink{classStick_a1cae5d5fbddeb3ef7a653376da1dd2c6}{y2}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Base class with all that \hyperlink{classStick_ad2b8a92274aed6d25d79c8b4033b2bfb}{can\+Draw\+Line()} Will create contact to what is linked. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classStick_a1c2a811e6afc5809f0fcb5fbb401ec16}{}\index{Stick@{Stick}!Stick@{Stick}}
+\index{Stick@{Stick}!Stick@{Stick}}
+\subsubsection[{Stick}]{\setlength{\rightskip}{0pt plus 5cm}Stick\+::\+Stick (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{\+\_\+world, }
+\item[{b2\+Body $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStick_a1c2a811e6afc5809f0fcb5fbb401ec16}
+\hypertarget{classStick_ad34dcd633c860e086b9c65201ecdc89c}{}\index{Stick@{Stick}!Stick@{Stick}}
+\index{Stick@{Stick}!Stick@{Stick}}
+\subsubsection[{Stick}]{\setlength{\rightskip}{0pt plus 5cm}Stick\+::\+Stick (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{\+\_\+world, }
+\item[{float}]{\+\_\+x1, }
+\item[{float}]{\+\_\+y1, }
+\item[{float}]{\+\_\+x2, }
+\item[{float}]{\+\_\+y2, }
+\item[{float}]{density, }
+\item[{float}]{friction, }
+\item[{float}]{restitution}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [noexcept]}}\label{classStick_ad34dcd633c860e086b9c65201ecdc89c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classStick_ad2b8a92274aed6d25d79c8b4033b2bfb}{}\index{Stick@{Stick}!can\+Draw\+Line@{can\+Draw\+Line}}
+\index{can\+Draw\+Line@{can\+Draw\+Line}!Stick@{Stick}}
+\subsubsection[{can\+Draw\+Line}]{\setlength{\rightskip}{0pt plus 5cm}static bool Stick\+::can\+Draw\+Line (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classStick_ad2b8a92274aed6d25d79c8b4033b2bfb}
+\hypertarget{classStick_ad4976e8f57eaf797ab6f4c997795f493}{}\index{Stick@{Stick}!try\+Move\+To@{try\+Move\+To}}
+\index{try\+Move\+To@{try\+Move\+To}!Stick@{Stick}}
+\subsubsection[{try\+Move\+To}]{\setlength{\rightskip}{0pt plus 5cm}bool Stick\+::try\+Move\+To (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classStick_ad4976e8f57eaf797ab6f4c997795f493}
+
+
+Do nothing. There is already a C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S. 
+
+
+
+Reimplemented from \hyperlink{classRigid_ae3c9c8703eab644d622f60208eb5c2cf}{Rigid}.
+
+\hypertarget{classStick_a279b6f02d394d224382007a23edd69a2}{}\index{Stick@{Stick}!try\+Put\+Down@{try\+Put\+Down}}
+\index{try\+Put\+Down@{try\+Put\+Down}!Stick@{Stick}}
+\subsubsection[{try\+Put\+Down}]{\setlength{\rightskip}{0pt plus 5cm}bool Stick\+::try\+Put\+Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classStick_a279b6f02d394d224382007a23edd69a2}
+
+
+Return false if overlapped with others but not on two ends. Create joint in two ends. 
+
+
+
+Reimplemented from \hyperlink{classRigid_ab9f52207acc82810d4aecdbef59d25fc}{Rigid}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classStick_a64598c448a15601cca5da6f1746db6bd}{}\index{Stick@{Stick}!x1@{x1}}
+\index{x1@{x1}!Stick@{Stick}}
+\subsubsection[{x1}]{\setlength{\rightskip}{0pt plus 5cm}float Stick\+::x1\hspace{0.3cm}{\ttfamily [protected]}}\label{classStick_a64598c448a15601cca5da6f1746db6bd}
+\hypertarget{classStick_aa0c2a77310a9cbb517cfe62545bb77f4}{}\index{Stick@{Stick}!x2@{x2}}
+\index{x2@{x2}!Stick@{Stick}}
+\subsubsection[{x2}]{\setlength{\rightskip}{0pt plus 5cm}float Stick\+::x2\hspace{0.3cm}{\ttfamily [protected]}}\label{classStick_aa0c2a77310a9cbb517cfe62545bb77f4}
+\hypertarget{classStick_aa90dd67e8ce5ea1ea2106ad46c05b012}{}\index{Stick@{Stick}!y1@{y1}}
+\index{y1@{y1}!Stick@{Stick}}
+\subsubsection[{y1}]{\setlength{\rightskip}{0pt plus 5cm}float Stick\+::y1\hspace{0.3cm}{\ttfamily [protected]}}\label{classStick_aa90dd67e8ce5ea1ea2106ad46c05b012}
+\hypertarget{classStick_a1cae5d5fbddeb3ef7a653376da1dd2c6}{}\index{Stick@{Stick}!y2@{y2}}
+\index{y2@{y2}!Stick@{Stick}}
+\subsubsection[{y2}]{\setlength{\rightskip}{0pt plus 5cm}float Stick\+::y2\hspace{0.3cm}{\ttfamily [protected]}}\label{classStick_a1cae5d5fbddeb3ef7a653376da1dd2c6}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{matter_8h}{matter.\+h}\item 
+\hyperlink{matter_8cpp}{matter.\+cpp}\end{DoxyCompactItemize}

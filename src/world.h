@@ -1,8 +1,3 @@
-/**
- * All object in a scenario
- * Interact with OpenGL and LiquidFun
- */
-
 #ifndef WORLD_H_
 #define WORLD_H_
 
@@ -14,6 +9,10 @@
 
 class Enemy;
 
+/**
+ * All object in a scenario
+ * Interact with OpenGL and LiquidFun
+ */
 class World
 {
 public:

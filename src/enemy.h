@@ -1,7 +1,3 @@
-/**
- * This class loads and controls enemy
- */
-
 #ifndef ENEMY_H_
 #define ENEMY_H_
 
@@ -12,6 +8,9 @@
 class World;
 class Rigid;
 
+/**
+ * This class loads and controls enemy
+ */
 class Enemy
 {
 public:

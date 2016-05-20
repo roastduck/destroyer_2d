@@ -1,7 +1,3 @@
-/**
- * This class interact with GLFW
- */
-
 #ifndef WINDOW_H_
 #define WINDOW_H_
 
@@ -12,6 +8,9 @@
 
 class World;
 
+/**
+ * This class interact with GLFW
+ */
 class Window
 {
 public:
