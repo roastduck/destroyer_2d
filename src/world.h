@@ -2,6 +2,7 @@
 #define WORLD_H_
 
 #include <unordered_map>
+#include <vector>
 #include <string>
 #include <Box2D/Box2D.h>
 #include "window.h"
