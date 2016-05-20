@@ -111,6 +111,7 @@ Saver::MatterId Saver::getMatterId(const Matter *m)
     if (tid == typeid(SteelStick)) return ID_STEEL_STICK;
     if (tid == typeid(WoodStick)) return ID_WOOD_STICK;
     assert(false);
+    return (Saver::MatterId)0;
 }
 
 Saver::IOFlag Saver::getFlag(std::istream &is)
@@ -120,6 +121,7 @@ Saver::IOFlag Saver::getFlag(std::istream &is)
     if (x == IO_CONTINUE) return IO_CONTINUE;
     if (x == IO_STOP) return IO_STOP;
     throw std::runtime_error("File broken");
+    return (Saver::IOFlag)0;
 }
 
 void Saver::getBodyData(std::ostream &os, const b2Body *b)
@@ -290,7 +292,7 @@ Matter *Saver::setMatterData(std::istream &is, World *world, b2Body *b, int play
 {
     MatterId id;
     readEnum(is, id);
-    Matter *m;
+    Matter *m = NULL;
     switch (id)
     {
     case ID_SMALL_WOOD_BLOCK:
@@ -322,6 +324,7 @@ Matter *Saver::setMatterData(std::istream &is, World *world, b2Body *b, int play
         m = new WoodStick(world, b);
         break;
     }
+    assert(m != NULL);
     m->setPlayer(player);
     return m;
 }
