@@ -94,6 +94,11 @@ if (BOX2D_CODE_COVERAGE AND
   set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${GCOV_FLAGS}")
 endif()
 
+if(MSVC)
+  set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MDd")
+  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MDd")
+endif(MSVC)
+
 # The XCode generator ignores CMAKE_C_FLAGS AND CMAKE_CXX_FLAGS so flags
 # need to be added with target properties.
 # The following functions track the list of targets so that it's possible to
