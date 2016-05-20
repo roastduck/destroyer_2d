@@ -96,7 +96,7 @@ endif()
 
 if(MSVC)
   set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /ZI /MDd")
-  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /ZI /MDd")
+  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /ZI /MDd")
 endif(MSVC)
 
 # The XCode generator ignores CMAKE_C_FLAGS AND CMAKE_CXX_FLAGS so flags
