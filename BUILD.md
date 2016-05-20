@@ -81,6 +81,8 @@ or
 
 You will get executable `bin/Destroyer2D`.
 
+You can perform a Debug build as described in Linux section, but you should fully clean the binaries built previously.
+
 ***For OS X***
 
 Execute
@@ -90,3 +92,5 @@ Execute
 Double-click on `Destroyer2D.xcodeproj` to open the project in Xcode. Select "Product -> Build" from the menu.
 
 You will get executable `bin/Destroyer2D`.
+
+You can perform a Debug build as described in Linux section.
