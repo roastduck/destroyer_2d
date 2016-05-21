@@ -111,16 +111,15 @@ private:
            circleTexture, circleProgram;
 
     const std::string particleFragmentShader1Source =
-        "#version 130\n"
-        "out vec4 color;\n" // corresponding to DrawBuffers[0]
+        "#version 120\n"
         "uniform sampler2D texture;\n"
         "void main()\n"
         "{\n"
-        "   color = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n"
+        "   gl_FragData[0] = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n"
         "}\n";
 
     const std::string particleVertexShader2Source =
-        "#version 130\n"
+        "#version 120\n"
         "void main()\n"
         "{\n"
         "   gl_Position = gl_Vertex;\n"
@@ -128,24 +127,22 @@ private:
         "}\n";
 
     const std::string particleFragmentShader2Source =
-        "#version 130\n"
+        "#version 120\n"
         "uniform sampler2D texture;\n"
-        "out vec4 colorOut;\n"
         "void main()\n"
         "{\n"
         "   vec4 temp = texture2D(texture, gl_TexCoord[0].st);\n"
         "   if (temp.a < 0.1) temp = vec4(0, 0, 0, 0); else temp.a = 0.5;\n"
-        "   colorOut = temp;\n"
+        "   gl_FragColor = temp;\n"
         "}\n";
 
     const std::string circleFragmentShaderSource =
-        "#version 330\n"
+        "#version 120\n"
         "uniform sampler2D texture;\n"
-        "out vec4 colorOut;\n"
         "void main()\n"
         "{\n"
-        "   colorOut = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n"
-        "   if (colorOut.a > 0) gl_FragDepth = gl_FragCoord.z; else gl_FragDepth = 100;\n"
+        "   gl_FragColor = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n"
+        "   if (gl_FragColor.a > 0) gl_FragDepth = gl_FragCoord.z; else gl_FragDepth = 100;\n"
         "}\n";
 
     std::unordered_map<int, GLuint> cachedImage;

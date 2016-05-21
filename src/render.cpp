@@ -318,7 +318,7 @@ GLuint Render::genShader(GLenum type, const std::string &source)
         glGetShaderInfoLog(id, infoLogLength, 0, strInfoLog);
         std::string errMsg(
                 std::string("Compile failure in: ") +
-                (type == GL_VERTEX_SHADER ? "vertex" : type == GL_GEOMETRY_SHADER ? "geometry" : "fragment") +
+                (type == GL_VERTEX_SHADER ? "vertex" : "fragment") +
                 "shader: " +
                 strInfoLog
             );

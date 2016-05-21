@@ -12,6 +12,8 @@
 
 void load_extensions();
 
+#ifndef __APPLE_CC__
+
 #define glCreateShader mypfnCreateShader
 extern PFNGLCREATESHADERPROC mypfnCreateShader;
 
@@ -74,5 +76,11 @@ extern PFNGLDRAWBUFFERSPROC mypfnDrawBuffers;
 
 #define glCheckFramebufferStatus mypfnCheckFramebufferStatus
 extern PFNGLCHECKFRAMEBUFFERSTATUSPROC mypfnCheckFramebufferStatus;
+
+#else // __APPLE_CC__
+
+#define glFramebufferTexture glFramebufferTextureEXT
+
+#endif // __APPLE_CC__
 
 #endif // LOADER_H_

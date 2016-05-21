@@ -2,6 +2,7 @@
 
 void load_extensions()
 {
+#ifndef __APPLE_CC__
     mypfnCreateShader = (PFNGLCREATESHADERPROC)
         glfwGetProcAddress("glCreateShader");
     
@@ -64,8 +65,10 @@ void load_extensions()
 
     mypfnCheckFramebufferStatus = (PFNGLCHECKFRAMEBUFFERSTATUSPROC)
         glfwGetProcAddress("glCheckFramebufferStatus");
+#endif // __APPLE_CC__
 }
 
+#ifndef __APPLE_CC__
 PFNGLCREATESHADERPROC mypfnCreateShader;
 
 PFNGLSHADERSOURCEPROC mypfnShaderSource;
@@ -107,4 +110,5 @@ PFNGLFRAMEBUFFERTEXTUREPROC mypfnFramebufferTexture;
 PFNGLDRAWBUFFERSPROC mypfnDrawBuffers;
 
 PFNGLCHECKFRAMEBUFFERSTATUSPROC mypfnCheckFramebufferStatus;
+#endif // __APPLE_CC__
 
