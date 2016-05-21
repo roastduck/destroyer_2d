@@ -1,13 +1,13 @@
 <map id="world.cpp" name="world.cpp">
-<area shape="rect" id="node5" href="$image_8h.html" title="image.h" alt="" coords="98,304,166,331"/>
-<area shape="rect" id="node6" href="$world_8h.html" title="world.h" alt="" coords="719,155,783,181"/>
-<area shape="rect" id="node20" href="$saver_8h.html" title="saver.h" alt="" coords="457,155,522,181"/>
-<area shape="rect" id="node22" href="$enemy_8h.html" title="enemy.h" alt="" coords="271,155,343,181"/>
-<area shape="rect" id="node23" href="$render_8h.html" title="render.h" alt="" coords="603,155,672,181"/>
-<area shape="rect" id="node24" href="$matter_8h.html" title="matter.h" alt="" coords="345,229,415,256"/>
-<area shape="rect" id="node26" href="$mousecallback_8h.html" title="mousecallback.h" alt="" coords="691,80,811,107"/>
-<area shape="rect" id="node10" href="$window_8h.html" title="window.h" alt="" coords="1041,229,1119,256"/>
-<area shape="rect" id="node16" href="$mousehandler_8h.html" title="mousehandler.h" alt="" coords="852,229,967,256"/>
-<area shape="rect" id="node13" href="$loader_8h.html" title="loader.h" alt="" coords="961,304,1029,331"/>
-<area shape="rect" id="node15" href="$const_8h.html" title="const.h" alt="" coords="1182,304,1247,331"/>
+<area shape="rect" id="node5" href="$image_8h.html" title="image.h" alt="" coords="457,304,525,331"/>
+<area shape="rect" id="node6" href="$world_8h.html" title="world.h" alt="" coords="700,155,764,181"/>
+<area shape="rect" id="node20" href="$saver_8h.html" title="saver.h" alt="" coords="321,155,386,181"/>
+<area shape="rect" id="node22" href="$enemy_8h.html" title="enemy.h" alt="" coords="415,155,487,181"/>
+<area shape="rect" id="node23" href="$render_8h.html" title="render.h" alt="" coords="592,155,661,181"/>
+<area shape="rect" id="node24" href="$matter_8h.html" title="matter.h" alt="" coords="807,229,878,256"/>
+<area shape="rect" id="node26" href="$mousecallback_8h.html" title="mousecallback.h" alt="" coords="876,80,996,107"/>
+<area shape="rect" id="node10" href="$window_8h.html" title="window.h" alt="" coords="1092,229,1169,256"/>
+<area shape="rect" id="node16" href="$mousehandler_8h.html" title="mousehandler.h" alt="" coords="903,229,1017,256"/>
+<area shape="rect" id="node13" href="$loader_8h.html" title="loader.h" alt="" coords="1082,304,1150,331"/>
+<area shape="rect" id="node15" href="$const_8h.html" title="const.h" alt="" coords="1174,304,1239,331"/>
 </map>

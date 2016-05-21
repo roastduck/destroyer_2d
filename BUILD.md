@@ -1,7 +1,7 @@
 BUILD
 =======
 
-ATTENTION: DO NOT BUILD THIS IN A VIRTUAL MACHINE, WHICH DOES NOT PROVIDE OPENGL WITH VERSION HIGH ENOUGH.
+**ATTENTION: If you tend to build this in a virtual machine, make sure there is an OpenGL with high enough version.**
 
 Dependencies
 -------
