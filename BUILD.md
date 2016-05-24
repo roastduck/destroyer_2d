@@ -6,7 +6,7 @@ BUILD
 Dependencies
 -------
 
-This program makes use of *LiquidFun* which provides 2D physics simulation, and *GLFW* which is an *OpenGL* loader. Both of them are included in the `third_party` directory, so you don't have to install them by yourself. But you have to install **their** dependencies as listed below:
+This program makes use of *LiquidFun* which provides 2D physics simulation, and *GLFW* which is an *OpenGL* loader (*OpenGL* provides GUI rendering). Both of them are included in the `third_party` directory, so you don't have to install them by yourself. But you have to install **their** dependencies as listed below:
 
 ***For Linux***
 
@@ -32,12 +32,6 @@ Please go to section **Building**
 You can download them from their official sites.
 
 Please go to section **Building**
-
-***For OS X***
-
-- cmake (>= 2.8.12.1)
-- Xcode (>= 5.0.1)
-- Xquartz (>= 2.7.5) (xorg-server >= 1.14.4)
 
 Building
 -------
@@ -87,12 +81,4 @@ You can perform a Debug build as described in Linux section, but you should full
 
 ***For OS X***
 
-Execute
-
-    cmake -G "Xcode"
-
-Double-click on `Destroyer2D.xcodeproj` to open the project in Xcode. Select "Product -> Build" from the menu.
-
-You will get executable `bin/Release/Destroyer2D`.
-
-You can perform a Debug build as described in Linux section.
+    Unfortunately, there is a known issue about rendering textures with OpenGL on OS X, so building on OS X is not supported.
