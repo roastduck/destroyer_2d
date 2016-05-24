@@ -85,4 +85,4 @@ You can perform a Debug build as described in Linux section, or use GUI to selec
 
 ***For OS X***
 
-    Unfortunately, there is a known issue about rendering textures with OpenGL on OS X, so building on OS X is not supported.
+Unfortunately, there is a known issue about rendering textures with OpenGL on OS X, so building on OS X is not supported.
