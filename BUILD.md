@@ -6,7 +6,7 @@ BUILD
 Dependencies
 -------
 
-This program makes use of *LiquidFun* which provides 2D physics simulation, and *GLFW* is an *OpenGL* loader. Both of them are included in the `third_party` directory, so you don't have to install them by yourself. But you have to install **their** dependencies as listed below:
+This program makes use of *LiquidFun* which provides 2D physics simulation, and *GLFW* which is an *OpenGL* loader. Both of them are included in the `third_party` directory, so you don't have to install them by yourself. But you have to install **their** dependencies as listed below:
 
 ***For Linux***
 
