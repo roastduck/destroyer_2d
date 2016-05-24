@@ -57,6 +57,8 @@ If you want to switch back to Release mode, execute
 
 ***For Windows***
 
+You can use CLI cmake command as below:
+
 For Visual Studio 2012, execute
 
     cmake -G "Visual Studio 11"
@@ -73,11 +75,13 @@ or
 
     ( unset {temp,tmp,TEMP,TMP} ; cmake -G "Visual Studio 10" )
 
+You can also use cmake GUI interface, but remember to choose Release mode, or it will be very slow.
+
 **Then**, double-click on `Destroyer2D.sln` to open the solution. Select "Build -> Build Solution" from the menu.
 
 You will get executable `bin/Release/Destroyer2D`.
 
-You can perform a Debug build as described in Linux section, but you should fully clean the binaries built previously.
+You can perform a Debug build as described in Linux section, or use GUI to select Debug, but you should fully clean the binaries built previously.
 
 ***For OS X***
 
