@@ -429,6 +429,7 @@ void Render::genParticleFrameBuffer() noexcept
 
 void Render::particleRender1(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count) noexcept
 {
+    assert(count > 0);
     assert(particleTexture1 && glIsTexture(particleTexture1));
     assert(particleProgram1 && glIsProgram(particleProgram1));
 
@@ -592,7 +593,11 @@ GLuint Render::getTextureFromText(const std::string &s) noexcept
             int id = c==',' ? 26 : c=='.' ? 27 : c==' ' ? 28 : c-'A';
             for (int p = 0; p < FONT_H; p++)
                 for (int q = 0; q < FONT_W; q++)
+                {
+                    assert((i+p) * w + (j+q) >= 0 && (i+p) * w + (j+q) < h*w);
+                    assert(p * FONT_W + q >= 0 && p * FONT_W + q < FONT_H * FONT_W);
                     memcpy(pixels[(i+p) * w + (j+q)], FONT[id][p * FONT_W + q], 4);
+                }
             j += FONT_W;
         }
     int ret = getTextureFromPixels(pixels, w, h);

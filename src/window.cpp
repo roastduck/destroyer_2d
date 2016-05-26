@@ -137,6 +137,7 @@ void Window::run()
 
 void Window::useCursor(CursorType type)
 {
+    assert(type < CURSOR_TYPE_NUM);
     glfwSetCursor(mTarget, cursors[type]);
 }
 

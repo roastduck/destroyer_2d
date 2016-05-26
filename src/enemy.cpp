@@ -1,3 +1,4 @@
+#include <cctype>
 #include <cstring>
 #include <cassert>
 #include <fstream>
@@ -29,9 +30,11 @@ bool Enemy::getKeyDown(int key)
     clock_t now = clock();
     while (! actions.empty() && startClock + actions.back().sec * CLOCKS_PER_SEC < now)
     {
+        assert(isalpha(actions.back().key));
         keyDown[actions.back().key - 'A'] = actions.back().flag == action_t::PRESS ? true : false;
         actions.pop_back();
     }
+    assert(isalpha(key));
     return keyDown[key - 'A'];
 }
 

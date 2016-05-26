@@ -326,8 +326,10 @@ MainWorld::MainWorld(int _level)
     Saver::getInstance().loadFrom(this, { "saved_game", "_default.txt" });
 
     if (loadLevel())
+    {
+        assert(level >= 0 && level < 10);
         levelMsg = std::string("LEVEL ") + NUMBER_NAME[level] + ". DO SOME MODIFICATION AND GO ON.\n... PRESS ANY KEY TO CONTINUE ...";
-    else
+    } else
         levelMsg = "ALL LEVEL CLEARED.\n... PRESS ANY KEY TO CONTINUE ...";
 
     if (level == 0)
