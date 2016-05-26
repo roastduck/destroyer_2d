@@ -1,46 +1,17 @@
 \hypertarget{render_8cpp}{}\section{render.\+cpp File Reference}
 \label{render_8cpp}\index{render.\+cpp@{render.\+cpp}}
+{\ttfamily \#include $<$cmath$>$}\\*
 {\ttfamily \#include $<$cctype$>$}\\*
 {\ttfamily \#include $<$cstring$>$}\\*
 {\ttfamily \#include $<$cassert$>$}\\*
 {\ttfamily \#include $<$algorithm$>$}\\*
 {\ttfamily \#include \char`\"{}window.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}render.\+h\char`\"{}}\\*
-Include dependency graph for render.\+cpp\+:\nopagebreak
+Include dependency graph for render.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{render_8cpp__incl}
 \end{center}
 \end{figure}
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{render_8cpp_aa9c2d29fbaccd5badfc18959375c7d74}{G\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+P\+R\+I\+T\+E}~0x8861
-\begin{DoxyCompactList}\small\item\em We use Open\+G\+L legacy mode mostly for its simplicity, except for using G\+L\+S\+L to draw particles. \end{DoxyCompactList}\item 
-\#define \hyperlink{render_8cpp_a629de8cb4586f47cc1fb687961b98dd3}{G\+L\+\_\+\+C\+O\+O\+R\+D\+\_\+\+R\+E\+P\+L\+A\+C\+E}~0x8862
-\item 
-\#define \hyperlink{render_8cpp_a8d7cd84f0b84e7a77585c8c695f6709f}{G\+L\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+M\+I\+P\+M\+A\+P}~0x8191
-\item 
-\#define \hyperlink{render_8cpp_ae90f81f48642444b4ba7fa5cacf40569}{G\+L\+\_\+\+C\+L\+A\+M\+P\+\_\+\+T\+O\+\_\+\+E\+D\+G\+E}~0x812\+F
-\end{DoxyCompactItemize}
-
-
-\subsection{Macro Definition Documentation}
-\hypertarget{render_8cpp_ae90f81f48642444b4ba7fa5cacf40569}{}\index{render.\+cpp@{render.\+cpp}!G\+L\+\_\+\+C\+L\+A\+M\+P\+\_\+\+T\+O\+\_\+\+E\+D\+G\+E@{G\+L\+\_\+\+C\+L\+A\+M\+P\+\_\+\+T\+O\+\_\+\+E\+D\+G\+E}}
-\index{G\+L\+\_\+\+C\+L\+A\+M\+P\+\_\+\+T\+O\+\_\+\+E\+D\+G\+E@{G\+L\+\_\+\+C\+L\+A\+M\+P\+\_\+\+T\+O\+\_\+\+E\+D\+G\+E}!render.\+cpp@{render.\+cpp}}
-\subsubsection[{G\+L\+\_\+\+C\+L\+A\+M\+P\+\_\+\+T\+O\+\_\+\+E\+D\+G\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+L\+\_\+\+C\+L\+A\+M\+P\+\_\+\+T\+O\+\_\+\+E\+D\+G\+E~0x812\+F}\label{render_8cpp_ae90f81f48642444b4ba7fa5cacf40569}
-\hypertarget{render_8cpp_a629de8cb4586f47cc1fb687961b98dd3}{}\index{render.\+cpp@{render.\+cpp}!G\+L\+\_\+\+C\+O\+O\+R\+D\+\_\+\+R\+E\+P\+L\+A\+C\+E@{G\+L\+\_\+\+C\+O\+O\+R\+D\+\_\+\+R\+E\+P\+L\+A\+C\+E}}
-\index{G\+L\+\_\+\+C\+O\+O\+R\+D\+\_\+\+R\+E\+P\+L\+A\+C\+E@{G\+L\+\_\+\+C\+O\+O\+R\+D\+\_\+\+R\+E\+P\+L\+A\+C\+E}!render.\+cpp@{render.\+cpp}}
-\subsubsection[{G\+L\+\_\+\+C\+O\+O\+R\+D\+\_\+\+R\+E\+P\+L\+A\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+L\+\_\+\+C\+O\+O\+R\+D\+\_\+\+R\+E\+P\+L\+A\+C\+E~0x8862}\label{render_8cpp_a629de8cb4586f47cc1fb687961b98dd3}
-\hypertarget{render_8cpp_a8d7cd84f0b84e7a77585c8c695f6709f}{}\index{render.\+cpp@{render.\+cpp}!G\+L\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+M\+I\+P\+M\+A\+P@{G\+L\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+M\+I\+P\+M\+A\+P}}
-\index{G\+L\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+M\+I\+P\+M\+A\+P@{G\+L\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+M\+I\+P\+M\+A\+P}!render.\+cpp@{render.\+cpp}}
-\subsubsection[{G\+L\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+M\+I\+P\+M\+A\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+L\+\_\+\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+M\+I\+P\+M\+A\+P~0x8191}\label{render_8cpp_a8d7cd84f0b84e7a77585c8c695f6709f}
-\hypertarget{render_8cpp_aa9c2d29fbaccd5badfc18959375c7d74}{}\index{render.\+cpp@{render.\+cpp}!G\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+P\+R\+I\+T\+E@{G\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+P\+R\+I\+T\+E}}
-\index{G\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+P\+R\+I\+T\+E@{G\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+P\+R\+I\+T\+E}!render.\+cpp@{render.\+cpp}}
-\subsubsection[{G\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+P\+R\+I\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+P\+R\+I\+T\+E~0x8861}\label{render_8cpp_aa9c2d29fbaccd5badfc18959375c7d74}
-
-
-We use Open\+G\+L legacy mode mostly for its simplicity, except for using G\+L\+S\+L to draw particles. 
-
-We render pariticles into a framebuffer with alpha blending, and then render from the buffer to screen, to create a continuous surface. 

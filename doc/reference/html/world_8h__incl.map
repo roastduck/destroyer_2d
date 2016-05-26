@@ -1,6 +1,6 @@
 <map id="world.h" name="world.h">
 <area shape="rect" id="node6" href="$window_8h.html" title="window.h" alt="" coords="303,80,381,107"/>
-<area shape="rect" id="node12" href="$mousehandler_8h.html" title="mousehandler.h" alt="" coords="538,80,653,107"/>
-<area shape="rect" id="node9" href="$loader_8h.html" title="loader.h" alt="" coords="60,155,128,181"/>
+<area shape="rect" id="node13" href="$mousehandler_8h.html" title="mousehandler.h" alt="" coords="538,80,653,107"/>
+<area shape="rect" id="node9" href="$loader_8h.html" title="loader.h" alt="" coords="52,155,120,181"/>
 <area shape="rect" id="node11" href="$const_8h.html" title="const.h" alt="" coords="152,155,217,181"/>
 </map>

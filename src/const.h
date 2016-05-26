@@ -1,6 +1,13 @@
 #ifndef CONST_H_
 #define CONST_H_
 
+#include <cmath>
+
+/*
+ * Math
+ */
+const float PI = acos(-1);
+
 /*
  * About window
  */

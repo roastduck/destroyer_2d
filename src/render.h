@@ -1,6 +1,7 @@
 #ifndef RENDER_H_
 #define RENDER_H_
 
+#include <vector>
 #include <string>
 #include <unordered_map>
 #include "loader.h"
@@ -54,26 +55,17 @@ private:
     class PolygonRenderer : public FixtureRenderer
     {
     public:
-        PolygonRenderer(const b2Body *_b, const b2Fixture *_f, float _scale) noexcept : FixtureRenderer(_b, _f, _scale) {}
+        PolygonRenderer(const b2Body *_b, const b2Fixture *_f, float _scale) noexcept;
         void drawEdge() noexcept override;
         void drawMain() noexcept override;
         void drawAlert() noexcept override;
-    };
-
-    class CircleRenderer : public FixtureRenderer
-    {
-    public:
-        CircleRenderer(const b2Body *_b, const b2Fixture *_f, float _scale) noexcept;
-        ~CircleRenderer() noexcept;
-        void drawMain() noexcept override;
-        void drawAlert() noexcept override;
     private:
-        b2Vec2 pos;
+        std::vector<b2Vec2> vert, localVert;
+        b2Vec2 localCenter;
     };
 
     friend FixtureRenderer;
     friend PolygonRenderer;
-    friend CircleRenderer;
 
     float smoothstep(float x) { return x * x * (3 - 2 * x); }
 
@@ -97,8 +89,6 @@ private:
     /// controls the two rendering procedures
     void drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count, float depth) noexcept;
 
-    void genCircleTexture() noexcept;
-
     GLuint getTextureFromPixels(const unsigned char pixels[][4], int width, int height) noexcept;
     GLuint getTextureFromText(const std::string &s) noexcept;
     GLuint getTextureFromLetter(char c) noexcept;
@@ -107,8 +97,7 @@ private:
     /// @return bool. true when changed.
     static bool updateWindowSize();
 
-    GLuint particleTexture1, particleProgram1, particleTexture2, particleProgram2, particleFrameBuffer,
-           circleTexture, circleProgram;
+    GLuint particleTexture1, particleProgram1, particleTexture2, particleProgram2, particleFrameBuffer;
 
     const std::string particleFragmentShader1Source =
         "#version 120\n"
@@ -134,15 +123,6 @@ private:
         "   vec4 temp = texture2D(texture, gl_TexCoord[0].st);\n"
         "   if (temp.a < 0.1) temp = vec4(0, 0, 0, 0); else temp.a = 0.5;\n"
         "   gl_FragColor = temp;\n"
-        "}\n";
-
-    const std::string circleFragmentShaderSource =
-        "#version 120\n"
-        "uniform sampler2D texture;\n"
-        "void main()\n"
-        "{\n"
-        "   gl_FragColor = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n"
-        "   if (gl_FragColor.a > 0) gl_FragDepth = gl_FragCoord.z; else gl_FragDepth = 100;\n"
         "}\n";
 
     std::unordered_map<int, GLuint> cachedImage;

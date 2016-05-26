@@ -91,170 +91,147 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="render_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RENDER_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RENDER_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="loader_8h.html">loader.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matter_8h.html">matter.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="classWindow.html">Window</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classRender.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRender.html">Render</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classRender.html">Render</a>(<span class="keyword">const</span> <a class="code" href="classRender.html">Render</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classRender.html">Render</a>(<a class="code" href="classRender.html">Render</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> <a class="code" href="classRender.html">Render</a> &amp;<a class="code" href="classRender.html#add2a1980ba1c0d0bce85943405f87c68">getInstance</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRender.html#a18f55be699e0bd8d20a5462330d5c9df">drawRigid</a>(<span class="keyword">const</span> b2Body *<a class="code" href="image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b">b</a>, <span class="keywordtype">float</span> worldScale) noexcept;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRender.html#a14b83adbf9e351b9f11383abeef2ca63">drawParticleSystem</a>(<span class="keyword">const</span> b2ParticleSystem *s, <span class="keywordtype">float</span> worldScale) noexcept;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRender.html#a4f2ee414b80bf5e1e1ffcfe80c33218a">drawLine</a>(<span class="keywordtype">float</span> x1, <span class="keywordtype">float</span> y1, <span class="keywordtype">float</span> x2, <span class="keywordtype">float</span> y2) noexcept;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRender.html#ac30bcc966a9aa9de650a80cbfc600bb1">drawPopup</a>(<span class="keyword">const</span> std::string &amp;s, <span class="keywordtype">float</span> l, <span class="keywordtype">float</span> <a class="code" href="image_8h.html#a62969232668331297e2dca1ae2ddd10d">r</a>, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> u) noexcept;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classRender.html#ae6344724a34c4ec00fc3f9de97a7cdb6">   32</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classRender.html#ae6344724a34c4ec00fc3f9de97a7cdb6">setWindow</a>(<span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a> *_window) { mWindow = _window, updateWindowSize(); }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classRender.html">Render</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">class </span>FixtureRenderer</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        FixtureRenderer(<span class="keyword">const</span> b2Body *_b, <span class="keyword">const</span> b2Fixture *_f, <span class="keywordtype">float</span> _scale) noexcept;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> ~FixtureRenderer() noexcept {}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawEdge() noexcept {}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawMain() noexcept {}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawAlert() noexcept {}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classRender.html">Render</a> &amp;render;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">const</span> b2Body *<a class="code" href="image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b">b</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">const</span> <a class="code" href="classRigid.html">Rigid</a> *m;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">const</span> b2Fixture *f;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">const</span> b2Shape *shape;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">float</span> worldScale;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    };</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">class </span>PolygonRenderer : <span class="keyword">public</span> FixtureRenderer</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        PolygonRenderer(<span class="keyword">const</span> b2Body *_b, <span class="keyword">const</span> b2Fixture *_f, <span class="keywordtype">float</span> _scale) noexcept : FixtureRenderer(_b, _f, _scale) {}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> drawEdge() noexcept override;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> drawMain() noexcept override;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> drawAlert() noexcept override;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    class CircleRenderer : public FixtureRenderer</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        CircleRenderer(<span class="keyword">const</span> b2Body *_b, <span class="keyword">const</span> b2Fixture *_f, <span class="keywordtype">float</span> _scale) noexcept;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        ~CircleRenderer() noexcept;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> drawMain() noexcept override;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> drawAlert() noexcept override;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    private:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        b2Vec2 pos;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    };</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="loader_8h.html">loader.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matter_8h.html">matter.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="classWindow.html">Window</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classRender.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRender.html">Render</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classRender.html">Render</a>(<span class="keyword">const</span> <a class="code" href="classRender.html">Render</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classRender.html">Render</a>(<a class="code" href="classRender.html">Render</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> <a class="code" href="classRender.html">Render</a> &amp;<a class="code" href="classRender.html#add2a1980ba1c0d0bce85943405f87c68">getInstance</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRender.html#a18f55be699e0bd8d20a5462330d5c9df">drawRigid</a>(<span class="keyword">const</span> b2Body *<a class="code" href="image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b">b</a>, <span class="keywordtype">float</span> worldScale) noexcept;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRender.html#a14b83adbf9e351b9f11383abeef2ca63">drawParticleSystem</a>(<span class="keyword">const</span> b2ParticleSystem *s, <span class="keywordtype">float</span> worldScale) noexcept;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRender.html#a4f2ee414b80bf5e1e1ffcfe80c33218a">drawLine</a>(<span class="keywordtype">float</span> x1, <span class="keywordtype">float</span> y1, <span class="keywordtype">float</span> x2, <span class="keywordtype">float</span> y2) noexcept;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRender.html#ac30bcc966a9aa9de650a80cbfc600bb1">drawPopup</a>(<span class="keyword">const</span> std::string &amp;s, <span class="keywordtype">float</span> l, <span class="keywordtype">float</span> <a class="code" href="image_8h.html#a62969232668331297e2dca1ae2ddd10d">r</a>, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> u) noexcept;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classRender.html#ae6344724a34c4ec00fc3f9de97a7cdb6">   33</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classRender.html#ae6344724a34c4ec00fc3f9de97a7cdb6">setWindow</a>(<span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a> *_window) { mWindow = _window, updateWindowSize(); }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classRender.html">Render</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">class </span>FixtureRenderer</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        FixtureRenderer(<span class="keyword">const</span> b2Body *_b, <span class="keyword">const</span> b2Fixture *_f, <span class="keywordtype">float</span> _scale) noexcept;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> ~FixtureRenderer() noexcept {}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawEdge() noexcept {}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawMain() noexcept {}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> drawAlert() noexcept {}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classRender.html">Render</a> &amp;render;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">const</span> b2Body *<a class="code" href="image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b">b</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">const</span> <a class="code" href="classRigid.html">Rigid</a> *m;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">const</span> b2Fixture *f;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">const</span> b2Shape *shape;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">float</span> worldScale;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    };</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">class </span>PolygonRenderer : <span class="keyword">public</span> FixtureRenderer</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        PolygonRenderer(<span class="keyword">const</span> b2Body *_b, <span class="keyword">const</span> b2Fixture *_f, <span class="keywordtype">float</span> _scale) noexcept;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> drawEdge() noexcept override;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> drawMain() noexcept override;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> drawAlert() noexcept override;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    private:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::vector&lt;b2Vec2&gt; vert, localVert;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        b2Vec2 localCenter;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    friend FixtureRenderer;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    friend PolygonRenderer;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">float</span> smoothstep(<span class="keywordtype">float</span> x) { <span class="keywordflow">return</span> x * x * (3 - 2 * x); }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// Because of glDisable, these gen** functions cannot be used after glEnable-ed</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    friend FixtureRenderer;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    friend PolygonRenderer;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    friend CircleRenderer;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    GLuint genShader(GLenum type, <span class="keyword">const</span> std::string &amp;source);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    GLuint genProgram(GLuint vertexShader, GLuint fragmentShader);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">float</span> smoothstep(<span class="keywordtype">float</span> x) { <span class="keywordflow">return</span> x * x * (3 - 2 * x); }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// Because of glDisable, these gen** functions cannot be used after glEnable-ed</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> particleRender1(<span class="keyword">const</span> b2Vec2 *centers, float32 radius, <span class="keyword">const</span> b2ParticleColor *colors, int32 count) noexcept;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> genParticleTexture1() noexcept;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    GLuint genShader(GLenum type, <span class="keyword">const</span> std::string &amp;source);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    GLuint genProgram(GLuint vertexShader, GLuint fragmentShader);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> particleRender2(<span class="keywordtype">float</span> depth) noexcept;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> genParticleTexture2() noexcept;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> particleRender1(<span class="keyword">const</span> b2Vec2 *centers, float32 radius, <span class="keyword">const</span> b2ParticleColor *colors, int32 count) noexcept;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> genParticleTexture1() noexcept;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> particleRender2(<span class="keywordtype">float</span> depth) noexcept;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> genParticleTexture2() noexcept;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> genParticleFrameBuffer() noexcept;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count, <span class="keywordtype">float</span> depth) noexcept;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> genParticleFrameBuffer() noexcept;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> drawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count, <span class="keywordtype">float</span> depth) noexcept;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    GLuint getTextureFromPixels(const <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pixels[][4], <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) noexcept;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    GLuint getTextureFromText(const std::<span class="keywordtype">string</span> &amp;s) noexcept;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    GLuint getTextureFromLetter(<span class="keywordtype">char</span> c) noexcept;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    static <span class="keywordtype">bool</span> updateWindowSize();</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> genCircleTexture() noexcept;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    GLuint particleTexture1, particleProgram1, particleTexture2, particleProgram2, particleFrameBuffer;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    GLuint getTextureFromPixels(const <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pixels[][4], <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) noexcept;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    GLuint getTextureFromText(const std::<span class="keywordtype">string</span> &amp;s) noexcept;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    GLuint getTextureFromLetter(<span class="keywordtype">char</span> c) noexcept;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    static <span class="keywordtype">bool</span> updateWindowSize();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    const std::<span class="keywordtype">string</span> particleFragmentShader1Source =</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        &quot;<span class="preprocessor">#version 120\n&quot;</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="stringliteral">&quot;uniform sampler2D texture;\n&quot;</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="stringliteral">&quot;   gl_FragData[0] = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n&quot;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="stringliteral">&quot;}\n&quot;</span>;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    GLuint particleTexture1, particleProgram1, particleTexture2, particleProgram2, particleFrameBuffer,</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;           circleTexture, circleProgram;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    const std::<span class="keywordtype">string</span> particleFragmentShader1Source =</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        &quot;<span class="preprocessor">#version 130\n&quot;</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="stringliteral">&quot;out vec4 color;\n&quot;</span> <span class="comment">// corresponding to DrawBuffers[0]</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="stringliteral">&quot;uniform sampler2D texture;\n&quot;</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="stringliteral">&quot;{\n&quot;</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="stringliteral">&quot;   color = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n&quot;</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="stringliteral">&quot;}\n&quot;</span>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">const</span> std::string particleVertexShader2Source =</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="stringliteral">&quot;#version 130\n&quot;</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="stringliteral">&quot;{\n&quot;</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="stringliteral">&quot;   gl_Position = gl_Vertex;\n&quot;</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="stringliteral">&quot;   gl_TexCoord[0] = gl_MultiTexCoord0;\n&quot;</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="stringliteral">&quot;}\n&quot;</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">const</span> std::string particleFragmentShader2Source =</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="stringliteral">&quot;#version 130\n&quot;</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="stringliteral">&quot;uniform sampler2D texture;\n&quot;</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="stringliteral">&quot;out vec4 colorOut;\n&quot;</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="stringliteral">&quot;{\n&quot;</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="stringliteral">&quot;   vec4 temp = texture2D(texture, gl_TexCoord[0].st);\n&quot;</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="stringliteral">&quot;   if (temp.a &lt; 0.1) temp = vec4(0, 0, 0, 0); else temp.a = 0.5;\n&quot;</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="stringliteral">&quot;   colorOut = temp;\n&quot;</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="stringliteral">&quot;}\n&quot;</span>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keyword">const</span> std::string circleFragmentShaderSource =</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="stringliteral">&quot;#version 330\n&quot;</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="stringliteral">&quot;uniform sampler2D texture;\n&quot;</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="stringliteral">&quot;out vec4 colorOut;\n&quot;</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="stringliteral">&quot;{\n&quot;</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="stringliteral">&quot;   colorOut = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n&quot;</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="stringliteral">&quot;   if (colorOut.a &gt; 0) gl_FragDepth = gl_FragCoord.z; else gl_FragDepth = 100;\n&quot;</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="stringliteral">&quot;}\n&quot;</span>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    std::unordered_map&lt;int, GLuint&gt; cachedImage;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    std::unordered_map&lt;std::string, GLuint&gt; cachedText;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    std::unordered_map&lt;char, GLuint&gt; cachedLetter;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a> *mWindow;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> windowWidth, windowHeight;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;};</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="classRender.html#add2a1980ba1c0d0bce85943405f87c68">  159</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classRender.html">Render</a> &amp;<a class="code" href="classRender.html#add2a1980ba1c0d0bce85943405f87c68">Render::getInstance</a>()</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;{</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">static</span> <a class="code" href="classRender.html">Render</a> *p = 0;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">if</span> (!p) p = <span class="keyword">new</span> <a class="code" href="classRender.html">Render</a>();</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">return</span> *p;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#endif // RENDER_H_</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">const</span> std::string particleVertexShader2Source =</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="stringliteral">&quot;#version 120\n&quot;</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="stringliteral">&quot;   gl_Position = gl_Vertex;\n&quot;</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="stringliteral">&quot;   gl_TexCoord[0] = gl_MultiTexCoord0;\n&quot;</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="stringliteral">&quot;}\n&quot;</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">const</span> std::string particleFragmentShader2Source =</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="stringliteral">&quot;#version 120\n&quot;</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="stringliteral">&quot;uniform sampler2D texture;\n&quot;</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="stringliteral">&quot;   vec4 temp = texture2D(texture, gl_TexCoord[0].st);\n&quot;</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="stringliteral">&quot;   if (temp.a &lt; 0.1) temp = vec4(0, 0, 0, 0); else temp.a = 0.5;\n&quot;</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="stringliteral">&quot;   gl_FragColor = temp;\n&quot;</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="stringliteral">&quot;}\n&quot;</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    std::unordered_map&lt;int, GLuint&gt; cachedImage;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    std::unordered_map&lt;std::string, GLuint&gt; cachedText;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    std::unordered_map&lt;char, GLuint&gt; cachedLetter;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a> *mWindow;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> windowWidth, windowHeight;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classRender.html#add2a1980ba1c0d0bce85943405f87c68">  136</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classRender.html">Render</a> &amp;<a class="code" href="classRender.html#add2a1980ba1c0d0bce85943405f87c68">Render::getInstance</a>()</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;{</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">static</span> <a class="code" href="classRender.html">Render</a> *p = 0;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">if</span> (!p) p = <span class="keyword">new</span> <a class="code" href="classRender.html">Render</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> *p;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#endif // RENDER_H_</span></div>
 <div class="ttc" id="classWindow_html"><div class="ttname"><a href="classWindow.html">Window</a></div><div class="ttdoc">This class interact with GLFW. </div><div class="ttdef"><b>Definition:</b> window.h:14</div></div>
 <div class="ttc" id="image_8h_html_a62969232668331297e2dca1ae2ddd10d"><div class="ttname"><a href="image_8h.html#a62969232668331297e2dca1ae2ddd10d">r</a></div><div class="ttdeci">#define r</div><div class="ttdef"><b>Definition:</b> image.h:154</div></div>
-<div class="ttc" id="classRender_html_a14b83adbf9e351b9f11383abeef2ca63"><div class="ttname"><a href="classRender.html#a14b83adbf9e351b9f11383abeef2ca63">Render::drawParticleSystem</a></div><div class="ttdeci">void drawParticleSystem(const b2ParticleSystem *s, float worldScale) noexcept</div><div class="ttdef"><b>Definition:</b> render.cpp:108</div></div>
+<div class="ttc" id="classRender_html_a14b83adbf9e351b9f11383abeef2ca63"><div class="ttname"><a href="classRender.html#a14b83adbf9e351b9f11383abeef2ca63">Render::drawParticleSystem</a></div><div class="ttdeci">void drawParticleSystem(const b2ParticleSystem *s, float worldScale) noexcept</div><div class="ttdef"><b>Definition:</b> render.cpp:85</div></div>
 <div class="ttc" id="loader_8h_html"><div class="ttname"><a href="loader_8h.html">loader.h</a></div></div>
 <div class="ttc" id="image_8h_html_ab2d05693952610f937e5acb3c4a8fa1b"><div class="ttname"><a href="image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b">b</a></div><div class="ttdeci">#define b</div><div class="ttdef"><b>Definition:</b> image.h:156</div></div>
-<div class="ttc" id="classRender_html"><div class="ttname"><a href="classRender.html">Render</a></div><div class="ttdef"><b>Definition:</b> render.h:11</div></div>
+<div class="ttc" id="classRender_html"><div class="ttname"><a href="classRender.html">Render</a></div><div class="ttdef"><b>Definition:</b> render.h:12</div></div>
 <div class="ttc" id="matter_8h_html"><div class="ttname"><a href="matter_8h.html">matter.h</a></div></div>
-<div class="ttc" id="classRender_html_ae6344724a34c4ec00fc3f9de97a7cdb6"><div class="ttname"><a href="classRender.html#ae6344724a34c4ec00fc3f9de97a7cdb6">Render::setWindow</a></div><div class="ttdeci">static void setWindow(const Window *_window)</div><div class="ttdef"><b>Definition:</b> render.h:32</div></div>
-<div class="ttc" id="classRender_html_ac30bcc966a9aa9de650a80cbfc600bb1"><div class="ttname"><a href="classRender.html#ac30bcc966a9aa9de650a80cbfc600bb1">Render::drawPopup</a></div><div class="ttdeci">void drawPopup(const std::string &amp;s, float l, float r, float d, float u) noexcept</div><div class="ttdoc">draw a popup window with text, and with lower-left (l,d) and upper-right(r,u) (in world coordinates) ...</div><div class="ttdef"><b>Definition:</b> render.cpp:126</div></div>
-<div class="ttc" id="classRender_html_a18f55be699e0bd8d20a5462330d5c9df"><div class="ttname"><a href="classRender.html#a18f55be699e0bd8d20a5462330d5c9df">Render::drawRigid</a></div><div class="ttdeci">void drawRigid(const b2Body *b, float worldScale) noexcept</div><div class="ttdef"><b>Definition:</b> render.cpp:56</div></div>
-<div class="ttc" id="classRender_html_add2a1980ba1c0d0bce85943405f87c68"><div class="ttname"><a href="classRender.html#add2a1980ba1c0d0bce85943405f87c68">Render::getInstance</a></div><div class="ttdeci">static Render &amp; getInstance()</div><div class="ttdef"><b>Definition:</b> render.h:159</div></div>
-<div class="ttc" id="classRender_html_a4f2ee414b80bf5e1e1ffcfe80c33218a"><div class="ttname"><a href="classRender.html#a4f2ee414b80bf5e1e1ffcfe80c33218a">Render::drawLine</a></div><div class="ttdeci">void drawLine(float x1, float y1, float x2, float y2) noexcept</div><div class="ttdoc">draw a line from (x1,y1) to (x2,y2) (in world coordinates) </div><div class="ttdef"><b>Definition:</b> render.cpp:116</div></div>
+<div class="ttc" id="classRender_html_ae6344724a34c4ec00fc3f9de97a7cdb6"><div class="ttname"><a href="classRender.html#ae6344724a34c4ec00fc3f9de97a7cdb6">Render::setWindow</a></div><div class="ttdeci">static void setWindow(const Window *_window)</div><div class="ttdef"><b>Definition:</b> render.h:33</div></div>
+<div class="ttc" id="classRender_html_ac30bcc966a9aa9de650a80cbfc600bb1"><div class="ttname"><a href="classRender.html#ac30bcc966a9aa9de650a80cbfc600bb1">Render::drawPopup</a></div><div class="ttdeci">void drawPopup(const std::string &amp;s, float l, float r, float d, float u) noexcept</div><div class="ttdoc">draw a popup window with text, and with lower-left (l,d) and upper-right(r,u) (in world coordinates) ...</div><div class="ttdef"><b>Definition:</b> render.cpp:103</div></div>
+<div class="ttc" id="classRender_html_a18f55be699e0bd8d20a5462330d5c9df"><div class="ttname"><a href="classRender.html#a18f55be699e0bd8d20a5462330d5c9df">Render::drawRigid</a></div><div class="ttdeci">void drawRigid(const b2Body *b, float worldScale) noexcept</div><div class="ttdef"><b>Definition:</b> render.cpp:35</div></div>
+<div class="ttc" id="classRender_html_add2a1980ba1c0d0bce85943405f87c68"><div class="ttname"><a href="classRender.html#add2a1980ba1c0d0bce85943405f87c68">Render::getInstance</a></div><div class="ttdeci">static Render &amp; getInstance()</div><div class="ttdef"><b>Definition:</b> render.h:136</div></div>
+<div class="ttc" id="classRender_html_a4f2ee414b80bf5e1e1ffcfe80c33218a"><div class="ttname"><a href="classRender.html#a4f2ee414b80bf5e1e1ffcfe80c33218a">Render::drawLine</a></div><div class="ttdeci">void drawLine(float x1, float y1, float x2, float y2) noexcept</div><div class="ttdoc">draw a line from (x1,y1) to (x2,y2) (in world coordinates) </div><div class="ttdef"><b>Definition:</b> render.cpp:93</div></div>
 <div class="ttc" id="classRigid_html"><div class="ttname"><a href="classRigid.html">Rigid</a></div><div class="ttdoc">Base class of all rigid bodies. </div><div class="ttdef"><b>Definition:</b> matter.h:74</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

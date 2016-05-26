@@ -24,7 +24,7 @@ var searchData=
   ['wood_5frestitution',['WOOD_RESTITUTION',['../const_8h.html#a18c1d24ca446a5621dbaa830af4e243c',1,'const.h']]],
   ['wood_5fstrength',['WOOD_STRENGTH',['../const_8h.html#a3243544fab732cce2afda199b3b7a645',1,'const.h']]],
   ['woodstick',['WoodStick',['../classWoodStick.html',1,'WoodStick'],['../classWoodStick.html#a1695a421b0f63f1e2c6f636f889f407a',1,'WoodStick::WoodStick(World *_world, b2Body *b)'],['../classWoodStick.html#a8330706992a93b09ea599119323c8ba1',1,'WoodStick::WoodStick(World *_world, float x1, float y1, float x2=0, float y2=0) noexcept']]],
-  ['world',['World',['../classWorld.html',1,'World'],['../classMatter.html#abdc5b13e2427e41c45af024acae015f1',1,'Matter::world()'],['../classWorld.html#a18f20395a332752c4a3d98f2b0e98cff',1,'World::World()']]],
+  ['world',['World',['../classWorld.html',1,'World'],['../classWorld.html#a18f20395a332752c4a3d98f2b0e98cff',1,'World::World()'],['../classMatter.html#abdc5b13e2427e41c45af024acae015f1',1,'Matter::world()']]],
   ['world_2ecpp',['world.cpp',['../world_8cpp.html',1,'']]],
   ['world_2eh',['world.h',['../world_8h.html',1,'']]],
   ['worldstatus',['WorldStatus',['../classMainWorld.html#ab0b1d1d54026f907ddc7fcc858ea48f3',1,'MainWorld']]]
