@@ -7,6 +7,10 @@ saved_game/*
 !saved_game/_sample.txt
 !saved_game/README.md
 
+*.aux
+*.log
+*.toc
+
 */.ycm_extra_conf.py
 */.ycm_extra_conf.pyc
 */Debug

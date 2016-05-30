@@ -1,6 +1,8 @@
 BUILD
 =======
 
+This is the building guide. For the complete documentation, please refer to **doc/document.pdf**.
+
 **ATTENTION: If you tend to build this in a virtual machine, make sure there is an OpenGL with high enough version.**
 
 Dependencies
