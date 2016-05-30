@@ -60,6 +60,9 @@ void load_extensions()
     mypfnFramebufferTexture = (PFNGLFRAMEBUFFERTEXTUREPROC)
         glfwGetProcAddress("glFramebufferTexture");
 
+    mypfnFramebufferTexture2D = (PFNGLFRAMEBUFFERTEXTURE2DPROC)
+        glfwGetProcAddress("glFramebufferTexture2D");
+
     mypfnDrawBuffers = (PFNGLDRAWBUFFERSPROC)
         glfwGetProcAddress("glDrawBuffers");
 
@@ -106,6 +109,8 @@ PFNGLDELETEFRAMEBUFFERSPROC mypfnDeleteFramebuffers;
 PFNGLBINDFRAMEBUFFERPROC mypfnBindFramebuffer;
 
 PFNGLFRAMEBUFFERTEXTUREPROC mypfnFramebufferTexture;
+
+PFNGLFRAMEBUFFERTEXTURE2DPROC mypfnFramebufferTexture2D;
 
 PFNGLDRAWBUFFERSPROC mypfnDrawBuffers;
 

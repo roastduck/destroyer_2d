@@ -71,6 +71,9 @@ extern PFNGLBINDFRAMEBUFFERPROC mypfnBindFramebuffer;
 #define glFramebufferTexture mypfnFramebufferTexture
 extern PFNGLFRAMEBUFFERTEXTUREPROC mypfnFramebufferTexture;
 
+#define glFramebufferTexture2D mypfnFramebufferTexture2D
+extern PFNGLFRAMEBUFFERTEXTURE2DPROC mypfnFramebufferTexture2D;
+
 #define glDrawBuffers mypfnDrawBuffers
 extern PFNGLDRAWBUFFERSPROC mypfnDrawBuffers;
 

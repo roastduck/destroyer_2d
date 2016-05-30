@@ -9,7 +9,9 @@
 #include <cctype>
 #include <cstring>
 #include <cassert>
+#include <string>
 #include <algorithm>
+#include <stdexcept>
 #include "window.h"
 #include "render.h"
 
@@ -197,6 +199,7 @@ void Render::PolygonRenderer::drawMain() noexcept
             auto name = m->getImage();
             if (! render.cachedImage.count(name))
                 render.cachedImage[name] = render.getTextureFromPixels(IMAGES[name], IMAGES_W[name], IMAGES_H[name]);
+            assert(glIsTexture(render.cachedImage[name]));
             glEnable(GL_TEXTURE_2D);
             glBindTexture(GL_TEXTURE_2D, render.cachedImage[name]);
 
@@ -362,7 +365,7 @@ void Render::genParticleFrameBuffer() noexcept
     glBindFramebuffer(GL_FRAMEBUFFER, particleFrameBuffer);
     
     assert(particleTexture2 && glIsTexture(particleTexture2));
-    glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, particleTexture2, 0);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, particleTexture2, 0);
     GLenum DrawBuffers[1] = { GL_COLOR_ATTACHMENT0 };
     glDrawBuffers(1, DrawBuffers); // "1" is the size of DrawBuffers
     assert(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE);
