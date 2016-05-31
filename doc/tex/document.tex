@@ -5,6 +5,7 @@
     \usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
     \usepackage{enumitem}
 	\usepackage{graphicx}
+    \usepackage{float}
     \renewcommand{\figurename}{Figure}
     \renewcommand{\contentsname}{Contents}
 
@@ -173,6 +174,32 @@ make \end{verbatim}
                 \item Rendering items. There are 4 shapes can be used in \textit{LiquidFun}: polygon, circle, edge and chain. Currently only polygon and circle are used, and items in circle shapes are rendered as 36-gons. But for further extendence, a base class stub \textit{Render::FixtureRenderer} is preserved and it has only one subclass \textit{Render::PolygonRenderer}.
                 \item Rendering other UI components. Other UI components including pictures and texts are rendered in class \textit{Render} for \textit{OpenGL} doesn't provide open-use functions to render them.
             \end{enumerate}
+
+    \section{Screenshots}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=.8\textwidth]{welcome_page.png}
+                \caption{Welcome Page}
+            \end{figure}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=.8\textwidth]{battle_scene.png}
+                \caption{Battle Scene}
+            \end{figure}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=.8\textwidth]{putting_blocks.png}
+                \caption{Putting Blocks in Building Scene}
+            \end{figure}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=.8\textwidth]{drawing_sticks.png}
+                \caption{Drawing Sticks in Building Scene}
+            \end{figure}
 
     \section{Detailed Reference}
 
