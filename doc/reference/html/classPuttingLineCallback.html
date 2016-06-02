@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classPuttingLineCallback-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PuttingLineCallback&lt; ToPut &gt; Class Template Reference</div>  </div>
@@ -106,7 +107,7 @@ Collaboration diagram for PuttingLineCallback&lt; ToPut &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPuttingLineCallback__coll__graph.png" border="0" usemap="#PuttingLineCallback_3_01ToPut_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="PuttingLineCallback_3_01ToPut_01_4_coll__map" id="PuttingLineCallback_3_01ToPut_01_4_coll__map">
-<area shape="rect" id="node2" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="19,321,159,487"/><area shape="rect" id="node3" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="13,5,165,259"/></map>
+<area shape="rect" id="node2" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="64,5,204,171"/><area shape="rect" id="node3" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="197,248,349,721"/><area shape="rect" id="node4" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="375,784,509,1345"/><area shape="rect" id="node6" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="237,1437,383,1691"/><area shape="rect" id="node11" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="407,1408,539,1720"/><area shape="rect" id="node5" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="445,1769,575,2037"/><area shape="rect" id="node7" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="389,446,564,523"/><area shape="rect" id="node9" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="589,417,783,553"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -130,6 +131,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2a57b20538c6c7bf4a590140852bdd24 inherit pub_methods_classMouseCallback"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab308a03d06ee903955875b36e1f31565 inherit pub_methods_classMouseCallback"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseCallback.html#ab308a03d06ee903955875b36e1f31565">rightRelease</a> (float x, float y)</td></tr>
 <tr class="separator:ab308a03d06ee903955875b36e1f31565 inherit pub_methods_classMouseCallback"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af7ede0099cc6ee2eb5ccf3cda667c711"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPuttingLineCallback.html#af7ede0099cc6ee2eb5ccf3cda667c711">sx</a></td></tr>
+<tr class="separator:af7ede0099cc6ee2eb5ccf3cda667c711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92d6e9d843c9022499da9029220b78bd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPuttingLineCallback.html#a92d6e9d843c9022499da9029220b78bd">sy</a></td></tr>
+<tr class="separator:a92d6e9d843c9022499da9029220b78bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2bcbb0e5a6132e4bb8b87684bff26c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPuttingLineCallback.html#aa2bcbb0e5a6132e4bb8b87684bff26c2">drawing</a></td></tr>
+<tr class="separator:aa2bcbb0e5a6132e4bb8b87684bff26c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -322,6 +332,73 @@ template&lt;class ToPut&gt; </div>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="classMouseCallback.html#aa4a0c30b50b48972d0a48b9aff6344c5">MouseCallback</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa2bcbb0e5a6132e4bb8b87684bff26c2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ToPut&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classPuttingLineCallback.html">PuttingLineCallback</a>&lt; ToPut &gt;::drawing</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af7ede0099cc6ee2eb5ccf3cda667c711"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ToPut&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="classPuttingLineCallback.html">PuttingLineCallback</a>&lt; ToPut &gt;::sx</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a92d6e9d843c9022499da9029220b78bd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ToPut&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="classPuttingLineCallback.html">PuttingLineCallback</a>&lt; ToPut &gt;::sy</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

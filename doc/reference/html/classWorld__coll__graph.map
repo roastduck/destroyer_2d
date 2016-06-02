@@ -1,5 +1,9 @@
 <map id="World" name="World">
-<area shape="rect" id="node2" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/>
-<area shape="rect" id="node3" href="$classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/>
-<area shape="rect" id="node5" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/>
+<area shape="rect" id="node3" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="5,1065,151,1318"/>
+<area shape="rect" id="node6" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="466,955,618,1428"/>
+<area shape="rect" id="node10" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="305,1035,437,1347"/>
+<area shape="rect" id="node2" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="96,1505,225,1773"/>
+<area shape="rect" id="node4" href="$classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="125,161,300,239"/>
+<area shape="rect" id="node7" href="$classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="471,1557,611,1722"/>
+<area shape="rect" id="node8" href="$classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="325,132,519,268"/>
 </map>

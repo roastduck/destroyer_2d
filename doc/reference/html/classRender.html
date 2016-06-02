@@ -86,6 +86,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classRender-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Render Class Reference</div>  </div>
@@ -97,8 +101,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Collaboration diagram for Render:</div>
 <div class="dyncontent">
 <div class="center"><img src="classRender__coll__graph.png" border="0" usemap="#Render_coll__map" alt="Collaboration graph"/></div>
+<map name="Render_coll__map" id="Render_coll__map">
+<area shape="rect" id="node2" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="145,132,277,444"/><area shape="rect" id="node3" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="287,521,420,1083"/><area shape="rect" id="node5" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="125,1270,270,1523"/><area shape="rect" id="node8" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="424,1160,576,1633"/><area shape="rect" id="node4" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="217,1711,346,1979"/><area shape="rect" id="node6" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="303,249,478,327"/><area shape="rect" id="node9" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="410,1762,550,1927"/><area shape="rect" id="node10" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="503,220,697,356"/></map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender_1_1FixtureRenderer.html">FixtureRenderer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender_1_1PolygonRenderer.html">PolygonRenderer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9efce92fa87e96980f4e413ee0cb6843"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a9efce92fa87e96980f4e413ee0cb6843">Render</a> (const <a class="el" href="classRender.html">Render</a> &amp;)=delete</td></tr>
@@ -122,6 +135,84 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:add2a1980ba1c0d0bce85943405f87c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6344724a34c4ec00fc3f9de97a7cdb6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#ae6344724a34c4ec00fc3f9de97a7cdb6">setWindow</a> (const <a class="el" href="classWindow.html">Window</a> *_window)</td></tr>
 <tr class="separator:ae6344724a34c4ec00fc3f9de97a7cdb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8610cc11739ef679b5935dd819021351"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a8610cc11739ef679b5935dd819021351">Render</a> ()</td></tr>
+<tr class="memdesc:a8610cc11739ef679b5935dd819021351"><td class="mdescLeft">&#160;</td><td class="mdescRight">We use OpenGL legacy mode mostly for its simplicity, except for using GLSL to draw particles.  <a href="#a8610cc11739ef679b5935dd819021351">More...</a><br /></td></tr>
+<tr class="separator:a8610cc11739ef679b5935dd819021351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78eb29ef18ac02ca40ed7d56a567422f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a78eb29ef18ac02ca40ed7d56a567422f">smoothstep</a> (float x)</td></tr>
+<tr class="separator:a78eb29ef18ac02ca40ed7d56a567422f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27245fbd3dfe8cda287db16c290a61ae"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a27245fbd3dfe8cda287db16c290a61ae">genShader</a> (GLenum type, const std::string &amp;source)</td></tr>
+<tr class="separator:a27245fbd3dfe8cda287db16c290a61ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8098e3ac9815da6131f7b2ba7814fba1"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a8098e3ac9815da6131f7b2ba7814fba1">genProgram</a> (GLuint vertexShader, GLuint fragmentShader)</td></tr>
+<tr class="separator:a8098e3ac9815da6131f7b2ba7814fba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac722352d954c5eac9234862b1db2c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#aaac722352d954c5eac9234862b1db2c1">particleRender1</a> (const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count) noexcept</td></tr>
+<tr class="memdesc:aaac722352d954c5eac9234862b1db2c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">first render to a framebuffer with color blending  <a href="#aaac722352d954c5eac9234862b1db2c1">More...</a><br /></td></tr>
+<tr class="separator:aaac722352d954c5eac9234862b1db2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a842a6ab5beca59cc7f0d01f6dcc16e8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a842a6ab5beca59cc7f0d01f6dcc16e8e">genParticleTexture1</a> () noexcept</td></tr>
+<tr class="separator:a842a6ab5beca59cc7f0d01f6dcc16e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91afc04b948c272f91510092d1a5a4f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a91afc04b948c272f91510092d1a5a4f1">particleRender2</a> (float depth) noexcept</td></tr>
+<tr class="memdesc:a91afc04b948c272f91510092d1a5a4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">then render to screen with alpha threshold  <a href="#a91afc04b948c272f91510092d1a5a4f1">More...</a><br /></td></tr>
+<tr class="separator:a91afc04b948c272f91510092d1a5a4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf7b3afb9f0590a72004db328b612108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#aaf7b3afb9f0590a72004db328b612108">genParticleTexture2</a> () noexcept</td></tr>
+<tr class="separator:aaf7b3afb9f0590a72004db328b612108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a4069759ea5c3f5b874417a6d699471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a6a4069759ea5c3f5b874417a6d699471">genParticleFrameBuffer</a> () noexcept</td></tr>
+<tr class="memdesc:a6a4069759ea5c3f5b874417a6d699471"><td class="mdescLeft">&#160;</td><td class="mdescRight">the intermediate buffer between two redering procedures  <a href="#a6a4069759ea5c3f5b874417a6d699471">More...</a><br /></td></tr>
+<tr class="separator:a6a4069759ea5c3f5b874417a6d699471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af614fa8f3a307eea0782bddae4cc5bac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#af614fa8f3a307eea0782bddae4cc5bac">drawParticles</a> (const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count, float depth) noexcept</td></tr>
+<tr class="memdesc:af614fa8f3a307eea0782bddae4cc5bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">controls the two rendering procedures  <a href="#af614fa8f3a307eea0782bddae4cc5bac">More...</a><br /></td></tr>
+<tr class="separator:af614fa8f3a307eea0782bddae4cc5bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae568b0266e416803d961cc66bb57dbf9"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#ae568b0266e416803d961cc66bb57dbf9">getTextureFromPixels</a> (const unsigned char pixels[][4], int width, int height) noexcept</td></tr>
+<tr class="separator:ae568b0266e416803d961cc66bb57dbf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf10a27af849b5b372e99dc2eb3aecf5"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#adf10a27af849b5b372e99dc2eb3aecf5">getTextureFromText</a> (const std::string &amp;s) noexcept</td></tr>
+<tr class="separator:adf10a27af849b5b372e99dc2eb3aecf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a22d68ea1a2a93c90b35ddca7ac4210"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a5a22d68ea1a2a93c90b35ddca7ac4210">getTextureFromLetter</a> (char c) noexcept</td></tr>
+<tr class="separator:a5a22d68ea1a2a93c90b35ddca7ac4210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:ad82e10fc7cf64fc9a60c853c0e5320dd"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#ad82e10fc7cf64fc9a60c853c0e5320dd">updateWindowSize</a> ()</td></tr>
+<tr class="memdesc:ad82e10fc7cf64fc9a60c853c0e5320dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">update windowWidth and windowHeight from mWindow  <a href="#ad82e10fc7cf64fc9a60c853c0e5320dd">More...</a><br /></td></tr>
+<tr class="separator:ad82e10fc7cf64fc9a60c853c0e5320dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5d7f62cb07edbd2d40faf2d8b00c7247"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a5d7f62cb07edbd2d40faf2d8b00c7247">FixtureRenderer</a></td></tr>
+<tr class="separator:a5d7f62cb07edbd2d40faf2d8b00c7247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b1d6988fe8a9ab6c0c664216f327fe"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a71b1d6988fe8a9ab6c0c664216f327fe">PolygonRenderer</a></td></tr>
+<tr class="separator:a71b1d6988fe8a9ab6c0c664216f327fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06b269a30c844daeae9af44ab9157dbe"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a06b269a30c844daeae9af44ab9157dbe">particleTexture1</a></td></tr>
+<tr class="separator:a06b269a30c844daeae9af44ab9157dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf04c329740a17f06ee75b0ecd5aa39"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a7bf04c329740a17f06ee75b0ecd5aa39">particleProgram1</a></td></tr>
+<tr class="separator:a7bf04c329740a17f06ee75b0ecd5aa39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b70f4712c191f832e237e6481d537e8"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a2b70f4712c191f832e237e6481d537e8">particleTexture2</a></td></tr>
+<tr class="separator:a2b70f4712c191f832e237e6481d537e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8abc021db462a304ffbf43af03b8de6"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#ad8abc021db462a304ffbf43af03b8de6">particleProgram2</a></td></tr>
+<tr class="separator:ad8abc021db462a304ffbf43af03b8de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d697ea0a45a8948778fcc70d3a86070"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a0d697ea0a45a8948778fcc70d3a86070">particleFrameBuffer</a></td></tr>
+<tr class="separator:a0d697ea0a45a8948778fcc70d3a86070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada528ae821ea616fd860dae0e3410f64"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#ada528ae821ea616fd860dae0e3410f64">particleFragmentShader1Source</a></td></tr>
+<tr class="separator:ada528ae821ea616fd860dae0e3410f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2e3ef7086c66483e5711d2b130042b"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a5f2e3ef7086c66483e5711d2b130042b">particleVertexShader2Source</a></td></tr>
+<tr class="separator:a5f2e3ef7086c66483e5711d2b130042b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af249c6ab18c7af2bf8342333a8fb49e3"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#af249c6ab18c7af2bf8342333a8fb49e3">particleFragmentShader2Source</a></td></tr>
+<tr class="separator:af249c6ab18c7af2bf8342333a8fb49e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a263985bafcb2d6c0ce779e91d2477153"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, GLuint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a263985bafcb2d6c0ce779e91d2477153">cachedImage</a></td></tr>
+<tr class="separator:a263985bafcb2d6c0ce779e91d2477153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff0dcf9dc188c9ae16e037232f5eefb"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, GLuint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#adff0dcf9dc188c9ae16e037232f5eefb">cachedText</a></td></tr>
+<tr class="separator:adff0dcf9dc188c9ae16e037232f5eefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d94314989f71664768b49c7d211d1f"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; char, GLuint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#aa6d94314989f71664768b49c7d211d1f">cachedLetter</a></td></tr>
+<tr class="separator:aa6d94314989f71664768b49c7d211d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a6ad72a846871260c4da9e5aa9e337944"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classWindow.html">Window</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a6ad72a846871260c4da9e5aa9e337944">mWindow</a> = 0</td></tr>
+<tr class="separator:a6ad72a846871260c4da9e5aa9e337944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f5a1e0ff84b8e48c6dcb1409926110a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a4f5a1e0ff84b8e48c6dcb1409926110a">windowWidth</a> = 0</td></tr>
+<tr class="separator:a4f5a1e0ff84b8e48c6dcb1409926110a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d4491ee8fe250d915a93019e2575350"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRender.html#a0d4491ee8fe250d915a93019e2575350">windowHeight</a> = 0</td></tr>
+<tr class="separator:a0d4491ee8fe250d915a93019e2575350"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9efce92fa87e96980f4e413ee0cb6843"></a>
@@ -172,6 +263,32 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a8610cc11739ef679b5935dd819021351"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Render::Render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>We use OpenGL legacy mode mostly for its simplicity, except for using GLSL to draw particles. </p>
+<p>We render pariticles into a framebuffer with alpha blending, and then render from the buffer to screen, to create a continuous surface. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a4f2ee414b80bf5e1e1ffcfe80c33218a"></a>
 <div class="memitem">
@@ -218,6 +335,60 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>draw a line from (x1,y1) to (x2,y2) (in world coordinates) </p>
+
+</div>
+</div>
+<a class="anchor" id="af614fa8f3a307eea0782bddae4cc5bac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Render::drawParticles </td>
+          <td>(</td>
+          <td class="paramtype">const b2Vec2 *&#160;</td>
+          <td class="paramname"><em>centers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>radius</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const b2ParticleColor *&#160;</td>
+          <td class="paramname"><em>colors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>controls the two rendering procedures </p>
 
 </div>
 </div>
@@ -355,6 +526,145 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a6a4069759ea5c3f5b874417a6d699471"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Render::genParticleFrameBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the intermediate buffer between two redering procedures </p>
+
+</div>
+</div>
+<a class="anchor" id="a842a6ab5beca59cc7f0d01f6dcc16e8e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Render::genParticleTexture1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaf7b3afb9f0590a72004db328b612108"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Render::genParticleTexture2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8098e3ac9815da6131f7b2ba7814fba1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::genProgram </td>
+          <td>(</td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>vertexShader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>fragmentShader</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a27245fbd3dfe8cda287db16c290a61ae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::genShader </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="add2a1980ba1c0d0bce85943405f87c68"></a>
 <div class="memitem">
 <div class="memproto">
@@ -378,6 +688,168 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a5a22d68ea1a2a93c90b35ddca7ac4210"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::getTextureFromLetter </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae568b0266e416803d961cc66bb57dbf9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::getTextureFromPixels </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char&#160;</td>
+          <td class="paramname"><em>pixels</em>[][4], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adf10a27af849b5b372e99dc2eb3aecf5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::getTextureFromText </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaac722352d954c5eac9234862b1db2c1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Render::particleRender1 </td>
+          <td>(</td>
+          <td class="paramtype">const b2Vec2 *&#160;</td>
+          <td class="paramname"><em>centers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>radius</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const b2ParticleColor *&#160;</td>
+          <td class="paramname"><em>colors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>first render to a framebuffer with color blending </p>
+
+</div>
+</div>
+<a class="anchor" id="a91afc04b948c272f91510092d1a5a4f1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Render::particleRender2 </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>depth</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>then render to screen with alpha threshold </p>
+
+</div>
+</div>
 <a class="anchor" id="ae6344724a34c4ec00fc3f9de97a7cdb6"></a>
 <div class="memitem">
 <div class="memproto">
@@ -396,6 +868,400 @@ Static Public Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a78eb29ef18ac02ca40ed7d56a567422f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Render::smoothstep </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad82e10fc7cf64fc9a60c853c0e5320dd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Render::updateWindowSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>update windowWidth and windowHeight from mWindow </p>
+<dl class="section return"><dt>Returns</dt><dd>bool. true when changed. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a263985bafcb2d6c0ce779e91d2477153"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, GLuint&gt; Render::cachedImage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa6d94314989f71664768b49c7d211d1f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;char, GLuint&gt; Render::cachedLetter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adff0dcf9dc188c9ae16e037232f5eefb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, GLuint&gt; Render::cachedText</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5d7f62cb07edbd2d40faf2d8b00c7247"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend <a class="el" href="classRender_1_1FixtureRenderer.html">Render::FixtureRenderer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6ad72a846871260c4da9e5aa9e337944"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classWindow.html">Window</a> * Render::mWindow = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ada528ae821ea616fd860dae0e3410f64"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Render::particleFragmentShader1Source</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        <span class="stringliteral">&quot;#version 120\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D texture;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;   gl_FragData[0] = gl_Color * texture2D(texture, gl_TexCoord[0].st);\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af249c6ab18c7af2bf8342333a8fb49e3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Render::particleFragmentShader2Source</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        <span class="stringliteral">&quot;#version 120\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D texture;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;   vec4 temp = texture2D(texture, gl_TexCoord[0].st);\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;   if (temp.a &lt; 0.1) temp = vec4(0, 0, 0, 0); else temp.a = 0.5;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;   gl_FragColor = temp;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a0d697ea0a45a8948778fcc70d3a86070"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::particleFrameBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7bf04c329740a17f06ee75b0ecd5aa39"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::particleProgram1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad8abc021db462a304ffbf43af03b8de6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::particleProgram2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a06b269a30c844daeae9af44ab9157dbe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::particleTexture1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2b70f4712c191f832e237e6481d537e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Render::particleTexture2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5f2e3ef7086c66483e5711d2b130042b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Render::particleVertexShader2Source</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        <span class="stringliteral">&quot;#version 120\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;   gl_Position = gl_Vertex;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;   gl_TexCoord[0] = gl_MultiTexCoord0;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a71b1d6988fe8a9ab6c0c664216f327fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend <a class="el" href="classRender_1_1PolygonRenderer.html">Render::PolygonRenderer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0d4491ee8fe250d915a93019e2575350"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Render::windowHeight = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4f5a1e0ff84b8e48c6dcb1409926110a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Render::windowWidth = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

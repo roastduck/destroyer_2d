@@ -1,4 +1,10 @@
 <map id="PuttingLineCallback&lt; ToPut &gt;" name="PuttingLineCallback&lt; ToPut &gt;">
-<area shape="rect" id="node2" href="$classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="19,321,159,487"/>
-<area shape="rect" id="node3" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="13,5,165,259"/>
+<area shape="rect" id="node2" href="$classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="64,5,204,171"/>
+<area shape="rect" id="node3" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="197,248,349,721"/>
+<area shape="rect" id="node4" href="$classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="375,784,509,1345"/>
+<area shape="rect" id="node6" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="237,1437,383,1691"/>
+<area shape="rect" id="node11" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="407,1408,539,1720"/>
+<area shape="rect" id="node5" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="445,1769,575,2037"/>
+<area shape="rect" id="node7" href="$classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="389,446,564,523"/>
+<area shape="rect" id="node9" href="$classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="589,417,783,553"/>
 </map>

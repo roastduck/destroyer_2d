@@ -11,11 +11,12 @@
 
 
 
-Collaboration diagram for Saver\+:\nopagebreak
+Collaboration diagram for Saver\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=163pt]{classSaver__coll__graph}
+\includegraphics[width=173pt]{classSaver__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -32,12 +33,123 @@ std\+::string \hyperlink{classSaver_a9483a0cd5284f84cb3b138aa44b6969e}{make\+Pat
 \item 
 static \hyperlink{classSaver}{Saver} \& \hyperlink{classSaver_ae756def2e0ce4c2317b355a9fd12073e}{get\+Instance} ()
 \begin{DoxyCompactList}\small\item\em Singleton is for convenient. One can still instantiate this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4c}{Matter\+Id} \{ \\*
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4cadc4cb432770173e5dac9033af2b519b5}{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K}, 
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4ca4e4da04edff46f022a7bb5c06be473a5}{I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K}, 
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4cab238aa86f5fa92af754fc76f303fdb63}{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+E\+N\+G\+I\+N\+E}, 
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4ca0b7a09f49f5c35a317a988bf36424a05}{I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+E\+N\+G\+I\+N\+E}, 
+\\*
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4ca9c3b8fdbfc242fcbafed4ea20d5c70c4}{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+S\+T\+E\+E\+L\+\_\+\+B\+A\+L\+L}, 
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4ca20b729a25c2a6d9aff9a60005a223669}{I\+D\+\_\+\+B\+O\+M\+B}, 
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4cabe5bdd6c6760493c96fb779f2f668e9f}{I\+D\+\_\+\+S\+T\+E\+E\+L\+\_\+\+S\+T\+I\+C\+K}, 
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4caeb6dd695baa11c27df56be2449764aac}{I\+D\+\_\+\+W\+O\+O\+D\+\_\+\+S\+T\+I\+C\+K}
+ \}
+\item 
+enum \hyperlink{classSaver_a8a4458961f17bff6b74c5371913b96cb}{I\+O\+Flag} \{ \hyperlink{classSaver_a8a4458961f17bff6b74c5371913b96cba95ba68df9b87cd417334814cf93fd64e}{I\+O\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E} = 1, 
+\hyperlink{classSaver_a8a4458961f17bff6b74c5371913b96cbaf96071109d6afd5fc6886f7822ee794e}{I\+O\+\_\+\+S\+T\+O\+P} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSaver_a4b7186206c8281c11545f6f470ce1c4c}{Matter\+Id} \hyperlink{classSaver_aacbf5734698c3149610a4bb662e6b7a6}{get\+Matter\+Id} (const \hyperlink{classMatter}{Matter} $\ast$m)
+\item 
+\hyperlink{classSaver_a8a4458961f17bff6b74c5371913b96cb}{I\+O\+Flag} \hyperlink{classSaver_af7c21a193540bc5652adf01fac246b87}{get\+Flag} (std\+::istream \&is)
+\item 
+void \hyperlink{classSaver_a2eea54e9f257b1f1c8cee05489977f08}{get\+Body\+Data} (std\+::ostream \&os, const b2\+Body $\ast$\hyperlink{image_8h_ab2d05693952610f937e5acb3c4a8fa1b}{b})
+\item 
+b2\+Body $\ast$ \hyperlink{classSaver_a8c1800b9c649a6c42b1fceb20a733ad0}{set\+Body\+Data} (std\+::istream \&is, b2\+World $\ast$w, float offset\+X=0)
+\item 
+void \hyperlink{classSaver_ace5852ac02fc878508eb3e3453109c83}{get\+Fixture\+Data} (std\+::ostream \&os, const b2\+Fixture $\ast$f)
+\item 
+b2\+Fixture $\ast$ \hyperlink{classSaver_a25f2bc2d10b5657f0644d5a5b9e66b56}{set\+Fixture\+Data} (std\+::istream \&is, b2\+Body $\ast$\hyperlink{image_8h_ab2d05693952610f937e5acb3c4a8fa1b}{b})
+\item 
+void \hyperlink{classSaver_af47da77dffe6da1329d28606fb0ddc9e}{get\+Joint\+Data} (std\+::ostream \&os, const b2\+Joint $\ast$j)
+\item 
+b2\+Joint $\ast$ \hyperlink{classSaver_a7885d03e6bda27349b7c4e2963d542a4}{set\+Joint\+Data} (std\+::istream \&is, b2\+World $\ast$w)
+\item 
+void \hyperlink{classSaver_ad1884d3058fbdb6567bd305b5caa47ca}{get\+Matter\+Data} (std\+::ostream \&os, const \hyperlink{classMatter}{Matter} $\ast$m)
+\item 
+\hyperlink{classMatter}{Matter} $\ast$ \hyperlink{classSaver_a1d3368c3fe590ec0de618770e9cd46c5}{set\+Matter\+Data} (std\+::istream \&is, \hyperlink{classWorld}{World} $\ast$world, b2\+Body $\ast$\hyperlink{image_8h_ab2d05693952610f937e5acb3c4a8fa1b}{b}, int player)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ const b2\+Body $\ast$, int $>$ \hyperlink{classSaver_adc3e3088cb556e80d587c81a517bc6d1}{temp\+Id}
+\item 
+std\+::unordered\+\_\+map$<$ int, b2\+Body $\ast$ $>$ \hyperlink{classSaver_aef2dd9f1f4469247747a9b3d4dd871b6}{temp\+Addr}
+\begin{DoxyCompactList}\small\item\em used while saving \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{classSaver}{Saver} manages game saving and loading. 
 
+\subsection{Member Enumeration Documentation}
+\hypertarget{classSaver_a8a4458961f17bff6b74c5371913b96cb}{}\index{Saver@{Saver}!I\+O\+Flag@{I\+O\+Flag}}
+\index{I\+O\+Flag@{I\+O\+Flag}!Saver@{Saver}}
+\subsubsection[{I\+O\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Saver\+::\+I\+O\+Flag}\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_a8a4458961f17bff6b74c5371913b96cb}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\+O\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E@{I\+O\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E}!Saver@{Saver}}\index{Saver@{Saver}!I\+O\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E@{I\+O\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E}}\item[{\em 
+\hypertarget{classSaver_a8a4458961f17bff6b74c5371913b96cba95ba68df9b87cd417334814cf93fd64e}{}I\+O\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E\label{classSaver_a8a4458961f17bff6b74c5371913b96cba95ba68df9b87cd417334814cf93fd64e}
+}]\index{I\+O\+\_\+\+S\+T\+O\+P@{I\+O\+\_\+\+S\+T\+O\+P}!Saver@{Saver}}\index{Saver@{Saver}!I\+O\+\_\+\+S\+T\+O\+P@{I\+O\+\_\+\+S\+T\+O\+P}}\item[{\em 
+\hypertarget{classSaver_a8a4458961f17bff6b74c5371913b96cbaf96071109d6afd5fc6886f7822ee794e}{}I\+O\+\_\+\+S\+T\+O\+P\label{classSaver_a8a4458961f17bff6b74c5371913b96cbaf96071109d6afd5fc6886f7822ee794e}
+}]\end{description}
+\end{Desc}
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4c}{}\index{Saver@{Saver}!Matter\+Id@{Matter\+Id}}
+\index{Matter\+Id@{Matter\+Id}!Saver@{Saver}}
+\subsubsection[{Matter\+Id}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Saver\+::\+Matter\+Id}\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_a4b7186206c8281c11545f6f470ce1c4c}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K@{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K}!Saver@{Saver}}\index{Saver@{Saver}!I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K@{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K}}\item[{\em 
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4cadc4cb432770173e5dac9033af2b519b5}{}I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K\label{classSaver_a4b7186206c8281c11545f6f470ce1c4cadc4cb432770173e5dac9033af2b519b5}
+}]\index{I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K@{I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K}!Saver@{Saver}}\index{Saver@{Saver}!I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K@{I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K}}\item[{\em 
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4ca4e4da04edff46f022a7bb5c06be473a5}{}I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+W\+O\+O\+D\+\_\+\+B\+L\+O\+C\+K\label{classSaver_a4b7186206c8281c11545f6f470ce1c4ca4e4da04edff46f022a7bb5c06be473a5}
+}]\index{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+E\+N\+G\+I\+N\+E@{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+E\+N\+G\+I\+N\+E}!Saver@{Saver}}\index{Saver@{Saver}!I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+E\+N\+G\+I\+N\+E@{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+E\+N\+G\+I\+N\+E}}\item[{\em 
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4cab238aa86f5fa92af754fc76f303fdb63}{}I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+E\+N\+G\+I\+N\+E\label{classSaver_a4b7186206c8281c11545f6f470ce1c4cab238aa86f5fa92af754fc76f303fdb63}
+}]\index{I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+E\+N\+G\+I\+N\+E@{I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+E\+N\+G\+I\+N\+E}!Saver@{Saver}}\index{Saver@{Saver}!I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+E\+N\+G\+I\+N\+E@{I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+E\+N\+G\+I\+N\+E}}\item[{\em 
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4ca0b7a09f49f5c35a317a988bf36424a05}{}I\+D\+\_\+\+L\+A\+R\+G\+E\+\_\+\+E\+N\+G\+I\+N\+E\label{classSaver_a4b7186206c8281c11545f6f470ce1c4ca0b7a09f49f5c35a317a988bf36424a05}
+}]\index{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+S\+T\+E\+E\+L\+\_\+\+B\+A\+L\+L@{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+S\+T\+E\+E\+L\+\_\+\+B\+A\+L\+L}!Saver@{Saver}}\index{Saver@{Saver}!I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+S\+T\+E\+E\+L\+\_\+\+B\+A\+L\+L@{I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+S\+T\+E\+E\+L\+\_\+\+B\+A\+L\+L}}\item[{\em 
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4ca9c3b8fdbfc242fcbafed4ea20d5c70c4}{}I\+D\+\_\+\+S\+M\+A\+L\+L\+\_\+\+S\+T\+E\+E\+L\+\_\+\+B\+A\+L\+L\label{classSaver_a4b7186206c8281c11545f6f470ce1c4ca9c3b8fdbfc242fcbafed4ea20d5c70c4}
+}]\index{I\+D\+\_\+\+B\+O\+M\+B@{I\+D\+\_\+\+B\+O\+M\+B}!Saver@{Saver}}\index{Saver@{Saver}!I\+D\+\_\+\+B\+O\+M\+B@{I\+D\+\_\+\+B\+O\+M\+B}}\item[{\em 
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4ca20b729a25c2a6d9aff9a60005a223669}{}I\+D\+\_\+\+B\+O\+M\+B\label{classSaver_a4b7186206c8281c11545f6f470ce1c4ca20b729a25c2a6d9aff9a60005a223669}
+}]\index{I\+D\+\_\+\+S\+T\+E\+E\+L\+\_\+\+S\+T\+I\+C\+K@{I\+D\+\_\+\+S\+T\+E\+E\+L\+\_\+\+S\+T\+I\+C\+K}!Saver@{Saver}}\index{Saver@{Saver}!I\+D\+\_\+\+S\+T\+E\+E\+L\+\_\+\+S\+T\+I\+C\+K@{I\+D\+\_\+\+S\+T\+E\+E\+L\+\_\+\+S\+T\+I\+C\+K}}\item[{\em 
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4cabe5bdd6c6760493c96fb779f2f668e9f}{}I\+D\+\_\+\+S\+T\+E\+E\+L\+\_\+\+S\+T\+I\+C\+K\label{classSaver_a4b7186206c8281c11545f6f470ce1c4cabe5bdd6c6760493c96fb779f2f668e9f}
+}]\index{I\+D\+\_\+\+W\+O\+O\+D\+\_\+\+S\+T\+I\+C\+K@{I\+D\+\_\+\+W\+O\+O\+D\+\_\+\+S\+T\+I\+C\+K}!Saver@{Saver}}\index{Saver@{Saver}!I\+D\+\_\+\+W\+O\+O\+D\+\_\+\+S\+T\+I\+C\+K@{I\+D\+\_\+\+W\+O\+O\+D\+\_\+\+S\+T\+I\+C\+K}}\item[{\em 
+\hypertarget{classSaver_a4b7186206c8281c11545f6f470ce1c4caeb6dd695baa11c27df56be2449764aac}{}I\+D\+\_\+\+W\+O\+O\+D\+\_\+\+S\+T\+I\+C\+K\label{classSaver_a4b7186206c8281c11545f6f470ce1c4caeb6dd695baa11c27df56be2449764aac}
+}]\end{description}
+\end{Desc}
+
+
 \subsection{Member Function Documentation}
+\hypertarget{classSaver_a2eea54e9f257b1f1c8cee05489977f08}{}\index{Saver@{Saver}!get\+Body\+Data@{get\+Body\+Data}}
+\index{get\+Body\+Data@{get\+Body\+Data}!Saver@{Saver}}
+\subsubsection[{get\+Body\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Saver\+::get\+Body\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os, }
+\item[{const b2\+Body $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_a2eea54e9f257b1f1c8cee05489977f08}
+\hypertarget{classSaver_ace5852ac02fc878508eb3e3453109c83}{}\index{Saver@{Saver}!get\+Fixture\+Data@{get\+Fixture\+Data}}
+\index{get\+Fixture\+Data@{get\+Fixture\+Data}!Saver@{Saver}}
+\subsubsection[{get\+Fixture\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Saver\+::get\+Fixture\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os, }
+\item[{const b2\+Fixture $\ast$}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_ace5852ac02fc878508eb3e3453109c83}
+\hypertarget{classSaver_af7c21a193540bc5652adf01fac246b87}{}\index{Saver@{Saver}!get\+Flag@{get\+Flag}}
+\index{get\+Flag@{get\+Flag}!Saver@{Saver}}
+\subsubsection[{get\+Flag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Saver\+::\+I\+O\+Flag} Saver\+::get\+Flag (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{is}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_af7c21a193540bc5652adf01fac246b87}
 \hypertarget{classSaver_ae756def2e0ce4c2317b355a9fd12073e}{}\index{Saver@{Saver}!get\+Instance@{get\+Instance}}
 \index{get\+Instance@{get\+Instance}!Saver@{Saver}}
 \subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Saver}\& Saver\+::get\+Instance (
@@ -49,6 +161,29 @@ static \hyperlink{classSaver}{Saver} \& \hyperlink{classSaver_ae756def2e0ce4c231
 
 Singleton is for convenient. One can still instantiate this class. 
 
+\hypertarget{classSaver_af47da77dffe6da1329d28606fb0ddc9e}{}\index{Saver@{Saver}!get\+Joint\+Data@{get\+Joint\+Data}}
+\index{get\+Joint\+Data@{get\+Joint\+Data}!Saver@{Saver}}
+\subsubsection[{get\+Joint\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Saver\+::get\+Joint\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os, }
+\item[{const b2\+Joint $\ast$}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_af47da77dffe6da1329d28606fb0ddc9e}
+\hypertarget{classSaver_ad1884d3058fbdb6567bd305b5caa47ca}{}\index{Saver@{Saver}!get\+Matter\+Data@{get\+Matter\+Data}}
+\index{get\+Matter\+Data@{get\+Matter\+Data}!Saver@{Saver}}
+\subsubsection[{get\+Matter\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Saver\+::get\+Matter\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{os, }
+\item[{const {\bf Matter} $\ast$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_ad1884d3058fbdb6567bd305b5caa47ca}
+\hypertarget{classSaver_aacbf5734698c3149610a4bb662e6b7a6}{}\index{Saver@{Saver}!get\+Matter\+Id@{get\+Matter\+Id}}
+\index{get\+Matter\+Id@{get\+Matter\+Id}!Saver@{Saver}}
+\subsubsection[{get\+Matter\+Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Saver\+::\+Matter\+Id} Saver\+::get\+Matter\+Id (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matter} $\ast$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_aacbf5734698c3149610a4bb662e6b7a6}
 \hypertarget{classSaver_a349f98e86636f4ba13a8912b8d56a235}{}\index{Saver@{Saver}!load\+From@{load\+From}}
 \index{load\+From@{load\+From}!Saver@{Saver}}
 \subsubsection[{load\+From}]{\setlength{\rightskip}{0pt plus 5cm}bool Saver\+::load\+From (
@@ -82,6 +217,54 @@ The path is as that in save\+To Returns false when fails.
 
 If the path should be dir1/dir2/save, path = \{dir1, dir2, save\} This enhanced cross-\/platform behavior. 
 
+\hypertarget{classSaver_a8c1800b9c649a6c42b1fceb20a733ad0}{}\index{Saver@{Saver}!set\+Body\+Data@{set\+Body\+Data}}
+\index{set\+Body\+Data@{set\+Body\+Data}!Saver@{Saver}}
+\subsubsection[{set\+Body\+Data}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Body $\ast$ Saver\+::set\+Body\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{is, }
+\item[{b2\+World $\ast$}]{w, }
+\item[{float}]{offset\+X = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_a8c1800b9c649a6c42b1fceb20a733ad0}
+\hypertarget{classSaver_a25f2bc2d10b5657f0644d5a5b9e66b56}{}\index{Saver@{Saver}!set\+Fixture\+Data@{set\+Fixture\+Data}}
+\index{set\+Fixture\+Data@{set\+Fixture\+Data}!Saver@{Saver}}
+\subsubsection[{set\+Fixture\+Data}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Fixture $\ast$ Saver\+::set\+Fixture\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{is, }
+\item[{b2\+Body $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_a25f2bc2d10b5657f0644d5a5b9e66b56}
+\hypertarget{classSaver_a7885d03e6bda27349b7c4e2963d542a4}{}\index{Saver@{Saver}!set\+Joint\+Data@{set\+Joint\+Data}}
+\index{set\+Joint\+Data@{set\+Joint\+Data}!Saver@{Saver}}
+\subsubsection[{set\+Joint\+Data}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Joint $\ast$ Saver\+::set\+Joint\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{is, }
+\item[{b2\+World $\ast$}]{w}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_a7885d03e6bda27349b7c4e2963d542a4}
+\hypertarget{classSaver_a1d3368c3fe590ec0de618770e9cd46c5}{}\index{Saver@{Saver}!set\+Matter\+Data@{set\+Matter\+Data}}
+\index{set\+Matter\+Data@{set\+Matter\+Data}!Saver@{Saver}}
+\subsubsection[{set\+Matter\+Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matter} $\ast$ Saver\+::set\+Matter\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{is, }
+\item[{{\bf World} $\ast$}]{world, }
+\item[{b2\+Body $\ast$}]{b, }
+\item[{int}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_a1d3368c3fe590ec0de618770e9cd46c5}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classSaver_aef2dd9f1f4469247747a9b3d4dd871b6}{}\index{Saver@{Saver}!temp\+Addr@{temp\+Addr}}
+\index{temp\+Addr@{temp\+Addr}!Saver@{Saver}}
+\subsubsection[{temp\+Addr}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$int, b2\+Body$\ast$$>$ Saver\+::temp\+Addr\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_aef2dd9f1f4469247747a9b3d4dd871b6}
+
+
+used while saving 
+
+\hypertarget{classSaver_adc3e3088cb556e80d587c81a517bc6d1}{}\index{Saver@{Saver}!temp\+Id@{temp\+Id}}
+\index{temp\+Id@{temp\+Id}!Saver@{Saver}}
+\subsubsection[{temp\+Id}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$const b2\+Body$\ast$, int$>$ Saver\+::temp\+Id\hspace{0.3cm}{\ttfamily [private]}}\label{classSaver_adc3e3088cb556e80d587c81a517bc6d1}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

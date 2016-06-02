@@ -11,7 +11,8 @@
 
 
 
-Inheritance diagram for Dust\+:\nopagebreak
+Inheritance diagram for Dust\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for Dust\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Dust\+:\nopagebreak
+Collaboration diagram for Dust\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -42,6 +44,24 @@ virtual float \hyperlink{classDust_a6a61ed84ae1cbba8d0cdbc102a343f0f}{get\+Color
 \item 
 virtual float \hyperlink{classDust_a6e96475d0b48ffcfb443c014ad369276}{get\+Displayed\+Radius\+Scale} () const override
 \begin{DoxyCompactList}\small\item\em displayed radius = ? $\ast$ physics radius \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static b2\+Particle\+System\+Def \hyperlink{classDust_a91cc6bf0a6060b14fa4e21759f3581c8}{gen\+System\+Def} ()
+\item 
+static std\+::vector$<$ b2\+Particle\+Group\+Def $>$ \hyperlink{classDust_a13883a1eaaf0e0e07529060dca61f6c9}{gen\+Group\+Defs} (const b2\+Vec2 \&pos, const std\+::vector$<$ b2\+Shape $\ast$ $>$ \&shapes, const b2\+Vec2 \&v, float w, float \+\_\+color\+R, float \+\_\+color\+G, float \+\_\+color\+B, float \+\_\+color\+A)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classDust_a38fced9e145e03d4bb548924bd99a7fd}{color\+R}
+\item 
+float \hyperlink{classDust_a97d9fa2655101d2ea41c1a6a5f89bd32}{color\+G}
+\item 
+float \hyperlink{classDust_a3c3ad4aa31b2d0220cab1569743bb836}{color\+B}
+\item 
+float \hyperlink{classDust_aa726a6672b4777821df8efaa789549a3}{color\+A}
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
@@ -74,6 +94,27 @@ virtual float \hyperlink{classDust_a6e96475d0b48ffcfb443c014ad369276}{get\+Displ
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classDust_a13883a1eaaf0e0e07529060dca61f6c9}{}\index{Dust@{Dust}!gen\+Group\+Defs@{gen\+Group\+Defs}}
+\index{gen\+Group\+Defs@{gen\+Group\+Defs}!Dust@{Dust}}
+\subsubsection[{gen\+Group\+Defs}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ b2\+Particle\+Group\+Def $>$ Dust\+::gen\+Group\+Defs (
+\begin{DoxyParamCaption}
+\item[{const b2\+Vec2 \&}]{pos, }
+\item[{const std\+::vector$<$ b2\+Shape $\ast$ $>$ \&}]{shapes, }
+\item[{const b2\+Vec2 \&}]{v, }
+\item[{float}]{w, }
+\item[{float}]{\+\_\+color\+R, }
+\item[{float}]{\+\_\+color\+G, }
+\item[{float}]{\+\_\+color\+B, }
+\item[{float}]{\+\_\+color\+A}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classDust_a13883a1eaaf0e0e07529060dca61f6c9}
+\hypertarget{classDust_a91cc6bf0a6060b14fa4e21759f3581c8}{}\index{Dust@{Dust}!gen\+System\+Def@{gen\+System\+Def}}
+\index{gen\+System\+Def@{gen\+System\+Def}!Dust@{Dust}}
+\subsubsection[{gen\+System\+Def}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Particle\+System\+Def Dust\+::gen\+System\+Def (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classDust_a91cc6bf0a6060b14fa4e21759f3581c8}
 \hypertarget{classDust_a6a61ed84ae1cbba8d0cdbc102a343f0f}{}\index{Dust@{Dust}!get\+Color\+A@{get\+Color\+A}}
 \index{get\+Color\+A@{get\+Color\+A}!Dust@{Dust}}
 \subsubsection[{get\+Color\+A}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Dust\+::get\+Color\+A (
@@ -133,6 +174,21 @@ displayed radius = ? $\ast$ physics radius
 
 Implements \hyperlink{classParticleSystem_a5b3bcfbc82de5d335f55173b049da517}{Particle\+System}.
 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classDust_aa726a6672b4777821df8efaa789549a3}{}\index{Dust@{Dust}!color\+A@{color\+A}}
+\index{color\+A@{color\+A}!Dust@{Dust}}
+\subsubsection[{color\+A}]{\setlength{\rightskip}{0pt plus 5cm}float Dust\+::color\+A\hspace{0.3cm}{\ttfamily [private]}}\label{classDust_aa726a6672b4777821df8efaa789549a3}
+\hypertarget{classDust_a3c3ad4aa31b2d0220cab1569743bb836}{}\index{Dust@{Dust}!color\+B@{color\+B}}
+\index{color\+B@{color\+B}!Dust@{Dust}}
+\subsubsection[{color\+B}]{\setlength{\rightskip}{0pt plus 5cm}float Dust\+::color\+B\hspace{0.3cm}{\ttfamily [private]}}\label{classDust_a3c3ad4aa31b2d0220cab1569743bb836}
+\hypertarget{classDust_a97d9fa2655101d2ea41c1a6a5f89bd32}{}\index{Dust@{Dust}!color\+G@{color\+G}}
+\index{color\+G@{color\+G}!Dust@{Dust}}
+\subsubsection[{color\+G}]{\setlength{\rightskip}{0pt plus 5cm}float Dust\+::color\+G\hspace{0.3cm}{\ttfamily [private]}}\label{classDust_a97d9fa2655101d2ea41c1a6a5f89bd32}
+\hypertarget{classDust_a38fced9e145e03d4bb548924bd99a7fd}{}\index{Dust@{Dust}!color\+R@{color\+R}}
+\index{color\+R@{color\+R}!Dust@{Dust}}
+\subsubsection[{color\+R}]{\setlength{\rightskip}{0pt plus 5cm}float Dust\+::color\+R\hspace{0.3cm}{\ttfamily [private]}}\label{classDust_a38fced9e145e03d4bb548924bd99a7fd}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

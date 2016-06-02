@@ -1,7 +1,10 @@
 <map id="ParticleSystem" name="ParticleSystem">
-<area shape="rect" id="node2" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="206,940,351,1179"/>
-<area shape="rect" id="node3" href="$classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="212,448,345,877"/>
-<area shape="rect" id="node4" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/>
-<area shape="rect" id="node5" href="$classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/>
-<area shape="rect" id="node7" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/>
+<area shape="rect" id="node2" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="214,5,359,259"/>
+<area shape="rect" id="node4" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="222,308,351,576"/>
+<area shape="rect" id="node3" href="$classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="383,639,516,1200"/>
+<area shape="rect" id="node7" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="277,1263,429,1736"/>
+<area shape="rect" id="node11" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="481,1343,613,1655"/>
+<area shape="rect" id="node5" href="$classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="467,403,642,481"/>
+<area shape="rect" id="node8" href="$classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="283,1813,423,1979"/>
+<area shape="rect" id="node9" href="$classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="667,374,861,510"/>
 </map>

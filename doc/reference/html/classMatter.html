@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classMatter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Matter Class Reference</div>  </div>
@@ -102,14 +103,14 @@ Inheritance diagram for Matter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMatter__inherit__graph.png" border="0" usemap="#Matter_inherit__map" alt="Inheritance graph"/></div>
 <map name="Matter_inherit__map" id="Matter_inherit__map">
-<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="329,329,521,479"/><area shape="rect" id="node6" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="911,292,1041,516"/><area shape="rect" id="node3" href="classDust.html" title="Dust rised when a rigid is damaged. " alt="" coords="5,608,197,759"/><area shape="rect" id="node4" href="classFlame.html" title="Set when bomb exploses. " alt="" coords="221,608,413,759"/><area shape="rect" id="node5" href="classWaterSquare.html" title="A square water area This must be use as a pool where the number of particles is static. " alt="" coords="437,608,629,759"/><area shape="rect" id="node7" href="classBlock.html" title="Base class of all dynamic square rigids. " alt="" coords="653,637,728,729"/><area shape="rect" id="node13" href="classBomb.html" title="r=0.5 round bomb " alt="" coords="752,564,875,803"/><area shape="rect" id="node14" href="classButton.html" title="{Button\&lt; imageName \&gt;\n||+ Button()\l+ getRenderMethod()\l+ getImage()\l}" alt="" coords="899,630,1053,737"/><area shape="rect" id="node15" href="classFrame.html" title="Frame around the world 1 unit thick. " alt="" coords="1077,615,1179,751"/><area shape="rect" id="node16" href="classSmallSteelBall.html" title="Steel r=0.5 ball. " alt="" coords="1203,601,1330,766"/><area shape="rect" id="node17" href="classStick.html" title="Base class with all that canDrawLine() Will create contact to what is linked. " alt="" coords="1354,593,1473,773"/><area shape="rect" id="node8" href="classEngine.html" title="Base class of engines. " alt="" coords="450,851,595,1104"/><area shape="rect" id="node11" href="classLargeWoodBlock.html" title="Dynamic 3X3 large wooden block Will Float. " alt="" coords="620,895,761,1060"/><area shape="rect" id="node12" href="classSmallWoodBlock.html" title="Dynamic 1X1 small wooden block Will Float. " alt="" coords="785,895,927,1060"/><area shape="rect" id="node9" href="classLargeEngine.html" title="2X4 Large engine that will provide a 300N force " alt="" coords="396,1152,511,1244"/><area shape="rect" id="node10" href="classSmallEngine.html" title="1X2 Small engine that will provide a 30N force " alt="" coords="535,1152,649,1244"/><area shape="rect" id="node18" href="classSteelStick.html" title="{SteelStick\n||+ SteelStick()\l+ SteelStick()\l+ getColorR()\l+ getColorG()\l+ getColorB()\l+ getColorA()\l+ getStrength()\l}" alt="" coords="1292,895,1401,1060"/><area shape="rect" id="node19" href="classWoodStick.html" title="{WoodStick\n||+ WoodStick()\l+ WoodStick()\l+ getColorR()\l+ getColorG()\l+ getColorB()\l+ getColorA()\l+ getStrength()\l}" alt="" coords="1425,895,1535,1060"/></map>
+<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="329,373,521,538"/><area shape="rect" id="node6" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="969,321,1098,589"/><area shape="rect" id="node3" href="classDust.html" title="Dust rised when a rigid is damaged. " alt="" coords="5,674,197,898"/><area shape="rect" id="node4" href="classFlame.html" title="Set when bomb exploses. " alt="" coords="221,696,413,876"/><area shape="rect" id="node5" href="classWaterSquare.html" title="A square water area This must be use as a pool where the number of particles is static. " alt="" coords="437,696,629,876"/><area shape="rect" id="node7" href="classBlock.html" title="Base class of all dynamic square rigids. " alt="" coords="654,725,781,847"/><area shape="rect" id="node13" href="classBomb.html" title="r=0.5 round bomb " alt="" coords="805,637,931,935"/><area shape="rect" id="node14" href="classButton.html" title="{Button\&lt; imageName \&gt;\n||+ Button()\l+ getRenderMethod()\l+ getImage()\l&#45; genBodyDef()\l&#45; genFixtureDefs()\l}" alt="" coords="956,718,1111,854"/><area shape="rect" id="node15" href="classFrame.html" title="Frame around the world 1 unit thick. " alt="" coords="1135,703,1262,869"/><area shape="rect" id="node16" href="classSmallSteelBall.html" title="Steel r=0.5 ball. " alt="" coords="1286,689,1413,883"/><area shape="rect" id="node17" href="classStick.html" title="Base class with all that canDrawLine() Will create contact to what is linked. " alt="" coords="1437,681,1563,891"/><area shape="rect" id="node8" href="classEngine.html" title="Base class of engines. " alt="" coords="477,983,622,1265"/><area shape="rect" id="node11" href="classLargeWoodBlock.html" title="Dynamic 3X3 large wooden block Will Float. " alt="" coords="647,1041,788,1207"/><area shape="rect" id="node12" href="classSmallWoodBlock.html" title="Dynamic 1X1 small wooden block Will Float. " alt="" coords="811,1041,954,1207"/><area shape="rect" id="node9" href="classLargeEngine.html" title="2X4 Large engine that will provide a 300N force " alt="" coords="423,1313,537,1405"/><area shape="rect" id="node10" href="classSmallEngine.html" title="1X2 Small engine that will provide a 30N force " alt="" coords="561,1313,676,1405"/><area shape="rect" id="node18" href="classSteelStick.html" title="{SteelStick\n||+ SteelStick()\l+ SteelStick()\l+ getColorR()\l+ getColorG()\l+ getColorB()\l+ getColorA()\l+ getStrength()\l}" alt="" coords="1379,1041,1488,1207"/><area shape="rect" id="node19" href="classWoodStick.html" title="{WoodStick\n||+ WoodStick()\l+ WoodStick()\l+ getColorR()\l+ getColorG()\l+ getColorB()\l+ getColorA()\l+ getStrength()\l}" alt="" coords="1512,1041,1621,1207"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for Matter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMatter__coll__graph.png" border="0" usemap="#Matter_coll__map" alt="Collaboration graph"/></div>
 <map name="Matter_coll__map" id="Matter_coll__map">
-<area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="212,448,345,877"/><area shape="rect" id="node3" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/><area shape="rect" id="node4" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/><area shape="rect" id="node6" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/></map>
+<area shape="rect" id="node3" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="5,308,135,576"/><area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="166,639,299,1200"/><area shape="rect" id="node6" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="61,1263,213,1736"/><area shape="rect" id="node10" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="264,1343,396,1655"/><area shape="rect" id="node4" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="251,403,425,481"/><area shape="rect" id="node7" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="67,1813,207,1979"/><area shape="rect" id="node8" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="450,374,645,510"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -168,6 +169,13 @@ Static Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:abdc5b13e2427e41c45af024acae015f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatter.html#abdc5b13e2427e41c45af024acae015f1">world</a></td></tr>
 <tr class="separator:abdc5b13e2427e41c45af024acae015f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae6c374ad27e583eb3a675350914394ae"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatter.html#ae6c374ad27e583eb3a675350914394ae">depth</a></td></tr>
+<tr class="separator:ae6c374ad27e583eb3a675350914394ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a702c712519468f6f68bc945f771c5044"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatter.html#a702c712519468f6f68bc945f771c5044">player</a></td></tr>
+<tr class="separator:a702c712519468f6f68bc945f771c5044"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class of all rigid bodies and particles. </p>
@@ -612,6 +620,46 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ae6c374ad27e583eb3a675350914394ae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Matter::depth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a702c712519468f6f68bc945f771c5044"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Matter::player</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="abdc5b13e2427e41c45af024acae015f1"></a>
 <div class="memitem">
 <div class="memproto">

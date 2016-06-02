@@ -1,5 +1,5 @@
 <map id="SmallWoodBlock" name="SmallWoodBlock">
-<area shape="rect" id="node2" href="$classBlock.html" title="Base class of all dynamic square rigids. " alt="" coords="41,564,115,656"/>
-<area shape="rect" id="node3" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="13,292,143,516"/>
-<area shape="rect" id="node4" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="5,5,151,244"/>
+<area shape="rect" id="node2" href="$classBlock.html" title="Base class of all dynamic square rigids. " alt="" coords="15,637,141,759"/>
+<area shape="rect" id="node3" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="13,321,143,589"/>
+<area shape="rect" id="node4" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="5,5,151,273"/>
 </map>

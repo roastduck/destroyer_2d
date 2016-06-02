@@ -11,7 +11,8 @@ r=0.\+5 round bomb
 
 
 
-Inheritance diagram for Bomb\+:\nopagebreak
+Inheritance diagram for Bomb\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for Bomb\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Bomb\+:\nopagebreak
+Collaboration diagram for Bomb\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -54,6 +56,22 @@ bool \hyperlink{classBomb_a3d417c9a938026479149709b76f43b6a}{should\+Bind} () co
 \begin{DoxyCompactList}\small\item\em shoud we bind a key to it? \end{DoxyCompactList}\item 
 void \hyperlink{classBomb_a9fe5b989387cc07b82b3da3ccfc3d0db}{key\+Pressed} () override
 \begin{DoxyCompactList}\small\item\em what should it do when the key above is pressed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static b2\+Body\+Def \hyperlink{classBomb_ae9ba4f88377f9735543b45267342df11}{gen\+Body\+Def} (float x, float y)
+\item 
+static std\+::vector$<$ b2\+Fixture\+Def $>$ \hyperlink{classBomb_acd39694e72c15a1553e3045ab1281a51}{gen\+Fixture\+Defs} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+friend \hyperlink{classBomb_a658d93baafd7925c4bf86ec9a6888f7a}{Saver}
+\item 
+int \hyperlink{classBomb_a726b2a3863e21ce6c727755455287ca9}{key}
+\item 
+clock\+\_\+t \hyperlink{classBomb_afc7bd37fd7d4b6bcb5ddac3deb73321d}{bind\+Clock}
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
@@ -113,6 +131,21 @@ create a damage effect and delete the rigid
 
 Reimplemented from \hyperlink{classRigid_a0b64c3d4381acc32987c18d6746f8e35}{Rigid}.
 
+\hypertarget{classBomb_ae9ba4f88377f9735543b45267342df11}{}\index{Bomb@{Bomb}!gen\+Body\+Def@{gen\+Body\+Def}}
+\index{gen\+Body\+Def@{gen\+Body\+Def}!Bomb@{Bomb}}
+\subsubsection[{gen\+Body\+Def}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Body\+Def Bomb\+::gen\+Body\+Def (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classBomb_ae9ba4f88377f9735543b45267342df11}
+\hypertarget{classBomb_acd39694e72c15a1553e3045ab1281a51}{}\index{Bomb@{Bomb}!gen\+Fixture\+Defs@{gen\+Fixture\+Defs}}
+\index{gen\+Fixture\+Defs@{gen\+Fixture\+Defs}!Bomb@{Bomb}}
+\subsubsection[{gen\+Fixture\+Defs}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ b2\+Fixture\+Def $>$ Bomb\+::gen\+Fixture\+Defs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classBomb_acd39694e72c15a1553e3045ab1281a51}
 \hypertarget{classBomb_a19e85b4632b547de51bde57844065efa}{}\index{Bomb@{Bomb}!get\+Color\+A@{get\+Color\+A}}
 \index{get\+Color\+A@{get\+Color\+A}!Bomb@{Bomb}}
 \subsubsection[{get\+Color\+A}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Bomb\+::get\+Color\+A (
@@ -217,6 +250,18 @@ shoud we bind a key to it?
 
 Reimplemented from \hyperlink{classRigid_a213d4ddd819ea799b7a29961b0d66f39}{Rigid}.
 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBomb_afc7bd37fd7d4b6bcb5ddac3deb73321d}{}\index{Bomb@{Bomb}!bind\+Clock@{bind\+Clock}}
+\index{bind\+Clock@{bind\+Clock}!Bomb@{Bomb}}
+\subsubsection[{bind\+Clock}]{\setlength{\rightskip}{0pt plus 5cm}clock\+\_\+t Bomb\+::bind\+Clock\hspace{0.3cm}{\ttfamily [private]}}\label{classBomb_afc7bd37fd7d4b6bcb5ddac3deb73321d}
+\hypertarget{classBomb_a726b2a3863e21ce6c727755455287ca9}{}\index{Bomb@{Bomb}!key@{key}}
+\index{key@{key}!Bomb@{Bomb}}
+\subsubsection[{key}]{\setlength{\rightskip}{0pt plus 5cm}int Bomb\+::key\hspace{0.3cm}{\ttfamily [private]}}\label{classBomb_a726b2a3863e21ce6c727755455287ca9}
+\hypertarget{classBomb_a658d93baafd7925c4bf86ec9a6888f7a}{}\index{Bomb@{Bomb}!Saver@{Saver}}
+\index{Saver@{Saver}!Bomb@{Bomb}}
+\subsubsection[{Saver}]{\setlength{\rightskip}{0pt plus 5cm}friend Bomb\+::\+Saver\hspace{0.3cm}{\ttfamily [private]}}\label{classBomb_a658d93baafd7925c4bf86ec9a6888f7a}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -85,6 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classSaver-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Saver Class Reference</div>  </div>
@@ -99,6 +102,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Collaboration diagram for Saver:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSaver__coll__graph.png" border="0" usemap="#Saver_coll__map" alt="Collaboration graph"/></div>
+<map name="Saver_coll__map" id="Saver_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -117,10 +122,218 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae756def2e0ce4c2317b355a9fd12073e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classSaver.html">Saver</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#ae756def2e0ce4c2317b355a9fd12073e">getInstance</a> ()</td></tr>
 <tr class="memdesc:ae756def2e0ce4c2317b355a9fd12073e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton is for convenient. One can still instantiate this class.  <a href="#ae756def2e0ce4c2317b355a9fd12073e">More...</a><br /></td></tr>
 <tr class="separator:ae756def2e0ce4c2317b355a9fd12073e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a4b7186206c8281c11545f6f470ce1c4c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4c">MatterId</a> { <br />
+&#160;&#160;<a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4cadc4cb432770173e5dac9033af2b519b5">ID_SMALL_WOOD_BLOCK</a>, 
+<a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4ca4e4da04edff46f022a7bb5c06be473a5">ID_LARGE_WOOD_BLOCK</a>, 
+<a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4cab238aa86f5fa92af754fc76f303fdb63">ID_SMALL_ENGINE</a>, 
+<a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4ca0b7a09f49f5c35a317a988bf36424a05">ID_LARGE_ENGINE</a>, 
+<br />
+&#160;&#160;<a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4ca9c3b8fdbfc242fcbafed4ea20d5c70c4">ID_SMALL_STEEL_BALL</a>, 
+<a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4ca20b729a25c2a6d9aff9a60005a223669">ID_BOMB</a>, 
+<a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4cabe5bdd6c6760493c96fb779f2f668e9f">ID_STEEL_STICK</a>, 
+<a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4caeb6dd695baa11c27df56be2449764aac">ID_WOOD_STICK</a>
+<br />
+ }</td></tr>
+<tr class="separator:a4b7186206c8281c11545f6f470ce1c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a4458961f17bff6b74c5371913b96cb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#a8a4458961f17bff6b74c5371913b96cb">IOFlag</a> { <a class="el" href="classSaver.html#a8a4458961f17bff6b74c5371913b96cba95ba68df9b87cd417334814cf93fd64e">IO_CONTINUE</a> = 1, 
+<a class="el" href="classSaver.html#a8a4458961f17bff6b74c5371913b96cbaf96071109d6afd5fc6886f7822ee794e">IO_STOP</a> = 2
+ }</td></tr>
+<tr class="separator:a8a4458961f17bff6b74c5371913b96cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aacbf5734698c3149610a4bb662e6b7a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4c">MatterId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#aacbf5734698c3149610a4bb662e6b7a6">getMatterId</a> (const <a class="el" href="classMatter.html">Matter</a> *m)</td></tr>
+<tr class="separator:aacbf5734698c3149610a4bb662e6b7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c21a193540bc5652adf01fac246b87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSaver.html#a8a4458961f17bff6b74c5371913b96cb">IOFlag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#af7c21a193540bc5652adf01fac246b87">getFlag</a> (std::istream &amp;is)</td></tr>
+<tr class="separator:af7c21a193540bc5652adf01fac246b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eea54e9f257b1f1c8cee05489977f08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#a2eea54e9f257b1f1c8cee05489977f08">getBodyData</a> (std::ostream &amp;os, const b2Body *<a class="el" href="image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b">b</a>)</td></tr>
+<tr class="separator:a2eea54e9f257b1f1c8cee05489977f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1800b9c649a6c42b1fceb20a733ad0"><td class="memItemLeft" align="right" valign="top">b2Body *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#a8c1800b9c649a6c42b1fceb20a733ad0">setBodyData</a> (std::istream &amp;is, b2World *w, float offsetX=0)</td></tr>
+<tr class="separator:a8c1800b9c649a6c42b1fceb20a733ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace5852ac02fc878508eb3e3453109c83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#ace5852ac02fc878508eb3e3453109c83">getFixtureData</a> (std::ostream &amp;os, const b2Fixture *f)</td></tr>
+<tr class="separator:ace5852ac02fc878508eb3e3453109c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25f2bc2d10b5657f0644d5a5b9e66b56"><td class="memItemLeft" align="right" valign="top">b2Fixture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#a25f2bc2d10b5657f0644d5a5b9e66b56">setFixtureData</a> (std::istream &amp;is, b2Body *<a class="el" href="image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b">b</a>)</td></tr>
+<tr class="separator:a25f2bc2d10b5657f0644d5a5b9e66b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af47da77dffe6da1329d28606fb0ddc9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#af47da77dffe6da1329d28606fb0ddc9e">getJointData</a> (std::ostream &amp;os, const b2Joint *j)</td></tr>
+<tr class="separator:af47da77dffe6da1329d28606fb0ddc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7885d03e6bda27349b7c4e2963d542a4"><td class="memItemLeft" align="right" valign="top">b2Joint *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#a7885d03e6bda27349b7c4e2963d542a4">setJointData</a> (std::istream &amp;is, b2World *w)</td></tr>
+<tr class="separator:a7885d03e6bda27349b7c4e2963d542a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1884d3058fbdb6567bd305b5caa47ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#ad1884d3058fbdb6567bd305b5caa47ca">getMatterData</a> (std::ostream &amp;os, const <a class="el" href="classMatter.html">Matter</a> *m)</td></tr>
+<tr class="separator:ad1884d3058fbdb6567bd305b5caa47ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d3368c3fe590ec0de618770e9cd46c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatter.html">Matter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#a1d3368c3fe590ec0de618770e9cd46c5">setMatterData</a> (std::istream &amp;is, <a class="el" href="classWorld.html">World</a> *world, b2Body *<a class="el" href="image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b">b</a>, int player)</td></tr>
+<tr class="separator:a1d3368c3fe590ec0de618770e9cd46c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:adc3e3088cb556e80d587c81a517bc6d1"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; const b2Body *, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#adc3e3088cb556e80d587c81a517bc6d1">tempId</a></td></tr>
+<tr class="separator:adc3e3088cb556e80d587c81a517bc6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef2dd9f1f4469247747a9b3d4dd871b6"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, b2Body * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSaver.html#aef2dd9f1f4469247747a9b3d4dd871b6">tempAddr</a></td></tr>
+<tr class="memdesc:aef2dd9f1f4469247747a9b3d4dd871b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">used while saving  <a href="#aef2dd9f1f4469247747a9b3d4dd871b6">More...</a><br /></td></tr>
+<tr class="separator:aef2dd9f1f4469247747a9b3d4dd871b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classSaver.html" title="Saver manages game saving and loading. ">Saver</a> manages game saving and loading. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="a8a4458961f17bff6b74c5371913b96cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classSaver.html#a8a4458961f17bff6b74c5371913b96cb">Saver::IOFlag</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a8a4458961f17bff6b74c5371913b96cba95ba68df9b87cd417334814cf93fd64e"></a>IO_CONTINUE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a8a4458961f17bff6b74c5371913b96cbaf96071109d6afd5fc6886f7822ee794e"></a>IO_STOP&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4c">Saver::MatterId</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4cadc4cb432770173e5dac9033af2b519b5"></a>ID_SMALL_WOOD_BLOCK&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4ca4e4da04edff46f022a7bb5c06be473a5"></a>ID_LARGE_WOOD_BLOCK&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4cab238aa86f5fa92af754fc76f303fdb63"></a>ID_SMALL_ENGINE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4ca0b7a09f49f5c35a317a988bf36424a05"></a>ID_LARGE_ENGINE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4ca9c3b8fdbfc242fcbafed4ea20d5c70c4"></a>ID_SMALL_STEEL_BALL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4ca20b729a25c2a6d9aff9a60005a223669"></a>ID_BOMB&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4cabe5bdd6c6760493c96fb779f2f668e9f"></a>ID_STEEL_STICK&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a4b7186206c8281c11545f6f470ce1c4caeb6dd695baa11c27df56be2449764aac"></a>ID_WOOD_STICK&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2eea54e9f257b1f1c8cee05489977f08"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Saver::getBodyData </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const b2Body *&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ace5852ac02fc878508eb3e3453109c83"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Saver::getFixtureData </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const b2Fixture *&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af7c21a193540bc5652adf01fac246b87"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSaver.html#a8a4458961f17bff6b74c5371913b96cb">Saver::IOFlag</a> Saver::getFlag </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ae756def2e0ce4c2317b355a9fd12073e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -143,6 +356,98 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Singleton is for convenient. One can still instantiate this class. </p>
+
+</div>
+</div>
+<a class="anchor" id="af47da77dffe6da1329d28606fb0ddc9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Saver::getJointData </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const b2Joint *&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad1884d3058fbdb6567bd305b5caa47ca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Saver::getMatterData </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMatter.html">Matter</a> *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aacbf5734698c3149610a4bb662e6b7a6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSaver.html#a4b7186206c8281c11545f6f470ce1c4c">Saver::MatterId</a> Saver::getMatterId </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatter.html">Matter</a> *&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -243,6 +548,203 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>If the path should be dir1/dir2/save, path = {dir1, dir2, save} This enhanced cross-platform behavior. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8c1800b9c649a6c42b1fceb20a733ad0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2Body * Saver::setBodyData </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2World *&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>offsetX</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a25f2bc2d10b5657f0644d5a5b9e66b56"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2Fixture * Saver::setFixtureData </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Body *&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7885d03e6bda27349b7c4e2963d542a4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2Joint * Saver::setJointData </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2World *&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1d3368c3fe590ec0de618770e9cd46c5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatter.html">Matter</a> * Saver::setMatterData </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classWorld.html">World</a> *&#160;</td>
+          <td class="paramname"><em>world</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Body *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aef2dd9f1f4469247747a9b3d4dd871b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, b2Body*&gt; Saver::tempAddr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>used while saving </p>
+
+</div>
+</div>
+<a class="anchor" id="adc3e3088cb556e80d587c81a517bc6d1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;const b2Body*, int&gt; Saver::tempId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

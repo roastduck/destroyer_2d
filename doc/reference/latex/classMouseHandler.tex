@@ -11,11 +11,12 @@ Forwards mouse actions to \hyperlink{classMatter}{Matter}.
 
 
 
-Collaboration diagram for Mouse\+Handler\+:\nopagebreak
+Collaboration diagram for Mouse\+Handler\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=194pt]{classMouseHandler__coll__graph}
+\includegraphics[height=550pt]{classMouseHandler__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Types}
@@ -53,6 +54,50 @@ bool \hyperlink{classMouseHandler_ae0bda6b1555601ea331951e813848260}{get\+Left\+
 bool \hyperlink{classMouseHandler_ac94dc769799b712128bc6af848d187e3}{get\+Right\+Clicked} () const 
 \item 
 \hyperlink{classWorld}{World} $\ast$ \hyperlink{classMouseHandler_a35f26398677136e135a72286f40e7f61}{get\+World} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMouseHandler_aafb50967285e8c1a453d45c35f888810}{trigger\+Callback} (\hyperlink{classMouseCallback}{Mouse\+Callback} $\ast$callback)
+\item 
+void \hyperlink{classMouseHandler_ac065172398b09cf5823d2b5ae739e8e0}{process\+Free} ()
+\item 
+void \hyperlink{classMouseHandler_ad9b30d8f27f8aa35cb9e4afb47f2dca3}{process\+Putting} ()
+\item 
+void \hyperlink{classMouseHandler_a8ec027e132bbeae8afd7c9716c92631b}{reset} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorld}{World} $\ast$ \hyperlink{classMouseHandler_a90ecdcff9ced6f454c66cad224a1e914}{m\+World}
+\item 
+float \hyperlink{classMouseHandler_a410ce28feb21ea6f6426c9f96f9bba2f}{world\+X}
+\item 
+float \hyperlink{classMouseHandler_ab3a5274610896b90da3adf48345cfa3a}{world\+Y}
+\item 
+bool \hyperlink{classMouseHandler_ae6ab60c2b4761c3e90bfaab2e305e41e}{left\+Clicked}
+\item 
+bool \hyperlink{classMouseHandler_a0f6f7ab59e4ad42bcaf7e6549ff6566f}{right\+Clicked}
+\item 
+bool \hyperlink{classMouseHandler_a42f557e16701dab03efb4f99374ea524}{left\+Hold}
+\item 
+bool \hyperlink{classMouseHandler_af2f5a2328ceb7ba92728c71076ceb813}{right\+Hold}
+\item 
+bool \hyperlink{classMouseHandler_a34bc772a5e68fe68bb57ae495ef1fe69}{left\+Release}
+\item 
+bool \hyperlink{classMouseHandler_a53838184bd9bc307e5429b551f96c1ac}{right\+Release}
+\item 
+clock\+\_\+t \hyperlink{classMouseHandler_a6c3cee7fc0ca734bace60b951fb96b14}{last\+Clicked\+Clock}
+\item 
+\hyperlink{classMouseHandler_af967315727aa1d435d55cc704e64fd1a}{Mouse\+Status} \hyperlink{classMouseHandler_a34fd395066a9b32fe9a966ec4e1d5ea6}{status}
+\item 
+std\+::list$<$ std\+::pair$<$ \hyperlink{classRigid}{Rigid} $\ast$, \hyperlink{classMouseCallback}{Mouse\+Callback} $\ast$ $>$ $>$ \hyperlink{classMouseHandler_acfb0584232c1d5b8a87028d3008133e3}{buttons}
+\item 
+\hyperlink{classMouseCallback}{Mouse\+Callback} $\ast$ \hyperlink{classMouseHandler_a8e23b23bd4415cd057636573f6e8db30}{m\+Free\+Callback}
+\item 
+\hyperlink{classMouseCallback}{Mouse\+Callback} $\ast$ \hyperlink{classMouseHandler_a23f5b0cedc9e4c87060dcd3e10b943f4}{m\+Putting\+Callback}
+\item 
+bool \hyperlink{classMouseHandler_a29da34736a6d4f948a536f4d95bb146e}{enable\+Callback}
 \end{DoxyCompactItemize}
 
 
@@ -147,6 +192,27 @@ Clean all the buttons and delete the corresponding callbacks.
 
 main entry to process 
 
+\hypertarget{classMouseHandler_ac065172398b09cf5823d2b5ae739e8e0}{}\index{Mouse\+Handler@{Mouse\+Handler}!process\+Free@{process\+Free}}
+\index{process\+Free@{process\+Free}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{process\+Free}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::process\+Free (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_ac065172398b09cf5823d2b5ae739e8e0}
+\hypertarget{classMouseHandler_ad9b30d8f27f8aa35cb9e4afb47f2dca3}{}\index{Mouse\+Handler@{Mouse\+Handler}!process\+Putting@{process\+Putting}}
+\index{process\+Putting@{process\+Putting}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{process\+Putting}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::process\+Putting (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_ad9b30d8f27f8aa35cb9e4afb47f2dca3}
+\hypertarget{classMouseHandler_a8ec027e132bbeae8afd7c9716c92631b}{}\index{Mouse\+Handler@{Mouse\+Handler}!reset@{reset}}
+\index{reset@{reset}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a8ec027e132bbeae8afd7c9716c92631b}
 \hypertarget{classMouseHandler_a3a64869cf23c6d979ce6ac4a0127a93e}{}\index{Mouse\+Handler@{Mouse\+Handler}!set\+Enable\+Callback@{set\+Enable\+Callback}}
 \index{set\+Enable\+Callback@{set\+Enable\+Callback}!Mouse\+Handler@{Mouse\+Handler}}
 \subsubsection[{set\+Enable\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::set\+Enable\+Callback (
@@ -192,6 +258,13 @@ This callback will be deleted when switching status. \hypertarget{classMouseHand
 
 set woring status callback used for corresponding status can be set through the 2nd parameter, O\+N\+L\+Y if it is not N\+U\+L\+L. 
 
+\hypertarget{classMouseHandler_aafb50967285e8c1a453d45c35f888810}{}\index{Mouse\+Handler@{Mouse\+Handler}!trigger\+Callback@{trigger\+Callback}}
+\index{trigger\+Callback@{trigger\+Callback}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{trigger\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::trigger\+Callback (
+\begin{DoxyParamCaption}
+\item[{{\bf Mouse\+Callback} $\ast$}]{callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_aafb50967285e8c1a453d45c35f888810}
 \hypertarget{classMouseHandler_a0a7df02e71fbbb14f5a80163ee065c8b}{}\index{Mouse\+Handler@{Mouse\+Handler}!update\+Mouse@{update\+Mouse}}
 \index{update\+Mouse@{update\+Mouse}!Mouse\+Handler@{Mouse\+Handler}}
 \subsubsection[{update\+Mouse}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\+Handler\+::update\+Mouse (
@@ -203,6 +276,54 @@ set woring status callback used for corresponding status can be set through the 
 
 update current mouse status from G\+L\+F\+W should be public for \hyperlink{classWorld}{World} to set it as friend 
 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMouseHandler_acfb0584232c1d5b8a87028d3008133e3}{}\index{Mouse\+Handler@{Mouse\+Handler}!buttons@{buttons}}
+\index{buttons@{buttons}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{buttons}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ std\+::pair$<${\bf Rigid}$\ast$, {\bf Mouse\+Callback}$\ast$$>$ $>$ Mouse\+Handler\+::buttons\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_acfb0584232c1d5b8a87028d3008133e3}
+\hypertarget{classMouseHandler_a29da34736a6d4f948a536f4d95bb146e}{}\index{Mouse\+Handler@{Mouse\+Handler}!enable\+Callback@{enable\+Callback}}
+\index{enable\+Callback@{enable\+Callback}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{enable\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::enable\+Callback\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a29da34736a6d4f948a536f4d95bb146e}
+\hypertarget{classMouseHandler_a6c3cee7fc0ca734bace60b951fb96b14}{}\index{Mouse\+Handler@{Mouse\+Handler}!last\+Clicked\+Clock@{last\+Clicked\+Clock}}
+\index{last\+Clicked\+Clock@{last\+Clicked\+Clock}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{last\+Clicked\+Clock}]{\setlength{\rightskip}{0pt plus 5cm}clock\+\_\+t Mouse\+Handler\+::last\+Clicked\+Clock\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a6c3cee7fc0ca734bace60b951fb96b14}
+\hypertarget{classMouseHandler_ae6ab60c2b4761c3e90bfaab2e305e41e}{}\index{Mouse\+Handler@{Mouse\+Handler}!left\+Clicked@{left\+Clicked}}
+\index{left\+Clicked@{left\+Clicked}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{left\+Clicked}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::left\+Clicked\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_ae6ab60c2b4761c3e90bfaab2e305e41e}
+\hypertarget{classMouseHandler_a42f557e16701dab03efb4f99374ea524}{}\index{Mouse\+Handler@{Mouse\+Handler}!left\+Hold@{left\+Hold}}
+\index{left\+Hold@{left\+Hold}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{left\+Hold}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::left\+Hold\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a42f557e16701dab03efb4f99374ea524}
+\hypertarget{classMouseHandler_a34bc772a5e68fe68bb57ae495ef1fe69}{}\index{Mouse\+Handler@{Mouse\+Handler}!left\+Release@{left\+Release}}
+\index{left\+Release@{left\+Release}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{left\+Release}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::left\+Release\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a34bc772a5e68fe68bb57ae495ef1fe69}
+\hypertarget{classMouseHandler_a8e23b23bd4415cd057636573f6e8db30}{}\index{Mouse\+Handler@{Mouse\+Handler}!m\+Free\+Callback@{m\+Free\+Callback}}
+\index{m\+Free\+Callback@{m\+Free\+Callback}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{m\+Free\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mouse\+Callback}$\ast$ Mouse\+Handler\+::m\+Free\+Callback\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a8e23b23bd4415cd057636573f6e8db30}
+\hypertarget{classMouseHandler_a23f5b0cedc9e4c87060dcd3e10b943f4}{}\index{Mouse\+Handler@{Mouse\+Handler}!m\+Putting\+Callback@{m\+Putting\+Callback}}
+\index{m\+Putting\+Callback@{m\+Putting\+Callback}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{m\+Putting\+Callback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mouse\+Callback} $\ast$ Mouse\+Handler\+::m\+Putting\+Callback\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a23f5b0cedc9e4c87060dcd3e10b943f4}
+\hypertarget{classMouseHandler_a90ecdcff9ced6f454c66cad224a1e914}{}\index{Mouse\+Handler@{Mouse\+Handler}!m\+World@{m\+World}}
+\index{m\+World@{m\+World}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{m\+World}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World}$\ast$ Mouse\+Handler\+::m\+World\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a90ecdcff9ced6f454c66cad224a1e914}
+\hypertarget{classMouseHandler_a0f6f7ab59e4ad42bcaf7e6549ff6566f}{}\index{Mouse\+Handler@{Mouse\+Handler}!right\+Clicked@{right\+Clicked}}
+\index{right\+Clicked@{right\+Clicked}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{right\+Clicked}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::right\+Clicked\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a0f6f7ab59e4ad42bcaf7e6549ff6566f}
+\hypertarget{classMouseHandler_af2f5a2328ceb7ba92728c71076ceb813}{}\index{Mouse\+Handler@{Mouse\+Handler}!right\+Hold@{right\+Hold}}
+\index{right\+Hold@{right\+Hold}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{right\+Hold}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::right\+Hold\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_af2f5a2328ceb7ba92728c71076ceb813}
+\hypertarget{classMouseHandler_a53838184bd9bc307e5429b551f96c1ac}{}\index{Mouse\+Handler@{Mouse\+Handler}!right\+Release@{right\+Release}}
+\index{right\+Release@{right\+Release}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{right\+Release}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\+Handler\+::right\+Release\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a53838184bd9bc307e5429b551f96c1ac}
+\hypertarget{classMouseHandler_a34fd395066a9b32fe9a966ec4e1d5ea6}{}\index{Mouse\+Handler@{Mouse\+Handler}!status@{status}}
+\index{status@{status}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mouse\+Status} Mouse\+Handler\+::status\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a34fd395066a9b32fe9a966ec4e1d5ea6}
+\hypertarget{classMouseHandler_a410ce28feb21ea6f6426c9f96f9bba2f}{}\index{Mouse\+Handler@{Mouse\+Handler}!world\+X@{world\+X}}
+\index{world\+X@{world\+X}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{world\+X}]{\setlength{\rightskip}{0pt plus 5cm}float Mouse\+Handler\+::world\+X\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_a410ce28feb21ea6f6426c9f96f9bba2f}
+\hypertarget{classMouseHandler_ab3a5274610896b90da3adf48345cfa3a}{}\index{Mouse\+Handler@{Mouse\+Handler}!world\+Y@{world\+Y}}
+\index{world\+Y@{world\+Y}!Mouse\+Handler@{Mouse\+Handler}}
+\subsubsection[{world\+Y}]{\setlength{\rightskip}{0pt plus 5cm}float Mouse\+Handler\+::world\+Y\hspace{0.3cm}{\ttfamily [private]}}\label{classMouseHandler_ab3a5274610896b90da3adf48345cfa3a}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

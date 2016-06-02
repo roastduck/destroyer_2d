@@ -11,7 +11,8 @@ All object in a scenario Interact with Open\+G\+L and Liquid\+Fun.
 
 
 
-Inheritance diagram for World\+:\nopagebreak
+Inheritance diagram for World\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,11 +21,12 @@ Inheritance diagram for World\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for World\+:\nopagebreak
+Collaboration diagram for World\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classWorld__coll__graph}
+\includegraphics[height=550pt]{classWorld__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Classes}
@@ -32,6 +34,8 @@ Collaboration diagram for World\+:\nopagebreak
 \item 
 class \hyperlink{classWorld_1_1GlobalTestPoint}{Global\+Test\+Point}
 \begin{DoxyCompactList}\small\item\em A helper for finding a fixture overlapping with a point. \end{DoxyCompactList}\item 
+class \hyperlink{classWorld_1_1MyContactListener}{My\+Contact\+Listener}
+\item 
 class \hyperlink{classWorld_1_1MyDestructionListener}{My\+Destruction\+Listener}
 \begin{DoxyCompactList}\small\item\em Manger for all destruction listener. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
@@ -104,6 +108,34 @@ float \hyperlink{classWorld_a3ef0e1ad2396eab18e18684f11d91529}{my}
 \item 
 b2\+World $\ast$ \hyperlink{classWorld_a99f3098ee94a83726a1ea67ea515417f}{physics}
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorld_a3979ccd68086a0954040665845c3cd1c}{exam\+Contact} ()
+\begin{DoxyCompactList}\small\item\em Examine contacts and make danmages. \end{DoxyCompactList}\item 
+void \hyperlink{classWorld_a1b4130ee5a4f36a6dbc13767489aef08}{check\+Keyboard} ()
+\begin{DoxyCompactList}\small\item\em Check keyboard Actions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorld_1_1MyContactListener}{World\+::\+My\+Contact\+Listener} \hyperlink{classWorld_a558284d05f4c41360eacba52df48c389}{my\+Contact\+Listener}
+\item 
+std\+::string \hyperlink{classWorld_a9fafe9a7426c487a992615e518e90b23}{popup\+Msg}
+\item 
+float \hyperlink{classWorld_a66ec162a547f0b34a40b98f867833f64}{popup\+L}
+\item 
+float \hyperlink{classWorld_a9494741a4ec9fa6f5464d65e7bba936d}{popup\+R}
+\item 
+float \hyperlink{classWorld_ac01138a7966b75a74c468f3a45aa58ee}{popup\+D}
+\item 
+float \hyperlink{classWorld_a0ead2d71b58e78a8f321994436b3ed03}{popup\+U}
+\item 
+b2\+Body $\ast$ \hyperlink{classWorld_a2064bf96839978201b9b332dda472dee}{frame\+Body}
+\item 
+\hyperlink{classRigid}{Rigid} $\ast$ \hyperlink{classWorld_a412f2eb7706336e953b24031447a5060}{requiring\+Key}
+\item 
+std\+::string \hyperlink{classWorld_a08c11650552d3e7a723b09afc628dfb3}{bind\+Msg}
+\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -156,6 +188,17 @@ delete \hyperlink{classMatter}{Matter} objects and then delete physics
 
 Cancel popup window. 
 
+\hypertarget{classWorld_a1b4130ee5a4f36a6dbc13767489aef08}{}\index{World@{World}!check\+Keyboard@{check\+Keyboard}}
+\index{check\+Keyboard@{check\+Keyboard}!World@{World}}
+\subsubsection[{check\+Keyboard}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::check\+Keyboard (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a1b4130ee5a4f36a6dbc13767489aef08}
+
+
+Check keyboard Actions. 
+
 \hypertarget{classWorld_a6c2c794397ae3dad108e43caae240adb}{}\index{World@{World}!display\+Popup@{display\+Popup}}
 \index{display\+Popup@{display\+Popup}!World@{World}}
 \subsubsection[{display\+Popup}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::display\+Popup (
@@ -181,6 +224,17 @@ Display a popup window until calling \hyperlink{classWorld_aa8d19774db3f38338969
 
 
 Draw every \hyperlink{classMatter}{Matter} into Open\+G\+L Things can be drawn out of draw\+All. 
+
+\hypertarget{classWorld_a3979ccd68086a0954040665845c3cd1c}{}\index{World@{World}!exam\+Contact@{exam\+Contact}}
+\index{exam\+Contact@{exam\+Contact}!World@{World}}
+\subsubsection[{exam\+Contact}]{\setlength{\rightskip}{0pt plus 5cm}void World\+::exam\+Contact (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a3979ccd68086a0954040665845c3cd1c}
+
+
+Examine contacts and make danmages. 
 
 \hypertarget{classWorld_a216fe468428599cef4058dd704d3dfc6}{}\index{World@{World}!get\+Frame\+Body@{get\+Frame\+Body}}
 \index{get\+Frame\+Body@{get\+Frame\+Body}!World@{World}}
@@ -244,6 +298,10 @@ Get 1 pixel = ? meter.
 
 
 Is player p\textquotesingle{}s key down? 
+
+
+
+Reimplemented in \hyperlink{classMainWorld_a8e17a525de341eda83c8bcb1020e779b}{Main\+World}.
 
 \hypertarget{classWorld_a1da0d80d5a3fcf7858efefeaa9054569}{}\index{World@{World}!require\+Key@{require\+Key}}
 \index{require\+Key@{require\+Key}!World@{World}}
@@ -316,6 +374,19 @@ Reimplemented in \hyperlink{classMainWorld_a8ac7fe4b17bb3ca29a0382b93a24731e}{Ma
 
 
 \subsection{Member Data Documentation}
+\hypertarget{classWorld_a08c11650552d3e7a723b09afc628dfb3}{}\index{World@{World}!bind\+Msg@{bind\+Msg}}
+\index{bind\+Msg@{bind\+Msg}!World@{World}}
+\subsubsection[{bind\+Msg}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string World\+::bind\+Msg\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a08c11650552d3e7a723b09afc628dfb3}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+        \textcolor{stringliteral}{"  PLEASE CHOOSE A KEY TO HANDLE THIS OBJECT.\(\backslash\)n"}
+        \textcolor{stringliteral}{"\(\backslash\)n"}
+        \textcolor{stringliteral}{"  ...MUST BE A LETTER...\(\backslash\)n"}
+\end{DoxyCode}
+\hypertarget{classWorld_a2064bf96839978201b9b332dda472dee}{}\index{World@{World}!frame\+Body@{frame\+Body}}
+\index{frame\+Body@{frame\+Body}!World@{World}}
+\subsubsection[{frame\+Body}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Body$\ast$ World\+::frame\+Body\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a2064bf96839978201b9b332dda472dee}
 \hypertarget{classWorld_a6c703fe8401bc1516dd6e8c474a8a74f}{}\index{World@{World}!m\+Cur\+Down\+Most@{m\+Cur\+Down\+Most}}
 \index{m\+Cur\+Down\+Most@{m\+Cur\+Down\+Most}!World@{World}}
 \subsubsection[{m\+Cur\+Down\+Most}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::m\+Cur\+Down\+Most\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a6c703fe8401bc1516dd6e8c474a8a74f}
@@ -352,12 +423,33 @@ Reimplemented in \hyperlink{classMainWorld_a8ac7fe4b17bb3ca29a0382b93a24731e}{Ma
 \hypertarget{classWorld_a3ef0e1ad2396eab18e18684f11d91529}{}\index{World@{World}!my@{my}}
 \index{my@{my}!World@{World}}
 \subsubsection[{my}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::my\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a3ef0e1ad2396eab18e18684f11d91529}
+\hypertarget{classWorld_a558284d05f4c41360eacba52df48c389}{}\index{World@{World}!my\+Contact\+Listener@{my\+Contact\+Listener}}
+\index{my\+Contact\+Listener@{my\+Contact\+Listener}!World@{World}}
+\subsubsection[{my\+Contact\+Listener}]{\setlength{\rightskip}{0pt plus 5cm} {\bf World\+::\+My\+Contact\+Listener}  World\+::my\+Contact\+Listener\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a558284d05f4c41360eacba52df48c389}
 \hypertarget{classWorld_a9fe52553a01225766d31480cc99b79ef}{}\index{World@{World}!my\+Destruction\+Listener@{my\+Destruction\+Listener}}
 \index{my\+Destruction\+Listener@{my\+Destruction\+Listener}!World@{World}}
 \subsubsection[{my\+Destruction\+Listener}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World\+::\+My\+Destruction\+Listener} World\+::my\+Destruction\+Listener\hspace{0.3cm}{\ttfamily [static]}}\label{classWorld_a9fe52553a01225766d31480cc99b79ef}
 \hypertarget{classWorld_a99f3098ee94a83726a1ea67ea515417f}{}\index{World@{World}!physics@{physics}}
 \index{physics@{physics}!World@{World}}
 \subsubsection[{physics}]{\setlength{\rightskip}{0pt plus 5cm}b2\+World$\ast$ World\+::physics\hspace{0.3cm}{\ttfamily [protected]}}\label{classWorld_a99f3098ee94a83726a1ea67ea515417f}
+\hypertarget{classWorld_ac01138a7966b75a74c468f3a45aa58ee}{}\index{World@{World}!popup\+D@{popup\+D}}
+\index{popup\+D@{popup\+D}!World@{World}}
+\subsubsection[{popup\+D}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::popup\+D\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_ac01138a7966b75a74c468f3a45aa58ee}
+\hypertarget{classWorld_a66ec162a547f0b34a40b98f867833f64}{}\index{World@{World}!popup\+L@{popup\+L}}
+\index{popup\+L@{popup\+L}!World@{World}}
+\subsubsection[{popup\+L}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::popup\+L\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a66ec162a547f0b34a40b98f867833f64}
+\hypertarget{classWorld_a9fafe9a7426c487a992615e518e90b23}{}\index{World@{World}!popup\+Msg@{popup\+Msg}}
+\index{popup\+Msg@{popup\+Msg}!World@{World}}
+\subsubsection[{popup\+Msg}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string World\+::popup\+Msg\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a9fafe9a7426c487a992615e518e90b23}
+\hypertarget{classWorld_a9494741a4ec9fa6f5464d65e7bba936d}{}\index{World@{World}!popup\+R@{popup\+R}}
+\index{popup\+R@{popup\+R}!World@{World}}
+\subsubsection[{popup\+R}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::popup\+R\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a9494741a4ec9fa6f5464d65e7bba936d}
+\hypertarget{classWorld_a0ead2d71b58e78a8f321994436b3ed03}{}\index{World@{World}!popup\+U@{popup\+U}}
+\index{popup\+U@{popup\+U}!World@{World}}
+\subsubsection[{popup\+U}]{\setlength{\rightskip}{0pt plus 5cm}float World\+::popup\+U\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a0ead2d71b58e78a8f321994436b3ed03}
+\hypertarget{classWorld_a412f2eb7706336e953b24031447a5060}{}\index{World@{World}!requiring\+Key@{requiring\+Key}}
+\index{requiring\+Key@{requiring\+Key}!World@{World}}
+\subsubsection[{requiring\+Key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rigid}$\ast$ World\+::requiring\+Key\hspace{0.3cm}{\ttfamily [private]}}\label{classWorld_a412f2eb7706336e953b24031447a5060}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

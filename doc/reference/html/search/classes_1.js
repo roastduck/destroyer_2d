@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['cancelcallback',['CancelCallback',['../classCancelCallback.html',1,'']]]
+  ['block',['Block',['../classBlock.html',1,'']]],
+  ['bomb',['Bomb',['../classBomb.html',1,'']]],
+  ['button',['Button',['../classButton.html',1,'']]]
 ];

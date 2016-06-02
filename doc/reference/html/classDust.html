@@ -84,6 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classDust-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Dust Class Reference</div>  </div>
@@ -99,14 +101,14 @@ Inheritance diagram for Dust:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDust__inherit__graph.png" border="0" usemap="#Dust_inherit__map" alt="Inheritance graph"/></div>
 <map name="Dust_inherit__map" id="Dust_inherit__map">
-<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="5,292,197,443"/><area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="29,5,174,244"/></map>
+<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="5,321,197,487"/><area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="29,5,174,273"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for Dust:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDust__coll__graph.png" border="0" usemap="#Dust_coll__map" alt="Collaboration graph"/></div>
 <map name="Dust_coll__map" id="Dust_coll__map">
-<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="183,1228,375,1379"/><area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="206,940,351,1179"/><area shape="rect" id="node4" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="212,448,345,877"/><area shape="rect" id="node5" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/><area shape="rect" id="node6" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/><area shape="rect" id="node8" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/></map>
+<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="5,359,197,525"/><area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="214,5,359,259"/><area shape="rect" id="node5" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="222,308,351,576"/><area shape="rect" id="node4" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="355,639,488,1200"/><area shape="rect" id="node8" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="248,1263,400,1736"/><area shape="rect" id="node12" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="451,1343,583,1655"/><area shape="rect" id="node6" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="467,403,642,481"/><area shape="rect" id="node9" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="254,1813,394,1979"/><area shape="rect" id="node10" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="667,374,861,510"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -160,6 +162,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac46cc6630fca6195dc0cd455505a8d84 inherit pub_methods_classMatter"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatter.html#ac46cc6630fca6195dc0cd455505a8d84">getIsUserCreated</a> () const </td></tr>
 <tr class="memdesc:ac46cc6630fca6195dc0cd455505a8d84 inherit pub_methods_classMatter"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine whether it is created by users  <a href="#ac46cc6630fca6195dc0cd455505a8d84">More...</a><br /></td></tr>
 <tr class="separator:ac46cc6630fca6195dc0cd455505a8d84 inherit pub_methods_classMatter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a91cc6bf0a6060b14fa4e21759f3581c8"><td class="memItemLeft" align="right" valign="top">static b2ParticleSystemDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDust.html#a91cc6bf0a6060b14fa4e21759f3581c8">genSystemDef</a> ()</td></tr>
+<tr class="separator:a91cc6bf0a6060b14fa4e21759f3581c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13883a1eaaf0e0e07529060dca61f6c9"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; b2ParticleGroupDef &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDust.html#a13883a1eaaf0e0e07529060dca61f6c9">genGroupDefs</a> (const b2Vec2 &amp;pos, const std::vector&lt; b2Shape * &gt; &amp;shapes, const b2Vec2 &amp;v, float w, float _colorR, float _colorG, float _colorB, float _colorA)</td></tr>
+<tr class="separator:a13883a1eaaf0e0e07529060dca61f6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a38fced9e145e03d4bb548924bd99a7fd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDust.html#a38fced9e145e03d4bb548924bd99a7fd">colorR</a></td></tr>
+<tr class="separator:a38fced9e145e03d4bb548924bd99a7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97d9fa2655101d2ea41c1a6a5f89bd32"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDust.html#a97d9fa2655101d2ea41c1a6a5f89bd32">colorG</a></td></tr>
+<tr class="separator:a97d9fa2655101d2ea41c1a6a5f89bd32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3ad4aa31b2d0220cab1569743bb836"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDust.html#a3c3ad4aa31b2d0220cab1569743bb836">colorB</a></td></tr>
+<tr class="separator:a3c3ad4aa31b2d0220cab1569743bb836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa726a6672b4777821df8efaa789549a3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDust.html#aa726a6672b4777821df8efaa789549a3">colorA</a></td></tr>
+<tr class="separator:aa726a6672b4777821df8efaa789549a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -274,6 +294,99 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a13883a1eaaf0e0e07529060dca61f6c9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; b2ParticleGroupDef &gt; Dust::genGroupDefs </td>
+          <td>(</td>
+          <td class="paramtype">const b2Vec2 &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; b2Shape * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shapes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const b2Vec2 &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>_colorR</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>_colorG</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>_colorB</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>_colorA</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a91cc6bf0a6060b14fa4e21759f3581c8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2ParticleSystemDef Dust::genSystemDef </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a6a61ed84ae1cbba8d0cdbc102a343f0f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -398,6 +511,87 @@ Additional Inherited Members</h2></td></tr>
 <p>displayed radius = ? * physics radius </p>
 
 <p>Implements <a class="el" href="classParticleSystem.html#a5b3bcfbc82de5d335f55173b049da517">ParticleSystem</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa726a6672b4777821df8efaa789549a3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Dust::colorA</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3c3ad4aa31b2d0220cab1569743bb836"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Dust::colorB</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a97d9fa2655101d2ea41c1a6a5f89bd32"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Dust::colorG</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a38fced9e145e03d4bb548924bd99a7fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Dust::colorR</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

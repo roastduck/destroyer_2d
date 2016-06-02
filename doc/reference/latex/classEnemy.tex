@@ -11,13 +11,19 @@ This class loads and controls enemy.
 
 
 
-Collaboration diagram for Enemy\+:\nopagebreak
+Collaboration diagram for Enemy\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=168pt]{classEnemy__coll__graph}
+\includegraphics[height=550pt]{classEnemy__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structEnemy_1_1action__t}{action\+\_\+t}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,6 +34,33 @@ void \hyperlink{classEnemy_a71641016b8ea6de06deeda6926600da8}{start} ()
 bool \hyperlink{classEnemy_ac96f56669570d7acf7d53cf21e13b639}{get\+Key\+Down} (int key)
 \begin{DoxyCompactList}\small\item\em if key down now? \end{DoxyCompactList}\item 
 int \hyperlink{classEnemy_ad24d8afab5f4f150d7bb87ec96baf84d}{get\+Id} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classEnemy_adc988b4e145e0d2d88d66c39f19cea9a}{load\+Actions} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorld}{World} $\ast$ \hyperlink{classEnemy_a69922fd990ef2486fda1fd3e85d3feea}{m\+World}
+\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classEnemy_aa640767f1de0eadece8f9ef7e5566358}{path}
+\item 
+int \hyperlink{classEnemy_a70490642cc6e18ad3d0284dfa1930af3}{id}
+\item 
+float \hyperlink{classEnemy_a787010c7b6adf5f5e9bd1247481a4317}{offset\+X}
+\item 
+clock\+\_\+t \hyperlink{classEnemy_a662651639455161e84802d40fdd31475}{start\+Clock}
+\item 
+std\+::vector$<$ \hyperlink{structEnemy_1_1action__t}{action\+\_\+t} $>$ \hyperlink{classEnemy_ab312d7e8255fc25eb014f8521c90337a}{actions}
+\item 
+bool \hyperlink{classEnemy_a911eb7364cbcb26ba06a80d8e4a3e8d9}{key\+Down} \mbox{[}26\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classEnemy_a09b21945c24e7a6226fa9f61335a73b4}{max\+Id} = 0
 \end{DoxyCompactItemize}
 
 
@@ -65,6 +98,13 @@ This class loads and controls enemy.
 
 if key down now? 
 
+\hypertarget{classEnemy_adc988b4e145e0d2d88d66c39f19cea9a}{}\index{Enemy@{Enemy}!load\+Actions@{load\+Actions}}
+\index{load\+Actions@{load\+Actions}!Enemy@{Enemy}}
+\subsubsection[{load\+Actions}]{\setlength{\rightskip}{0pt plus 5cm}void Enemy\+::load\+Actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classEnemy_adc988b4e145e0d2d88d66c39f19cea9a}
 \hypertarget{classEnemy_a71641016b8ea6de06deeda6926600da8}{}\index{Enemy@{Enemy}!start@{start}}
 \index{start@{start}!Enemy@{Enemy}}
 \subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Enemy\+::start (
@@ -76,6 +116,33 @@ if key down now?
 
 set objects to the world 
 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classEnemy_ab312d7e8255fc25eb014f8521c90337a}{}\index{Enemy@{Enemy}!actions@{actions}}
+\index{actions@{actions}!Enemy@{Enemy}}
+\subsubsection[{actions}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf action\+\_\+t}$>$ Enemy\+::actions\hspace{0.3cm}{\ttfamily [private]}}\label{classEnemy_ab312d7e8255fc25eb014f8521c90337a}
+\hypertarget{classEnemy_a70490642cc6e18ad3d0284dfa1930af3}{}\index{Enemy@{Enemy}!id@{id}}
+\index{id@{id}!Enemy@{Enemy}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int Enemy\+::id\hspace{0.3cm}{\ttfamily [private]}}\label{classEnemy_a70490642cc6e18ad3d0284dfa1930af3}
+\hypertarget{classEnemy_a911eb7364cbcb26ba06a80d8e4a3e8d9}{}\index{Enemy@{Enemy}!key\+Down@{key\+Down}}
+\index{key\+Down@{key\+Down}!Enemy@{Enemy}}
+\subsubsection[{key\+Down}]{\setlength{\rightskip}{0pt plus 5cm}bool Enemy\+::key\+Down\mbox{[}26\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}\label{classEnemy_a911eb7364cbcb26ba06a80d8e4a3e8d9}
+\hypertarget{classEnemy_a09b21945c24e7a6226fa9f61335a73b4}{}\index{Enemy@{Enemy}!max\+Id@{max\+Id}}
+\index{max\+Id@{max\+Id}!Enemy@{Enemy}}
+\subsubsection[{max\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Enemy\+::max\+Id = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classEnemy_a09b21945c24e7a6226fa9f61335a73b4}
+\hypertarget{classEnemy_a69922fd990ef2486fda1fd3e85d3feea}{}\index{Enemy@{Enemy}!m\+World@{m\+World}}
+\index{m\+World@{m\+World}!Enemy@{Enemy}}
+\subsubsection[{m\+World}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World}$\ast$ Enemy\+::m\+World\hspace{0.3cm}{\ttfamily [private]}}\label{classEnemy_a69922fd990ef2486fda1fd3e85d3feea}
+\hypertarget{classEnemy_a787010c7b6adf5f5e9bd1247481a4317}{}\index{Enemy@{Enemy}!offset\+X@{offset\+X}}
+\index{offset\+X@{offset\+X}!Enemy@{Enemy}}
+\subsubsection[{offset\+X}]{\setlength{\rightskip}{0pt plus 5cm}float Enemy\+::offset\+X\hspace{0.3cm}{\ttfamily [private]}}\label{classEnemy_a787010c7b6adf5f5e9bd1247481a4317}
+\hypertarget{classEnemy_aa640767f1de0eadece8f9ef7e5566358}{}\index{Enemy@{Enemy}!path@{path}}
+\index{path@{path}!Enemy@{Enemy}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::string$>$ Enemy\+::path\hspace{0.3cm}{\ttfamily [private]}}\label{classEnemy_aa640767f1de0eadece8f9ef7e5566358}
+\hypertarget{classEnemy_a662651639455161e84802d40fdd31475}{}\index{Enemy@{Enemy}!start\+Clock@{start\+Clock}}
+\index{start\+Clock@{start\+Clock}!Enemy@{Enemy}}
+\subsubsection[{start\+Clock}]{\setlength{\rightskip}{0pt plus 5cm}clock\+\_\+t Enemy\+::start\+Clock\hspace{0.3cm}{\ttfamily [private]}}\label{classEnemy_a662651639455161e84802d40fdd31475}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

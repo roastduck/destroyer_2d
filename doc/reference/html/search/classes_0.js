@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['block',['Block',['../classBlock.html',1,'']]],
-  ['bomb',['Bomb',['../classBomb.html',1,'']]],
-  ['button',['Button',['../classButton.html',1,'']]]
+  ['action_5ft',['action_t',['../structEnemy_1_1action__t.html',1,'Enemy']]]
 ];

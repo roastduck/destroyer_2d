@@ -11,7 +11,8 @@ Base class of all dynamic square rigids.
 
 
 
-Inheritance diagram for Block\+:\nopagebreak
+Inheritance diagram for Block\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for Block\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Block\+:\nopagebreak
+Collaboration diagram for Block\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,6 +35,13 @@ Collaboration diagram for Block\+:\nopagebreak
 \hyperlink{classBlock_aae3e29e7e018dd11531c7ac7acbcc4b6}{Block} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, b2\+Body $\ast$\hyperlink{image_8h_ab2d05693952610f937e5acb3c4a8fa1b}{b})
 \item 
 \hyperlink{classBlock_a2a61e69a3b1e77cb87fbd00da334b030}{Block} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, float x, float y, float w, float h, float density, float friction, float restitution) noexcept
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static b2\+Body\+Def \hyperlink{classBlock_a1510615e7ec7b95bc46fd33042fe315a}{gen\+Body\+Def} (float x, float y)
+\item 
+static std\+::vector$<$ b2\+Fixture\+Def $>$ \hyperlink{classBlock_a9ab5f250c9fc5f2de521bdecb3181ede}{gen\+Fixture\+Defs} (float w, float h, float density, float friction, float restitution)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -63,6 +72,28 @@ Base class of all dynamic square rigids.
 \item[{float}]{restitution}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [noexcept]}}\label{classBlock_a2a61e69a3b1e77cb87fbd00da334b030}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBlock_a1510615e7ec7b95bc46fd33042fe315a}{}\index{Block@{Block}!gen\+Body\+Def@{gen\+Body\+Def}}
+\index{gen\+Body\+Def@{gen\+Body\+Def}!Block@{Block}}
+\subsubsection[{gen\+Body\+Def}]{\setlength{\rightskip}{0pt plus 5cm}b2\+Body\+Def Block\+::gen\+Body\+Def (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classBlock_a1510615e7ec7b95bc46fd33042fe315a}
+\hypertarget{classBlock_a9ab5f250c9fc5f2de521bdecb3181ede}{}\index{Block@{Block}!gen\+Fixture\+Defs@{gen\+Fixture\+Defs}}
+\index{gen\+Fixture\+Defs@{gen\+Fixture\+Defs}!Block@{Block}}
+\subsubsection[{gen\+Fixture\+Defs}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ b2\+Fixture\+Def $>$ Block\+::gen\+Fixture\+Defs (
+\begin{DoxyParamCaption}
+\item[{float}]{w, }
+\item[{float}]{h, }
+\item[{float}]{density, }
+\item[{float}]{friction, }
+\item[{float}]{restitution}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classBlock_a9ab5f250c9fc5f2de521bdecb3181ede}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

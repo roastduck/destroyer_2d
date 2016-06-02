@@ -11,7 +11,8 @@ Base class of engines.
 
 
 
-Inheritance diagram for Engine\+:\nopagebreak
+Inheritance diagram for Engine\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for Engine\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Engine\+:\nopagebreak
+Collaboration diagram for Engine\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -58,6 +60,15 @@ void \hyperlink{classEngine_a7ec1e7e83a96a39490bc13b6906250f3}{key\+Pressed} () 
 \hyperlink{classEngine_aa51d8d3d86d7cf49b9e09783021d185f}{Engine} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, b2\+Body $\ast$\hyperlink{image_8h_ab2d05693952610f937e5acb3c4a8fa1b}{b}, float \+\_\+force)
 \item 
 \hyperlink{classEngine_a527eb3c0df224d20081ca4b2f84c2023}{Engine} (\hyperlink{classWorld}{World} $\ast$\+\_\+world, float x, float y, float w, float h, float \+\_\+force) noexcept
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+friend \hyperlink{classEngine_aab36737a1fbe9e5ec464118849615d35}{Saver}
+\item 
+int \hyperlink{classEngine_a134558741b3eb55f716b1ca177a095d6}{key}
+\item 
+float \hyperlink{classEngine_aecd30a2b62a3c3d969f5d57892c1c131}{force}
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -231,6 +242,18 @@ shoud we bind a key to it?
 
 Reimplemented from \hyperlink{classRigid_a213d4ddd819ea799b7a29961b0d66f39}{Rigid}.
 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classEngine_aecd30a2b62a3c3d969f5d57892c1c131}{}\index{Engine@{Engine}!force@{force}}
+\index{force@{force}!Engine@{Engine}}
+\subsubsection[{force}]{\setlength{\rightskip}{0pt plus 5cm}float Engine\+::force\hspace{0.3cm}{\ttfamily [private]}}\label{classEngine_aecd30a2b62a3c3d969f5d57892c1c131}
+\hypertarget{classEngine_a134558741b3eb55f716b1ca177a095d6}{}\index{Engine@{Engine}!key@{key}}
+\index{key@{key}!Engine@{Engine}}
+\subsubsection[{key}]{\setlength{\rightskip}{0pt plus 5cm}int Engine\+::key\hspace{0.3cm}{\ttfamily [private]}}\label{classEngine_a134558741b3eb55f716b1ca177a095d6}
+\hypertarget{classEngine_aab36737a1fbe9e5ec464118849615d35}{}\index{Engine@{Engine}!Saver@{Saver}}
+\index{Saver@{Saver}!Engine@{Engine}}
+\subsubsection[{Saver}]{\setlength{\rightskip}{0pt plus 5cm}friend Engine\+::\+Saver\hspace{0.3cm}{\ttfamily [private]}}\label{classEngine_aab36737a1fbe9e5ec464118849615d35}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="5,5,75,32"/>
+<area shape="rect" id="node1" href="$classRender_1_1FixtureRenderer.html" title="Render::FixtureRenderer" alt="" coords="5,5,171,32"/>
+<area shape="rect" id="node2" href="$classRender_1_1PolygonRenderer.html" title="Render::PolygonRenderer" alt="" coords="219,5,391,32"/>
 </map>

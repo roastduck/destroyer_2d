@@ -11,11 +11,12 @@ This class interact with G\+L\+F\+W.
 
 
 
-Collaboration diagram for Window\+:\nopagebreak
+Collaboration diagram for Window\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=179pt]{classWindow__coll__graph}
+\includegraphics[height=550pt]{classWindow__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Types}
@@ -52,6 +53,31 @@ int \hyperlink{classWindow_ad58881f941c43e6dc19761cae3ab8f39}{is\+Key\+Down} () 
 \begin{DoxyCompactList}\small\item\em If any key down? Return 0 or the key. \end{DoxyCompactList}\item 
 bool \hyperlink{classWindow_a6a9f53b08efd0a9caae810ea8ae687ac}{is\+Key\+Down} (int key) const 
 \begin{DoxyCompactList}\small\item\em If the given key down? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWindow_ae641de92062a8cccfeb70865f43eb3cc}{gen\+Cursor} ()
+\item 
+void \hyperlink{classWindow_a94766ef922dabc090209c900d8919261}{delete\+Cursor} () noexcept
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+set$<$ int $>$ \hyperlink{classWindow_a9d50c88c4f961f1a04df6277ac5d7e04}{key\+Pressed}
+\item 
+std\+::unordered\+\_\+set$<$ int $>$ \hyperlink{classWindow_a94a88a2fcc3cb7a2bf185a826fdc4f4a}{key\+Down}
+\item 
+G\+L\+F\+Wcursor $\ast$ \hyperlink{classWindow_a3dd8cb54d02c66ad36af75d46c96494e}{cursors} \mbox{[}\hyperlink{classWindow_a777c693a4c2b74e712839aa15189e07fad4d3e8c6d4b72f1b918b63b0f18888d3}{C\+U\+R\+S\+O\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M}\mbox{]}
+\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{classWindow_a7a550555d11ea29c11c676dacd461a9d}{m\+Target}
+\item 
+\hyperlink{classWorld}{World} $\ast$ \hyperlink{classWindow_afb9b02f2043b74bd89ac7d1f59c269b4}{m\+World}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::list$<$ \hyperlink{classWindow}{Window} $\ast$ $>$ \hyperlink{classWindow_a127957577b44e2088ae14c43be926c23}{instance\+List}
+\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -99,6 +125,20 @@ This class interact with G\+L\+F\+W.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classWindow_a94766ef922dabc090209c900d8919261}{}\index{Window@{Window}!delete\+Cursor@{delete\+Cursor}}
+\index{delete\+Cursor@{delete\+Cursor}!Window@{Window}}
+\subsubsection[{delete\+Cursor}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::delete\+Cursor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classWindow_a94766ef922dabc090209c900d8919261}
+\hypertarget{classWindow_ae641de92062a8cccfeb70865f43eb3cc}{}\index{Window@{Window}!gen\+Cursor@{gen\+Cursor}}
+\index{gen\+Cursor@{gen\+Cursor}!Window@{Window}}
+\subsubsection[{gen\+Cursor}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::gen\+Cursor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classWindow_ae641de92062a8cccfeb70865f43eb3cc}
 \hypertarget{classWindow_a98ef189d2c7ac79179669aa3ad4c2f2c}{}\index{Window@{Window}!get\+Referee@{get\+Referee}}
 \index{get\+Referee@{get\+Referee}!Window@{Window}}
 \subsubsection[{get\+Referee}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+F\+Wwindow$\ast$ Window\+::get\+Referee (
@@ -213,6 +253,27 @@ Choose a cursor type.
 \item[{int}]{mods}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [friend]}}\label{classWindow_a286930f4e8ede059b83ff6eafa2ff718}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classWindow_a3dd8cb54d02c66ad36af75d46c96494e}{}\index{Window@{Window}!cursors@{cursors}}
+\index{cursors@{cursors}!Window@{Window}}
+\subsubsection[{cursors}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+F\+Wcursor$\ast$ Window\+::cursors\mbox{[}{\bf C\+U\+R\+S\+O\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}\label{classWindow_a3dd8cb54d02c66ad36af75d46c96494e}
+\hypertarget{classWindow_a127957577b44e2088ae14c43be926c23}{}\index{Window@{Window}!instance\+List@{instance\+List}}
+\index{instance\+List@{instance\+List}!Window@{Window}}
+\subsubsection[{instance\+List}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ {\bf Window} $\ast$ $>$ Window\+::instance\+List\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classWindow_a127957577b44e2088ae14c43be926c23}
+\hypertarget{classWindow_a94a88a2fcc3cb7a2bf185a826fdc4f4a}{}\index{Window@{Window}!key\+Down@{key\+Down}}
+\index{key\+Down@{key\+Down}!Window@{Window}}
+\subsubsection[{key\+Down}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+set$<$int$>$ Window\+::key\+Down\hspace{0.3cm}{\ttfamily [private]}}\label{classWindow_a94a88a2fcc3cb7a2bf185a826fdc4f4a}
+\hypertarget{classWindow_a9d50c88c4f961f1a04df6277ac5d7e04}{}\index{Window@{Window}!key\+Pressed@{key\+Pressed}}
+\index{key\+Pressed@{key\+Pressed}!Window@{Window}}
+\subsubsection[{key\+Pressed}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+set$<$int$>$ Window\+::key\+Pressed\hspace{0.3cm}{\ttfamily [private]}}\label{classWindow_a9d50c88c4f961f1a04df6277ac5d7e04}
+\hypertarget{classWindow_a7a550555d11ea29c11c676dacd461a9d}{}\index{Window@{Window}!m\+Target@{m\+Target}}
+\index{m\+Target@{m\+Target}!Window@{Window}}
+\subsubsection[{m\+Target}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+F\+Wwindow$\ast$ Window\+::m\+Target\hspace{0.3cm}{\ttfamily [private]}}\label{classWindow_a7a550555d11ea29c11c676dacd461a9d}
+\hypertarget{classWindow_afb9b02f2043b74bd89ac7d1f59c269b4}{}\index{Window@{Window}!m\+World@{m\+World}}
+\index{m\+World@{m\+World}!Window@{Window}}
+\subsubsection[{m\+World}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World}$\ast$ Window\+::m\+World\hspace{0.3cm}{\ttfamily [private]}}\label{classWindow_afb9b02f2043b74bd89ac7d1f59c269b4}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

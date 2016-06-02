@@ -85,6 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classMouseHandler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MouseHandler Class Reference</div>  </div>
@@ -99,6 +101,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Collaboration diagram for MouseHandler:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMouseHandler__coll__graph.png" border="0" usemap="#MouseHandler_coll__map" alt="Collaboration graph"/></div>
+<map name="MouseHandler_coll__map" id="MouseHandler_coll__map">
+<area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="395,683,529,1244"/><area shape="rect" id="node10" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="5,881,145,1046"/><area shape="rect" id="node4" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="257,1336,403,1589"/><area shape="rect" id="node9" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="427,1307,559,1619"/><area shape="rect" id="node3" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="465,1668,595,1936"/><area shape="rect" id="node5" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="401,330,576,407"/><area shape="rect" id="node7" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="601,301,795,437"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -144,6 +148,50 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac94dc769799b712128bc6af848d187e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35f26398677136e135a72286f40e7f61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a35f26398677136e135a72286f40e7f61">getWorld</a> () const </td></tr>
 <tr class="separator:a35f26398677136e135a72286f40e7f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aafb50967285e8c1a453d45c35f888810"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#aafb50967285e8c1a453d45c35f888810">triggerCallback</a> (<a class="el" href="classMouseCallback.html">MouseCallback</a> *callback)</td></tr>
+<tr class="separator:aafb50967285e8c1a453d45c35f888810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac065172398b09cf5823d2b5ae739e8e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#ac065172398b09cf5823d2b5ae739e8e0">processFree</a> ()</td></tr>
+<tr class="separator:ac065172398b09cf5823d2b5ae739e8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9b30d8f27f8aa35cb9e4afb47f2dca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#ad9b30d8f27f8aa35cb9e4afb47f2dca3">processPutting</a> ()</td></tr>
+<tr class="separator:ad9b30d8f27f8aa35cb9e4afb47f2dca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec027e132bbeae8afd7c9716c92631b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a8ec027e132bbeae8afd7c9716c92631b">reset</a> ()</td></tr>
+<tr class="separator:a8ec027e132bbeae8afd7c9716c92631b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a90ecdcff9ced6f454c66cad224a1e914"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a90ecdcff9ced6f454c66cad224a1e914">mWorld</a></td></tr>
+<tr class="separator:a90ecdcff9ced6f454c66cad224a1e914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410ce28feb21ea6f6426c9f96f9bba2f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a410ce28feb21ea6f6426c9f96f9bba2f">worldX</a></td></tr>
+<tr class="separator:a410ce28feb21ea6f6426c9f96f9bba2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3a5274610896b90da3adf48345cfa3a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#ab3a5274610896b90da3adf48345cfa3a">worldY</a></td></tr>
+<tr class="separator:ab3a5274610896b90da3adf48345cfa3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ab60c2b4761c3e90bfaab2e305e41e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#ae6ab60c2b4761c3e90bfaab2e305e41e">leftClicked</a></td></tr>
+<tr class="separator:ae6ab60c2b4761c3e90bfaab2e305e41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f6f7ab59e4ad42bcaf7e6549ff6566f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a0f6f7ab59e4ad42bcaf7e6549ff6566f">rightClicked</a></td></tr>
+<tr class="separator:a0f6f7ab59e4ad42bcaf7e6549ff6566f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42f557e16701dab03efb4f99374ea524"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a42f557e16701dab03efb4f99374ea524">leftHold</a></td></tr>
+<tr class="separator:a42f557e16701dab03efb4f99374ea524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2f5a2328ceb7ba92728c71076ceb813"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#af2f5a2328ceb7ba92728c71076ceb813">rightHold</a></td></tr>
+<tr class="separator:af2f5a2328ceb7ba92728c71076ceb813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34bc772a5e68fe68bb57ae495ef1fe69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a34bc772a5e68fe68bb57ae495ef1fe69">leftRelease</a></td></tr>
+<tr class="separator:a34bc772a5e68fe68bb57ae495ef1fe69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53838184bd9bc307e5429b551f96c1ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a53838184bd9bc307e5429b551f96c1ac">rightRelease</a></td></tr>
+<tr class="separator:a53838184bd9bc307e5429b551f96c1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c3cee7fc0ca734bace60b951fb96b14"><td class="memItemLeft" align="right" valign="top">clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a6c3cee7fc0ca734bace60b951fb96b14">lastClickedClock</a></td></tr>
+<tr class="separator:a6c3cee7fc0ca734bace60b951fb96b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34fd395066a9b32fe9a966ec4e1d5ea6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMouseHandler.html#af967315727aa1d435d55cc704e64fd1a">MouseStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a34fd395066a9b32fe9a966ec4e1d5ea6">status</a></td></tr>
+<tr class="separator:a34fd395066a9b32fe9a966ec4e1d5ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfb0584232c1d5b8a87028d3008133e3"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::pair&lt; <a class="el" href="classRigid.html">Rigid</a> *, <a class="el" href="classMouseCallback.html">MouseCallback</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#acfb0584232c1d5b8a87028d3008133e3">buttons</a></td></tr>
+<tr class="separator:acfb0584232c1d5b8a87028d3008133e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e23b23bd4415cd057636573f6e8db30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMouseCallback.html">MouseCallback</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a8e23b23bd4415cd057636573f6e8db30">mFreeCallback</a></td></tr>
+<tr class="separator:a8e23b23bd4415cd057636573f6e8db30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f5b0cedc9e4c87060dcd3e10b943f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMouseCallback.html">MouseCallback</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a23f5b0cedc9e4c87060dcd3e10b943f4">mPuttingCallback</a></td></tr>
+<tr class="separator:a23f5b0cedc9e4c87060dcd3e10b943f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29da34736a6d4f948a536f4d95bb146e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseHandler.html#a29da34736a6d4f948a536f4d95bb146e">enableCallback</a></td></tr>
+<tr class="separator:a29da34736a6d4f948a536f4d95bb146e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Forwards mouse actions to <a class="el" href="classMatter.html" title="Base class of all rigid bodies and particles. ">Matter</a>. </p>
@@ -330,6 +378,75 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac065172398b09cf5823d2b5ae739e8e0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MouseHandler::processFree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad9b30d8f27f8aa35cb9e4afb47f2dca3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MouseHandler::processPutting </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8ec027e132bbeae8afd7c9716c92631b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MouseHandler::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a3a64869cf23c6d979ce6ac4a0127a93e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -422,6 +539,30 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aafb50967285e8c1a453d45c35f888810"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MouseHandler::triggerCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMouseCallback.html">MouseCallback</a> *&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0a7df02e71fbbb14f5a80163ee065c8b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -436,6 +577,307 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>update current mouse status from GLFW should be public for <a class="el" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. ">World</a> to set it as friend </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="acfb0584232c1d5b8a87028d3008133e3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; std::pair&lt;<a class="el" href="classRigid.html">Rigid</a>*, <a class="el" href="classMouseCallback.html">MouseCallback</a>*&gt; &gt; MouseHandler::buttons</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a29da34736a6d4f948a536f4d95bb146e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MouseHandler::enableCallback</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6c3cee7fc0ca734bace60b951fb96b14"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">clock_t MouseHandler::lastClickedClock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae6ab60c2b4761c3e90bfaab2e305e41e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MouseHandler::leftClicked</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a42f557e16701dab03efb4f99374ea524"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MouseHandler::leftHold</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a34bc772a5e68fe68bb57ae495ef1fe69"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MouseHandler::leftRelease</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8e23b23bd4415cd057636573f6e8db30"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMouseCallback.html">MouseCallback</a>* MouseHandler::mFreeCallback</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a23f5b0cedc9e4c87060dcd3e10b943f4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMouseCallback.html">MouseCallback</a> * MouseHandler::mPuttingCallback</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a90ecdcff9ced6f454c66cad224a1e914"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWorld.html">World</a>* MouseHandler::mWorld</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0f6f7ab59e4ad42bcaf7e6549ff6566f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MouseHandler::rightClicked</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af2f5a2328ceb7ba92728c71076ceb813"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MouseHandler::rightHold</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a53838184bd9bc307e5429b551f96c1ac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MouseHandler::rightRelease</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a34fd395066a9b32fe9a966ec4e1d5ea6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMouseHandler.html#af967315727aa1d435d55cc704e64fd1a">MouseStatus</a> MouseHandler::status</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a410ce28feb21ea6f6426c9f96f9bba2f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MouseHandler::worldX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab3a5274610896b90da3adf48345cfa3a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MouseHandler::worldY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

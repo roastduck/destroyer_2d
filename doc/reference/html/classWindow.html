@@ -85,6 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classWindow-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -100,6 +103,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Collaboration diagram for Window:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWindow__coll__graph.png" border="0" usemap="#Window_coll__map" alt="Collaboration graph"/></div>
+<map name="Window_coll__map" id="Window_coll__map">
+<area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="167,507,301,1068"/><area shape="rect" id="node4" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="5,1241,151,1494"/><area shape="rect" id="node7" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="305,1131,457,1604"/><area shape="rect" id="node3" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="97,1681,227,1949"/><area shape="rect" id="node5" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="187,249,361,327"/><area shape="rect" id="node8" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="291,1733,431,1898"/><area shape="rect" id="node9" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="386,220,581,356"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -144,6 +149,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6a9f53b08efd0a9caae810ea8ae687ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a6a9f53b08efd0a9caae810ea8ae687ac">isKeyDown</a> (int key) const </td></tr>
 <tr class="memdesc:a6a9f53b08efd0a9caae810ea8ae687ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given key down?  <a href="#a6a9f53b08efd0a9caae810ea8ae687ac">More...</a><br /></td></tr>
 <tr class="separator:a6a9f53b08efd0a9caae810ea8ae687ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae641de92062a8cccfeb70865f43eb3cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#ae641de92062a8cccfeb70865f43eb3cc">genCursor</a> ()</td></tr>
+<tr class="separator:ae641de92062a8cccfeb70865f43eb3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94766ef922dabc090209c900d8919261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a94766ef922dabc090209c900d8919261">deleteCursor</a> () noexcept</td></tr>
+<tr class="separator:a94766ef922dabc090209c900d8919261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9d50c88c4f961f1a04df6277ac5d7e04"><td class="memItemLeft" align="right" valign="top">std::unordered_set&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a9d50c88c4f961f1a04df6277ac5d7e04">keyPressed</a></td></tr>
+<tr class="separator:a9d50c88c4f961f1a04df6277ac5d7e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a88a2fcc3cb7a2bf185a826fdc4f4a"><td class="memItemLeft" align="right" valign="top">std::unordered_set&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a94a88a2fcc3cb7a2bf185a826fdc4f4a">keyDown</a></td></tr>
+<tr class="separator:a94a88a2fcc3cb7a2bf185a826fdc4f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd8cb54d02c66ad36af75d46c96494e"><td class="memItemLeft" align="right" valign="top">GLFWcursor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a3dd8cb54d02c66ad36af75d46c96494e">cursors</a> [<a class="el" href="classWindow.html#a777c693a4c2b74e712839aa15189e07fad4d3e8c6d4b72f1b918b63b0f18888d3">CURSOR_TYPE_NUM</a>]</td></tr>
+<tr class="separator:a3dd8cb54d02c66ad36af75d46c96494e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a550555d11ea29c11c676dacd461a9d"><td class="memItemLeft" align="right" valign="top">GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a7a550555d11ea29c11c676dacd461a9d">mTarget</a></td></tr>
+<tr class="separator:a7a550555d11ea29c11c676dacd461a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9b02f2043b74bd89ac7d1f59c269b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#afb9b02f2043b74bd89ac7d1f59c269b4">mWorld</a></td></tr>
+<tr class="separator:afb9b02f2043b74bd89ac7d1f59c269b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a127957577b44e2088ae14c43be926c23"><td class="memItemLeft" align="right" valign="top">static std::list&lt; <a class="el" href="classWindow.html">Window</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a127957577b44e2088ae14c43be926c23">instanceList</a></td></tr>
+<tr class="separator:a127957577b44e2088ae14c43be926c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -215,6 +245,52 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a94766ef922dabc090209c900d8919261"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::deleteCursor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae641de92062a8cccfeb70865f43eb3cc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::genCursor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a98ef189d2c7ac79179669aa3ad4c2f2c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -478,6 +554,127 @@ Friends</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a3dd8cb54d02c66ad36af75d46c96494e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWcursor* Window::cursors[<a class="el" href="classWindow.html#a777c693a4c2b74e712839aa15189e07fad4d3e8c6d4b72f1b918b63b0f18888d3">CURSOR_TYPE_NUM</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a127957577b44e2088ae14c43be926c23"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; <a class="el" href="classWindow.html">Window</a> * &gt; Window::instanceList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a94a88a2fcc3cb7a2bf185a826fdc4f4a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_set&lt;int&gt; Window::keyDown</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9d50c88c4f961f1a04df6277ac5d7e04"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_set&lt;int&gt; Window::keyPressed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7a550555d11ea29c11c676dacd461a9d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWwindow* Window::mTarget</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afb9b02f2043b74bd89ac7d1f59c269b4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWorld.html">World</a>* Window::mWorld</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

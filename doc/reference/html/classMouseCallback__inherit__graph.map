@@ -1,10 +1,10 @@
 <map id="MouseCallback" name="MouseCallback">
-<area shape="rect" id="node2" href="$classCancelCallback.html" title="{CancelCallback\n||+ CancelCallback()\l+ leftClick()\l}" alt="" coords="5,248,140,340"/>
-<area shape="rect" id="node3" href="$classDeleteButtonCallback.html" title="{DeleteButtonCallback\n||+ DeleteButtonCallback()\l+ leftClick()\l}" alt="" coords="164,248,333,340"/>
-<area shape="rect" id="node4" href="$classDeletingCallback.html" title="{DeletingCallback\n||+ DeletingCallback()\l+ ~DeletingCallback()\l+ leftClick()\l+ rightClick()\l}" alt="" coords="358,233,507,355"/>
-<area shape="rect" id="node5" href="$classDraggingCallback.html" title="{DraggingCallback\n|+ localListener\l|+ DraggingCallback()\l+ ~DraggingCallback()\l+ leftClick()\l+ leftRelease()\l+ move()\l}" alt="" coords="532,226,685,362"/>
-<area shape="rect" id="node6" href="$classLaunchCallback.html" title="{LaunchCallback\n||+ LaunchCallback()\l+ leftClick()\l}" alt="" coords="709,248,844,340"/>
-<area shape="rect" id="node7" href="$classNewObjectCallback.html" title="{NewObjectCallback\&lt;\l ToPut \&gt;\n||+ NewObjectCallback()\l+ leftClick()\l}" alt="" coords="868,241,1027,347"/>
-<area shape="rect" id="node8" href="$classPuttingCallback.html" title="Callbacks of putting normal things that ! canDrawLine() " alt="" coords="1051,233,1225,355"/>
-<area shape="rect" id="node9" href="$classPuttingLineCallback.html" title="Putting rigids with canDrawLine() " alt="" coords="1249,219,1416,369"/>
+<area shape="rect" id="node2" href="$classCancelCallback.html" title="{CancelCallback\n||+ CancelCallback()\l+ leftClick()\l}" alt="" coords="5,263,140,355"/>
+<area shape="rect" id="node3" href="$classDeleteButtonCallback.html" title="{DeleteButtonCallback\n||+ DeleteButtonCallback()\l+ leftClick()\l}" alt="" coords="164,263,333,355"/>
+<area shape="rect" id="node4" href="$classDeletingCallback.html" title="{DeletingCallback\n||+ DeletingCallback()\l+ ~DeletingCallback()\l+ leftClick()\l+ rightClick()\l}" alt="" coords="358,248,507,369"/>
+<area shape="rect" id="node5" href="$classDraggingCallback.html" title="{DraggingCallback\n|+ localListener\l&#45; joint\l|+ DraggingCallback()\l+ ~DraggingCallback()\l+ leftClick()\l+ leftRelease()\l+ move()\l}" alt="" coords="532,233,685,384"/>
+<area shape="rect" id="node6" href="$classLaunchCallback.html" title="{LaunchCallback\n||+ LaunchCallback()\l+ leftClick()\l}" alt="" coords="709,263,844,355"/>
+<area shape="rect" id="node7" href="$classNewObjectCallback.html" title="{NewObjectCallback\&lt;\l ToPut \&gt;\n||+ NewObjectCallback()\l+ leftClick()\l}" alt="" coords="868,255,1027,362"/>
+<area shape="rect" id="node8" href="$classPuttingCallback.html" title="Callbacks of putting normal things that ! canDrawLine() " alt="" coords="1051,241,1225,377"/>
+<area shape="rect" id="node9" href="$classPuttingLineCallback.html" title="Putting rigids with canDrawLine() " alt="" coords="1249,219,1416,399"/>
 </map>

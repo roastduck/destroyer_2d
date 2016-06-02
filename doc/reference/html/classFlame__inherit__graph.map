@@ -1,4 +1,4 @@
 <map id="Flame" name="Flame">
-<area shape="rect" id="node2" href="$classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="5,292,197,443"/>
-<area shape="rect" id="node3" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="29,5,174,244"/>
+<area shape="rect" id="node2" href="$classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="5,321,197,487"/>
+<area shape="rect" id="node3" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="29,5,174,273"/>
 </map>

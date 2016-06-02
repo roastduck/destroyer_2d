@@ -1,8 +1,10 @@
 <map id="Button&lt; imageName &gt;" name="Button&lt; imageName &gt;">
-<area shape="rect" id="node2" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="214,1228,343,1452"/>
-<area shape="rect" id="node3" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="206,940,351,1179"/>
-<area shape="rect" id="node4" href="$classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="212,448,345,877"/>
-<area shape="rect" id="node5" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/>
-<area shape="rect" id="node6" href="$classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/>
-<area shape="rect" id="node8" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/>
+<area shape="rect" id="node2" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="133,132,262,400"/>
+<area shape="rect" id="node4" href="$classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="329,463,463,1024"/>
+<area shape="rect" id="node3" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="138,1197,283,1450"/>
+<area shape="rect" id="node7" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="315,1087,467,1560"/>
+<area shape="rect" id="node11" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="522,1167,654,1479"/>
+<area shape="rect" id="node5" href="$classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="298,227,473,305"/>
+<area shape="rect" id="node8" href="$classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="321,1637,461,1803"/>
+<area shape="rect" id="node9" href="$classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="497,198,692,334"/>
 </map>

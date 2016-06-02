@@ -88,6 +88,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classWorld-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -104,20 +106,22 @@ Inheritance diagram for World:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWorld__inherit__graph.png" border="0" usemap="#World_inherit__map" alt="Inheritance graph"/></div>
 <map name="World_inherit__map" id="World_inherit__map">
-<area shape="rect" id="node2" href="classMainWorld.html" title="This world is the main scenery of the game. " alt="" coords="30,527,146,663"/></map>
+<area shape="rect" id="node2" href="classMainWorld.html" title="This world is the main scenery of the game. " alt="" coords="7,688,169,1088"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for World:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWorld__coll__graph.png" border="0" usemap="#World_coll__map" alt="Collaboration graph"/></div>
 <map name="World_coll__map" id="World_coll__map">
-<area shape="rect" id="node2" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/><area shape="rect" id="node3" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/><area shape="rect" id="node5" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/></map>
+<area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="5,1065,151,1318"/><area shape="rect" id="node6" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="466,955,618,1428"/><area shape="rect" id="node10" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="305,1035,437,1347"/><area shape="rect" id="node2" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="96,1505,225,1773"/><area shape="rect" id="node4" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="125,161,300,239"/><area shape="rect" id="node7" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="471,1557,611,1722"/><area shape="rect" id="node8" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="325,132,519,268"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld_1_1GlobalTestPoint.html">GlobalTestPoint</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper for finding a fixture overlapping with a point.  <a href="classWorld_1_1GlobalTestPoint.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld_1_1MyContactListener.html">MyContactListener</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld_1_1MyDestructionListener.html">MyDestructionListener</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manger for all destruction listener.  <a href="classWorld_1_1MyDestructionListener.html#details">More...</a><br /></td></tr>
@@ -206,6 +210,36 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a3ef0e1ad2396eab18e18684f11d91529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99f3098ee94a83726a1ea67ea515417f"><td class="memItemLeft" align="right" valign="top">b2World *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a99f3098ee94a83726a1ea67ea515417f">physics</a></td></tr>
 <tr class="separator:a99f3098ee94a83726a1ea67ea515417f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3979ccd68086a0954040665845c3cd1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a3979ccd68086a0954040665845c3cd1c">examContact</a> ()</td></tr>
+<tr class="memdesc:a3979ccd68086a0954040665845c3cd1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Examine contacts and make danmages.  <a href="#a3979ccd68086a0954040665845c3cd1c">More...</a><br /></td></tr>
+<tr class="separator:a3979ccd68086a0954040665845c3cd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b4130ee5a4f36a6dbc13767489aef08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a1b4130ee5a4f36a6dbc13767489aef08">checkKeyboard</a> ()</td></tr>
+<tr class="memdesc:a1b4130ee5a4f36a6dbc13767489aef08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check keyboard Actions.  <a href="#a1b4130ee5a4f36a6dbc13767489aef08">More...</a><br /></td></tr>
+<tr class="separator:a1b4130ee5a4f36a6dbc13767489aef08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a558284d05f4c41360eacba52df48c389"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld_1_1MyContactListener.html">World::MyContactListener</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a558284d05f4c41360eacba52df48c389">myContactListener</a></td></tr>
+<tr class="separator:a558284d05f4c41360eacba52df48c389"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fafe9a7426c487a992615e518e90b23"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a9fafe9a7426c487a992615e518e90b23">popupMsg</a></td></tr>
+<tr class="separator:a9fafe9a7426c487a992615e518e90b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66ec162a547f0b34a40b98f867833f64"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a66ec162a547f0b34a40b98f867833f64">popupL</a></td></tr>
+<tr class="separator:a66ec162a547f0b34a40b98f867833f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9494741a4ec9fa6f5464d65e7bba936d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a9494741a4ec9fa6f5464d65e7bba936d">popupR</a></td></tr>
+<tr class="separator:a9494741a4ec9fa6f5464d65e7bba936d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac01138a7966b75a74c468f3a45aa58ee"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#ac01138a7966b75a74c468f3a45aa58ee">popupD</a></td></tr>
+<tr class="separator:ac01138a7966b75a74c468f3a45aa58ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ead2d71b58e78a8f321994436b3ed03"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a0ead2d71b58e78a8f321994436b3ed03">popupU</a></td></tr>
+<tr class="separator:a0ead2d71b58e78a8f321994436b3ed03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2064bf96839978201b9b332dda472dee"><td class="memItemLeft" align="right" valign="top">b2Body *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a2064bf96839978201b9b332dda472dee">frameBody</a></td></tr>
+<tr class="separator:a2064bf96839978201b9b332dda472dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a412f2eb7706336e953b24031447a5060"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRigid.html">Rigid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a412f2eb7706336e953b24031447a5060">requiringKey</a></td></tr>
+<tr class="separator:a412f2eb7706336e953b24031447a5060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c11650552d3e7a723b09afc628dfb3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a08c11650552d3e7a723b09afc628dfb3">bindMsg</a></td></tr>
+<tr class="separator:a08c11650552d3e7a723b09afc628dfb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -316,6 +350,31 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a1b4130ee5a4f36a6dbc13767489aef08"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void World::checkKeyboard </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check keyboard Actions. </p>
+
+</div>
+</div>
 <a class="anchor" id="a6c2c794397ae3dad108e43caae240adb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -393,6 +452,31 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draw every <a class="el" href="classMatter.html" title="Base class of all rigid bodies and particles. ">Matter</a> into OpenGL Things can be drawn out of drawAll. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3979ccd68086a0954040665845c3cd1c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void World::examContact </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Examine contacts and make danmages. </p>
 
 </div>
 </div>
@@ -544,6 +628,8 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Is player p's key down? </p>
+
+<p>Reimplemented in <a class="el" href="classMainWorld.html#a8e17a525de341eda83c8bcb1020e779b">MainWorld</a>.</p>
 
 </div>
 </div>
@@ -707,6 +793,50 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a08c11650552d3e7a723b09afc628dfb3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string World::bindMsg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        <span class="stringliteral">&quot;  PLEASE CHOOSE A KEY TO HANDLE THIS OBJECT.\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;  ...MUST BE A LETTER...\n&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2064bf96839978201b9b332dda472dee"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2Body* World::frameBody</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a6c703fe8401bc1516dd6e8c474a8a74f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -947,6 +1077,26 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a558284d05f4c41360eacba52df48c389"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classWorld_1_1MyContactListener.html">World::MyContactListener</a>  World::myContactListener</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a9fe52553a01225766d31480cc99b79ef"></a>
 <div class="memitem">
 <div class="memproto">
@@ -981,6 +1131,126 @@ Friends</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac01138a7966b75a74c468f3a45aa58ee"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float World::popupD</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a66ec162a547f0b34a40b98f867833f64"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float World::popupL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9fafe9a7426c487a992615e518e90b23"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string World::popupMsg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9494741a4ec9fa6f5464d65e7bba936d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float World::popupR</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0ead2d71b58e78a8f321994436b3ed03"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float World::popupU</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a412f2eb7706336e953b24031447a5060"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classRigid.html">Rigid</a>* World::requiringKey</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

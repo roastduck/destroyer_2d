@@ -86,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classParticleSystem-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ParticleSystem Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -101,14 +102,14 @@ Inheritance diagram for ParticleSystem:</div>
 <div class="dyncontent">
 <div class="center"><img src="classParticleSystem__inherit__graph.png" border="0" usemap="#ParticleSystem_inherit__map" alt="Inheritance graph"/></div>
 <map name="ParticleSystem_inherit__map" id="ParticleSystem_inherit__map">
-<area shape="rect" id="node3" href="classDust.html" title="Dust rised when a rigid is damaged. " alt="" coords="5,491,197,641"/><area shape="rect" id="node4" href="classFlame.html" title="Set when bomb exploses. " alt="" coords="221,491,413,641"/><area shape="rect" id="node5" href="classWaterSquare.html" title="A square water area This must be use as a pool where the number of particles is static. " alt="" coords="437,491,629,641"/><area shape="rect" id="node2" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="245,5,390,244"/></map>
+<area shape="rect" id="node3" href="classDust.html" title="Dust rised when a rigid is damaged. " alt="" coords="5,535,197,759"/><area shape="rect" id="node4" href="classFlame.html" title="Set when bomb exploses. " alt="" coords="221,557,413,737"/><area shape="rect" id="node5" href="classWaterSquare.html" title="A square water area This must be use as a pool where the number of particles is static. " alt="" coords="437,557,629,737"/><area shape="rect" id="node2" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="245,5,390,273"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for ParticleSystem:</div>
 <div class="dyncontent">
 <div class="center"><img src="classParticleSystem__coll__graph.png" border="0" usemap="#ParticleSystem_coll__map" alt="Collaboration graph"/></div>
 <map name="ParticleSystem_coll__map" id="ParticleSystem_coll__map">
-<area shape="rect" id="node2" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="206,940,351,1179"/><area shape="rect" id="node3" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="212,448,345,877"/><area shape="rect" id="node4" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/><area shape="rect" id="node5" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/><area shape="rect" id="node7" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/></map>
+<area shape="rect" id="node2" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="214,5,359,259"/><area shape="rect" id="node4" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="222,308,351,576"/><area shape="rect" id="node3" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="383,639,516,1200"/><area shape="rect" id="node7" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="277,1263,429,1736"/><area shape="rect" id="node11" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="481,1343,613,1655"/><area shape="rect" id="node5" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="467,403,642,481"/><area shape="rect" id="node8" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="283,1813,423,1979"/><area shape="rect" id="node9" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="667,374,861,510"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -180,6 +181,11 @@ Protected Attributes</h2></td></tr>
 <tr class="inherit_header pro_attribs_classMatter"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classMatter')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classMatter.html">Matter</a></td></tr>
 <tr class="memitem:abdc5b13e2427e41c45af024acae015f1 inherit pro_attribs_classMatter"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatter.html#abdc5b13e2427e41c45af024acae015f1">world</a></td></tr>
 <tr class="separator:abdc5b13e2427e41c45af024acae015f1 inherit pro_attribs_classMatter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a58e021cbc8991ca7191d36d7adcb3167"><td class="memItemLeft" align="right" valign="top">static std::list&lt; <a class="el" href="classParticleSystem.html">ParticleSystem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleSystem.html#a58e021cbc8991ca7191d36d7adcb3167">died</a></td></tr>
+<tr class="separator:a58e021cbc8991ca7191d36d7adcb3167"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -361,6 +367,26 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a58e021cbc8991ca7191d36d7adcb3167"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; <a class="el" href="classParticleSystem.html">ParticleSystem</a> * &gt; ParticleSystem::died</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a899787ecc1f14a30cd903a884ec7575e"></a>
 <div class="memitem">
 <div class="memproto">

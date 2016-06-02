@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="classFlame-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Flame Class Reference</div>  </div>
@@ -99,14 +100,14 @@ Inheritance diagram for Flame:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFlame__inherit__graph.png" border="0" usemap="#Flame_inherit__map" alt="Inheritance graph"/></div>
 <map name="Flame_inherit__map" id="Flame_inherit__map">
-<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="5,292,197,443"/><area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="29,5,174,244"/></map>
+<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="5,321,197,487"/><area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="29,5,174,273"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for Flame:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFlame__coll__graph.png" border="0" usemap="#Flame_coll__map" alt="Collaboration graph"/></div>
 <map name="Flame_coll__map" id="Flame_coll__map">
-<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="183,1228,375,1379"/><area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="206,940,351,1179"/><area shape="rect" id="node4" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="212,448,345,877"/><area shape="rect" id="node5" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/><area shape="rect" id="node6" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/><area shape="rect" id="node8" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/></map>
+<area shape="rect" id="node2" href="classParticleSystem.html" title="Base class of all particle systems. " alt="" coords="5,359,197,525"/><area shape="rect" id="node3" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="214,5,359,259"/><area shape="rect" id="node5" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="222,308,351,576"/><area shape="rect" id="node4" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="355,639,488,1200"/><area shape="rect" id="node8" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="248,1263,400,1736"/><area shape="rect" id="node12" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="451,1343,583,1655"/><area shape="rect" id="node6" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="467,403,642,481"/><area shape="rect" id="node9" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="254,1813,394,1979"/><area shape="rect" id="node10" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="667,374,861,510"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -160,6 +161,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac46cc6630fca6195dc0cd455505a8d84 inherit pub_methods_classMatter"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatter.html#ac46cc6630fca6195dc0cd455505a8d84">getIsUserCreated</a> () const </td></tr>
 <tr class="memdesc:ac46cc6630fca6195dc0cd455505a8d84 inherit pub_methods_classMatter"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine whether it is created by users  <a href="#ac46cc6630fca6195dc0cd455505a8d84">More...</a><br /></td></tr>
 <tr class="separator:ac46cc6630fca6195dc0cd455505a8d84 inherit pub_methods_classMatter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a506fab6b9538a0f0caaa6a7ad41b1eda"><td class="memItemLeft" align="right" valign="top">static b2ParticleSystemDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlame.html#a506fab6b9538a0f0caaa6a7ad41b1eda">genSystemDef</a> ()</td></tr>
+<tr class="separator:a506fab6b9538a0f0caaa6a7ad41b1eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd27d59d485bd8138d2fc33528d2406"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; b2ParticleGroupDef &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFlame.html#aebd27d59d485bd8138d2fc33528d2406">genGroupDefs</a> (const b2Vec2 &amp;pos, float radius)</td></tr>
+<tr class="separator:aebd27d59d485bd8138d2fc33528d2406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -231,6 +239,63 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aebd27d59d485bd8138d2fc33528d2406"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; b2ParticleGroupDef &gt; Flame::genGroupDefs </td>
+          <td>(</td>
+          <td class="paramtype">const b2Vec2 &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a506fab6b9538a0f0caaa6a7ad41b1eda"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2ParticleSystemDef Flame::genSystemDef </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a9730bb5ff22bdf2ab579eb9ae1d8a37f"></a>
 <div class="memitem">
 <div class="memproto">

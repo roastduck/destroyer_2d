@@ -1,11 +1,15 @@
 var searchData=
 [
-  ['b',['b',['../image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b',1,'b():&#160;image.h'],['../image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b',1,'b():&#160;image.h'],['../image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b',1,'b():&#160;image.h'],['../image_8h.html#a111da81ae5883147168bbb8366377b10',1,'B():&#160;image.h'],['../image_8h.html#a111da81ae5883147168bbb8366377b10',1,'B():&#160;image.h'],['../image_8h.html#a111da81ae5883147168bbb8366377b10',1,'B():&#160;image.h']]],
+  ['b',['b',['../classRender_1_1FixtureRenderer.html#a61fdacb7120eef1444a8f4529a7dfe7c',1,'Render::FixtureRenderer::b()'],['../image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b',1,'b():&#160;image.h'],['../image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b',1,'b():&#160;image.h'],['../image_8h.html#ab2d05693952610f937e5acb3c4a8fa1b',1,'b():&#160;image.h'],['../image_8h.html#a111da81ae5883147168bbb8366377b10',1,'B():&#160;image.h'],['../image_8h.html#a111da81ae5883147168bbb8366377b10',1,'B():&#160;image.h'],['../image_8h.html#a111da81ae5883147168bbb8366377b10',1,'B():&#160;image.h']]],
+  ['battle_5fh',['BATTLE_H',['../classMainWorld.html#aa2bb1e5ed0ea5b97b36addf18ec1b37c',1,'MainWorld']]],
+  ['battle_5fw',['BATTLE_W',['../classMainWorld.html#a58ef88e1b0a8c840090a44ceb9917f8a',1,'MainWorld']]],
   ['begin',['BEGIN',['../image_8h.html#ab766bbbee08d04b67e3fe599d6900873',1,'image.h']]],
   ['bg_5fcolor_5fb',['BG_COLOR_B',['../const_8h.html#a8c757f66c90fa2caa8c85f32cfbb404e',1,'const.h']]],
   ['bg_5fcolor_5fg',['BG_COLOR_G',['../const_8h.html#a58c775070002704492149a3abf40e4fd',1,'const.h']]],
   ['bg_5fcolor_5fr',['BG_COLOR_R',['../const_8h.html#aa3a967d2c34b3f4d9615f8d6d28b317c',1,'const.h']]],
+  ['bindclock',['bindClock',['../classBomb.html#afc7bd37fd7d4b6bcb5ddac3deb73321d',1,'Bomb']]],
   ['bindkey',['bindKey',['../classRigid.html#a5d8922b10420ad452b6d9400d5ecc511',1,'Rigid::bindKey()'],['../classEngine.html#adcebb4115667ea0924af3b5aeb5fd5e2',1,'Engine::bindKey()'],['../classBomb.html#a68b2be434320ab67f9000e545b3dcfcd',1,'Bomb::bindKey()']]],
+  ['bindmsg',['bindMsg',['../classWorld.html#a08c11650552d3e7a723b09afc628dfb3',1,'World']]],
   ['block',['Block',['../classBlock.html',1,'Block'],['../classBlock.html#aae3e29e7e018dd11531c7ac7acbcc4b6',1,'Block::Block(World *_world, b2Body *b)'],['../classBlock.html#a2a61e69a3b1e77cb87fbd00da334b030',1,'Block::Block(World *_world, float x, float y, float w, float h, float density, float friction, float restitution) noexcept']]],
   ['bomb',['Bomb',['../classBomb.html',1,'Bomb'],['../classBomb.html#a99f489e0cc76550410a9cc59aff6a22e',1,'Bomb::Bomb(World *_world, b2Body *b)'],['../classBomb.html#a0f6e7d6049ed0415cdd2ae811592555e',1,'Bomb::Bomb(World *_world, float x, float y, float notused1=0, float notused2=0) noexcept']]],
   ['bomb_5fcolor_5fa',['BOMB_COLOR_A',['../const_8h.html#a9362c0a62c0344a175a0334f7cbe5653',1,'const.h']]],
@@ -16,5 +20,11 @@ var searchData=
   ['bomb_5ffriction',['BOMB_FRICTION',['../const_8h.html#a5c94f6b5fc27bf751a58cca4b86a3a13',1,'const.h']]],
   ['bomb_5frestitution',['BOMB_RESTITUTION',['../const_8h.html#abe29a454474b211de61bf339cbc7baaf',1,'const.h']]],
   ['bomb_5fstrength',['BOMB_STRENGTH',['../const_8h.html#ac51d83e97824817330ca86232799fa2c',1,'const.h']]],
-  ['button',['Button',['../classButton.html',1,'Button&lt; imageName &gt;'],['../classButton.html#a36705b8de68995c157c107af83e94644',1,'Button::Button()']]]
+  ['build_5fh',['BUILD_H',['../classMainWorld.html#abb38bf72b8a3c5ff6df3a43c7ebfba25',1,'MainWorld']]],
+  ['build_5fw',['BUILD_W',['../classMainWorld.html#a92c8b34eec78a999312c4b1d982d5f0c',1,'MainWorld']]],
+  ['buildframe',['buildFrame',['../classMainWorld.html#a10e4e51760423fa95cc57f4f5f8f5b76',1,'MainWorld']]],
+  ['buildingmsg1',['buildingMsg1',['../classMainWorld.html#a12fc771468255ea67138459b8f80bb95',1,'MainWorld']]],
+  ['buildingmsg2',['buildingMsg2',['../classMainWorld.html#ac33f26e815fc9f69e5119843dfc2b987',1,'MainWorld']]],
+  ['button',['Button',['../classButton.html',1,'Button&lt; imageName &gt;'],['../classButton.html#a36705b8de68995c157c107af83e94644',1,'Button::Button()']]],
+  ['buttons',['buttons',['../classMouseHandler.html#acfb0584232c1d5b8a87028d3008133e3',1,'MouseHandler']]]
 ];

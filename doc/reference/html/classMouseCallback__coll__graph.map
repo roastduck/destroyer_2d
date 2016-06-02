@@ -1,3 +1,9 @@
 <map id="MouseCallback" name="MouseCallback">
-<area shape="rect" id="node2" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,5,157,259"/>
+<area shape="rect" id="node2" href="$classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="22,248,174,721"/>
+<area shape="rect" id="node3" href="$classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="202,784,335,1345"/>
+<area shape="rect" id="node5" href="$classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="64,1437,209,1691"/>
+<area shape="rect" id="node10" href="$classWindow.html" title="This class interact with GLFW. " alt="" coords="233,1408,365,1720"/>
+<area shape="rect" id="node4" href="$classRigid.html" title="Base class of all rigid bodies. " alt="" coords="272,1769,401,2037"/>
+<area shape="rect" id="node6" href="$classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="208,446,383,523"/>
+<area shape="rect" id="node8" href="$classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="407,417,602,553"/>
 </map>

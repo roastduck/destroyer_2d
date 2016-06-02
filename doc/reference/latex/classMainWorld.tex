@@ -11,7 +11,8 @@ This world is the main scenery of the game.
 
 
 
-Inheritance diagram for Main\+World\+:\nopagebreak
+Inheritance diagram for Main\+World\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for Main\+World\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Main\+World\+:\nopagebreak
+Collaboration diagram for Main\+World\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -49,6 +51,53 @@ void \hyperlink{classMainWorld_a223280718d44259c485fbbaaf74c34e5}{cancel\+Battle
 \begin{DoxyCompactList}\small\item\em Cancel battle in the next round. \end{DoxyCompactList}\item 
 void \hyperlink{classMainWorld_a8ac7fe4b17bb3ca29a0382b93a24731e}{step} () override
 \begin{DoxyCompactList}\small\item\em Run next simulation step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMainWorld_a4c59edbfc967da60dd2eee28280434d1}{make\+Building\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em This is called during construction. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWorld_a34ff55bf7bec578a3eada27017973e77}{make\+Battle\+Buttons} ()
+\item 
+void \hyperlink{classMainWorld_ace8b3e2cbb1c1cb8d2a3fe149dabe734}{launch} ()
+\begin{DoxyCompactList}\small\item\em Switch from building to battle. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWorld_a00895e34e30d1299e9d6d3aef874c2eb}{focus} ()
+\begin{DoxyCompactList}\small\item\em Focus on the ship built by players. \end{DoxyCompactList}\item 
+bool \hyperlink{classMainWorld_a4011961e71f2129896ce5248fe5ccf20}{load\+Level} ()
+\item 
+bool \hyperlink{classMainWorld_a27b5623f73157f016b93ea0e27cd3166}{level\+Cleared} () const 
+\item 
+bool \hyperlink{classMainWorld_a8e17a525de341eda83c8bcb1020e779b}{player\+Key\+Down} (int p, int key) override
+\begin{DoxyCompactList}\small\item\em Is player p\textquotesingle{}s key down? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRigid}{Rigid} $\ast$ \hyperlink{classMainWorld_a10e4e51760423fa95cc57f4f5f8f5b76}{build\+Frame}
+\item 
+\hyperlink{classRigid}{Rigid} $\ast$ \hyperlink{classMainWorld_a44391b2d794f460d9e9898716f7c00e8}{cancel\+Button}
+\item 
+\hyperlink{classMainWorld_ab0b1d1d54026f907ddc7fcc858ea48f3}{World\+Status} \hyperlink{classMainWorld_a9769c3d0399e2d8a8176c0c21762b1eb}{status}
+\item 
+int \hyperlink{classMainWorld_a858b57e7a6e32e4f771c66b87cfac1d7}{level}
+\item 
+std\+::unordered\+\_\+map$<$ int, \hyperlink{classEnemy}{Enemy} $\ast$ $>$ \hyperlink{classMainWorld_a47830d0b4f72482d07985b94b982f4b3}{enemies}
+\item 
+std\+::string \hyperlink{classMainWorld_a0d1545c344c83a85d56597b8e582a6db}{level\+Msg}
+\item 
+const std\+::string \hyperlink{classMainWorld_a12fc771468255ea67138459b8f80bb95}{building\+Msg1}
+\item 
+const std\+::string \hyperlink{classMainWorld_ac33f26e815fc9f69e5119843dfc2b987}{building\+Msg2}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr float \hyperlink{classMainWorld_a92c8b34eec78a999312c4b1d982d5f0c}{B\+U\+I\+L\+D\+\_\+\+W} = 30.\+0f
+\item 
+static constexpr float \hyperlink{classMainWorld_abb38bf72b8a3c5ff6df3a43c7ebfba25}{B\+U\+I\+L\+D\+\_\+\+H} = 23.\+0f
+\item 
+static constexpr float \hyperlink{classMainWorld_a58ef88e1b0a8c840090a44ceb9917f8a}{B\+A\+T\+T\+L\+E\+\_\+\+W} = 180.\+0f
+\item 
+static constexpr float \hyperlink{classMainWorld_aa2bb1e5ed0ea5b97b36addf18ec1b37c}{B\+A\+T\+T\+L\+E\+\_\+\+H} = 60.\+0f
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
@@ -105,6 +154,60 @@ Players first build a ship in a limited area. When clicked Battle, he will be se
 
 Cancel battle in the next round. 
 
+\hypertarget{classMainWorld_a00895e34e30d1299e9d6d3aef874c2eb}{}\index{Main\+World@{Main\+World}!focus@{focus}}
+\index{focus@{focus}!Main\+World@{Main\+World}}
+\subsubsection[{focus}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+World\+::focus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a00895e34e30d1299e9d6d3aef874c2eb}
+
+
+Focus on the ship built by players. 
+
+\hypertarget{classMainWorld_ace8b3e2cbb1c1cb8d2a3fe149dabe734}{}\index{Main\+World@{Main\+World}!launch@{launch}}
+\index{launch@{launch}!Main\+World@{Main\+World}}
+\subsubsection[{launch}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+World\+::launch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_ace8b3e2cbb1c1cb8d2a3fe149dabe734}
+
+
+Switch from building to battle. 
+
+\hypertarget{classMainWorld_a27b5623f73157f016b93ea0e27cd3166}{}\index{Main\+World@{Main\+World}!level\+Cleared@{level\+Cleared}}
+\index{level\+Cleared@{level\+Cleared}!Main\+World@{Main\+World}}
+\subsubsection[{level\+Cleared}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\+World\+::level\+Cleared (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a27b5623f73157f016b93ea0e27cd3166}
+\hypertarget{classMainWorld_a4011961e71f2129896ce5248fe5ccf20}{}\index{Main\+World@{Main\+World}!load\+Level@{load\+Level}}
+\index{load\+Level@{load\+Level}!Main\+World@{Main\+World}}
+\subsubsection[{load\+Level}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\+World\+::load\+Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a4011961e71f2129896ce5248fe5ccf20}
+\hypertarget{classMainWorld_a34ff55bf7bec578a3eada27017973e77}{}\index{Main\+World@{Main\+World}!make\+Battle\+Buttons@{make\+Battle\+Buttons}}
+\index{make\+Battle\+Buttons@{make\+Battle\+Buttons}!Main\+World@{Main\+World}}
+\subsubsection[{make\+Battle\+Buttons}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+World\+::make\+Battle\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a34ff55bf7bec578a3eada27017973e77}
+\hypertarget{classMainWorld_a4c59edbfc967da60dd2eee28280434d1}{}\index{Main\+World@{Main\+World}!make\+Building\+Buttons@{make\+Building\+Buttons}}
+\index{make\+Building\+Buttons@{make\+Building\+Buttons}!Main\+World@{Main\+World}}
+\subsubsection[{make\+Building\+Buttons}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+World\+::make\+Building\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a4c59edbfc967da60dd2eee28280434d1}
+
+
+This is called during construction. 
+
 \hypertarget{classMainWorld_a7b7a15580a43911c7252d179b320bddd}{}\index{Main\+World@{Main\+World}!notify\+Launch@{notify\+Launch}}
 \index{notify\+Launch@{notify\+Launch}!Main\+World@{Main\+World}}
 \subsubsection[{notify\+Launch}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+World\+::notify\+Launch (
@@ -115,6 +218,22 @@ Cancel battle in the next round.
 
 
 Switch from building to battle in the next round. 
+
+\hypertarget{classMainWorld_a8e17a525de341eda83c8bcb1020e779b}{}\index{Main\+World@{Main\+World}!player\+Key\+Down@{player\+Key\+Down}}
+\index{player\+Key\+Down@{player\+Key\+Down}!Main\+World@{Main\+World}}
+\subsubsection[{player\+Key\+Down}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\+World\+::player\+Key\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{p, }
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}\label{classMainWorld_a8e17a525de341eda83c8bcb1020e779b}
+
+
+Is player p\textquotesingle{}s key down? 
+
+
+
+Reimplemented from \hyperlink{classWorld_a13622f99e647f20c7704b8857651323c}{World}.
 
 \hypertarget{classMainWorld_a8ac7fe4b17bb3ca29a0382b93a24731e}{}\index{Main\+World@{Main\+World}!step@{step}}
 \index{step@{step}!Main\+World@{Main\+World}}
@@ -131,6 +250,65 @@ Run next simulation step.
 
 Reimplemented from \hyperlink{classWorld_a63a22c1ea89297d49095004c79d40ce6}{World}.
 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMainWorld_aa2bb1e5ed0ea5b97b36addf18ec1b37c}{}\index{Main\+World@{Main\+World}!B\+A\+T\+T\+L\+E\+\_\+\+H@{B\+A\+T\+T\+L\+E\+\_\+\+H}}
+\index{B\+A\+T\+T\+L\+E\+\_\+\+H@{B\+A\+T\+T\+L\+E\+\_\+\+H}!Main\+World@{Main\+World}}
+\subsubsection[{B\+A\+T\+T\+L\+E\+\_\+\+H}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float Main\+World\+::\+B\+A\+T\+T\+L\+E\+\_\+\+H = 60.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classMainWorld_aa2bb1e5ed0ea5b97b36addf18ec1b37c}
+\hypertarget{classMainWorld_a58ef88e1b0a8c840090a44ceb9917f8a}{}\index{Main\+World@{Main\+World}!B\+A\+T\+T\+L\+E\+\_\+\+W@{B\+A\+T\+T\+L\+E\+\_\+\+W}}
+\index{B\+A\+T\+T\+L\+E\+\_\+\+W@{B\+A\+T\+T\+L\+E\+\_\+\+W}!Main\+World@{Main\+World}}
+\subsubsection[{B\+A\+T\+T\+L\+E\+\_\+\+W}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float Main\+World\+::\+B\+A\+T\+T\+L\+E\+\_\+\+W = 180.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classMainWorld_a58ef88e1b0a8c840090a44ceb9917f8a}
+\hypertarget{classMainWorld_abb38bf72b8a3c5ff6df3a43c7ebfba25}{}\index{Main\+World@{Main\+World}!B\+U\+I\+L\+D\+\_\+\+H@{B\+U\+I\+L\+D\+\_\+\+H}}
+\index{B\+U\+I\+L\+D\+\_\+\+H@{B\+U\+I\+L\+D\+\_\+\+H}!Main\+World@{Main\+World}}
+\subsubsection[{B\+U\+I\+L\+D\+\_\+\+H}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float Main\+World\+::\+B\+U\+I\+L\+D\+\_\+\+H = 23.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classMainWorld_abb38bf72b8a3c5ff6df3a43c7ebfba25}
+\hypertarget{classMainWorld_a92c8b34eec78a999312c4b1d982d5f0c}{}\index{Main\+World@{Main\+World}!B\+U\+I\+L\+D\+\_\+\+W@{B\+U\+I\+L\+D\+\_\+\+W}}
+\index{B\+U\+I\+L\+D\+\_\+\+W@{B\+U\+I\+L\+D\+\_\+\+W}!Main\+World@{Main\+World}}
+\subsubsection[{B\+U\+I\+L\+D\+\_\+\+W}]{\setlength{\rightskip}{0pt plus 5cm}constexpr float Main\+World\+::\+B\+U\+I\+L\+D\+\_\+\+W = 30.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classMainWorld_a92c8b34eec78a999312c4b1d982d5f0c}
+\hypertarget{classMainWorld_a10e4e51760423fa95cc57f4f5f8f5b76}{}\index{Main\+World@{Main\+World}!build\+Frame@{build\+Frame}}
+\index{build\+Frame@{build\+Frame}!Main\+World@{Main\+World}}
+\subsubsection[{build\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rigid}$\ast$ Main\+World\+::build\+Frame\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a10e4e51760423fa95cc57f4f5f8f5b76}
+\hypertarget{classMainWorld_a12fc771468255ea67138459b8f80bb95}{}\index{Main\+World@{Main\+World}!building\+Msg1@{building\+Msg1}}
+\index{building\+Msg1@{building\+Msg1}!Main\+World@{Main\+World}}
+\subsubsection[{building\+Msg1}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string Main\+World\+::building\+Msg1\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a12fc771468255ea67138459b8f80bb95}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+            \textcolor{stringliteral}{"  WELCOME\(\backslash\)n"}
+            \textcolor{stringliteral}{"  YOU CAN PICK MATERIALS FROM THE LEFT TO BUILD YOUR SHIP.\(\backslash\)n"}
+            \textcolor{stringliteral}{"CLICK ON THE LEFT TO PUT THINGS, ON THE RIGHT TO CANCEL.\(\backslash\)n"}
+            \textcolor{stringliteral}{"  WHEN FINISHED, CLICK LAUNCH AND MOVE TO THE RIGHT TO WIN.\(\backslash\)n"}
+            \textcolor{stringliteral}{"\(\backslash\)n"}
+            \textcolor{stringliteral}{"  ... PRESS ANY KEY TO CONTINUE ..."}
+\end{DoxyCode}
+\hypertarget{classMainWorld_ac33f26e815fc9f69e5119843dfc2b987}{}\index{Main\+World@{Main\+World}!building\+Msg2@{building\+Msg2}}
+\index{building\+Msg2@{building\+Msg2}!Main\+World@{Main\+World}}
+\subsubsection[{building\+Msg2}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string Main\+World\+::building\+Msg2\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_ac33f26e815fc9f69e5119843dfc2b987}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+            \textcolor{stringliteral}{"  NOTICE THAT DIFFERENT MATERIALS HAVE DIFFERENT PROPERTIES.\(\backslash\)n"}
+            \textcolor{stringliteral}{"  REMEMBER TO PUT ENGINES WITH RED ARROWS TO PROVIDE POWER.\(\backslash\)n"}
+            \textcolor{stringliteral}{"  BESIDES, USE THE CROSS THE DELETE THINGS, AND YOU CAN DRAG\(\backslash\)n"}
+            \textcolor{stringliteral}{"THINGS WITH YOUR CURSOR.\(\backslash\)n"}
+            \textcolor{stringliteral}{"\(\backslash\)n"}
+            \textcolor{stringliteral}{"  ... PRESS ANY KEY TO CONTINUE ..."}
+\end{DoxyCode}
+\hypertarget{classMainWorld_a44391b2d794f460d9e9898716f7c00e8}{}\index{Main\+World@{Main\+World}!cancel\+Button@{cancel\+Button}}
+\index{cancel\+Button@{cancel\+Button}!Main\+World@{Main\+World}}
+\subsubsection[{cancel\+Button}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rigid} $\ast$ Main\+World\+::cancel\+Button\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a44391b2d794f460d9e9898716f7c00e8}
+\hypertarget{classMainWorld_a47830d0b4f72482d07985b94b982f4b3}{}\index{Main\+World@{Main\+World}!enemies@{enemies}}
+\index{enemies@{enemies}!Main\+World@{Main\+World}}
+\subsubsection[{enemies}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$int, {\bf Enemy}$\ast$$>$ Main\+World\+::enemies\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a47830d0b4f72482d07985b94b982f4b3}
+\hypertarget{classMainWorld_a858b57e7a6e32e4f771c66b87cfac1d7}{}\index{Main\+World@{Main\+World}!level@{level}}
+\index{level@{level}!Main\+World@{Main\+World}}
+\subsubsection[{level}]{\setlength{\rightskip}{0pt plus 5cm}int Main\+World\+::level\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a858b57e7a6e32e4f771c66b87cfac1d7}
+\hypertarget{classMainWorld_a0d1545c344c83a85d56597b8e582a6db}{}\index{Main\+World@{Main\+World}!level\+Msg@{level\+Msg}}
+\index{level\+Msg@{level\+Msg}!Main\+World@{Main\+World}}
+\subsubsection[{level\+Msg}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Main\+World\+::level\+Msg\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a0d1545c344c83a85d56597b8e582a6db}
+\hypertarget{classMainWorld_a9769c3d0399e2d8a8176c0c21762b1eb}{}\index{Main\+World@{Main\+World}!status@{status}}
+\index{status@{status}!Main\+World@{Main\+World}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World\+Status} Main\+World\+::status\hspace{0.3cm}{\ttfamily [private]}}\label{classMainWorld_a9769c3d0399e2d8a8176c0c21762b1eb}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

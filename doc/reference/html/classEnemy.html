@@ -85,6 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classEnemy-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Enemy Class Reference</div>  </div>
@@ -99,8 +102,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Collaboration diagram for Enemy:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEnemy__coll__graph.png" border="0" usemap="#Enemy_coll__map" alt="Collaboration graph"/></div>
+<map name="Enemy_coll__map" id="Enemy_coll__map">
+<area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="319,331,452,892"/><area shape="rect" id="node4" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="147,1065,293,1318"/><area shape="rect" id="node7" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="617,955,769,1428"/><area shape="rect" id="node11" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="447,1035,579,1347"/><area shape="rect" id="node3" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="238,1505,367,1773"/><area shape="rect" id="node5" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="187,161,362,239"/><area shape="rect" id="node8" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="622,1557,762,1722"/><area shape="rect" id="node9" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="387,132,581,268"/></map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEnemy_1_1action__t.html">action_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a05371b05fdaf447e2811a74e64dd3cf5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a05371b05fdaf447e2811a74e64dd3cf5">Enemy</a> (<a class="el" href="classWorld.html">World</a> *world, std::vector&lt; std::string &gt; _path, float _offsetX)</td></tr>
@@ -113,6 +123,33 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac96f56669570d7acf7d53cf21e13b639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad24d8afab5f4f150d7bb87ec96baf84d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#ad24d8afab5f4f150d7bb87ec96baf84d">getId</a> () const </td></tr>
 <tr class="separator:ad24d8afab5f4f150d7bb87ec96baf84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:adc988b4e145e0d2d88d66c39f19cea9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#adc988b4e145e0d2d88d66c39f19cea9a">loadActions</a> ()</td></tr>
+<tr class="separator:adc988b4e145e0d2d88d66c39f19cea9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a69922fd990ef2486fda1fd3e85d3feea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a69922fd990ef2486fda1fd3e85d3feea">mWorld</a></td></tr>
+<tr class="separator:a69922fd990ef2486fda1fd3e85d3feea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa640767f1de0eadece8f9ef7e5566358"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#aa640767f1de0eadece8f9ef7e5566358">path</a></td></tr>
+<tr class="separator:aa640767f1de0eadece8f9ef7e5566358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70490642cc6e18ad3d0284dfa1930af3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a70490642cc6e18ad3d0284dfa1930af3">id</a></td></tr>
+<tr class="separator:a70490642cc6e18ad3d0284dfa1930af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787010c7b6adf5f5e9bd1247481a4317"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a787010c7b6adf5f5e9bd1247481a4317">offsetX</a></td></tr>
+<tr class="separator:a787010c7b6adf5f5e9bd1247481a4317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a662651639455161e84802d40fdd31475"><td class="memItemLeft" align="right" valign="top">clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a662651639455161e84802d40fdd31475">startClock</a></td></tr>
+<tr class="separator:a662651639455161e84802d40fdd31475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab312d7e8255fc25eb014f8521c90337a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structEnemy_1_1action__t.html">action_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#ab312d7e8255fc25eb014f8521c90337a">actions</a></td></tr>
+<tr class="separator:ab312d7e8255fc25eb014f8521c90337a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a911eb7364cbcb26ba06a80d8e4a3e8d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a911eb7364cbcb26ba06a80d8e4a3e8d9">keyDown</a> [26]</td></tr>
+<tr class="separator:a911eb7364cbcb26ba06a80d8e4a3e8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a09b21945c24e7a6226fa9f61335a73b4"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a09b21945c24e7a6226fa9f61335a73b4">maxId</a> = 0</td></tr>
+<tr class="separator:a09b21945c24e7a6226fa9f61335a73b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class loads and controls enemy. </p>
@@ -191,6 +228,29 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="adc988b4e145e0d2d88d66c39f19cea9a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::loadActions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a71641016b8ea6de06deeda6926600da8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -205,6 +265,167 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>set objects to the world </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ab312d7e8255fc25eb014f8521c90337a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structEnemy_1_1action__t.html">action_t</a>&gt; Enemy::actions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a70490642cc6e18ad3d0284dfa1930af3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a911eb7364cbcb26ba06a80d8e4a3e8d9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Enemy::keyDown[26]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a09b21945c24e7a6226fa9f61335a73b4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::maxId = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a69922fd990ef2486fda1fd3e85d3feea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWorld.html">World</a>* Enemy::mWorld</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a787010c7b6adf5f5e9bd1247481a4317"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Enemy::offsetX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa640767f1de0eadece8f9ef7e5566358"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; Enemy::path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a662651639455161e84802d40fdd31475"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">clock_t Enemy::startClock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

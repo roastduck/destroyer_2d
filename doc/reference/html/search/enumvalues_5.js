@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['status_5fbattle',['STATUS_BATTLE',['../classMainWorld.html#ab0b1d1d54026f907ddc7fcc858ea48f3a56955ec18d3375dec123f1d3d65c7393',1,'MainWorld']]],
-  ['status_5fbuilding',['STATUS_BUILDING',['../classMainWorld.html#ab0b1d1d54026f907ddc7fcc858ea48f3af96d574a62f6b5920f3fad277d995fb7',1,'MainWorld']]],
-  ['status_5fcancel_5fbattle',['STATUS_CANCEL_BATTLE',['../classMainWorld.html#ab0b1d1d54026f907ddc7fcc858ea48f3a0adce04cf20701967507ab5eb64e2011',1,'MainWorld']]],
-  ['status_5fnotify_5flaunch',['STATUS_NOTIFY_LAUNCH',['../classMainWorld.html#ab0b1d1d54026f907ddc7fcc858ea48f3adf5d74eb401b14e4f5f33d375d6ffedd',1,'MainWorld']]]
+  ['release',['RELEASE',['../structEnemy_1_1action__t.html#ab643a5e1949db5ccb006773412a9c12ba4b7d9521cd8ba7262f1576b428580f78',1,'Enemy::action_t']]],
+  ['render_5fcolor',['RENDER_COLOR',['../classMatter.html#ade1ce1bf81f25377f689d103cd431907ad7201b31cb7302539e30e60b05464bae',1,'Matter']]],
+  ['render_5fcolor_5fwith_5ftexture',['RENDER_COLOR_WITH_TEXTURE',['../classMatter.html#ade1ce1bf81f25377f689d103cd431907ae26bb08225540fe1771201e859e04021',1,'Matter']]],
+  ['render_5ftexture',['RENDER_TEXTURE',['../classMatter.html#ade1ce1bf81f25377f689d103cd431907a0a15cf1b6cb2aa933e52d880a175c932',1,'Matter']]]
 ];

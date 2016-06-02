@@ -85,6 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classMainWorld-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MainWorld Class Reference</div>  </div>
@@ -100,14 +103,14 @@ Inheritance diagram for MainWorld:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMainWorld__inherit__graph.png" border="0" usemap="#MainWorld_inherit__map" alt="Inheritance graph"/></div>
 <map name="MainWorld_inherit__map" id="MainWorld_inherit__map">
-<area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="5,5,171,479"/></map>
+<area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="5,5,171,640"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for MainWorld:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMainWorld__coll__graph.png" border="0" usemap="#MainWorld_coll__map" alt="Collaboration graph"/></div>
 <map name="MainWorld_coll__map" id="MainWorld_coll__map">
-<area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="212,448,345,877"/><area shape="rect" id="node3" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,132,157,385"/><area shape="rect" id="node4" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="181,191,376,327"/><area shape="rect" id="node6" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="401,147,533,371"/></map>
+<area shape="rect" id="node2" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="253,331,386,892"/><area shape="rect" id="node4" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="581,1065,727,1318"/><area shape="rect" id="node7" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="82,955,234,1428"/><area shape="rect" id="node11" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="425,1035,557,1347"/><area shape="rect" id="node3" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="255,1505,384,1773"/><area shape="rect" id="node5" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="121,161,296,239"/><area shape="rect" id="node8" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="69,1557,209,1722"/><area shape="rect" id="node9" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="321,132,515,268"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -161,6 +164,57 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1da0d80d5a3fcf7858efefeaa9054569 inherit pub_methods_classWorld"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorld.html#a1da0d80d5a3fcf7858efefeaa9054569">requireKey</a> (<a class="el" href="classRigid.html">Rigid</a> *<a class="el" href="image_8h.html#a62969232668331297e2dca1ae2ddd10d">r</a>)</td></tr>
 <tr class="memdesc:a1da0d80d5a3fcf7858efefeaa9054569 inherit pub_methods_classWorld"><td class="mdescLeft">&#160;</td><td class="mdescRight">Require to bind a key to <a class="el" href="classRigid.html" title="Base class of all rigid bodies. ">Rigid</a> r.  <a href="#a1da0d80d5a3fcf7858efefeaa9054569">More...</a><br /></td></tr>
 <tr class="separator:a1da0d80d5a3fcf7858efefeaa9054569 inherit pub_methods_classWorld"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4c59edbfc967da60dd2eee28280434d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a4c59edbfc967da60dd2eee28280434d1">makeBuildingButtons</a> ()</td></tr>
+<tr class="memdesc:a4c59edbfc967da60dd2eee28280434d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is called during construction.  <a href="#a4c59edbfc967da60dd2eee28280434d1">More...</a><br /></td></tr>
+<tr class="separator:a4c59edbfc967da60dd2eee28280434d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ff55bf7bec578a3eada27017973e77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a34ff55bf7bec578a3eada27017973e77">makeBattleButtons</a> ()</td></tr>
+<tr class="separator:a34ff55bf7bec578a3eada27017973e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace8b3e2cbb1c1cb8d2a3fe149dabe734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#ace8b3e2cbb1c1cb8d2a3fe149dabe734">launch</a> ()</td></tr>
+<tr class="memdesc:ace8b3e2cbb1c1cb8d2a3fe149dabe734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch from building to battle.  <a href="#ace8b3e2cbb1c1cb8d2a3fe149dabe734">More...</a><br /></td></tr>
+<tr class="separator:ace8b3e2cbb1c1cb8d2a3fe149dabe734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00895e34e30d1299e9d6d3aef874c2eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a00895e34e30d1299e9d6d3aef874c2eb">focus</a> ()</td></tr>
+<tr class="memdesc:a00895e34e30d1299e9d6d3aef874c2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Focus on the ship built by players.  <a href="#a00895e34e30d1299e9d6d3aef874c2eb">More...</a><br /></td></tr>
+<tr class="separator:a00895e34e30d1299e9d6d3aef874c2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4011961e71f2129896ce5248fe5ccf20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a4011961e71f2129896ce5248fe5ccf20">loadLevel</a> ()</td></tr>
+<tr class="separator:a4011961e71f2129896ce5248fe5ccf20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b5623f73157f016b93ea0e27cd3166"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a27b5623f73157f016b93ea0e27cd3166">levelCleared</a> () const </td></tr>
+<tr class="separator:a27b5623f73157f016b93ea0e27cd3166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e17a525de341eda83c8bcb1020e779b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a8e17a525de341eda83c8bcb1020e779b">playerKeyDown</a> (int p, int key) override</td></tr>
+<tr class="memdesc:a8e17a525de341eda83c8bcb1020e779b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is player p's key down?  <a href="#a8e17a525de341eda83c8bcb1020e779b">More...</a><br /></td></tr>
+<tr class="separator:a8e17a525de341eda83c8bcb1020e779b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a10e4e51760423fa95cc57f4f5f8f5b76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRigid.html">Rigid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a10e4e51760423fa95cc57f4f5f8f5b76">buildFrame</a></td></tr>
+<tr class="separator:a10e4e51760423fa95cc57f4f5f8f5b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44391b2d794f460d9e9898716f7c00e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRigid.html">Rigid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a44391b2d794f460d9e9898716f7c00e8">cancelButton</a></td></tr>
+<tr class="separator:a44391b2d794f460d9e9898716f7c00e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9769c3d0399e2d8a8176c0c21762b1eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMainWorld.html#ab0b1d1d54026f907ddc7fcc858ea48f3">WorldStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a9769c3d0399e2d8a8176c0c21762b1eb">status</a></td></tr>
+<tr class="separator:a9769c3d0399e2d8a8176c0c21762b1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a858b57e7a6e32e4f771c66b87cfac1d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a858b57e7a6e32e4f771c66b87cfac1d7">level</a></td></tr>
+<tr class="separator:a858b57e7a6e32e4f771c66b87cfac1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47830d0b4f72482d07985b94b982f4b3"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, <a class="el" href="classEnemy.html">Enemy</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a47830d0b4f72482d07985b94b982f4b3">enemies</a></td></tr>
+<tr class="separator:a47830d0b4f72482d07985b94b982f4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d1545c344c83a85d56597b8e582a6db"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a0d1545c344c83a85d56597b8e582a6db">levelMsg</a></td></tr>
+<tr class="separator:a0d1545c344c83a85d56597b8e582a6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12fc771468255ea67138459b8f80bb95"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a12fc771468255ea67138459b8f80bb95">buildingMsg1</a></td></tr>
+<tr class="separator:a12fc771468255ea67138459b8f80bb95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac33f26e815fc9f69e5119843dfc2b987"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#ac33f26e815fc9f69e5119843dfc2b987">buildingMsg2</a></td></tr>
+<tr class="separator:ac33f26e815fc9f69e5119843dfc2b987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a92c8b34eec78a999312c4b1d982d5f0c"><td class="memItemLeft" align="right" valign="top">static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a92c8b34eec78a999312c4b1d982d5f0c">BUILD_W</a> = 30.0f</td></tr>
+<tr class="separator:a92c8b34eec78a999312c4b1d982d5f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb38bf72b8a3c5ff6df3a43c7ebfba25"><td class="memItemLeft" align="right" valign="top">static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#abb38bf72b8a3c5ff6df3a43c7ebfba25">BUILD_H</a> = 23.0f</td></tr>
+<tr class="separator:abb38bf72b8a3c5ff6df3a43c7ebfba25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58ef88e1b0a8c840090a44ceb9917f8a"><td class="memItemLeft" align="right" valign="top">static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#a58ef88e1b0a8c840090a44ceb9917f8a">BATTLE_W</a> = 180.0f</td></tr>
+<tr class="separator:a58ef88e1b0a8c840090a44ceb9917f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2bb1e5ed0ea5b97b36addf18ec1b37c"><td class="memItemLeft" align="right" valign="top">static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWorld.html#aa2bb1e5ed0ea5b97b36addf18ec1b37c">BATTLE_H</a> = 60.0f</td></tr>
+<tr class="separator:aa2bb1e5ed0ea5b97b36addf18ec1b37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -292,6 +346,150 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a00895e34e30d1299e9d6d3aef874c2eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWorld::focus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Focus on the ship built by players. </p>
+
+</div>
+</div>
+<a class="anchor" id="ace8b3e2cbb1c1cb8d2a3fe149dabe734"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWorld::launch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Switch from building to battle. </p>
+
+</div>
+</div>
+<a class="anchor" id="a27b5623f73157f016b93ea0e27cd3166"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MainWorld::levelCleared </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4011961e71f2129896ce5248fe5ccf20"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MainWorld::loadLevel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a34ff55bf7bec578a3eada27017973e77"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWorld::makeBattleButtons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4c59edbfc967da60dd2eee28280434d1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWorld::makeBuildingButtons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is called during construction. </p>
+
+</div>
+</div>
 <a class="anchor" id="a7b7a15580a43911c7252d179b320bddd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -314,6 +512,44 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Switch from building to battle in the next round. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8e17a525de341eda83c8bcb1020e779b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MainWorld::playerKeyDown </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is player p's key down? </p>
+
+<p>Reimplemented from <a class="el" href="classWorld.html#a13622f99e647f20c7704b8857651323c">World</a>.</p>
 
 </div>
 </div>
@@ -341,6 +577,261 @@ Additional Inherited Members</h2></td></tr>
 <p>Run next simulation step. </p>
 
 <p>Reimplemented from <a class="el" href="classWorld.html#a63a22c1ea89297d49095004c79d40ce6">World</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa2bb1e5ed0ea5b97b36addf18ec1b37c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float MainWorld::BATTLE_H = 60.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a58ef88e1b0a8c840090a44ceb9917f8a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float MainWorld::BATTLE_W = 180.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abb38bf72b8a3c5ff6df3a43c7ebfba25"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float MainWorld::BUILD_H = 23.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a92c8b34eec78a999312c4b1d982d5f0c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float MainWorld::BUILD_W = 30.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a10e4e51760423fa95cc57f4f5f8f5b76"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classRigid.html">Rigid</a>* MainWorld::buildFrame</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a12fc771468255ea67138459b8f80bb95"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string MainWorld::buildingMsg1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">            <span class="stringliteral">&quot;  WELCOME\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;  YOU CAN PICK MATERIALS FROM THE LEFT TO BUILD YOUR SHIP.\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;CLICK ON THE LEFT TO PUT THINGS, ON THE RIGHT TO CANCEL.\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;  WHEN FINISHED, CLICK LAUNCH AND MOVE TO THE RIGHT TO WIN.\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;  ... PRESS ANY KEY TO CONTINUE ...&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac33f26e815fc9f69e5119843dfc2b987"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string MainWorld::buildingMsg2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">            <span class="stringliteral">&quot;  NOTICE THAT DIFFERENT MATERIALS HAVE DIFFERENT PROPERTIES.\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;  REMEMBER TO PUT ENGINES WITH RED ARROWS TO PROVIDE POWER.\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;  BESIDES, USE THE CROSS THE DELETE THINGS, AND YOU CAN DRAG\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;THINGS WITH YOUR CURSOR.\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line">            <span class="stringliteral">&quot;  ... PRESS ANY KEY TO CONTINUE ...&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a44391b2d794f460d9e9898716f7c00e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classRigid.html">Rigid</a> * MainWorld::cancelButton</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a47830d0b4f72482d07985b94b982f4b3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, <a class="el" href="classEnemy.html">Enemy</a>*&gt; MainWorld::enemies</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a858b57e7a6e32e4f771c66b87cfac1d7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MainWorld::level</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0d1545c344c83a85d56597b8e582a6db"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MainWorld::levelMsg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9769c3d0399e2d8a8176c0c21762b1eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMainWorld.html#ab0b1d1d54026f907ddc7fcc858ea48f3">WorldStatus</a> MainWorld::status</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

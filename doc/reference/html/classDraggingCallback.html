@@ -86,6 +86,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classDraggingCallback-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DraggingCallback Class Reference</div>  </div>
@@ -105,7 +107,7 @@ Collaboration diagram for DraggingCallback:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDraggingCallback__coll__graph.png" border="0" usemap="#DraggingCallback_coll__map" alt="Collaboration graph"/></div>
 <map name="DraggingCallback_coll__map" id="DraggingCallback_coll__map">
-<area shape="rect" id="node2" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="11,321,151,487"/><area shape="rect" id="node3" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="5,5,157,259"/><area shape="rect" id="node4" href="classDraggingCallback_1_1LocalListener.html" title="{DraggingCallback::LocalListener\n||+ LocalListener()\l+ SayGoodbye()\l+ SayGoodbye()\l}" alt="" coords="176,351,387,457"/></map>
+<area shape="rect" id="node2" href="classMouseCallback.html" title="This file consists of template classes of mouse callback listeners. " alt="" coords="483,5,623,171"/><area shape="rect" id="node3" href="classMouseHandler.html" title="Forwards mouse actions to Matter. " alt="" coords="615,248,767,721"/><area shape="rect" id="node4" href="classWorld.html" title="All object in a scenario Interact with OpenGL and LiquidFun. " alt="" coords="665,784,799,1345"/><area shape="rect" id="node6" href="classMatter.html" title="Base class of all rigid bodies and particles. " alt="" coords="623,1437,769,1691"/><area shape="rect" id="node11" href="classWindow.html" title="This class interact with GLFW. " alt="" coords="793,1408,925,1720"/><area shape="rect" id="node5" href="classRigid.html" title="Base class of all rigid bodies. " alt="" coords="505,1769,634,2037"/><area shape="rect" id="node7" href="classWorld_1_1MyContactListener.html" title="{World::MyContactListener\n|&#45; destroying\l|+ PostSolve()\l}" alt="" coords="825,446,999,523"/><area shape="rect" id="node9" href="classWorld_1_1MyDestructionListener.html" title="Manger for all destruction listener. " alt="" coords="240,417,435,553"/><area shape="rect" id="node12" href="classDraggingCallback_1_1LocalListener.html" title="{DraggingCallback::LocalListener\n|&#45; joint\l|+ LocalListener()\l+ SayGoodbye()\l+ SayGoodbye()\l}" alt="" coords="5,431,216,538"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -140,12 +142,43 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a65aaf71fa563b3976df8407611cbfd39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDraggingCallback_1_1LocalListener.html">DraggingCallback::LocalListener</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDraggingCallback.html#a65aaf71fa563b3976df8407611cbfd39">localListener</a></td></tr>
 <tr class="separator:a65aaf71fa563b3976df8407611cbfd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a1570d13a473c79f56bc5ae72c5a1ac92"><td class="memItemLeft" align="right" valign="top">typedef b2MouseJoint *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDraggingCallback.html#a1570d13a473c79f56bc5ae72c5a1ac92">JointPointer</a></td></tr>
+<tr class="separator:a1570d13a473c79f56bc5ae72c5a1ac92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:abd56ea5d5ec74d7dee10133a19478b8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDraggingCallback.html#a1570d13a473c79f56bc5ae72c5a1ac92">JointPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDraggingCallback.html#abd56ea5d5ec74d7dee10133a19478b8c">joint</a></td></tr>
+<tr class="separator:abd56ea5d5ec74d7dee10133a19478b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classMouseCallback"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classMouseCallback')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classMouseCallback.html">MouseCallback</a></td></tr>
 <tr class="memitem:a6977cef81442eaa57f63d1995b31a240 inherit pro_attribs_classMouseCallback"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMouseHandler.html">MouseHandler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMouseCallback.html#a6977cef81442eaa57f63d1995b31a240">mMouseHandler</a></td></tr>
 <tr class="separator:a6977cef81442eaa57f63d1995b31a240 inherit pro_attribs_classMouseCallback"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a1570d13a473c79f56bc5ae72c5a1ac92"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef b2MouseJoint* <a class="el" href="classDraggingCallback.html#a1570d13a473c79f56bc5ae72c5a1ac92">DraggingCallback::JointPointer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9ea246a89d494379fd518cf544694674"></a>
 <div class="memitem">
@@ -304,6 +337,26 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="abd56ea5d5ec74d7dee10133a19478b8c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDraggingCallback.html#a1570d13a473c79f56bc5ae72c5a1ac92">JointPointer</a> DraggingCallback::joint</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a65aaf71fa563b3976df8407611cbfd39"></a>
 <div class="memitem">
 <div class="memproto">

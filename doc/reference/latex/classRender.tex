@@ -6,13 +6,21 @@
 
 
 
-Collaboration diagram for Render\+:\nopagebreak
+Collaboration diagram for Render\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=199pt]{classRender__coll__graph}
+\includegraphics[height=550pt]{classRender__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classRender_1_1FixtureRenderer}{Fixture\+Renderer}
+\item 
+class \hyperlink{classRender_1_1PolygonRenderer}{Polygon\+Renderer}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -35,6 +43,78 @@ static \hyperlink{classRender}{Render} \& \hyperlink{classRender_add2a1980ba1c0d
 \item 
 static void \hyperlink{classRender_ae6344724a34c4ec00fc3f9de97a7cdb6}{set\+Window} (const \hyperlink{classWindow}{Window} $\ast$\+\_\+window)
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRender_a8610cc11739ef679b5935dd819021351}{Render} ()
+\begin{DoxyCompactList}\small\item\em We use Open\+G\+L legacy mode mostly for its simplicity, except for using G\+L\+S\+L to draw particles. \end{DoxyCompactList}\item 
+float \hyperlink{classRender_a78eb29ef18ac02ca40ed7d56a567422f}{smoothstep} (float x)
+\item 
+G\+Luint \hyperlink{classRender_a27245fbd3dfe8cda287db16c290a61ae}{gen\+Shader} (G\+Lenum type, const std\+::string \&source)
+\item 
+G\+Luint \hyperlink{classRender_a8098e3ac9815da6131f7b2ba7814fba1}{gen\+Program} (G\+Luint vertex\+Shader, G\+Luint fragment\+Shader)
+\item 
+void \hyperlink{classRender_aaac722352d954c5eac9234862b1db2c1}{particle\+Render1} (const b2\+Vec2 $\ast$centers, float32 radius, const b2\+Particle\+Color $\ast$colors, int32 count) noexcept
+\begin{DoxyCompactList}\small\item\em first render to a framebuffer with color blending \end{DoxyCompactList}\item 
+void \hyperlink{classRender_a842a6ab5beca59cc7f0d01f6dcc16e8e}{gen\+Particle\+Texture1} () noexcept
+\item 
+void \hyperlink{classRender_a91afc04b948c272f91510092d1a5a4f1}{particle\+Render2} (float depth) noexcept
+\begin{DoxyCompactList}\small\item\em then render to screen with alpha threshold \end{DoxyCompactList}\item 
+void \hyperlink{classRender_aaf7b3afb9f0590a72004db328b612108}{gen\+Particle\+Texture2} () noexcept
+\item 
+void \hyperlink{classRender_a6a4069759ea5c3f5b874417a6d699471}{gen\+Particle\+Frame\+Buffer} () noexcept
+\begin{DoxyCompactList}\small\item\em the intermediate buffer between two redering procedures \end{DoxyCompactList}\item 
+void \hyperlink{classRender_af614fa8f3a307eea0782bddae4cc5bac}{draw\+Particles} (const b2\+Vec2 $\ast$centers, float32 radius, const b2\+Particle\+Color $\ast$colors, int32 count, float depth) noexcept
+\begin{DoxyCompactList}\small\item\em controls the two rendering procedures \end{DoxyCompactList}\item 
+G\+Luint \hyperlink{classRender_ae568b0266e416803d961cc66bb57dbf9}{get\+Texture\+From\+Pixels} (const unsigned char pixels\mbox{[}$\,$\mbox{]}\mbox{[}4\mbox{]}, int width, int height) noexcept
+\item 
+G\+Luint \hyperlink{classRender_adf10a27af849b5b372e99dc2eb3aecf5}{get\+Texture\+From\+Text} (const std\+::string \&s) noexcept
+\item 
+G\+Luint \hyperlink{classRender_a5a22d68ea1a2a93c90b35ddca7ac4210}{get\+Texture\+From\+Letter} (char c) noexcept
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classRender_ad82e10fc7cf64fc9a60c853c0e5320dd}{update\+Window\+Size} ()
+\begin{DoxyCompactList}\small\item\em update window\+Width and window\+Height from m\+Window \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+friend \hyperlink{classRender_a5d7f62cb07edbd2d40faf2d8b00c7247}{Fixture\+Renderer}
+\item 
+friend \hyperlink{classRender_a71b1d6988fe8a9ab6c0c664216f327fe}{Polygon\+Renderer}
+\item 
+G\+Luint \hyperlink{classRender_a06b269a30c844daeae9af44ab9157dbe}{particle\+Texture1}
+\item 
+G\+Luint \hyperlink{classRender_a7bf04c329740a17f06ee75b0ecd5aa39}{particle\+Program1}
+\item 
+G\+Luint \hyperlink{classRender_a2b70f4712c191f832e237e6481d537e8}{particle\+Texture2}
+\item 
+G\+Luint \hyperlink{classRender_ad8abc021db462a304ffbf43af03b8de6}{particle\+Program2}
+\item 
+G\+Luint \hyperlink{classRender_a0d697ea0a45a8948778fcc70d3a86070}{particle\+Frame\+Buffer}
+\item 
+const std\+::string \hyperlink{classRender_ada528ae821ea616fd860dae0e3410f64}{particle\+Fragment\+Shader1\+Source}
+\item 
+const std\+::string \hyperlink{classRender_a5f2e3ef7086c66483e5711d2b130042b}{particle\+Vertex\+Shader2\+Source}
+\item 
+const std\+::string \hyperlink{classRender_af249c6ab18c7af2bf8342333a8fb49e3}{particle\+Fragment\+Shader2\+Source}
+\item 
+std\+::unordered\+\_\+map$<$ int, G\+Luint $>$ \hyperlink{classRender_a263985bafcb2d6c0ce779e91d2477153}{cached\+Image}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, G\+Luint $>$ \hyperlink{classRender_adff0dcf9dc188c9ae16e037232f5eefb}{cached\+Text}
+\item 
+std\+::unordered\+\_\+map$<$ char, G\+Luint $>$ \hyperlink{classRender_aa6d94314989f71664768b49c7d211d1f}{cached\+Letter}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const \hyperlink{classWindow}{Window} $\ast$ \hyperlink{classRender_a6ad72a846871260c4da9e5aa9e337944}{m\+Window} = 0
+\item 
+static int \hyperlink{classRender_a4f5a1e0ff84b8e48c6dcb1409926110a}{window\+Width} = 0
+\item 
+static int \hyperlink{classRender_a0d4491ee8fe250d915a93019e2575350}{window\+Height} = 0
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -52,7 +132,18 @@ static void \hyperlink{classRender_ae6344724a34c4ec00fc3f9de97a7cdb6}{set\+Windo
 \item[{{\bf Render} \&\&}]{}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [delete]}}\label{classRender_a6e1a004027eff97cb3dfc9f012dde498}
+\hypertarget{classRender_a8610cc11739ef679b5935dd819021351}{}\index{Render@{Render}!Render@{Render}}
+\index{Render@{Render}!Render@{Render}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}Render\+::\+Render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a8610cc11739ef679b5935dd819021351}
 
+
+We use Open\+G\+L legacy mode mostly for its simplicity, except for using G\+L\+S\+L to draw particles. 
+
+We render pariticles into a framebuffer with alpha blending, and then render from the buffer to screen, to create a continuous surface. 
 
 \subsection{Member Function Documentation}
 \hypertarget{classRender_a4f2ee414b80bf5e1e1ffcfe80c33218a}{}\index{Render@{Render}!draw\+Line@{draw\+Line}}
@@ -68,6 +159,21 @@ static void \hyperlink{classRender_ae6344724a34c4ec00fc3f9de97a7cdb6}{set\+Windo
 
 
 draw a line from (x1,y1) to (x2,y2) (in world coordinates) 
+
+\hypertarget{classRender_af614fa8f3a307eea0782bddae4cc5bac}{}\index{Render@{Render}!draw\+Particles@{draw\+Particles}}
+\index{draw\+Particles@{draw\+Particles}!Render@{Render}}
+\subsubsection[{draw\+Particles}]{\setlength{\rightskip}{0pt plus 5cm}void Render\+::draw\+Particles (
+\begin{DoxyParamCaption}
+\item[{const b2\+Vec2 $\ast$}]{centers, }
+\item[{float32}]{radius, }
+\item[{const b2\+Particle\+Color $\ast$}]{colors, }
+\item[{int32}]{count, }
+\item[{float}]{depth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_af614fa8f3a307eea0782bddae4cc5bac}
+
+
+controls the two rendering procedures 
 
 \hypertarget{classRender_a14b83adbf9e351b9f11383abeef2ca63}{}\index{Render@{Render}!draw\+Particle\+System@{draw\+Particle\+System}}
 \index{draw\+Particle\+System@{draw\+Particle\+System}!Render@{Render}}
@@ -110,6 +216,47 @@ draw a popup window with text, and with lower-\/left (l,d) and upper-\/right(r,u
 {\em world\+Scale} & \+: returned from \hyperlink{classWorld_aae107a7cff8f2a7ed88b74248f33d5a3}{World\+::get\+Scale()} \\
 \hline
 \end{DoxyParams}
+\hypertarget{classRender_a6a4069759ea5c3f5b874417a6d699471}{}\index{Render@{Render}!gen\+Particle\+Frame\+Buffer@{gen\+Particle\+Frame\+Buffer}}
+\index{gen\+Particle\+Frame\+Buffer@{gen\+Particle\+Frame\+Buffer}!Render@{Render}}
+\subsubsection[{gen\+Particle\+Frame\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}void Render\+::gen\+Particle\+Frame\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_a6a4069759ea5c3f5b874417a6d699471}
+
+
+the intermediate buffer between two redering procedures 
+
+\hypertarget{classRender_a842a6ab5beca59cc7f0d01f6dcc16e8e}{}\index{Render@{Render}!gen\+Particle\+Texture1@{gen\+Particle\+Texture1}}
+\index{gen\+Particle\+Texture1@{gen\+Particle\+Texture1}!Render@{Render}}
+\subsubsection[{gen\+Particle\+Texture1}]{\setlength{\rightskip}{0pt plus 5cm}void Render\+::gen\+Particle\+Texture1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_a842a6ab5beca59cc7f0d01f6dcc16e8e}
+\hypertarget{classRender_aaf7b3afb9f0590a72004db328b612108}{}\index{Render@{Render}!gen\+Particle\+Texture2@{gen\+Particle\+Texture2}}
+\index{gen\+Particle\+Texture2@{gen\+Particle\+Texture2}!Render@{Render}}
+\subsubsection[{gen\+Particle\+Texture2}]{\setlength{\rightskip}{0pt plus 5cm}void Render\+::gen\+Particle\+Texture2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_aaf7b3afb9f0590a72004db328b612108}
+\hypertarget{classRender_a8098e3ac9815da6131f7b2ba7814fba1}{}\index{Render@{Render}!gen\+Program@{gen\+Program}}
+\index{gen\+Program@{gen\+Program}!Render@{Render}}
+\subsubsection[{gen\+Program}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::gen\+Program (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{vertex\+Shader, }
+\item[{G\+Luint}]{fragment\+Shader}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a8098e3ac9815da6131f7b2ba7814fba1}
+\hypertarget{classRender_a27245fbd3dfe8cda287db16c290a61ae}{}\index{Render@{Render}!gen\+Shader@{gen\+Shader}}
+\index{gen\+Shader@{gen\+Shader}!Render@{Render}}
+\subsubsection[{gen\+Shader}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::gen\+Shader (
+\begin{DoxyParamCaption}
+\item[{G\+Lenum}]{type, }
+\item[{const std\+::string \&}]{source}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a27245fbd3dfe8cda287db16c290a61ae}
 \hypertarget{classRender_add2a1980ba1c0d0bce85943405f87c68}{}\index{Render@{Render}!get\+Instance@{get\+Instance}}
 \index{get\+Instance@{get\+Instance}!Render@{Render}}
 \subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Render} \& Render\+::get\+Instance (
@@ -117,6 +264,54 @@ draw a popup window with text, and with lower-\/left (l,d) and upper-\/right(r,u
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classRender_add2a1980ba1c0d0bce85943405f87c68}
+\hypertarget{classRender_a5a22d68ea1a2a93c90b35ddca7ac4210}{}\index{Render@{Render}!get\+Texture\+From\+Letter@{get\+Texture\+From\+Letter}}
+\index{get\+Texture\+From\+Letter@{get\+Texture\+From\+Letter}!Render@{Render}}
+\subsubsection[{get\+Texture\+From\+Letter}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::get\+Texture\+From\+Letter (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_a5a22d68ea1a2a93c90b35ddca7ac4210}
+\hypertarget{classRender_ae568b0266e416803d961cc66bb57dbf9}{}\index{Render@{Render}!get\+Texture\+From\+Pixels@{get\+Texture\+From\+Pixels}}
+\index{get\+Texture\+From\+Pixels@{get\+Texture\+From\+Pixels}!Render@{Render}}
+\subsubsection[{get\+Texture\+From\+Pixels}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::get\+Texture\+From\+Pixels (
+\begin{DoxyParamCaption}
+\item[{const unsigned char}]{pixels\mbox{[}$\,$\mbox{]}\mbox{[}4\mbox{]}, }
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_ae568b0266e416803d961cc66bb57dbf9}
+\hypertarget{classRender_adf10a27af849b5b372e99dc2eb3aecf5}{}\index{Render@{Render}!get\+Texture\+From\+Text@{get\+Texture\+From\+Text}}
+\index{get\+Texture\+From\+Text@{get\+Texture\+From\+Text}!Render@{Render}}
+\subsubsection[{get\+Texture\+From\+Text}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::get\+Texture\+From\+Text (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_adf10a27af849b5b372e99dc2eb3aecf5}
+\hypertarget{classRender_aaac722352d954c5eac9234862b1db2c1}{}\index{Render@{Render}!particle\+Render1@{particle\+Render1}}
+\index{particle\+Render1@{particle\+Render1}!Render@{Render}}
+\subsubsection[{particle\+Render1}]{\setlength{\rightskip}{0pt plus 5cm}void Render\+::particle\+Render1 (
+\begin{DoxyParamCaption}
+\item[{const b2\+Vec2 $\ast$}]{centers, }
+\item[{float32}]{radius, }
+\item[{const b2\+Particle\+Color $\ast$}]{colors, }
+\item[{int32}]{count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_aaac722352d954c5eac9234862b1db2c1}
+
+
+first render to a framebuffer with color blending 
+
+\hypertarget{classRender_a91afc04b948c272f91510092d1a5a4f1}{}\index{Render@{Render}!particle\+Render2@{particle\+Render2}}
+\index{particle\+Render2@{particle\+Render2}!Render@{Render}}
+\subsubsection[{particle\+Render2}]{\setlength{\rightskip}{0pt plus 5cm}void Render\+::particle\+Render2 (
+\begin{DoxyParamCaption}
+\item[{float}]{depth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [noexcept]}}\label{classRender_a91afc04b948c272f91510092d1a5a4f1}
+
+
+then render to screen with alpha threshold 
+
 \hypertarget{classRender_ae6344724a34c4ec00fc3f9de97a7cdb6}{}\index{Render@{Render}!set\+Window@{set\+Window}}
 \index{set\+Window@{set\+Window}!Render@{Render}}
 \subsubsection[{set\+Window}]{\setlength{\rightskip}{0pt plus 5cm}static void Render\+::set\+Window (
@@ -124,6 +319,110 @@ draw a popup window with text, and with lower-\/left (l,d) and upper-\/right(r,u
 \item[{const {\bf Window} $\ast$}]{\+\_\+window}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classRender_ae6344724a34c4ec00fc3f9de97a7cdb6}
+\hypertarget{classRender_a78eb29ef18ac02ca40ed7d56a567422f}{}\index{Render@{Render}!smoothstep@{smoothstep}}
+\index{smoothstep@{smoothstep}!Render@{Render}}
+\subsubsection[{smoothstep}]{\setlength{\rightskip}{0pt plus 5cm}float Render\+::smoothstep (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\label{classRender_a78eb29ef18ac02ca40ed7d56a567422f}
+\hypertarget{classRender_ad82e10fc7cf64fc9a60c853c0e5320dd}{}\index{Render@{Render}!update\+Window\+Size@{update\+Window\+Size}}
+\index{update\+Window\+Size@{update\+Window\+Size}!Render@{Render}}
+\subsubsection[{update\+Window\+Size}]{\setlength{\rightskip}{0pt plus 5cm}bool Render\+::update\+Window\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classRender_ad82e10fc7cf64fc9a60c853c0e5320dd}
+
+
+update window\+Width and window\+Height from m\+Window 
+
+\begin{DoxyReturn}{Returns}
+bool. true when changed. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classRender_a263985bafcb2d6c0ce779e91d2477153}{}\index{Render@{Render}!cached\+Image@{cached\+Image}}
+\index{cached\+Image@{cached\+Image}!Render@{Render}}
+\subsubsection[{cached\+Image}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$int, G\+Luint$>$ Render\+::cached\+Image\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a263985bafcb2d6c0ce779e91d2477153}
+\hypertarget{classRender_aa6d94314989f71664768b49c7d211d1f}{}\index{Render@{Render}!cached\+Letter@{cached\+Letter}}
+\index{cached\+Letter@{cached\+Letter}!Render@{Render}}
+\subsubsection[{cached\+Letter}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$char, G\+Luint$>$ Render\+::cached\+Letter\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_aa6d94314989f71664768b49c7d211d1f}
+\hypertarget{classRender_adff0dcf9dc188c9ae16e037232f5eefb}{}\index{Render@{Render}!cached\+Text@{cached\+Text}}
+\index{cached\+Text@{cached\+Text}!Render@{Render}}
+\subsubsection[{cached\+Text}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$std\+::string, G\+Luint$>$ Render\+::cached\+Text\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_adff0dcf9dc188c9ae16e037232f5eefb}
+\hypertarget{classRender_a5d7f62cb07edbd2d40faf2d8b00c7247}{}\index{Render@{Render}!Fixture\+Renderer@{Fixture\+Renderer}}
+\index{Fixture\+Renderer@{Fixture\+Renderer}!Render@{Render}}
+\subsubsection[{Fixture\+Renderer}]{\setlength{\rightskip}{0pt plus 5cm}friend {\bf Render\+::\+Fixture\+Renderer}\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a5d7f62cb07edbd2d40faf2d8b00c7247}
+\hypertarget{classRender_a6ad72a846871260c4da9e5aa9e337944}{}\index{Render@{Render}!m\+Window@{m\+Window}}
+\index{m\+Window@{m\+Window}!Render@{Render}}
+\subsubsection[{m\+Window}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Window} $\ast$ Render\+::m\+Window = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classRender_a6ad72a846871260c4da9e5aa9e337944}
+\hypertarget{classRender_ada528ae821ea616fd860dae0e3410f64}{}\index{Render@{Render}!particle\+Fragment\+Shader1\+Source@{particle\+Fragment\+Shader1\+Source}}
+\index{particle\+Fragment\+Shader1\+Source@{particle\+Fragment\+Shader1\+Source}!Render@{Render}}
+\subsubsection[{particle\+Fragment\+Shader1\+Source}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string Render\+::particle\+Fragment\+Shader1\+Source\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_ada528ae821ea616fd860dae0e3410f64}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+        \textcolor{stringliteral}{"#version 120\(\backslash\)n"}
+        \textcolor{stringliteral}{"uniform sampler2D texture;\(\backslash\)n"}
+        \textcolor{stringliteral}{"void main()\(\backslash\)n"}
+        \textcolor{stringliteral}{"\{\(\backslash\)n"}
+        \textcolor{stringliteral}{"   gl\_FragData[0] = gl\_Color * texture2D(texture, gl\_TexCoord[0].st);\(\backslash\)n"}
+        \textcolor{stringliteral}{"\}\(\backslash\)n"}
+\end{DoxyCode}
+\hypertarget{classRender_af249c6ab18c7af2bf8342333a8fb49e3}{}\index{Render@{Render}!particle\+Fragment\+Shader2\+Source@{particle\+Fragment\+Shader2\+Source}}
+\index{particle\+Fragment\+Shader2\+Source@{particle\+Fragment\+Shader2\+Source}!Render@{Render}}
+\subsubsection[{particle\+Fragment\+Shader2\+Source}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string Render\+::particle\+Fragment\+Shader2\+Source\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_af249c6ab18c7af2bf8342333a8fb49e3}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+        \textcolor{stringliteral}{"#version 120\(\backslash\)n"}
+        \textcolor{stringliteral}{"uniform sampler2D texture;\(\backslash\)n"}
+        \textcolor{stringliteral}{"void main()\(\backslash\)n"}
+        \textcolor{stringliteral}{"\{\(\backslash\)n"}
+        \textcolor{stringliteral}{"   vec4 temp = texture2D(texture, gl\_TexCoord[0].st);\(\backslash\)n"}
+        \textcolor{stringliteral}{"   if (temp.a < 0.1) temp = vec4(0, 0, 0, 0); else temp.a = 0.5;\(\backslash\)n"}
+        \textcolor{stringliteral}{"   gl\_FragColor = temp;\(\backslash\)n"}
+        \textcolor{stringliteral}{"\}\(\backslash\)n"}
+\end{DoxyCode}
+\hypertarget{classRender_a0d697ea0a45a8948778fcc70d3a86070}{}\index{Render@{Render}!particle\+Frame\+Buffer@{particle\+Frame\+Buffer}}
+\index{particle\+Frame\+Buffer@{particle\+Frame\+Buffer}!Render@{Render}}
+\subsubsection[{particle\+Frame\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::particle\+Frame\+Buffer\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a0d697ea0a45a8948778fcc70d3a86070}
+\hypertarget{classRender_a7bf04c329740a17f06ee75b0ecd5aa39}{}\index{Render@{Render}!particle\+Program1@{particle\+Program1}}
+\index{particle\+Program1@{particle\+Program1}!Render@{Render}}
+\subsubsection[{particle\+Program1}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::particle\+Program1\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a7bf04c329740a17f06ee75b0ecd5aa39}
+\hypertarget{classRender_ad8abc021db462a304ffbf43af03b8de6}{}\index{Render@{Render}!particle\+Program2@{particle\+Program2}}
+\index{particle\+Program2@{particle\+Program2}!Render@{Render}}
+\subsubsection[{particle\+Program2}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::particle\+Program2\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_ad8abc021db462a304ffbf43af03b8de6}
+\hypertarget{classRender_a06b269a30c844daeae9af44ab9157dbe}{}\index{Render@{Render}!particle\+Texture1@{particle\+Texture1}}
+\index{particle\+Texture1@{particle\+Texture1}!Render@{Render}}
+\subsubsection[{particle\+Texture1}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::particle\+Texture1\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a06b269a30c844daeae9af44ab9157dbe}
+\hypertarget{classRender_a2b70f4712c191f832e237e6481d537e8}{}\index{Render@{Render}!particle\+Texture2@{particle\+Texture2}}
+\index{particle\+Texture2@{particle\+Texture2}!Render@{Render}}
+\subsubsection[{particle\+Texture2}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Render\+::particle\+Texture2\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a2b70f4712c191f832e237e6481d537e8}
+\hypertarget{classRender_a5f2e3ef7086c66483e5711d2b130042b}{}\index{Render@{Render}!particle\+Vertex\+Shader2\+Source@{particle\+Vertex\+Shader2\+Source}}
+\index{particle\+Vertex\+Shader2\+Source@{particle\+Vertex\+Shader2\+Source}!Render@{Render}}
+\subsubsection[{particle\+Vertex\+Shader2\+Source}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string Render\+::particle\+Vertex\+Shader2\+Source\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a5f2e3ef7086c66483e5711d2b130042b}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+        \textcolor{stringliteral}{"#version 120\(\backslash\)n"}
+        \textcolor{stringliteral}{"void main()\(\backslash\)n"}
+        \textcolor{stringliteral}{"\{\(\backslash\)n"}
+        \textcolor{stringliteral}{"   gl\_Position = gl\_Vertex;\(\backslash\)n"}
+        \textcolor{stringliteral}{"   gl\_TexCoord[0] = gl\_MultiTexCoord0;\(\backslash\)n"}
+        \textcolor{stringliteral}{"\}\(\backslash\)n"}
+\end{DoxyCode}
+\hypertarget{classRender_a71b1d6988fe8a9ab6c0c664216f327fe}{}\index{Render@{Render}!Polygon\+Renderer@{Polygon\+Renderer}}
+\index{Polygon\+Renderer@{Polygon\+Renderer}!Render@{Render}}
+\subsubsection[{Polygon\+Renderer}]{\setlength{\rightskip}{0pt plus 5cm}friend {\bf Render\+::\+Polygon\+Renderer}\hspace{0.3cm}{\ttfamily [private]}}\label{classRender_a71b1d6988fe8a9ab6c0c664216f327fe}
+\hypertarget{classRender_a0d4491ee8fe250d915a93019e2575350}{}\index{Render@{Render}!window\+Height@{window\+Height}}
+\index{window\+Height@{window\+Height}!Render@{Render}}
+\subsubsection[{window\+Height}]{\setlength{\rightskip}{0pt plus 5cm}int Render\+::window\+Height = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classRender_a0d4491ee8fe250d915a93019e2575350}
+\hypertarget{classRender_a4f5a1e0ff84b8e48c6dcb1409926110a}{}\index{Render@{Render}!window\+Width@{window\+Width}}
+\index{window\+Width@{window\+Width}!Render@{Render}}
+\subsubsection[{window\+Width}]{\setlength{\rightskip}{0pt plus 5cm}int Render\+::window\+Width = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{classRender_a4f5a1e0ff84b8e48c6dcb1409926110a}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
