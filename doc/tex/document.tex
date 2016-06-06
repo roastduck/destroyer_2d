@@ -5,6 +5,7 @@
     \usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
     \usepackage{enumitem}
 	\usepackage{graphicx}
+    \usepackage{caption}
     \usepackage{float}
     \renewcommand{\figurename}{Figure}
     \renewcommand{\contentsname}{Contents}
@@ -156,7 +157,7 @@ make \end{verbatim}
             \begin{figure}[htp]
                 \centering
                 \includegraphics[width=\textwidth]{mousehandler.png}
-                \caption{MouseHandler}
+                \caption{MouseHandler\\(If error occur with this image, please try other PDF reader, or use Chrome)}
             \end{figure}
 
             Every body or particle system object in \textit{LiquidFun} are connected with one \textit{Matter} object in \textit{Destroyer2D}. Data and strategies used in physical simulations, rendering, and gamming controls are all defined in these class. Several items are similar, so they are grouped together. Therefore, \textit{Matter}'s polymorphism hierarchy is well organized. It is shown in the diagram \textit{Matter} below.
